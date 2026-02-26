@@ -1,0 +1,15 @@
+Version 1.00
+Stand: 04.05.2015
+Änderungen: Neue Version
+
+Version 1.10
+Stand: 02.02.2016
+Änderungen: Neue Type zugefügt
+
+Version 1.20
+Stand: 08.11.2016
+Änderungen: Neue Produktpalette
+
+Version 1.30
+Stand: 15.09.2020
+Änderungen: Neue Produktpalette

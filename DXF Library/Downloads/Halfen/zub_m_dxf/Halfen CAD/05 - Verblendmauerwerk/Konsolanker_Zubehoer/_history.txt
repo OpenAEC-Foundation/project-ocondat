@@ -1,0 +1,11 @@
+Version 2.10
+Stand: 24.07.2006
+Änderungen: Artikelnummer
+
+Version 2.20
+Stand: 18.04.2013
+Änderungen: Kennzeichnung gem. RAL
+
+Version 2.30
+Stand: 31.12.2016
+Änderungen: Kennzeichnung gem. RAL entfernt

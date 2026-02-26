@@ -1,0 +1,49 @@
+Version 4.00
+Stand: 30.07.2020
+Änderungen: Überarbeitung HTU
+
+Version 3.90
+Stand: 03.12.2019
+Änderungen: Neues Profil HTU 100/25/3 - S
+
+Version 3.80
+Stand: 12.07.2017
+Änderungen: Neues Profil HTU 90/25/3 (FR)
+
+Version 3.70
+Stand: 31.12.2016
+Änderungen: Kennzeichnung gem. RAL entfernt
+	    Neue Profile HTA-CE 40/22 P und HTA-CE 50/30 P
+
+Version 3.60
+Stand: 19.02.2015
+Änderungen: Wandstärken bei Profilen HTA-CE 40/22 und HTA-CE 50/30
+
+Version 3.50
+Stand: 11.04.2013
+Änderungen: neue Schiene HZA 64/44
+
+Version 3.40
+Stand: 10.07.2012
+Änderungen: Kennzeichnung gem. RAL
+
+Version: 3.30
+Stand: 08.09.2010
+Änderungen: neu HZA 53/34
+
+Version: 3.20
+Stand: 09.02.2007
+Änderungen: HZA 41/22
+
+Version: 3.10
+Stand: 20.06.2006
+Änderungen: zus. Schienen HTA-R
+
+Version: 3.00
+Stand: 10.05.2004
+Änderungen: Movex Artikelnummern
+
+Version 1.00
+Stand: 09.03.2004
+Änderungen: Neu
+
