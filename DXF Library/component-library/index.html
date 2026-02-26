@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Component Library - Project OconDat</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav>
+        <a href="https://github.com/OpenAEC-Foundation/Project-Ocondat" class="brand">
+            <svg class="logo" width="28" height="28" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <rect x="5" y="5" width="90" height="90" rx="12" fill="none" stroke="#e94560" stroke-width="6"/>
+                <path d="M25 70 L25 30 L50 20 L75 30 L75 70 L50 80 Z" fill="none" stroke="white" stroke-width="4" stroke-linejoin="round"/>
+                <line x1="50" y1="20" x2="50" y2="80" stroke="white" stroke-width="3"/>
+                <line x1="25" y1="50" x2="75" y2="50" stroke="rgba(255,255,255,0.4)" stroke-width="2"/>
+                <circle cx="50" cy="50" r="6" fill="#e94560"/>
+            </svg>
+            Project OconDat
+        </a>
+        <div style="display:flex;gap:1.5rem">
+            <a href="fabrikanten.html">Fabrikanten</a>
+            <a href="../index.html">&larr; Overzicht</a>
+        </div>
+    </nav>
+
+    <header>
+        <h1>Component Library</h1>
+        <div class="subtitle-line">IFC-classified construction components</div>
+        <span class="badge">Open BIM</span>
+        <small id="subtitle">Laden...</small>
+    </header>
+
+    <div class="app-layout">
+        <!-- Sidebar: manufacturer + category navigation -->
+        <aside class="sidebar" id="sidebar">
+            <h3>Fabrikanten</h3>
+            <div id="fab-list"></div>
+            <h3>IFC Klassen</h3>
+            <div id="ifc-list"></div>
+            <div class="nlsfb-toggle" id="nlsfb-toggle">
+                <span class="nlsfb-toggle-header" onclick="toggleNlSfb()">NL-SfB <span class="nlsfb-arrow" id="nlsfb-arrow">&#9654;</span></span>
+                <div class="nlsfb-content" id="nlsfb-content" style="display:none">
+                    <div id="cat-list"></div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main content -->
+        <div class="content">
+            <div class="toolbar">
+                <div class="toolbar-inner">
+                    <input type="text" id="search" placeholder="Zoek op naam, IFC class, tag...">
+                    <span class="active-filter" id="filter-badge" style="display:none">
+                        <span class="filter-text"></span>
+                        <span class="clear-filter" onclick="clearFilter()">&times;</span>
+                    </span>
+                    <span id="stats"></span>
+                </div>
+            </div>
+
+            <div class="grid-wrap">
+                <div class="grid" id="grid"></div>
+                <div class="empty" id="empty" style="display:none">Geen resultaten</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal overlay -->
+    <div class="overlay" id="overlay">
+        <div class="modal">
+            <div class="modal-head">
+                <div>
+                    <h2 id="m-title"></h2>
+                </div>
+                <div style="display:flex;align-items:center;gap:0.5rem">
+                    <span class="ifc-tag" id="m-ifc-tag"></span>
+                    <button class="close-btn" onclick="closeModal()">&times;</button>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="modal-svg" id="m-svg"></div>
+                <div class="modal-details">
+                    <div class="section-label">Properties</div>
+                    <div id="m-base-props"></div>
+
+                    <div class="section-label" style="margin-top:1rem">Regional Properties</div>
+                    <div class="prop-tabs" id="m-prop-tabs"></div>
+                    <div id="m-region-props"></div>
+
+                    <div class="section-label">Tags</div>
+                    <div class="tags" id="m-tags"></div>
+                </div>
+            </div>
+            <div class="modal-source" id="m-source"></div>
+            <div class="modal-foot" id="m-foot"></div>
+        </div>
+    </div>
+
+    <footer>
+        <strong>Component Library</strong> &mdash;
+        Onderdeel van <a href="https://github.com/OpenAEC-Foundation/Project-Ocondat">Project OconDat</a> |
+        IFC-classified construction components
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/shapes.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fabrikanten - Project OconDat</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/fabrikanten.css">
+</head>
+<body>
+    <nav>
+        <a href="https://github.com/OpenAEC-Foundation/Project-Ocondat" class="brand">
+            <svg class="logo" width="28" height="28" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <rect x="5" y="5" width="90" height="90" rx="12" fill="none" stroke="#e94560" stroke-width="6"/>
+                <path d="M25 70 L25 30 L50 20 L75 30 L75 70 L50 80 Z" fill="none" stroke="white" stroke-width="4" stroke-linejoin="round"/>
+                <line x1="50" y1="20" x2="50" y2="80" stroke="white" stroke-width="3"/>
+                <line x1="25" y1="50" x2="75" y2="50" stroke="rgba(255,255,255,0.4)" stroke-width="2"/>
+                <circle cx="50" cy="50" r="6" fill="#e94560"/>
+            </svg>
+            Project OconDat
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Component Library</a>
+            <a href="../index.html">&larr; Overzicht</a>
+        </div>
+    </nav>
+
+    <header>
+        <h1>Fabrikanten</h1>
+        <div class="subtitle-line">Bouwproduct fabrikanten &amp; leveranciers</div>
+        <span class="badge">Open BIM</span>
+        <small id="subtitle">Laden...</small>
+    </header>
+
+    <div class="fab-page">
+        <!-- Controls bar -->
+        <div class="fab-controls">
+            <input type="text" id="fab-search" placeholder="Zoek fabrikant, serie, product...">
+            <div class="fab-filters">
+                <button class="filter-btn active" data-filter="all">Alle</button>
+                <button class="filter-btn" data-filter="active">Actief</button>
+                <button class="filter-btn" data-filter="inactive">Inactief</button>
+                <button class="filter-btn" data-filter="historical">Historisch</button>
+            </div>
+            <span id="fab-stats"></span>
+        </div>
+
+        <!-- Manufacturer grid -->
+        <div class="fab-grid" id="fab-grid"></div>
+
+        <!-- Empty state -->
+        <div class="empty" id="fab-empty" style="display:none">Geen fabrikanten gevonden</div>
+    </div>
+
+    <!-- Manufacturer detail modal -->
+    <div class="overlay" id="fab-overlay">
+        <div class="modal fab-modal">
+            <div class="modal-head">
+                <div>
+                    <h2 id="fm-name"></h2>
+                    <span class="fm-meta" id="fm-meta"></span>
+                </div>
+                <div style="display:flex;align-items:center;gap:0.5rem">
+                    <span class="status-badge" id="fm-status"></span>
+                    <button class="close-btn" onclick="closeFabModal()">&times;</button>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="fm-info">
+                    <p id="fm-description"></p>
+                    <table class="prop-table" id="fm-props"></table>
+                </div>
+                <div class="fm-series">
+                    <div class="section-label">Productfamilies</div>
+                    <div id="fm-series-list"></div>
+                </div>
+            </div>
+            <div class="modal-foot">
+                <a class="dl-btn dxf" id="fm-website" href="#" target="_blank">Website</a>
+                <a class="dl-btn o2d" id="fm-browse" href="#">Bekijk componenten</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <strong>Fabrikanten</strong> &mdash;
+        Onderdeel van <a href="https://github.com/OpenAEC-Foundation/Project-Ocondat">Project OconDat</a> |
+        Bouwproduct fabrikanten database
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/fabrikanten.js"></script>
+</body>
+</html>

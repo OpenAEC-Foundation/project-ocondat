@@ -2,3 +2,6 @@ __pycache__/
 .claude/
 *.pyc
 nul
+
+# Large files (>100MB GitHub limit)
+DXF Library/component-library/js/shapes.js
