@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 -17 254 19" width="300" height="22">
+<g transform="scale(1,-1)" stroke="#333" stroke-width="1.016" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<line x1="250.0" y1="0.0" x2="250.0" y2="15.0"/>
+<line x1="250.0" y1="15.0" x2="0.0" y2="15.0"/>
+<line x1="0.0" y1="15.0" x2="0.0" y2="0.0"/>
+<line x1="0.0" y1="0.0" x2="250.0" y2="0.0"/>
+</g>
+</svg>

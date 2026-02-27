@@ -1,0 +1,1659 @@
+tid	eid	vid	family	type
+-1	0	0	unknown	unknown
+273850	0	0	31 hebo alu prof draaideur	hebo
+274196	0	0	31 hebo alu prof draaikiep	hebo
+274592	0	0	31 hebo alu prof onderdorpel deur	hebo
+275007	0	0	31 hebo alu prof onderdorpel schuifpui	hebo
+275250	0	0	31 hebo alu prof vast glas	hebo
+275566	0	0	31 hebo bovendorpel schuifpui 67x116	67x116
+275852	0	0	31 hebo bovendorpel sponning bi aansl 68x80	68x80
+276146	0	0	31 hebo bovendorpel sponning bi aansl 90x80	90x80
+276431	0	0	31 hebo bovendorpel sponning bu aansl 90x80	hebo bovendorpel-sponning buiten-met aanslag 90x80_s_e
+276755	0	0	31 hebo bovendorpel vast raam 90x75	90x75
+277750	0	0	31 bovendorpel montage sponning bi aansl	generiek
+278100	0	0	31 bovendorpel montage sponning bi z aansl	generiek
+278442	0	0	31 bovendorpel montage sponning bu z aansl	generiek
+278735	0	0	31 glaslatblokje	generiek
+279591	0	0	31 stelblokje	generiek
+279863	0	0	31 steunblokje	generiek
+284462	0	0	31 weldorpel deur	31 g weldorpel deur s e
+284935	0	0	31 deur tochtprofiel	Type 1
+318323	0	0	31 hebo onderdorpel deur binnendraaiend 90x57	90x57
+319031	0	0	31 hebo onderdorpel deur buitendraaiend 90x80	90x80
+319979	0	0	31 hebo tussenstijl vast raam 90x93	90x93
+320476	0	0	31 hebo tussenstijl vast vast 68x75	68x75
+320824	0	0	31 hebo onderdorpel schuifpui 67x116	67x116
+321287	0	0	31 hebo tussenstijl vast vast 68x93	68x93
+321682	0	0	31 hebo zijstijl raam draaiend 68x80	68x80
+322098	0	0	31 hebo zijstijl raam draaiend 90x80	90x80
+322532	0	0	31 hebo zijstijl raam vast 90x75 p_	90x75
+322992	0	0	31 hebo zijstijl raam vast 90x75	90x75
+323638	0	0	31 hebo zijstijl schuifpui 67x116	67x116
+324738	0	0	31 onderdorpel met dorpelsponning	generiek
+325744	0	0	31 onderdorpel met volledige dorpelsponning	generiek
+326160	0	0	31 onderdorpel	generiek
+328064	0	0	31 zijstijl inmetsel sponning bi spouwlatsponning	generiek
+328703	0	0	31 zijstijl montage sponning bi met aanslag	generiek
+329164	0	0	31 zijstijl montage sponning bi zonder aanslag	generiek
+329644	0	0	31 zijstijl montage sponning bu zonder aanslag	generiek
+330063	0	0	31 hebo tussenstijl draaikiep kiep 90x113	90x113
+330599	0	0	31 hebo tussenstijl draaikiep kiep 90x93	90x93
+330974	0	0	31 hebo tussenstijl draaikiep kiep 68x113	68x113
+331562	0	0	31 raam dr scharniersp met stop onder	generiek
+332066	0	0	31 hebo tussenstijl draaikiep kiep 68x93	68x93
+332682	0	0	31 hebo schuifpui vast deel midden 56x113	56x113
+333277	0	0	31 hebo schuifpui vast deel boven 56x55	56x55
+333899	0	0	31 hebo schuifpui schuivend deel zijde 56x113	56x113
+334584	0	0	31 hebo schuifpui schuivend deel onder 56x176	56x176
+335035	0	0	31 hebo schuifpui schuivend deel midden 56x113	56x113
+335544	0	0	31 hebo schuifpui schuivend deel boven 56x97	57x97
+335964	0	0	31 hebo raam vast raam onder 68x80	68x80
+336384	0	0	31 hebo raam vast raam onder 68x75	68x75
+336999	0	0	20 isolatie p	isolatie D 020 mm
+340774	0	0	30 kitvoeg	holle kitvoeg
+340776	0	0	30 kitvoeg	schuine kitvoeg
+342433	0	0	30 rugvulling kitvoeg	vierkante rugvulling
+342435	0	0	30 rugvulling kitvoeg	afgeronde rugvulling
+348302	0	0	30 compressieband	B 20
+348304	0	0	30 compressieband	B 10
+348306	0	0	30 compressieband	B 15
+349024	0	0	00 lijmbolletje s e	00 g lijmbolletje s e
+349349	0	0	unknown	unknown
+350961	0	0	41 roval standaard	Roval-151253
+351889	0	0	41 roval solotrim	Roval 147715
+352436	0	0	41 roval opaal	Roval 147300
+352919	0	0	41 roval extra	Roval 151800
+353732	0	0	41 roval clasic plus	Roval 145300
+354291	0	0	41 roval 77	Roval 151565
+354848	0	0	41 compri monotrim	CAmono 60
+355297	0	0	41 roval toscaan	Type 1
+355674	0	0	41 roval primaire	Type 1
+357201	0	0	41 roval muurafdeksysteem type H	Type 1
+357836	0	0	41 roval muurafdeksysteem type H1	Type 1
+358409	0	0	41 roval muurafdeksysteem type G	Type 1
+358926	0	0	41 roval muurafdeksysteem type F	Type 1
+359441	0	0	41 roval muurafdeksysteem type E	Type 1
+359931	0	0	41 roval muurafdeksysteem type D	Type 1
+360523	0	0	41 roval muurafdeksysteem type C	Type 1
+361045	0	0	41 roval muurafdeksysteem type B	Type 1
+361577	0	0	41 roval muurafdeksysteem type A	Type 1
+362643	0	0	30 roval H-profielen	Roval-171249
+369262	0	0	20 klos p	Achterliggend
+369264	0	0	20 klos p	Voorliggend
+375749	0	0	30 glas	D12
+375751	0	0	30 glas	D04
+375753	0	0	30 glas	D05
+375755	0	0	30 glas	D06
+375757	0	0	30 glas	D10
+375759	0	0	30 glas	D08
+381115	0	0	30 dubbelglas	4/16/8
+381117	0	0	30 dubbelglas	4/15/6
+381119	0	0	30 dubbelglas	6/12/6
+383892	0	0	30 glas-spouwvulling	type 1
+394384	0	0	00 schroef-lijn s l	00 g schroef-lijn s l
+400613	0	0	00 schroef s e	55mm
+401182	0	0	00 schroef s e	35mm
+401659	0	0	00 schroef gevelplaat torx s l	50mm
+401661	0	0	00 schroef gevelplaat torx s l	35mm
+401663	0	0	00 schroef gevelplaat torx s l	25mm
+403190	0	0	00 moer s e	M6
+403192	0	0	00 moer s e	M8
+403194	0	0	00 moer s e	M10
+403196	0	0	00 moer s e	M16
+403198	0	0	00 moer s e	M12
+409180	0	0	90 maaiveld-detail	maaiveld in detail
+423568	0	0	31 Schuco FW50 stijl	FW50+ 322 250
+423570	0	0	31 Schuco FW50 stijl	FW50+ 322 260
+423572	0	0	31 Schuco FW50 stijl	FW50+ 322 270
+423574	0	0	31 Schuco FW50 stijl	FW50+ 322 280
+423576	0	0	31 Schuco FW50 stijl	FW50+ 322 290
+423578	0	0	31 Schuco FW50 stijl	FW50+ 322 300
+427123	0	0	31 Schuco FW50 regel-plat	31 g Schuco FW50 regel-plat
+428301	0	0	31 Schuco FW50 regel	FW50+ 322 380
+428303	0	0	31 Schuco FW50 regel	FW50+ 322 460
+428307	0	0	31 Schuco FW50 regel	FW50+ 322 390
+428309	0	0	31 Schuco FW50 regel	FW50+ 322 400
+428311	0	0	31 Schuco FW50 regel	FW50+ 322 410
+428313	0	0	31 Schuco FW50 regel	FW50+ 322 420
+428315	0	0	31 Schuco FW50 regel	FW50+ 322 430
+428317	0	0	31 Schuco FW50 regel	FW50+ 322 440
+428319	0	0	31 Schuco FW50 regel	FW50+ 322 450
+428321	0	0	31 Schuco FW50 regel	FW50+ 322 330
+428323	0	0	31 Schuco FW50 regel	FW50+ 322 340
+428325	0	0	31 Schuco FW50 regel	FW50+ 322 350
+428327	0	0	31 Schuco FW50 regel	FW50+ 322 360
+430588	0	0	31 Schuco FW50 regel	FW50+ 323 840
+432642	0	0	31 Schuco glasafdichting	3mm
+432644	0	0	31 Schuco glasafdichting	5mm
+432646	0	0	31 Schuco glasafdichting	7mm
+432648	0	0	31 Schuco glasafdichting	9mm
+432650	0	0	31 Schuco glasafdichting	11mm
+432652	0	0	31 Schuco glasafdichting	13mm
+446002	0	0	31 schuco montageprofiel	31 f schuco montageprofiel
+446658	0	0	31 glasafdichting - glasafdichting buiten	Type 1
+447910	0	0	31 schuco bevestiging	Type 1
+448700	0	0	31 Schuco kliklijst_plat	(12mm) 160 620
+448702	0	0	31 Schuco kliklijst_plat	(15mm) 112 720
+448704	0	0	31 Schuco kliklijst_plat	(20mm) 110 840
+448706	0	0	31 Schuco kliklijst_plat	(25mm) 110 850
+448708	0	0	31 Schuco kliklijst_plat	(30mm) 110 860
+448710	0	0	31 Schuco kliklijst_plat	(45mm) 322 890
+448712	0	0	31 Schuco kliklijst_plat	(60mm) 322 900
+448714	0	0	31 Schuco kliklijst_plat	(100mm) 322 910
+464159	0	0	31 Schuco kliklijst_schuin	(58mm) 322 930
+551121	0	0	31 kvt bovendorpel bi sp	67x114 (17sp)
+551123	0	0	31 kvt bovendorpel bi sp	90x114 (17sp)
+556155	0	0	31 kvt tussendorpel bi sp	67x114 (17sp)
+556157	0	0	31 kvt tussendorpel bi sp	90x114 (17sp)
+559991	0	0	31 kvt onderdorpel bi sp	67x114 (16x51sp)
+559993	0	0	31 kvt onderdorpel bi sp	90x114 (16x51sp)
+559995	0	0	31 kvt onderdorpel bi sp	67x114 (16x40sp)
+561006	0	0	31 kvt tussendorpel bi sp dk	67x114
+561008	0	0	31 kvt tussendorpel bi sp dk	90x114
+561921	0	0	31 kvt onderdorpel bi sp	90x114 (16x40sp)
+562678	0	0	31 kvt zijstijl bi sp	67x114
+562680	0	0	31 kvt zijstijl bi sp	90x114
+563502	0	0	31 kvt zijstijl bi sp dk	67x114 (40sp)
+563504	0	0	31 kvt zijstijl bi sp dk	90x114 (40sp)
+564398	0	0	31 kvt tussenstijl bi sp dk2	67x114 (40sp)
+564400	0	0	31 kvt tussenstijl bi sp dk2	90x114 (40sp)
+565217	0	0	31 kvt tussenstijl bi sp dk1	67x114
+565219	0	0	31 kvt tussenstijl bi sp dk1	90x114
+566017	0	0	31 kvt tussenstijl bi sp	67x114
+566019	0	0	31 kvt tussenstijl bi sp	90x114
+571543	0	0	31 kvt raamprofiel opdek onder bi sp	Type 1
+573859	0	0	31 kvt raamprofiel opdek boven bi sp	Type 1
+575103	0	0	31 kvt raamprofiel opdek zij bi sp	Type 1
+604103	0	0	31 kvt glaslat	B0(17x15)
+604105	0	0	31 kvt glaslat	B1(17x17)
+604107	0	0	31 kvt glaslat	B7(17x20)
+604109	0	0	31 kvt glaslat	B10(17x22)
+604111	0	0	31 kvt glaslat	B12(17x25)
+605022	0	0	31 kvt glaslat	B14(25x25)
+609231	0	0	31 kvt bovendorpel bi sp dk	67x114 (40sp)
+609233	0	0	31 kvt bovendorpel bi sp dk	90x114 (40sp)
+622916	0	0	31 kvt bovendorpel bu sp	67x114 (17sp)
+622918	0	0	31 kvt bovendorpel bu sp	90x114 (17sp)
+622920	0	0	31 kvt bovendorpel bu sp	67x114 (25sp)
+624523	0	0	31 kvt tussendorpel bu sp	67x114 (17sp)
+624525	0	0	31 kvt tussendorpel bu sp	90x114 (17sp)
+624527	0	0	31 kvt tussendorpel bu sp	90x114 (25sp)
+625193	0	0	31 kvt bovendorpel bi sp	67x114 (25sp)
+625368	0	0	31 kvt tussendorpel bi sp	90x114 (25sp)
+625640	0	0	31 kvt onderdorpel bi sp	67x114 (24x51sp)
+626671	0	0	31 kvt onderdorpel bi sp	67x114 (16x67sp)
+626717	0	0	31 kvt onderdorpel bi sp	90x114 (16x67sp)
+626819	0	0	31 kvt onderdorpel bi sp	67x114 (24x67sp)
+627630	0	0	31 kvt tussenstijl bu sp	67x114 (17sp)
+627632	0	0	31 kvt tussenstijl bu sp	90x114 (17sp)
+628656	0	0	31 kvt zijstijl bu sp	67x114 (17sp)
+628658	0	0	31 kvt zijstijl bu sp	90x114 (17sp)
+631733	0	0	31 kvt glaslat_ventilerend	C1(17x23)
+631735	0	0	31 kvt glaslat_ventilerend	C2(20x23)
+631737	0	0	31 kvt glaslat_ventilerend	C3(22x27)
+633536	0	0	31 kvt glaslat schuin	A4(15x17)
+633538	0	0	31 kvt glaslat schuin	A8(18x17)
+640283	0	0	31 kvt raamprofiel zij bu sp	54x67
+640287	0	0	31 kvt raamprofiel zij bu sp	54x90
+642301	0	0	31 kvt raamprofiel onder bu sp	54x90
+643533	0	0	31 kvt raamprofiel boven bu sp	54x67
+651717	0	0	31 deur-paneel-buitendraaiend d38	sp17
+651719	0	0	31 deur-paneel-buitendraaiend d38	sp25
+653316	0	0	31 kvt zijstijl bu sp	67x114 (25sp)
+658261	0	0	31 deur-paneel-binnendraaiend met dichting d54	sp17
+662024	0	0	31 raamaanslagprofiel_N5	generiek
+662538	0	0	31 beglazingsprofiel_G5	generiek
+668169	0	0	23 Ribcassettevloer_dwars	1200
+668171	0	0	23 Ribcassettevloer_dwars	900
+668778	0	0	23 Ribcassettevloer_langs	type 01
+687253	0	0	47 Kalzip_felsbaan	50/333
+687255	0	0	47 Kalzip_felsbaan	50/429
+687257	0	0	47 Kalzip_felsbaan	65/305
+687259	0	0	47 Kalzip_felsbaan	65/333
+687261	0	0	47 Kalzip_felsbaan	65/400
+687263	0	0	47 Kalzip_felsbaan	65/500
+693088	0	0	47 Kalzip_fels	h=65
+693090	0	0	47 Kalzip_fels	h=50
+694548	0	0	27 Kalzip_rand	h=65
+694550	0	0	27 Kalzip_rand	h=50
+695628	0	0	47 Kalzip_alu-klip	h=116
+696661	0	0	47 Kalzip_kunststof-klip s	h=80
+696663	0	0	47 Kalzip_kunststof-klip s	h=110
+696665	0	0	47 Kalzip_kunststof-klip s	h=120
+696667	0	0	47 Kalzip_kunststof-klip s	h=140
+696669	0	0	47 Kalzip_kunststof-klip s	h=150
+696671	0	0	47 Kalzip_kunststof-klip s	h=160
+696673	0	0	47 Kalzip_kunststof-klip s	h=180
+696675	0	0	47 Kalzip_kunststof-klip s	h=210
+697895	0	0	47 Kalzip_kunststof-klip	h=80
+697897	0	0	47 Kalzip_kunststof-klip	h=110
+697899	0	0	47 Kalzip_kunststof-klip	h=120
+697901	0	0	47 Kalzip_kunststof-klip	h=140
+697903	0	0	47 Kalzip_kunststof-klip	h=150
+697905	0	0	47 Kalzip_kunststof-klip	h=160
+697907	0	0	47 Kalzip_kunststof-klip	h=180
+697909	0	0	47 Kalzip_kunststof-klip	h=210
+699154	0	0	27 Kalzip_rand_b	h=65
+699156	0	0	27 Kalzip_rand_b	h=50
+701312	0	0	47 Kalzip_kunststof-klip_	E25
+701314	0	0	47 Kalzip_kunststof-klip_	E170
+701316	0	0	47 Kalzip_kunststof-klip_	E160
+701318	0	0	47 Kalzip_kunststof-klip_	E150
+701320	0	0	47 Kalzip_kunststof-klip_	E140
+701322	0	0	47 Kalzip_kunststof-klip_	E10
+704510	0	0	47 Kalzip_kunststof-klip_b	E25
+704512	0	0	47 Kalzip_kunststof-klip_b	E170
+704514	0	0	47 Kalzip_kunststof-klip_b	E160
+704516	0	0	47 Kalzip_kunststof-klip_b	E150
+704518	0	0	47 Kalzip_kunststof-klip_b	E140
+704520	0	0	47 Kalzip_kunststof-klip_b	E10
+708270	0	0	47 gind laag dak	00 g gind laag dak s l
+712620	0	0	00 moer a e	M6
+712622	0	0	00 moer a e	M8
+712624	0	0	00 moer a e	M10
+712626	0	0	00 moer a e	M16
+712628	0	0	00 moer a e	M12
+718743	0	0	00 betonanker a e	M08
+718745	0	0	00 betonanker a e	M10
+718747	0	0	00 betonanker a e	M12
+718749	0	0	00 betonanker a e	M16
+718751	0	0	00 betonanker a e	M18
+718753	0	0	00 betonanker a e	M20
+721112	0	0	00 slaganker a e	M08
+721114	0	0	00 slaganker a e	M10
+721116	0	0	00 slaganker a e	M12
+721118	0	0	00 slaganker a e	M6
+722459	0	0	00 bout s e	M6
+722461	0	0	00 bout s e	M8
+722463	0	0	00 bout s e	M10
+722465	0	0	00 bout s e	M16
+722467	0	0	00 bout s e	M12
+724113	0	0	00 stekeind s e	M6
+724115	0	0	00 stekeind s e	M8
+724117	0	0	00 stekeind s e	M10
+724119	0	0	00 stekeind s e	M16
+724121	0	0	00 stekeind s e	M12
+734715	0	0	23 bubbledeck	BD_390
+734717	0	0	23 bubbledeck	BD_450
+734719	0	0	23 bubbledeck	BD_340
+734721	0	0	23 bubbledeck	BD_280
+734723	0	0	23 bubbledeck	BD_230
+752639	0	0	30 tripleglas	4/12/4/12/4
+752643	0	0	30 tripleglas	8/12/6/12/12
+757096	0	0	47 mossedum-detail	maaiveld in detail
+765696	0	0	47 mossedum	90 g mossedum s e
+816970	0	0	20 isolatie	isolatie
+816993	0	0	40 vloerplaat	FU 6/16
+817005	0	0	32 binnendeur-horizontaal	D 54 (sp25)
+817022	0	0	32 stijl_dorpel_nastelkozijn	67x114 (25sp)
+821481	0	0	32 binnendeur-horizontaal	D 54 (sp17)
+825200	0	0	32 houten stijl var II	67x125 (25sp)
+825202	0	0	32 houten stijl var II	67x102 (25sp)
+827783	0	0	43 vloertegel	B 150
+830133	0	0	00 afbreeklijn 1 s l	Type 1
+899954	0	0	30 loodslabbe	2mm
+950825	0	0	45 beugel_wand	Type 1
+971063	0	0	31 Solarlux p_06	31Solarlux p_06
+971065	0	0	31 Solarlux p_07	31Solarlux p_07
+971067	0	0	31 Solarlux p_01	31Solarlux p_01
+971069	0	0	31 Solarlux p_02	31Solarlux p_02
+971071	0	0	31 Solarlux p_03	31Solarlux p_03
+971073	0	0	31 Solarlux p_04	31Solarlux p_04
+971075	0	0	31 Solarlux p_05	31Solarlux p_05
+971077	0	0	31 Solarlux ko_01	31Solarlux ko_01
+971079	0	0	31 Solarlux ko_02	31Solarlux ko_02
+971081	0	0	31 Solarlux r_01	31Solarlux r_01
+971083	0	0	31 Solarlux r_02	31Solarlux r_02
+971085	0	0	31 Solarlux r_03	31Solarlux r_03
+971087	0	0	31 Solarlux r_04	31Solarlux r_04
+971089	0	0	31 Solarlux r_05	31Solarlux r_05
+971091	0	0	31 Solarlux ko_03	31Solarlux ko_03
+973655	0	0	31 Solarlux b_01	31Solarlux b_01
+974931	0	0	31 Solarlux b_02	31Solarlux b_02
+976082	0	0	31 Solarlux ko_04	31Solarlux ko_04
+977392	0	0	31 Solarlux p_08	31Solarlux p_08
+979667	0	0	31 Solarlux p_09	31Solarlux p_09
+980746	0	0	31 Solarlux s_01	31Solarlux s_01
+982180	0	0	31 Solarlux ko_05	31Solarlux ko_05
+1009138	0	0	31 Solarlux_70e-1-1	31Solarlux_70e-1-1
+1034070	0	0	31 Solarlux_70e-2-5	31Solarlux_70e-2-5
+1134964	0	0	31 Solarlux_70e-5-1	31Solarlux_70e-5-1
+1400281	0	0	31 Solarlux_70e-3-1	31Solarlux_70e-3-1
+1414640	0	0	31 Schuco voeg glas	31 g Schuco voeg glas e
+1422029	0	0	40 gipsplaat	D15
+1422523	0	0	21 cementgebonden plaat	D08
+1428624	0	0	40 vijzel	H 125
+1428631	0	0	32 binnendeur-vertikaal	D 54 (sp17)
+1428635	0	0	32 houten stijl var I	67x114 (25sp)
+1428636	0	0	32 houten stijl var I	67x139 (25sp)
+1430994	0	0	43 vloertegel	B 100
+1444397	0	0	42 wandtegel	tegel
+1450712	0	0	90 bestrating	betontegel 300x300x40
+1450714	0	0	90 bestrating	betonstraatsteen 210x105x80
+1455714	0	0	31 schuco_raamr_AWS90	31 schuco_raamr_AWS90 s e
+1458053	0	0	20 carrosserieprofiel	25x150
+1458055	0	0	20 carrosserieprofiel	25x300
+1458057	0	0	20 carrosserieprofiel	25x200
+1458059	0	0	20 carrosserieprofiel	25x120
+1465395	0	0	37 BA_daklichtsysteem_onderroede	50x77
+1467159	0	0	37 BA_daklichtsysteem_hoofdroede	50x80
+1468414	0	0	37 BA_daklichtsysteem_hoofdroede_dak	60x80
+1469978	0	0	37 BA_daklichtsysteem_semistructural_hoofdroede	Type 1
+1471227	0	0	37 BA_daklichtsysteem_semistructural_hoofdroede_dak	Type 1
+1472405	0	0	37 BA_daklichtsysteem_structural_hoofdroede	50x80
+1473473	0	0	37 BA_daklichtsysteem_structural_hoofdroede_dak	Type 1
+1474470	0	0	28 L_profiel	L200x100x10
+1474472	0	0	28 L_profiel	L100x50x8
+1474474	0	0	28 L_profiel	L100x100x8
+1474476	0	0	28 L_profiel	L150x90x12
+1474478	0	0	28 L_profiel	L120x120x10
+1474480	0	0	28 L_profiel	L65x50x5
+1478102	0	0	45 Derako_lat	45 f Derako_lat a l
+1479425	0	0	45 snelhanger	Type 1
+1480454	0	0	45 Derako_bevestiging	d20
+1485262	0	0	28 kokerprofiel	80x80x5
+1485282	0	0	28 kokerprofiel	60x50x3
+1485290	0	0	28 kokerprofiel	150x50x5
+1488371	0	0	00 Afbreeklijn 0 s l	Type 1
+1488373	0	0	00 afbreeklijn 2 s l	breed 50
+1489728	0	0	00 peilmaat s e	Type 1
+1497553	0	0	20  L-anker zwaar	150x75
+1497555	0	0	20  klos	Voorliggend
+1497556	0	0	20  kz_anker	wandanker 03
+1497558	0	0	20  kz_anker	wandanker 02
+1497559	0	0	20  kz_anker	wandanker 01
+1497560	0	0	20  kz_anker	50x200
+1497561	0	0	20  kz_anker	40x150
+1497562	0	0	20  L-anker zwaar	120x90
+1497572	0	0	20 balkanker	balkhoogte 196
+1497576	0	0	20 dakvoetanker	25x170 6x60
+1500474	0	0	22 kalkzandsteen	dik 100mm
+1504019	0	0	28 prefabbeton sparingzijde	150mm
+1505393	0	0	28 afbreek kolom rond	150mm
+1505394	0	0	28 afbreek kolom vierkant	150mm
+1507882	0	0	21 stalen latei	type A 90x120x3
+1507883	0	0	21 stalen latei	type B 90x120x3
+1507886	0	0	21 stalen latei	type A 90x150x4
+1507888	0	0	21  geveldrager type A	21 DI geveldrager type A s e
+1507889	0	0	21 geveldrager type B	21 DI geveldrager type B s e
+1507890	0	0	21 ankerrail	21 DI ankerrail s e
+1507896	0	0	21  geveldrager type C	21 DI geveldrager type C s e
+1518017	0	0	30 gezet hoekanker	40x40x3
+1518019	0	0	30 gezet hoekanker	20x20x2
+1518021	0	0	30 gezet hoekanker	30x30x2
+1518023	0	0	30 gezet hoekanker	50x50x4
+1518025	0	0	30 vloer-kozijnstrip	vloer-kozijnstrip vlak
+1518026	0	0	30 vloer-kozijnstrip	vloer kozijnstrip hg 10
+1518029	0	0	30 vloer-kozijnstrip	vloer kozijnstrip hg 25
+1518031	0	0	30 vloer-kozijnstrip	vloer kozijnstrip hg 35
+1518033	0	0	30 vloer-kozijnstrip	vloer kozijnstrip hg 60
+1518038	0	0	30 L-anker	60x40
+1518039	0	0	30 L-anker	60x60
+1518040	0	0	30 L-anker	90x90
+1518041	0	0	30 L-anker	90x60
+1518042	0	0	30 L-anker schuin a e	90x90
+1518043	0	0	30 L-anker schuin a e	100x60
+1518044	0	0	30 L-anker schuin a e	90x50
+1518052	0	0	30 kozijnstelhoek	65x180/175
+1518054	0	0	30 alum U-profiel	40x20x40x2
+1518056	0	0	30 gezet U-profiel	40x25x2
+1518058	0	0	30 alum U-profiel	20x20x20x2
+1518060	0	0	30 alum T-profiel	20x20x2
+1518062	0	0	30 alum T-profiel	40x40x2
+1518850	0	0	30 projectscharnier	knoop 20mm
+1518852	0	0	30 projectscharnier	knoop 16mm
+1518854	0	0	30 projectscharnier	knoop 16mm kantelaaf
+1518856	0	0	30 projectscharnier	knoop 16mm hoek
+1519821	0	0	31 compri comprial allround 15	CA 76110
+1519822	0	0	31 compri comprial allround 5	CA78130
+1519823	0	0	31 compri comprial waterslag rond	CA 73125
+1522338	0	0	31 natuursteen vensterbank	D20
+1522340	0	0	31 holonite waterslag A	type B
+1522342	0	0	31 holonite waterslag KK	type 160
+1522343	0	0	32 holonite dorpel	20x120
+1522345	0	0	32 holonite rolstoeldorpel	120-20-15
+1522348	0	0	31 holonite premax bi	breedte 114 sp 51
+1522349	0	0	31 holonite premax dbi	breed 114 sp 51
+1522351	0	0	31 holonite premax mbi	breedte 114 sp 51
+1524500	0	0	31 recystel stelkozijn	R2009
+1524508	0	0	31 recystel stelkozijn	R2001
+1524509	0	0	31 recystel stelkozijn	R2001 verbreed
+1524510	0	0	31 recystel stelkozijn	R2004
+1524511	0	0	31 recystel stelkozijn	R2005
+1524512	0	0	31 recystel stelkozijn	R2008
+1524513	0	0	31 recystel stelkozijn	R2010
+1540973	0	0	41 ht zweeds rabbat	19x136
+1540975	0	0	41 ht channelsiding	19x136
+1541000	0	0	41 alum anker gevelbekleding	T-profiel 150mm
+1541001	0	0	41 alum anker gevelbekleding	L-profiel 120mm
+1541004	0	0	41 sokkelprofiel gevelisolatiesyst	sokkelprofiel 90mm
+1541005	0	0	41 sokkelprofiel gevelisolatiesyst	afsluitprofiel 90mm
+1541006	0	0	41 druip-afsluitprofiel gevelisolatiesyst	druiplijst
+1541007	0	0	41 druip-afsluitprofiel gevelisolatiesyst	afsluitprof 6mm
+1541008	0	0	41 druip-afsluitprofiel gevelisolatiesyst	afsluitprof 10mm
+1541009	0	0	41 druip-afsluitprofiel gevelisolatiesyst	afsluitprof 15mm
+1541016	0	0	41 stuclaag	6mm
+1541018	0	0	41 ht deel vert	41 DI ht deel vert e l
+1541020	0	0	41 ht rabbatdeel	19x136
+1546488	0	0	42 stucstopprofiel droogbouw	type 1236
+1546509	0	0	42 stucstopprofiel droogbouw	type 1131
+1546511	0	0	42 stucstopprofiel droogbouw	type 1132
+1546513	0	0	42 stucstopprofiel droogbouw	type 1133
+1546515	0	0	42 stucstopprofiel droogbouw	type 1134
+1546517	0	0	42 stucstopprofiel droogbouw	type 1136
+1546519	0	0	42 stucstopprofiel droogbouw	type 1135
+1546521	0	0	42 aansluitprofiel droogbouw	type 1319
+1546523	0	0	42 aansluitprofiel droogbouw	type 1371
+1546525	0	0	42 aansluitprofiel droogbouw	type 1314
+1546527	0	0	42 aansluitprofiel droogbouw	type 1313
+1546529	0	0	42 hoekprofiel droogbouw	type 1078
+1546530	0	0	42 hoekprofiel droogbouw	type 3001
+1546531	0	0	42 hoekprofiel droogbouw	type 3840
+1546535	0	0	42 tegelhoekprofiel	hoekprofiel 10mm
+1546536	0	0	42 tegelhoekprofiel	kwartrond 8mm
+1546539	0	0	42 rvs hoekbeschermer	42 f rvs L30x30
+1546541	0	0	42 rvs hoekbeschermer	42 f rvs L40x40
+1554100	0	0	43 plint PVC	L19x100
+1554101	0	0	43 plint gietvloer	43 D plint gietvloer 525 hg 70mm
+1554102	0	0	43 plint alum	50x2
+1554103	0	0	43 plint hout	hardhout 12x50
+1554104	0	0	43 RVS vloerstrip	RVS vloerstrip
+1554105	0	0	43 plint hout	mdf 12x50
+1554108	0	0	43 plint PVC	L16x75
+1554109	0	0	43 plint PVC	hg 100
+1554110	0	0	43 plint PVC	hg 75
+1554111	0	0	43 plint alum	gezet 70x2
+1554120	0	0	43 RVS vloerstrip	alum tapijtstop
+1554122	0	0	43 RVS vloerstrip	kunststof stop
+1554124	0	0	43 elastische vloerafw	gietvloer Bolidt 525
+1554126	0	0	43 elastische vloerafw	marmoleum
+1557660	0	0	52 noodoverloop	52 DI noodoverloop s e
+1557662	0	0	52 stadsuitloop	uitloop 60 hwa 80 muurd 200
+1557664	0	0	52 HWA	70mm plattegrond
+1557665	0	0	52 HWA	70mm snede
+1557668	0	0	52 HWA	100mm plattegrond
+1557671	0	0	52 mastgoot_zink 30?	M44 dakhelling 30?
+1557672	0	0	52 bakgoot zink	B37 dakhelling 45?
+1557673	0	0	52 bakgoot zink	B44 dakhelling 50?
+1578252	0	0	45 verlaagd plafond	gipsvinyl
+1578253	0	0	45 verlaagd plafond	minerale wol
+1578254	0	0	45 verlaagd plafond	HWC
+1578255	0	0	45 verlaagd plafond	minerale wol verdekt
+1578260	0	0	45 Plagyp prof	CD-profiel
+1578261	0	0	45 Plagyp prof	U-profiel
+1578262	0	0	45 vast plafond	PlaGyp S
+1578265	0	0	45 vast plafond	Gypframe (zelfdragend)
+1578266	0	0	45 vast plafond	houten regelwerk
+1578267	0	0	45 plafond T-profiel	profiel 16mm
+1578268	0	0	45 plafond T-profiel	profiel 24mm
+1578269	0	0	45 plafond L-profiel	randprofiel 24x19
+1578270	0	0	45 plafond L-profiel	randprofiel 24x24
+1578273	0	0	45 plafond L-profiel	randprofiel plafondeiland
+1578275	0	0	45 plafondhanger	hanger systeemplafond
+1578277	0	0	45 plafondhanger	bevestigingsanker
+1578279	0	0	45 plafondhanger	snelafhanger
+1578281	0	0	45 plafondhanger	afhanganker
+1583559	0	0	47 verstelbare tegeldrager	47 DI verstelbare tegeldrager
+1584892	0	0	30 knelprofiel	type 888
+1584893	0	0	30 knelprofiel	type 886
+1584894	0	0	30 knelprofiel	type 837
+1586006	0	0	37 DI opstand lichtkoepel	opstand 300mm
+1586011	0	0	37 DI opstand lichtkoepel	opstand 150mm
+1587604	0	0	41 holonite muurafdekker MA	type MA 300
+1587605	0	0	41 holonite muurafdekker TD	type TD 340
+1591648	0	0	47 dakpan F12U hor	standaard
+1591649	0	0	47 dakpan F12U hor	gevelpan rechts
+1591650	0	0	47 dakpan F12U hor	gevelpan links
+1591651	0	0	47 dakpan F12U hor	dubbele welpan
+1591652	0	0	47 dakpan F12U ver	nokpan
+1591653	0	0	47 dakpan F12U ver	standaard
+1591654	0	0	47 dakpan OVH-pan hor	dubbele welpan
+1591655	0	0	47 dakpan OVH-pan hor	gevelpan links
+1591656	0	0	47 dakpan OVH-pan hor	gevelpan rechts
+1591657	0	0	47 dakpan OVH-pan hor	standaard
+1591658	0	0	47 dakpan OVH-pan ver	nokvorst
+1591659	0	0	47 dakpan OVH-pan ver	chaperonpan
+1591660	0	0	47 dakpan OVH-pan ver	standaard
+1591661	0	0	47 dakpan OVH-pan hor	halve pan
+1598539	0	0	31 MHB SL30iso	31 DI MHB SL30iso
+1599849	0	0	31 MHB SL30iso deur	31 DI MHB SL30iso deur
+1605392	0	0	31 Harol SC900iso	verticaal
+1607703	0	0	31 Harol SC900iso	horizontaal
+1611833	0	0	31 Harol SC700	verticaal
+1613339	0	0	31 Harol SC700	horizontaal
+1614999	0	0	31 Harol SC1000	verticaal
+1615089	0	0	31 Harol SC1000	horizontaal
+1618558	0	0	31 VEKA kunststof kozijn	draaiend deel
+1620396	0	0	31 VEKA kunststof kozijn	kozijn
+1627760	0	0	21 prefab betonlatei	100x140 - schoon
+1627762	0	0	31  prefab waterslag	Nehobo RD50/94x160
+1627764	0	0	31  prefab waterslag	Nehobo RD60x100x160
+1627766	0	0	30 kunststof L-profiel	90x20x1.5
+1627886	0	0	21 prefab betonlatei	100x60 - vuil
+1635758	0	0	31 AcouStream_rooster	Type 1
+1648255	0	0	42 MDF dagkantafwerking	KDH 400
+1648257	0	0	42 MDF dagkantafwerking	KDH 401
+1649487	0	0	43 plint MDF lakdragerfolie	mdf 12x55
+1649489	0	0	43 plint MDF lakdragerfolie	MDF12x70
+1651502	0	0	42 MDF ankerlat	12x55
+1651504	0	0	42 MDF ankerlat	12x95
+1654465	0	0	42 MDF koplat	22x120
+1654467	0	0	42 MDF koplat	22x92
+1659922	0	0	41 muurafdekprofiel type CA255A	muurbreedte 200
+1664921	0	0	41 comprial 6300 daktrim	CA 6310
+1664923	0	0	41 comprial 6300 daktrim	CA 6305
+1665689	0	0	41 compri daktrim 630	630 NM
+1666365	0	0	41 compri daktrim 630	633 NM
+1666932	0	0	41 muurafdekprofiel type CA455A	muurbreedte 300
+1673939	0	0	31 Wicona 75 evo_deurkozijn	Type 1
+1677694	0	0	31 Wicona 75 evo_raamkozijn	31 DI Wicona 75 evo_raamkozijn
+2057174	0	0	30 L-anker plat a e	90x60
+2057742	0	0	30 L-anker plat a e	60x60
+2057820	0	0	42 voegband	42 DI voegband s e
+2058266	0	0	22  gyproc gypart hoekprofiel	22 DI gyproc gypart hoekprofiel s e
+2059195	0	0	22 verzwaard metalstud profiel	75 mm
+2059613	0	0	22 verzwaard metalstud profiel	100 mm
+2059639	0	0	22 verzwaard metalstud profiel	50 mm
+2060005	0	0	40  gipsplaat	D12.5
+2060007	0	0	40  gipsplaat	D15
+2060009	0	0	40  gipsplaat	D6.5
+2060011	0	0	40  gipsplaat	D9.5
+2060175	0	0	40  gipsplaat	vochtbestendig D12.5
+2060238	0	0	40  gipsplaat	vochtbestendig D15
+2060293	0	0	40  gipsplaat	stootvast D12.5
+2060503	0	0	42 PVC be?indigingsprofiel	Type 3741
+2069725	0	0	22 metalstud profiel	50 mm vert
+2069727	0	0	22 metalstud profiel	100 mm vert
+2069729	0	0	22 metalstud profiel	75 mm vert
+2069731	0	0	22 metalstud profiel	70 mm vert
+2069733	0	0	22 metalstud profiel	45 mm vert
+2069735	0	0	22 metalstud profiel	100 mm hor
+2069737	0	0	22 metalstud profiel	75 mm hor
+2069739	0	0	22 metalstud profiel	70 mm hor
+2069741	0	0	22 metalstud profiel	50mm hor
+2069743	0	0	22 metalstud profiel	45mm hor
+2072043	0	0	30 kitvoeg op rugvulling	holle kitvoeg 15mm
+2072045	0	0	30 kitvoeg op rugvulling	schuine kitvoeg 15mm
+2074362	0	0	30 kitvoeg op rugvulling	schuine kitvoeg 4mm
+2074572	0	0	30 kitvoeg op rugvulling	holle kitvoeg 5mm
+2075434	0	0	30 kitvoeg op rugvulling	holle kitvoeg 5mm br.w.
+2075593	0	0	30 kitvoeg op rugvulling	holle kitvoeg 10mm br.w.
+2076780	0	0	30 kitvoeg	holle kitvoeg br.w.
+2078164	0	0	20 balk_zachthout	28x75
+2080821	0	0	22 metalstud profiel	75 mm
+2091041	0	0	30 kitvoeg op rugvulling	holle kitvoeg 10mm
+2094365	0	0	00 geschaafd zachthout balk F p a e	28x46
+2106375	0	0	30 L-anker	70x25
+2109165	0	0	22 metalstud profiel L	binnenhoek
+2109477	0	0	22 metalstud profiel L	buitenhoek
+2113468	0	0	22 metalstud soundblok profiel	MSdB 50
+2113470	0	0	22 metalstud soundblok profiel	MSdB 75
+2113472	0	0	22 metalstud soundblok profiel	MSdB 100
+2127734	0	0	23 vloerweergave	23 DI vloerweergave s e
+2144020	0	0	00 schroef gevelplaat torx s l	70mm
+2145922	0	0	28 kokerprofiel	40x40x2
+2157679	0	0	00 schroef s e	30mm
+2167145	0	0	42 dilatatieprofiel droogbouw	type 3226
+2172167	0	0	42 dilatatieprofiel droogbouw	Control Joint
+2174073	0	0	00 schroef s e	40mm
+2183353	0	0	28 staalplaat	dik 2mm
+2192186	0	0	31 schuco_raamkozijn_AWS65 WF	vast glas
+2192187	0	0	31 schuco_raamkozijn_AWS65 WF	draai-kiep
+2192188	0	0	31 schuco_bu deur_ADS65_onderprofiel	Type A
+2192189	0	0	31 schuco_bu deur_ADS65_onderprofiel	Type B
+2192192	0	0	31 schuco_bi deur_ADS65_onderprofiel	Type B
+2192193	0	0	31 schuco_bi deur_ADS65_onderprofiel	Type A
+2192194	0	0	31 schuco_bi deur_ADS65_zijprofiel	flens
+2192195	0	0	31 schuco_bi deur_ADS65_zijprofiel	vlak
+2192196	0	0	31 schuco_deur_ADS65_zijprofiel	Type 1
+2210948	0	0	31 reynaers_CS38SL_draaikiepraam	vast glas
+2210951	0	0	31 reynaers_CS38SL_tusendorpel-raam-draairaam	vast glas
+2210952	0	0	31 reynaers_CS38SL_tusendorpel-raam-draairaam	draaikiepraam
+2210955	0	0	31 reynaers_CS38SL_deur_bi_onder	Type 1
+2210956	0	0	31 reynaers_CS38SL_deur_bi_zij+boven	Type 1
+2210959	0	0	31 reynaers_CS38SL_draaikiepraam	draaikiepraam
+2210960	0	0	31 reynaers_CS38SL_koppeldorpel_raam_draaikiep	draaikiepraam
+2210961	0	0	31 reynaers_CS38SL_koppeldorpel_raam_draaikiep	vast glas
+2233876	0	0	31 reynaers_CF77_vouwpui_boven	Type 1
+2233878	0	0	31 reynaers_CF77_vouwpui_tussenstijl	Type 1
+2233880	0	0	31 reynaers_CF77_vouwpui_onder	Type 1
+2245412	0	0	31 reynaers_CP130_schuifpui	Type 1
+2247033	0	0	23  ribcassettervloer	langssnede
+2247035	0	0	23  ribcassettervloer	dwarssnede
+2249281	0	0	27 SAB stalen dak aanzicht	hg 106
+2249283	0	0	27 SAB stalen dak aanzicht	hg 135
+2249285	0	0	27 SAB stalen dak aanzicht	hg 153
+2249287	0	0	27 SAB stalen dak 135	27 DI SAB stalen dak 135 s e
+2249288	0	0	27 SAB stalen dak 153	27 DI SAB stalen dak 153 s e
+2249290	0	0	27 SAB stalen dak 106	27 DI SAB stalen dak 106 s e
+2253076	0	0	16  ventilatie koker kruiprmt	16 DI ventilatie koker kruiprmt
+2254235	0	0	31 DTS bi dorpel	breedte 114 sp 51
+2255040	0	0	47 vogelschroot	47 DI vogelschroot s e
+2258211	0	0	31 duco top 50 ZR	Medio
+2258215	0	0	31 duco top 50 ZR	Largo
+2258216	0	0	31 duco top 50 ZR	alto
+2258217	0	0	31 duco glasmax ZR	31 DI duco glasmax ZR s e
+2268842	0	0	31 duco twin 120 ZR	verticaal
+2285802	0	0	47 mossedum_gras	47 DI mossedum
+2304435	0	0	22 metalstud profiel	75 mm hor P-prof
+2306156	0	0	22 metalstud profiel	100 mm hor P-prof
+2306692	0	0	32 houten stijl var I	67x139 (17sp)
+2325535	0	0	32 holonite dorpel	20x135
+2342958	0	0	32 binnendeur-horizontaal	D 40 (sp25)
+2347417	0	0	42 stucstopprofiel droogbouw	type 2178
+2349362	0	0	42 afsluitprofiel droogbouw	type 9298
+2356590	0	0	32 binnendeur-horizontaal	D 40 (sp17)
+2356847	0	0	32 binnendeur-vertikaal	D 40 (sp17)
+2356957	0	0	32 binnendeur-vertikaal	D 40 (sp25)
+2360809	0	0	28 prefabbeton sparingzijde	200mm
+2374249	0	0	30 kunststof U-prof	30 DI kunststof U-prof s e
+2382404	0	0	32 houten stijl var III	67x114 (25sp)
+2386377	0	0	32 binnendeur-vertikaal	D 54 (sp25)
+2387217	0	0	32 stalen kozijn	50x120 muurd 100
+2387827	0	0	32 stalen kozijn	50x125 (sp 20x48)
+2389111	0	0	32 stalen kozijn kierdichting	50x125 sp 15x48
+2390922	0	0	32 stalen kozijn kierdichting	60x120 sp 25x51
+2391860	0	0	32 Staalkozijn Sino	muurdikte 125mm
+2401523	0	0	32 stalen kozijn kierdichting	60x125 sp 25x48
+2406146	0	0	32 stalen glaslat Jansen 402	breed 20mm
+2413284	0	0	42 aansluitprofiel droogbouw 1138	type 1313
+2413618	0	0	42 afsluitprofiel droogbouw	type 9299
+2415204	0	0	30 alum U-profiel	30x20x30x2
+2419604	0	0	28 echthoekig_en_vierkant_Buis_profiel	Ht=70
+2422363	0	0	28 kopplaat	28 DI kopplaat a e
+2427490	0	0	30 glas	D10 geslepen zijkant
+2431625	0	0	30 alum U-profiel	15x20x15x2
+2436226	0	0	21 baksteen metselwerk vertikaal	waalformaat - lagenmaat 61.67
+2436228	0	0	21 baksteen metselwerk vert negge	waalformaat - lagenmaat 61.67
+2436238	0	0	30 tochtwerendband	B 20
+2436240	0	0	22  kalkzandsteen	dik 120mm
+2436244	0	0	30 tochtwerendband	B 40
+2436246	0	0	30 L-anker_90	90x80x5
+2443395	0	0	30 tochtwerendband	B 30
+2443397	0	0	30 L-anker schuin a e	90x80
+2454241	0	0	30 compressieband	B 30
+2505127	0	0	00 kast_enkel	kast enkel
+2505128	0	0	00 kast_dubbel	kast dubbel
+2505129	0	0	00 bureau	bureau
+2505130	0	0	00 woonkeurmatje-basis	00 woonkeurmatje-basis
+2505140	0	0	00 woonkeurmatje	1. woonruimte
+2505142	0	0	00 woonkeurmatje	2. eetruimte
+2505144	0	0	00 woonkeurmatje	3. berging
+2505146	0	0	00 woonkeurmatje	4. entree 01
+2505148	0	0	00 woonkeurmatje	5. entree 02
+2505150	0	0	00 woonkeurmatje	6. entree (rowo)
+2505152	0	0	00 woonkeurmatje	7. opstelplaats lift
+2505160	0	0	00 bed_groot	bed 2p-groot
+2505161	0	0	00 bed_1p	bed enkel
+2505162	0	0	00 bed_2p	bed 2p
+2505163	0	0	00 bad	bad
+2505164	0	0	00 douche	douche
+2505165	0	0	00 wastafel	wastafel
+2505166	0	0	00 toilet	toilet
+2505167	0	0	00 fontein	fontein
+2505168	0	0	00 wasmachine	wasmachine
+2538881	0	0	00 rolstoeltoilet	rolstoeltoilet
+2544563	0	0	00 rolstoeldouche	rolstoeltoilet + douche
+3126440	0	0	unknown	unknown
+3126444	0	0	unknown	unknown
+3126448	0	0	unknown	unknown
+3126457	0	0	33 sparing	Type 1
+3126459	0	0	30_L-anker	60x40
+3126460	0	0	unknown	unknown
+3126464	0	0	00_maskeer1	Type 1
+3126466	0	0	unknown	unknown
+3126470	0	0	unknown	unknown
+3126474	0	0	unknown	unknown
+3126479	0	0	31 driedubbel_glas	HR+++
+3126480	0	0	00 hout_rechthoekig_sls	Vuren 28x45
+3126482	0	0	28 schroeven 2D	Verzonken schroef 5.0x70mm
+3138813	0	0	unknown	unknown
+3138830	0	0	unknown	unknown
+3138835	0	0	42_isolatie	Type 1
+3138839	0	0	unknown	unknown
+3138843	0	0	unknown	unknown
+3138847	0	0	unknown	unknown
+3138851	0	0	unknown	unknown
+3138857	0	0	unknown	unknown
+3138861	0	0	unknown	unknown
+3138865	0	0	unknown	unknown
+3138875	0	0	unknown	unknown
+3138879	0	0	00 hout_rechthoekig_sls	SLS 38x121
+3138881	0	0	unknown	unknown
+3138889	0	0	unknown	unknown
+3138893	0	0	unknown	unknown
+3138897	0	0	00 hout_rechthoekig_sls	Vuren 18x45
+3138900	0	0	unknown	unknown
+3138915	0	0	unknown	unknown
+3138919	0	0	28 schroeven 2D	Verzonken schroef 5.0x50mm
+3138927	0	0	unknown	unknown
+3138931	0	0	unknown	unknown
+3138939	0	0	unknown	unknown
+3138943	0	0	00 hout_rechthoekig_sls	SLS 38x73
+3138953	0	0	00 hout_rechthoekig_sls	Vuren 28x245
+3186633	0	0	unknown	unknown
+3186637	0	0	31 dubbel_glas	Type 1
+3186643	0	0	unknown	unknown
+3186647	0	0	unknown	unknown
+3186655	0	0	unknown	unknown
+3186659	0	0	unknown	unknown
+3186675	0	0	unknown	unknown
+3186679	0	0	unknown	unknown
+3186683	0	0	17 paal_aanzicht	Type 1
+3186687	0	0	unknown	unknown
+3186693	0	0	00 hout_rechthoekig_sls	SLS 38x184
+3186711	0	0	20 kz_anker	wandanker 02
+3186712	0	0	20 HSB_vloeranker	25x170 6x60
+3186718	0	0	30_L-anker	90x90
+3186719	0	0	30_L-anker schuin	90x90
+3186720	0	0	30_L-anker plat	90x60
+3186721	0	0	30_L-anker plat	60x60
+3186723	0	0	00 moer a	M12
+3186737	0	0	unknown	unknown
+3186745	0	0	unknown	unknown
+3186759	0	0	00 hout_rechthoekig_sls	SLS 38x89
+3186763	0	0	28 schroef	5.0x80
+3186765	0	0	00 hout_rechthoekig_sls	SLS 38x140
+3186779	0	0	unknown	unknown
+3186792	0	0	00 hout_rechthoekig_sls	Vuren 71x196
+3186795	0	0	unknown	unknown
+3186799	0	0	unknown	unknown
+3186824	0	0	21 steen_negge_s	Negge 60 mm waalformaat 50+10
+3186829	0	0	unknown	unknown
+3186834	0	0	00 hout_rechthoekig_sls	Vuren 44x171
+3186835	0	0	00 hout_rechthoekig_sls	Vuren 44x71
+3186836	0	0	unknown	unknown
+3186864	0	0	00 bout s e1	M16
+3186865	0	0	00 moer s e1	M16
+3186867	0	0	00 bout s e1	M12
+3186869	0	0	00 hout_rechthoekig_sls	Vuren Gewolmaniseerd 44x71
+3186871	0	0	00 bout s e1	M6
+3186873	0	0	00 hout_rechthoekig_sls	SLS 38x203
+3186875	0	0	28 chemische ankers met bout-bout 2d	Anker M12
+3186877	0	0	unknown	unknown
+3186885	0	0	00 hout_rechthoekig_sls	Vuren 44x180
+3186887	0	0	00 hout_rechthoekig_sls	Vuren 28x70
+3218002	0	0	unknown	unknown
+3218010	0	0	unknown	unknown
+3218014	0	0	unknown	unknown
+3218034	0	0	00 hout_rechthoekig_sls	Vuren Gewolmaniseerd 18x45
+3218040	0	0	00 hout_rechthoekig_sls	Vuren Gewolmaniseerd 22x50
+3218042	0	0	00 hout_rechthoekig_sls	Vuren Gewolmaniseerd 28x45
+3218044	0	0	00 hout_rechthoekig_sls	Vuren 96x196
+3218046	0	0	47 mossedum_detail	maaiveld in detail
+3218054	0	0	unknown	unknown
+3218072	0	0	unknown	unknown
+3218080	0	0	unknown	unknown
+3218084	0	0	unknown	unknown
+3218085	0	0	unknown	unknown
+3218093	0	0	unknown	unknown
+3218097	0	0	unknown	unknown
+3218101	0	0	unknown	unknown
+3218105	0	0	unknown	unknown
+3218109	0	0	unknown	unknown
+3218113	0	0	00 hout_rechthoekig_sls	Vuren 71x221
+3218123	0	0	unknown	unknown
+3218127	0	0	unknown	unknown
+3218131	0	0	unknown	unknown
+3218135	0	0	unknown	unknown
+3218139	0	0	28 schroeven 2D	Verzonken schroef 6.0x140mm
+3218140	0	0	28 schroeven 2D	Tellerkop-schroef 10.0x180mm
+3218155	0	0	28 chemische ankers met bout 2d	Anker M12
+3218157	0	0	23 Zwaluwstaartplaat	Lewis Zwaluwstaartplaat
+3218159	0	0	00 hout_rechthoekig_sls	Vuren 20x45
+3218161	0	0	42_isolatie	Kantplank
+3218163	0	0	31 dubbel_glas1	Type 1
+3218165	0	0	00 hout_rechthoekig_sls	SLS 38x245
+3218167	0	0	00 hout_rechthoekig_sls	SLS 38x130
+3218169	0	0	00 hout_rechthoekig_sls	SLS 30x245
+3218175	0	0	00 hout_rechthoekig_sls	SLS 38x146
+3218185	0	0	28 schroeven 2D	Tellerkop-schroef 8.0x280mm
+3218187	0	0	00 hout_rechthoekig_sls	Vuren 22x32
+3218189	0	0	00 hout_rechthoekig_sls	Vuren 44x70
+3235960	0	0	unknown	unknown
+3236024	0	0	unknown	unknown
+3236120	0	0	unknown	unknown
+3236124	0	0	28 schroef	2.5.0x40
+3236130	0	0	00 hout_rechthoekig_sls	SLS 38x60
+3236132	0	0	00 hout_rechthoekig_sls	SLS 62x73
+3245424	0	0	unknown	unknown
+3245432	0	0	unknown	unknown
+3245440	0	0	unknown	unknown
+3245444	0	0	unknown	unknown
+3245472	0	0	28 schroeven 2D	Verzonken schroef 4.0x40mm
+3245514	0	0	unknown	unknown
+3245522	0	0	unknown	unknown
+3245530	0	0	unknown	unknown
+3245535	0	0	28 schroeven 2D	Verzonken schroef 5.0x60mm
+3245536	0	0	28 schroeven 2D	Verzonken schroef 5.0x100mm
+3245540	0	0	00 plaatmateriaal1	d=10 mm
+3245542	0	0	00 plaatmateriaal1	d=15 mm
+3245550	0	0	00 plaatmateriaal1	d=8 mm
+3245552	0	0	00 plaatmateriaal1	d=18 mm
+3245572	0	0	28 schroeven 2D	Verzonken schroef 6.0x90mm
+3245574	0	0	00 hout rechthoekig	18x45
+3257426	0	0	unknown	unknown
+3257480	0	0	00 bout	M10
+3257497	0	0	unknown	unknown
+3257507	0	0	unknown	unknown
+3257538	0	0	31 dubbel_glas	Type 2
+3257540	0	0	28 schroef	5.0x70
+3257546	0	0	unknown	unknown
+3291450	0	0	unknown	unknown
+3291471	0	0	unknown	unknown
+3291483	0	0	unknown	unknown
+3291488	0	0	27 compri_daktrim	27_CC_DET_compri_daktrim_CA654A
+3291501	0	0	00_Maaiveld	Type 1
+3291569	0	0	unknown	unknown
+3291579	0	0	unknown	unknown
+3291583	0	0	unknown	unknown
+3291589	0	0	28 schroeven 2D	Verzonken schroef 4.0x50mm
+3291593	0	0	00 plaatmateriaal	d=18 mm
+3291595	0	0	unknown	unknown
+3291605	0	0	00 lijmnaad_bol	00_MV_lijmnaad_bol
+3291607	0	0	31 dubbel_glas	Type 4 vliesgevel
+3291611	0	0	31 dubbel_glas	Type 5 deur
+3291615	0	0	31 dubbel_glas	Type 4 vliesgevel 2
+3291623	0	0	31 ruit	Type 1
+3291631	0	0	unknown	unknown
+3291635	0	0	unknown	unknown
+3291641	0	0	unknown	unknown
+3291649	0	0	42 isolatie	Type 1
+3291651	0	0	00 hout rechthoekig	38x140
+3291653	0	0	unknown	unknown
+3291674	0	0	31 dubbel_glas	Type 3 dakraam
+3344840	0	0	00 z plaatje-los	REVIT FAMILY - z plaatje-los
+3344872	0	0	00 Break Line 0,25	M_Break Line
+3344874	0	0	30 L 100x65x7	L 100x65x7
+3344883	0	0	00 Schroef hout_platte kop_lang	Schroef hout_platte kop_lang
+3344893	0	0	40 multiplex	D25
+3344903	0	0	32 DO_MP_aluminium kozijnstijl1_gen_ASK	32_DO_MP_aluminium kozijnstijl1_gen_ASK
+3344905	0	0	32 DO_MP_aluminium kozijnstijl3_gen_ASK	32_DO_MP_aluminium kozijnstijl3_gen_ASK
+3344907	0	0	32 DO_MP_aluminium kozijnstijl2_gen_ASK	32_DO_MP_aluminium kozijnstijl2_gen_ASK
+3344909	0	0	28 UNP 160	UNP 160
+3344916	0	0	00 schroef zetwerk_met_plug	Schroef zetwerk_met_plug
+3344919	0	0	30 L 60x60x6	L 60x60x6
+3344921	0	0	30 L 90x90x8	L 90x90x8
+3344927	0	0	00 OVH_dockdeur_H_detail	OVH_dockdeur_H_detail
+3344931	0	0	00 schroef Sandwichpaneel	Schroef Sandwichpaneel
+3344933	0	0	00 schroef zetwerk_kort	Schroef zetwerk_kort
+3344949	0	0	00 Kingspan_Detail_KS1000_Evolution_dikte 88	Kingspan_Detail_KS1000_Evolution_dikte 88
+3344952	0	0	42 gipsplaat	D12.5
+3344958	0	0	00 Schroef hout_platte kop_kort	Schroef hout_platte kop_kort
+3344960	0	0	28 MetalStud profielen	C75
+3344972	0	0	31 vliesgevelprofiel-basis-200_DC9	31_vliesgevelprofiel-basis-200_DC9
+3344974	0	0	31 triple-glas	31_triple-glas
+3344977	0	0	31 shadowbox	31_shadowbox
+3344985	0	0	31 vliesgevelprofiel-200_DC9	31_vliesgevelprofiel-200_DC9
+3345001	0	0	00 schroef zetwerk_met_plug_lang	Schroef zetwerk_met_plug_lang
+3345003	0	0	40 multiplex	D18
+3345009	0	0	31 deurkruk	31_deurkruk
+3345011	0	0	31 kozijnprofiel_hout-2_114x67	31_kozijnprofiel_hout-2_114x67
+3345015	0	0	21 Cellenbeton 150x750 brandwand	Cellenbeton 150x750 brandwand
+3345019	0	0	00 schroef zetwerk_lang	Schroef zetwerk_lang
+3345023	0	0	00 test T	test T
+3345025	0	0	31 GlasVast	DI_GlasVast
+3345032	0	0	90 betontegel	std
+3345038	0	0	16 anker-recht	16_anker-recht
+3345040	0	0	21 stelblokje	21_stelblokje
+3345042	0	0	00 hoogtesymbool	hoogtesymbool
+3345044	0	0	90 maaiveld	std
+3345046	0	0	47 Maaiveld schaal 5	Maaiveld schaal 5
+3345073	0	0	90 straatklinker	std
+3345092	0	0	23 kanaalplaat_200	std
+3345098	0	0	40 multiplex	D20
+3345099	0	0	35 kantlat plafond1	kantlat plafond 2
+3345105	0	0	00 schroef zetwerk_extra lang	Schroef zetwerk_extra lang
+3345114	0	0	31 Reynaers_bb_onderdorpel_01	Reynaers_bb_onderdorpel_01
+3345115	0	0	00 Carpeting-Section	M_Carpeting-Section
+3345121	0	0	22 Cellenbeton 150mm	22 Cellenbeton 150mm
+3345123	0	0	47 Grind_beton-groot	Grind_beton-groot
+3345137	0	0	31 alucobond	31_alucobond
+3345141	0	0	34 Bent plate_zonder railing detail item	Bent plate_120mm_zonder railing detail item 2
+3345145	0	0	34 Bent plate detail item	Bent plate detail item
+3345150	0	0	23 kanaalplaat_320	std
+3345151	0	0	21 Cellenbeton 150x600 brandwand	Cellenbeton 150x600 brandwand
+3345179	0	0	32_DO_MP_aluminium kozijnstijl	32_DO_MP_aluminium kozijnstijl
+3429322	0	0	unknown	unknown
+3429335	0	0	31 stelblokje_	Type 1
+3429338	0	0	27 compri_daktrim	Type 1
+3429347	0	0	unknown	unknown
+3429367	0	0	unknown	unknown
+3429371	0	0	unknown	unknown
+3429384	0	0	47 Terca dakpan Narvik OVH	Type 1
+3429385	0	0	47 bakgoot	Type 1
+3429387	0	0	unknown	unknown
+3429391	0	0	47 dakpan	Type 1
+3429402	0	0	unknown	unknown
+3429410	0	0	unknown	unknown
+3429450	0	0	unknown	unknown
+3429454	0	0	unknown	unknown
+3429472	0	0	23 PS_Combinatie passtuk	23_MV_PS_Combinatie passtuk
+3429478	0	0	21 steen_negge_s	Negge 85 mm waalformaat 50+10
+3429480	0	0	23 PS_Combinatie	23_MV_PS_Combinatie
+3429518	0	0	00 hout_rechthoekig_sls	Vuren 44x96
+3429520	0	0	00 hout_rechthoekig_sls	Vuren 44x121
+3429546	0	0	00 hout_rechthoekig_sls	Vuren 18x50
+3429554	0	0	unknown	unknown
+3429558	0	0	00 hout_rechthoekig_sls	Vuren 71x171
+3429560	0	0	00 hout_rechthoekig_sls	Vuren Gewolmaniseerd 22x32
+3429567	0	0	52 mastgoot_zink 45?	M37 dakhelling 45?
+3429568	0	0	00 hout_rechthoekig_sls	Vuren Gewolmaniseerd 22x45
+3429572	0	0	00 hout_rechthoekig_sls	Vuren 44x144
+3429582	0	0	47 dakpan OVH-pan_ver	nokvorst
+3429584	0	0	21 Line_Finishing	Lead
+3429621	0	0	28 schroeven 2D	Verzonken schroef 6.0x100mm
+3429623	0	0	28 schroeven 2D	Tellerkop-schroef 10.0x160mm
+3429646	0	0	00 hout_rechthoekig_sls	Vuren 38x184
+3429648	0	0	00 hout_rechthoekig_sls	Vuren 38x121
+3429650	0	0	00 hout_rechthoekig_sls	Vuren 71x100
+3429682	0	0	unknown	unknown
+3429686	0	0	unknown	unknown
+3430089	0	0	21 steen_s	Type 1 waalformaat 2
+3447214	0	0	unknown	unknown
+3447226	0	0	unknown	unknown
+3447243	0	0	unknown	unknown
+3447247	0	0	unknown	unknown
+3447251	0	0	unknown	unknown
+3447255	0	0	unknown	unknown
+3447259	0	0	28 chemische ankers met bout 2d	Anker M16
+3447261	0	0	00 hout rechthoekig	44x70
+3447271	0	0	00 hout_rechthoekig_sls	Vuren 22x38
+3447277	0	0	00 hout_rechthoekig_sls	SLS 38x235
+3447287	0	0	31 driedubbel_glas	HR+++ 2
+3447291	0	0	00 hout_rechthoekig_sls	SLS 38x33
+3447293	0	0	00 hout_rechthoekig_sls	SLS 38x100
+3447295	0	0	00 hout_rechthoekig_sls	SLS 38x44
+3451069	0	0	90 draaicirkels_vrachtwagen	90_DI_draaicirkels_vrachtwagen
+3529370	0	0	28 Staalprofielen B-profiel	B 100
+3529933	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIL60
+3529935	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIL55
+3529937	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIL50
+3529939	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIL47.5
+3529941	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIL45
+3529943	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIL42.5
+3529945	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIL40
+3529947	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIL38
+3529949	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIL36
+3529951	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIL34
+3529953	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIL32
+3529955	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIL30
+3529957	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIL28
+3529959	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIL26
+3529961	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIL24
+3529963	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIL22
+3529965	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIL20
+3529967	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIL18
+3529969	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIL16
+3529971	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIL14
+3529973	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIL12
+3529975	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DiL10
+3529977	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIE100
+3529979	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIE95
+3529981	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIE90
+3529983	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIE85
+3529985	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIE80
+3529987	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIE75
+3529989	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIE70
+3529991	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIE65
+3529993	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIE60
+3529995	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIE55
+3529997	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIE50
+3529999	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIE47.5
+3530001	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIE45
+3530003	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIE42.5
+3530005	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIE40
+3530007	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIE38
+3530009	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIE36
+3530011	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIE34
+3530013	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIE32
+3530015	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIE30
+3530017	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIE28
+3530019	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIE26
+3530021	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIE24
+3530023	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIE22
+3530025	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIE20
+3530027	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIE18
+3530029	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIE16
+3530031	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIE14
+3530033	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIE12
+3530035	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIE10
+3530037	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIN100
+3530039	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIN95
+3530041	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIN90
+3530043	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIN85
+3530045	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIN80
+3530047	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIN75
+3530049	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIN70
+3530051	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIN65
+3530053	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIN60
+3530055	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIN55
+3530057	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIN50
+3530059	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIN47.5
+3530061	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIN45
+3530063	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIN42.5
+3530065	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIN40
+3530067	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIN38
+3530069	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIN36
+3530071	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIN34
+3530073	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIN32
+3530075	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIN30
+3530079	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIN26
+3530081	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIN24
+3530083	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIN22
+3530085	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIN20
+3530087	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIN18
+3530089	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIN16
+3530091	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIN14
+3530093	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIN12
+3530095	0	0	28 Staalprofielen DIN,DIE,DILl 2d	DIN10
+3530626	0	0	28 Staalprofielen- IPE,HEA,HEB 2d	HEB1000
+3530628	0	0	28 Staalprofielen- IPE,HEA,HEB 2d	HEB900
+3530630	0	0	28 Staalprofielen- IPE,HEA,HEB 2d	HEB800
+3530632	0	0	28 Staalprofielen- IPE,HEA,HEB 2d	HEB700
+3530634	0	0	28 Staalprofielen- IPE,HEA,HEB 2d	HEB650
+3530636	0	0	28 Staalprofielen- IPE,HEA,HEB 2d	HEB600
+3530638	0	0	28 Staalprofielen- IPE,HEA,HEB 2d	HEB550
+3530640	0	0	28 Staalprofielen- IPE,HEA,HEB 2d	HEB500
+3530642	0	0	28 Staalprofielen- IPE,HEA,HEB 2d	HEB450
+3530644	0	0	28 Staalprofielen- IPE,HEA,HEB 2d	HEB400
+3530646	0	0	28 Staalprofielen- IPE,HEA,HEB 2d	HEB360
+3530648	0	0	28 Staalprofielen- IPE,HEA,HEB 2d	HEB340
+3530650	0	0	28 Staalprofielen- IPE,HEA,HEB 2d	HEB320
+3530652	0	0	28 Staalprofielen- IPE,HEA,HEB 2d	HEB300
+3530654	0	0	28 Staalprofielen- IPE,HEA,HEB 2d	HEB280
+3530656	0	0	28 Staalprofielen- IPE,HEA,HEB 2d	HEB260
+3530658	0	0	28 Staalprofielen- IPE,HEA,HEB 2d	HEB240
+3530660	0	0	28 Staalprofielen- IPE,HEA,HEB 2d	HEB220
+3530662	0	0	28 Staalprofielen- IPE,HEA,HEB 2d	HEB200
+3530664	0	0	28 Staalprofielen- IPE,HEA,HEB 2d	HEB180
+3530666	0	0	28 Staalprofielen- IPE,HEA,HEB 2d	HEB160
+3530668	0	0	28 Staalprofielen- IPE,HEA,HEB 2d	HEB140
+3530670	0	0	28 Staalprofielen- IPE,HEA,HEB 2d	HEB120
+3530672	0	0	28 Staalprofielen- IPE,HEA,HEB 2d	HEB100
+3530674	0	0	28 Staalprofielen- IPE,HEA,HEB 2d	HEA1000
+3530676	0	0	28 Staalprofielen- IPE,HEA,HEB 2d	HEA900
+3530678	0	0	28 Staalprofielen- IPE,HEA,HEB 2d	HEA800
+3530680	0	0	28 Staalprofielen- IPE,HEA,HEB 2d	HEA700
+3530682	0	0	28 Staalprofielen- IPE,HEA,HEB 2d	HEA650
+3530684	0	0	28 Staalprofielen- IPE,HEA,HEB 2d	HEA600
+3530686	0	0	28 Staalprofielen- IPE,HEA,HEB 2d	HEA550
+3530688	0	0	28 Staalprofielen- IPE,HEA,HEB 2d	HEA500
+3530690	0	0	28 Staalprofielen- IPE,HEA,HEB 2d	HEA450
+3530692	0	0	28 Staalprofielen- IPE,HEA,HEB 2d	HEA400
+3530694	0	0	28 Staalprofielen- IPE,HEA,HEB 2d	HEA360
+3530696	0	0	28 Staalprofielen- IPE,HEA,HEB 2d	HEA340
+3530698	0	0	28 Staalprofielen- IPE,HEA,HEB 2d	HEA320
+3530700	0	0	28 Staalprofielen- IPE,HEA,HEB 2d	HEA300
+3530702	0	0	28 Staalprofielen- IPE,HEA,HEB 2d	HEA280
+3530704	0	0	28 Staalprofielen- IPE,HEA,HEB 2d	HEA260
+3530706	0	0	28 Staalprofielen- IPE,HEA,HEB 2d	HEA240
+3530708	0	0	28 Staalprofielen- IPE,HEA,HEB 2d	HEA220
+3530710	0	0	28 Staalprofielen- IPE,HEA,HEB 2d	HEA200
+3530712	0	0	28 Staalprofielen- IPE,HEA,HEB 2d	HEA180
+3530714	0	0	28 Staalprofielen- IPE,HEA,HEB 2d	HEA160
+3530716	0	0	28 Staalprofielen- IPE,HEA,HEB 2d	HEA140
+3530718	0	0	28 Staalprofielen- IPE,HEA,HEB 2d	HEA120
+3530720	0	0	28 Staalprofielen- IPE,HEA,HEB 2d	HEA100
+3530722	0	0	28 Staalprofielen- IPE,HEA,HEB 2d	IPE600
+3530724	0	0	28 Staalprofielen- IPE,HEA,HEB 2d	IPE550
+3530726	0	0	28 Staalprofielen- IPE,HEA,HEB 2d	IPE500
+3530728	0	0	28 Staalprofielen- IPE,HEA,HEB 2d	IPE450
+3530730	0	0	28 Staalprofielen- IPE,HEA,HEB 2d	IPE400
+3530732	0	0	28 Staalprofielen- IPE,HEA,HEB 2d	IPE360
+3530734	0	0	28 Staalprofielen- IPE,HEA,HEB 2d	IPE330
+3530736	0	0	28 Staalprofielen- IPE,HEA,HEB 2d	IPE300
+3530738	0	0	28 Staalprofielen- IPE,HEA,HEB 2d	IPE270
+3530740	0	0	28 Staalprofielen- IPE,HEA,HEB 2d	IPE240
+3530742	0	0	28 Staalprofielen- IPE,HEA,HEB 2d	IPE220
+3530744	0	0	28 Staalprofielen- IPE,HEA,HEB 2d	IPE200
+3530746	0	0	28 Staalprofielen- IPE,HEA,HEB 2d	IPE180
+3530748	0	0	28 Staalprofielen- IPE,HEA,HEB 2d	IPE160
+3530750	0	0	28 Staalprofielen- IPE,HEA,HEB 2d	IPE140
+3530752	0	0	28 Staalprofielen- IPE,HEA,HEB 2d	IPE120
+3530754	0	0	28 Staalprofielen- IPE,HEA,HEB 2d	IPE100
+3530756	0	0	28 Staalprofielen- IPE,HEA,HEB 2d	IPE80
+3531533	0	0	28 Staalprofielen- koker RHS-2d	K300/200/16
+3531535	0	0	28 Staalprofielen- koker RHS-2d	K300/200/12.5
+3531537	0	0	28 Staalprofielen- koker RHS-2d	K300/200/10
+3531539	0	0	28 Staalprofielen- koker RHS-2d	K300/200/8
+3531541	0	0	28 Staalprofielen- koker RHS-2d	K300/200/6.3
+3531543	0	0	28 Staalprofielen- koker RHS-2d	K260/180/12.5
+3531545	0	0	28 Staalprofielen- koker RHS-2d	K260/180/10
+3531547	0	0	28 Staalprofielen- koker RHS-2d	K260/180/8
+3531549	0	0	28 Staalprofielen- koker RHS-2d	K260/180/6.3
+3531551	0	0	28 Staalprofielen- koker RHS-2d	K260/140/12.5
+3531553	0	0	28 Staalprofielen- koker RHS-2d	K260/140/10
+3531555	0	0	28 Staalprofielen- koker RHS-2d	K260/140/8
+3531557	0	0	28 Staalprofielen- koker RHS-2d	K260/140/6.3
+3531559	0	0	28 Staalprofielen- koker RHS-2d	K250/150/12.5
+3531561	0	0	28 Staalprofielen- koker RHS-2d	K250/150/10
+3531563	0	0	28 Staalprofielen- koker RHS-2d	K250/150/8
+3531565	0	0	28 Staalprofielen- koker RHS-2d	K250/150/6.3
+3531567	0	0	28 Staalprofielen- koker RHS-2d	K220/120/12.5
+3531569	0	0	28 Staalprofielen- koker RHS-2d	K220/120/10
+3531571	0	0	28 Staalprofielen- koker RHS-2d	K220/120/8
+3531573	0	0	28 Staalprofielen- koker RHS-2d	K220/120/6.3
+3531583	0	0	28 Staalprofielen- koker RHS-2d	K200/100/16
+3531585	0	0	28 Staalprofielen- koker RHS-2d	K200/100/12.5
+3531587	0	0	28 Staalprofielen- koker RHS-2d	K200/100/10
+3531589	0	0	28 Staalprofielen- koker RHS-2d	K200/100/8
+3531591	0	0	28 Staalprofielen- koker RHS-2d	K200/100/6.3
+3531593	0	0	28 Staalprofielen- koker RHS-2d	K180/100/12.5
+3531595	0	0	28 Staalprofielen- koker RHS-2d	K180/100/10
+3531597	0	0	28 Staalprofielen- koker RHS-2d	K180/100/8.8
+3531599	0	0	28 Staalprofielen- koker RHS-2d	K180/100/8
+3531601	0	0	28 Staalprofielen- koker RHS-2d	K180/100/7.1
+3531603	0	0	28 Staalprofielen- koker RHS-2d	K180/100/6.3
+3531605	0	0	28 Staalprofielen- koker RHS-2d	K160/90/10
+3531607	0	0	28 Staalprofielen- koker RHS-2d	K160/90/8
+3531609	0	0	28 Staalprofielen- koker RHS-2d	K160/90/7.1
+3531611	0	0	28 Staalprofielen- koker RHS-2d	K160/90/6.3
+3531613	0	0	28 Staalprofielen- koker RHS-2d	K160/90/4.5
+3531615	0	0	28 Staalprofielen- koker RHS-2d	K160/80/12.5
+3531617	0	0	28 Staalprofielen- koker RHS-2d	K160/80/10
+3531619	0	0	28 Staalprofielen- koker RHS-2d	K160/80/8
+3531621	0	0	28 Staalprofielen- koker RHS-2d	K160/80/7.1
+3531623	0	0	28 Staalprofielen- koker RHS-2d	K150/100/12.5
+3531625	0	0	28 Staalprofielen- koker RHS-2d	K150/100/10
+3531627	0	0	28 Staalprofielen- koker RHS-2d	K150/100/8
+3531629	0	0	28 Staalprofielen- koker RHS-2d	K150/100/6.3
+3531631	0	0	28 Staalprofielen- koker RHS-2d	K150/100/5
+3531635	0	0	28 Staalprofielen- koker RHS-2d	K140/80/8.8
+3531637	0	0	28 Staalprofielen- koker RHS-2d	K140/80/8
+3531639	0	0	28 Staalprofielen- koker RHS-2d	K140/80/7.1
+3531641	0	0	28 Staalprofielen- koker RHS-2d	K140/80/6.3
+3531643	0	0	28 Staalprofielen- koker RHS-2d	K140/80/5
+3531645	0	0	28 Staalprofielen- koker RHS-2d	K140/80/4
+3531647	0	0	28 Staalprofielen- koker RHS-2d	K140/70/10
+3531649	0	0	28 Staalprofielen- koker RHS-2d	K140/70/8
+3531651	0	0	28 Staalprofielen- koker RHS-2d	K140/70/7.1
+3531653	0	0	28 Staalprofielen- koker RHS-2d	K140/70/6.3
+3531655	0	0	28 Staalprofielen- koker RHS-2d	K140/70/5
+3531657	0	0	28 Staalprofielen- koker RHS-2d	K140/70/4
+3531659	0	0	28 Staalprofielen- koker RHS-2d	K120/80/10
+3531661	0	0	28 Staalprofielen- koker RHS-2d	K120/80/8 2
+3531663	0	0	28 Staalprofielen- koker RHS-2d	K120/80/6.3
+3531665	0	0	28 Staalprofielen- koker RHS-2d	K120/80/5
+3531667	0	0	28 Staalprofielen- koker RHS-2d	K120/60/10
+3531669	0	0	28 Staalprofielen- koker RHS-2d	K120/60/8
+3531671	0	0	28 Staalprofielen- koker RHS-2d	K120/60/7.1
+3531673	0	0	28 Staalprofielen- koker RHS-2d	K120/60/6.3
+3531675	0	0	28 Staalprofielen- koker RHS-2d	K120/60/5
+3531677	0	0	28 Staalprofielen- koker RHS-2d	K120/60/4
+3531679	0	0	28 Staalprofielen- koker RHS-2d	K120/60/3.6
+3531681	0	0	28 Staalprofielen- koker RHS-2d	K110/60/4.5
+3531683	0	0	28 Staalprofielen- koker RHS-2d	K110/60/3.6
+3531685	0	0	28 Staalprofielen- koker RHS-2d	K100/60/8
+3531687	0	0	28 Staalprofielen- koker RHS-2d	K100/60/7.1
+3531689	0	0	28 Staalprofielen- koker RHS-2d	K100/60/6.3
+3531691	0	0	28 Staalprofielen- koker RHS-2d	K100/60/5
+3531693	0	0	28 Staalprofielen- koker RHS-2d	K100/60/3.6
+3531695	0	0	28 Staalprofielen- koker RHS-2d	K100/50/8
+3531697	0	0	28 Staalprofielen- koker RHS-2d	K100/50/7.1
+3531699	0	0	28 Staalprofielen- koker RHS-2d	K100/50/6.3
+3531701	0	0	28 Staalprofielen- koker RHS-2d	K100/50/5.6
+3531703	0	0	28 Staalprofielen- koker RHS-2d	K100/50/5
+3531705	0	0	28 Staalprofielen- koker RHS-2d	K100/50/4.5
+3531707	0	0	28 Staalprofielen- koker RHS-2d	K100/50/4
+3531709	0	0	28 Staalprofielen- koker RHS-2d	K90/50/7.1
+3531711	0	0	28 Staalprofielen- koker RHS-2d	K90/50/6.3
+3531713	0	0	28 Staalprofielen- koker RHS-2d	K90/50/5
+3531715	0	0	28 Staalprofielen- koker RHS-2d	K90/50/4
+3531717	0	0	28 Staalprofielen- koker RHS-2d	K90/50/3.2
+3531719	0	0	28 Staalprofielen- koker RHS-2d	K80/40/6.3
+3531721	0	0	28 Staalprofielen- koker RHS-2d	K80/40/5
+3531723	0	0	28 Staalprofielen- koker RHS-2d	K80/40/4
+3531725	0	0	28 Staalprofielen- koker RHS-2d	K70/40/4
+3531727	0	0	28 Staalprofielen- koker RHS-2d	K60/40/5
+3531729	0	0	28 Staalprofielen- koker RHS-2d	K60/40/4
+3531731	0	0	28 Staalprofielen- koker RHS-2d	K60/40/2.9
+3531733	0	0	28 Staalprofielen- koker RHS-2d	K50/30/4
+3531735	0	0	28 Staalprofielen- koker RHS-2d	K50/30/2.9
+3532284	0	0	28 Staalprofielen- koker SHS-2d	K400/16
+3532286	0	0	28 Staalprofielen- koker SHS-2d	K400/12.5
+3532288	0	0	28 Staalprofielen- koker SHS-2d	K350/12.5
+3532290	0	0	28 Staalprofielen- koker SHS-2d	K350/10
+3532292	0	0	28 Staalprofielen- koker SHS-2d	K300/12.5
+3532294	0	0	28 Staalprofielen- koker SHS-2d	K250/12.5
+3532296	0	0	28 Staalprofielen- koker SHS-2d	K200/12.5
+3532298	0	0	28 Staalprofielen- koker SHS-2d	K180/12.5
+3532300	0	0	28 Staalprofielen- koker SHS-2d	K160/10
+3532302	0	0	28 Staalprofielen- koker SHS-2d	K150/12.5
+3532304	0	0	28 Staalprofielen- koker SHS-2d	K150/10
+3532306	0	0	28 Staalprofielen- koker SHS-2d	K140/10
+3532308	0	0	28 Staalprofielen- koker SHS-2d	K120/6.3
+3532310	0	0	28 Staalprofielen- koker SHS-2d	K120/5
+3532312	0	0	28 Staalprofielen- koker SHS-2d	K100/6.3
+3532314	0	0	28 Staalprofielen- koker SHS-2d	K90/6.3
+3532316	0	0	28 Staalprofielen- koker SHS-2d	K90/5
+3532318	0	0	28 Staalprofielen- koker SHS-2d	K80/6.3
+3532320	0	0	28 Staalprofielen- koker SHS-2d	K80/3.6
+3532322	0	0	28 Staalprofielen- koker SHS-2d	K70/6.3
+3532324	0	0	28 Staalprofielen- koker SHS-2d	K60/6.3
+3532326	0	0	28 Staalprofielen- koker SHS-2d	K300/10
+3532328	0	0	28 Staalprofielen- koker SHS-2d	K300/8
+3532330	0	0	28 Staalprofielen- koker SHS-2d	K250/10
+3532332	0	0	28 Staalprofielen- koker SHS-2d	K250/8
+3532334	0	0	28 Staalprofielen- koker SHS-2d	K200/10
+3532336	0	0	28 Staalprofielen- koker SHS-2d	K200/8
+3532338	0	0	28 Staalprofielen- koker SHS-2d	K200/6
+3532340	0	0	28 Staalprofielen- koker SHS-2d	K180/10
+3532342	0	0	28 Staalprofielen- koker SHS-2d	K180/8
+3532344	0	0	28 Staalprofielen- koker SHS-2d	K160/8
+3532346	0	0	28 Staalprofielen- koker SHS-2d	K160/6
+3532348	0	0	28 Staalprofielen- koker SHS-2d	K150/8
+3532350	0	0	28 Staalprofielen- koker SHS-2d	K150/6
+3532352	0	0	28 Staalprofielen- koker SHS-2d	K150/5
+3532354	0	0	28 Staalprofielen- koker SHS-2d	K140/8
+3532356	0	0	28 Staalprofielen- koker SHS-2d	K140/5
+3532358	0	0	28 Staalprofielen- koker SHS-2d	K120/8
+3532360	0	0	28 Staalprofielen- koker SHS-2d	K120/6
+3532362	0	0	28 Staalprofielen- koker SHS-2d	K120/4
+3532364	0	0	28 Staalprofielen- koker SHS-2d	K100/8
+3532366	0	0	28 Staalprofielen- koker SHS-2d	K100/5
+3532368	0	0	28 Staalprofielen- koker SHS-2d	K100/4
+3532370	0	0	28 Staalprofielen- koker SHS-2d	K90/4
+3532372	0	0	28 Staalprofielen- koker SHS-2d	K90/3
+3532374	0	0	28 Staalprofielen- koker SHS-2d	K80/5
+3532376	0	0	28 Staalprofielen- koker SHS-2d	K80/4
+3532378	0	0	28 Staalprofielen- koker SHS-2d	K80/3
+3532380	0	0	28 Staalprofielen- koker SHS-2d	K70/5
+3532382	0	0	28 Staalprofielen- koker SHS-2d	K70/3
+3532384	0	0	28 Staalprofielen- koker SHS-2d	K60/5
+3532386	0	0	28 Staalprofielen- koker SHS-2d	K60/4
+3532388	0	0	28 Staalprofielen- koker SHS-2d	K60/3
+3532390	0	0	28 Staalprofielen- koker SHS-2d	K50/4
+3532392	0	0	28 Staalprofielen- koker SHS-2d	K50/3
+3532394	0	0	28 Staalprofielen- koker SHS-2d	K40/4
+3532396	0	0	28 Staalprofielen- koker SHS-2d	K40/3
+3532923	0	0	28 Staalprofielen- L-2d	L40/4
+3532925	0	0	28 Staalprofielen- L-2d	L40/5
+3532927	0	0	28 Staalprofielen- L-2d	L45/4
+3532929	0	0	28 Staalprofielen- L-2d	L45/5
+3532931	0	0	28 Staalprofielen- L-2d	L50/5
+3532933	0	0	28 Staalprofielen- L-2d	L50/6
+3532935	0	0	28 Staalprofielen- L-2d	L50/8
+3532937	0	0	28 Staalprofielen- L-2d	L60/5
+3532939	0	0	28 Staalprofielen- L-2d	L60/6
+3532941	0	0	28 Staalprofielen- L-2d	L60/8
+3532943	0	0	28 Staalprofielen- L-2d	L70/7
+3532945	0	0	28 Staalprofielen- L-2d	L75/7
+3532947	0	0	28 Staalprofielen- L-2d	L75/8
+3532949	0	0	28 Staalprofielen- L-2d	L80/8
+3532951	0	0	28 Staalprofielen- L-2d	L80/10
+3532953	0	0	28 Staalprofielen- L-2d	L90/7
+3532955	0	0	28 Staalprofielen- L-2d	L90/9
+3532957	0	0	28 Staalprofielen- L-2d	L100/8
+3532959	0	0	28 Staalprofielen- L-2d	L100/10
+3532961	0	0	28 Staalprofielen- L-2d	L100/12
+3532963	0	0	28 Staalprofielen- L-2d	L110/10
+3532965	0	0	28 Staalprofielen- L-2d	L120/10
+3532967	0	0	28 Staalprofielen- L-2d	L120/12
+3532969	0	0	28 Staalprofielen- L-2d	L120/15
+3532971	0	0	28 Staalprofielen- L-2d	L130/12
+3532973	0	0	28 Staalprofielen- L-2d	L140/10
+3532975	0	0	28 Staalprofielen- L-2d	L140/13
+3532977	0	0	28 Staalprofielen- L-2d	L150/10
+3532979	0	0	28 Staalprofielen- L-2d	L150/12
+3532981	0	0	28 Staalprofielen- L-2d	L150/15
+3532983	0	0	28 Staalprofielen- L-2d	L150/18
+3532985	0	0	28 Staalprofielen- L-2d	L160/15
+3532987	0	0	28 Staalprofielen- L-2d	L180/16
+3532989	0	0	28 Staalprofielen- L-2d	L180/18
+3532991	0	0	28 Staalprofielen- L-2d	L200/16
+3532993	0	0	28 Staalprofielen- L-2d	L200/18
+3532995	0	0	28 Staalprofielen- L-2d	L200/20
+3532997	0	0	28 Staalprofielen- L-2d	L200/24
+3532999	0	0	28 Staalprofielen- L-2d	L50/30/4
+3533001	0	0	28 Staalprofielen- L-2d	L50/30/5
+3533003	0	0	28 Staalprofielen- L-2d	L60/30/5
+3533005	0	0	28 Staalprofielen- L-2d	L60/40/5
+3533007	0	0	28 Staalprofielen- L-2d	L60/40/6
+3533009	0	0	28 Staalprofielen- L-2d	L75/50/7
+3533011	0	0	28 Staalprofielen- L-2d	L80/40/6
+3533013	0	0	28 Staalprofielen- L-2d	L80/40/8
+3533015	0	0	28 Staalprofielen- L-2d	L80/60/7
+3533017	0	0	28 Staalprofielen- L-2d	L80/65/8
+3533019	0	0	28 Staalprofielen- L-2d	L90/60/8
+3533021	0	0	28 Staalprofielen- L-2d	L100/50/6
+3533023	0	0	28 Staalprofielen- L-2d	L100/50/8
+3533025	0	0	28 Staalprofielen- L-2d	L100/65/9
+3533027	0	0	28 Staalprofielen- L-2d	L120/80/8
+3533029	0	0	28 Staalprofielen- L-2d	L120/80/10
+3533031	0	0	28 Staalprofielen- L-2d	L130/65/8
+3533033	0	0	28 Staalprofielen- L-2d	L150/75/9
+3533035	0	0	28 Staalprofielen- L-2d	L150/75/11
+3533037	0	0	28 Staalprofielen- L-2d	L150/100/10
+3533039	0	0	28 Staalprofielen- L-2d	L150/100/12
+3533041	0	0	28 Staalprofielen- L-2d	L160/80/10
+3533043	0	0	28 Staalprofielen- L-2d	L160/80/12
+3533045	0	0	28 Staalprofielen- L-2d	L200/100/10
+3533047	0	0	28 Staalprofielen- L-2d	L200/100/12
+3533049	0	0	28 Staalprofielen- L-2d	L200/100/14
+3533051	0	0	28 Staalprofielen- L-2d	L130/65/10
+3533636	0	0	28 Staalprofielen NP-profiel	NP 10
+3533638	0	0	28 Staalprofielen NP-profiel	NP 11
+3533640	0	0	28 Staalprofielen NP-profiel	NP 12
+3533642	0	0	28 Staalprofielen NP-profiel	NP 13
+3533644	0	0	28 Staalprofielen NP-profiel	NP 14
+3533646	0	0	28 Staalprofielen NP-profiel	NP 15
+3533648	0	0	28 Staalprofielen NP-profiel	NP 16
+3533650	0	0	28 Staalprofielen NP-profiel	NP 17
+3533652	0	0	28 Staalprofielen NP-profiel	NP 55
+3533654	0	0	28 Staalprofielen NP-profiel	NP 50
+3533656	0	0	28 Staalprofielen NP-profiel	NP 47.5
+3533658	0	0	28 Staalprofielen NP-profiel	NP 45
+3533660	0	0	28 Staalprofielen NP-profiel	NP 42.5
+3533662	0	0	28 Staalprofielen NP-profiel	NP 40
+3533664	0	0	28 Staalprofielen NP-profiel	NP 38
+3533666	0	0	28 Staalprofielen NP-profiel	NP 36
+3533668	0	0	28 Staalprofielen NP-profiel	NP 34
+3533670	0	0	28 Staalprofielen NP-profiel	NP 32
+3533672	0	0	28 Staalprofielen NP-profiel	NP 30
+3533674	0	0	28 Staalprofielen NP-profiel	NP 29
+3533676	0	0	28 Staalprofielen NP-profiel	NP 28
+3533678	0	0	28 Staalprofielen NP-profiel	NP 27
+3533680	0	0	28 Staalprofielen NP-profiel	NP 26
+3533682	0	0	28 Staalprofielen NP-profiel	NP 25
+3533684	0	0	28 Staalprofielen NP-profiel	NP 24
+3533686	0	0	28 Staalprofielen NP-profiel	NP 22
+3533688	0	0	28 Staalprofielen NP-profiel	NP 20
+3533690	0	0	28 Staalprofielen NP-profiel	NP 18
+3534288	0	0	28 Staalprofielen- UPE-2d	UPE80
+3534290	0	0	28 Staalprofielen- UPE-2d	UPE100
+3534292	0	0	28 Staalprofielen- UPE-2d	UPE120
+3534294	0	0	28 Staalprofielen- UPE-2d	UPE140
+3534296	0	0	28 Staalprofielen- UPE-2d	UPE160
+3534298	0	0	28 Staalprofielen- UPE-2d	UPE180
+3534300	0	0	28 Staalprofielen- UPE-2d	UPE200
+3534302	0	0	28 Staalprofielen- UPE-2d	UPE220
+3534304	0	0	28 Staalprofielen- UPE-2d	UPE240
+3534306	0	0	28 Staalprofielen- UPE-2d	UPE270
+3534308	0	0	28 Staalprofielen- UPE-2d	UPE300
+3534310	0	0	28 Staalprofielen- UPE-2d	UPE360
+3534312	0	0	28 Staalprofielen- UPE-2d	UPE400
+3534314	0	0	28 Staalprofielen- UPE-2d	UPE330
+3534755	0	0	28 Staalprofielen-UNP-2d	UNP80
+3534757	0	0	28 Staalprofielen-UNP-2d	UNP400
+3534759	0	0	28 Staalprofielen-UNP-2d	UNP380
+3534761	0	0	28 Staalprofielen-UNP-2d	UNP350
+3534763	0	0	28 Staalprofielen-UNP-2d	UNP320
+3534765	0	0	28 Staalprofielen-UNP-2d	UNP300
+3534767	0	0	28 Staalprofielen-UNP-2d	UNP280
+3534769	0	0	28 Staalprofielen-UNP-2d	UNP260
+3534771	0	0	28 Staalprofielen-UNP-2d	UNP240
+3534773	0	0	28 Staalprofielen-UNP-2d	UNP220
+3534775	0	0	28 Staalprofielen-UNP-2d	UNP200
+3534777	0	0	28 Staalprofielen-UNP-2d	UNP180
+3534779	0	0	28 Staalprofielen-UNP-2d	UNP160
+3534781	0	0	28 Staalprofielen-UNP-2d	UNP140
+3534783	0	0	28 Staalprofielen-UNP-2d	UNP120
+3534785	0	0	28 Staalprofielen-UNP-2d	UNP100
+3537654	0	0	23 VBI kanaalplaat	KPV150
+3537656	0	0	23 VBI kanaalplaat	KPV200
+3537658	0	0	23 VBI kanaalplaat	KPV260
+3537660	0	0	23 VBI kanaalplaat	KPV320
+3537662	0	0	23 VBI kanaalplaat	KPV400
+3538478	0	0	23 Dycore Ribbenvloer	Type R350_0.9m_ RC3.0
+3538480	0	0	23 Dycore Ribbenvloer	Type R350_1.2m_ RC3.0
+3538482	0	0	23 Dycore Ribbenvloer	Type R350_1.2m_ RC3.5
+3538484	0	0	23 Dycore Ribbenvloer	Type R350_1.2m_ RC4.0
+3538486	0	0	23 Dycore Ribbenvloer	Type R350_1.2m_ RC6.6
+3538488	0	0	23 Dycore Ribbenvloer	Type R350_0.9m_ RC3.5
+3538490	0	0	23 Dycore Ribbenvloer	Type R350_0.9m_ RC4.0
+3538492	0	0	23 Dycore Ribbenvloer	Type R350_0.9m_ RC6.0
+3540181	0	0	23 VBI_PS-combinatie	RC 3.5 630
+3540183	0	0	23 VBI_PS-combinatie	RC 3.5 510
+3540185	0	0	23 VBI_PS-combinatie	RC 4.0 630
+3540187	0	0	23 VBI_PS-combinatie	RC 4.0 510
+3540189	0	0	23 VBI_PS-combinatie	RC 5.0 510
+3540191	0	0	23 VBI_PS-combinatie	RC 6.5 510
+3540193	0	0	23 VBI_PS-combinatie	RC 5.0 630
+3540195	0	0	23 VBI_PS-combinatie	RC 6.5 630
+3540727	0	0	23 WAARDO kanaalplaat	KPV200
+3540729	0	0	23 WAARDO kanaalplaat	KPV320
+3540731	0	0	23 WAARDO kanaalplaat	KPV265
+3540733	0	0	23 WAARDO kanaalplaat	KPV165
+3561891	0	0	unknown	unknown
+3561892	0	0	unknown	unknown
+3561893	0	0	unknown	unknown
+3562122	0	0	27 kantpan_aanzicht	27_DC_kantpan_aanzicht
+3562124	0	0	27 Sneldek_aanz	27_NL_Sneldek_aanz
+3562126	0	0	47 J047000_Detail	47_BCB_J047000-_Detail
+3563136	0	0	unknown	unknown
+3563137	0	0	unknown	unknown
+3563138	0	0	unknown	unknown
+3563139	0	0	unknown	unknown
+3563140	0	0	unknown	unknown
+3563264	0	0	21 steen_s	Type 5 ijsselformaat s
+3563265	0	0	22 blok_kalkzandsteen	198x100
+3563268	0	0	21 steen_s	Type 3 waalformaatKOP
+3563963	0	0	00 hout_rechthoekig_sls	Vuren 18x71
+3563966	0	0	00 hout_rechthoekig_sls	Vuren 30x50
+3563968	0	0	00 hout_rechthoekig_sls	Vuren 44x145
+3563971	0	0	00 hout_rechthoekig_sls	Vuren 22x171
+3563972	0	0	00 hout_rechthoekig_sls	Vuren 18x85
+3565185	0	0	00 hout_rechthoekig_sls	Vuren Gewolmaniseerd 71x196
+3565187	0	0	00 hout_rechthoekig_sls	Vuren 71x146
+3565189	0	0	00 hout_rechthoekig_sls	Vuren 56x121
+3565191	0	0	00 hout_rechthoekig_sls	Vuren 22x50
+3565193	0	0	00 hout_rechthoekig_sls	Vuren 96x146
+3565195	0	0	00 hout_rechthoekig_sls	Vuren 96x121
+3565197	0	0	00 hout_rechthoekig_sls	Vuren 96x96
+3565199	0	0	00 hout_rechthoekig_sls	Vuren 71x271
+3565201	0	0	00 hout_rechthoekig_sls	Vuren 71x246
+3565203	0	0	00 hout_rechthoekig_sls	Vuren 71x121
+3565205	0	0	00 hout_rechthoekig_sls	Vuren 71x96
+3565207	0	0	00 hout_rechthoekig_sls	Vuren 46x196
+3565209	0	0	00 hout_rechthoekig_sls	Vuren 46x136
+3565211	0	0	00 hout_rechthoekig_sls	Vuren 46x121
+3565213	0	0	00 hout_rechthoekig_sls	Vuren 46x96
+3565215	0	0	00 hout_rechthoekig_sls	Vuren 46x71
+3565217	0	0	00 hout_rechthoekig_sls	Vuren 45x70
+3565219	0	0	00 hout_rechthoekig_sls	Vuren 45x22
+3565221	0	0	00 hout_rechthoekig_sls	Vuren 44x44
+3565223	0	0	00 hout_rechthoekig_sls	SLS 38x156
+3565225	0	0	00 hout_rechthoekig_sls	SLS 38x38
+3565227	0	0	00 hout_rechthoekig_sls	SLS 38x62
+3565229	0	0	00 hout_rechthoekig_sls	SLS 38x96
+3565231	0	0	00 hout_rechthoekig_sls	Vuren 46x171
+3565233	0	0	00 hout_rechthoekig_sls	Vuren 46x146
+3565235	0	0	00 hout_rechthoekig_sls	SLS 38x286
+3565237	0	0	00 hout_rechthoekig_sls	SLS 38x120
+3577383	0	0	28 snelboutanker 2d	Snelboutanker M16
+3577385	0	0	28 snelboutanker 2d	Snelboutanker M12
+3577387	0	0	28 snelboutanker 2d	Snelboutanker M10
+3577389	0	0	28 snelboutanker 2d	Snelboutanker M8
+3577391	0	0	28 snelboutanker 2d	Snelboutanker M6
+3581016	0	0	28 bout met ring boven 2d	M20
+3581018	0	0	28 bout met ring boven 2d	M24
+3581020	0	0	28 bout met ring boven 2d	M16
+3581022	0	0	28 bout met ring boven 2d	M12
+3581024	0	0	28 bout met ring boven 2d	M10
+3581026	0	0	28 bout met ring boven 2d	M8
+3581028	0	0	28 bout met ring boven 2d	M22
+3581030	0	0	28 bout met ring boven 2d	M24 met ring
+3581032	0	0	28 bout met ring boven 2d	M22 met ring
+3581034	0	0	28 bout met ring boven 2d	M20 met ring
+3581036	0	0	28 bout met ring boven 2d	M16 met ring
+3581038	0	0	28 bout met ring boven 2d	M12 met ring
+3581040	0	0	28 bout met ring boven 2d	M10 met ring
+3581042	0	0	28 bout met ring boven 2d	M8 met ring
+3627825	0	0	00 peilmaat_5x	Type 1
+3635668	0	0	00 bout+moer	M6
+3635670	0	0	00 bout+moer	M8
+3635672	0	0	00 bout+moer	M10
+3635674	0	0	00 bout+moer	M16
+3635676	0	0	00 bout+moer	M12
+3639536	0	0	90 boom_1e_orde	Tree with Shading
+3639990	0	0	90 boom	90_DI_boom
+3640640	0	0	90 man_wijzend	Type 1
+3641050	0	0	90 vrouw_aanzicht	Type 1
+3641450	0	0	91 boom2	Type 1
+3641820	0	0	90 peugeot_aanzicht	Type 1
+3642211	0	0	90 renault	Type 1
+3642602	0	0	91 boom02_2D	91_CC_DET_boom2
+3643078	0	0	91 boom01_2D	91_CC_DET_boom2
+3645209	0	0	90 boom_aanzicht	1. Boom+Schaduw
+3645213	0	0	90 boom_aanzicht	2. Boom
+3649391	0	0	23 Comflor	Comflor100
+3649393	0	0	23 Comflor	Comflor210
+3649395	0	0	23 Comflor	Comflor225
+3649404	0	0	23 VBI appartementenvloer	APP320
+3649405	0	0	23 Hectar-isolatie	300
+3649416	0	0	23 HODY-plaat	HODY60
+3649417	0	0	23 HODY-plaat	HODY80
+3649418	0	0	23 HODY-plaat	HODY146
+3649423	0	0	23 Comflor	Comflor46
+3649425	0	0	23 Comflor	Comflor51
+3649427	0	0	23 Comflor	Comflor60
+3649429	0	0	23 Comflor	Comflor75
+3649431	0	0	23 Comflor	Comflor95
+3658578	0	0	28 las_symbool	a=5 mm
+3658608	0	0	unknown	unknown
+3658616	0	0	unknown	unknown
+3658629	0	0	unknown	unknown
+3658641	0	0	unknown	unknown
+3658653	0	0	unknown	unknown
+3658672	0	0	28 bout_symbolisch	Type 1
+3658675	0	0	28 reeks_staven	Type 1
+3658676	0	0	28 balk	Type 1 dekking 35/40
+3658677	0	0	28 beugels	rond 8
+3658705	0	0	00 hout-rechthoekig	SLS 38x121
+3658720	0	0	28 Staalprofielen	L90/60/8
+3685472	0	0	unknown	unknown
+3685476	0	0	unknown	unknown
+3685514	0	0	00 plaatmateriaal	d=10 mm
+3685518	0	0	00 plaatmateriaal	d=12 mm
+3685528	0	0	00 plaatmateriaal	d=15 mm
+3685544	0	0	unknown	unknown
+3685552	0	0	28 schroef	5.0x60
+3685572	0	0	28 schroef	10x300
+3717732	0	0	31 celband	Type 1
+3717820	0	0	00 msprofiel	75
+3717822	0	0	00 stalenschuifdeurprofiel	00_DI_stalenschuifdeurprofiel
+3717854	0	0	unknown	unknown
+3717858	0	0	00 stalendeurprofiel	00_DI_stalendeurprofiel
+3717882	0	0	unknown	unknown
+3717894	0	0	00 stalendeurprofiel 30min	00_DI_stalendeurprofiel 30min
+3717926	0	0	unknown	unknown
+3717940	0	0	00 stalendeurtussenprofiel	00_DI_stalendeurtussenprofiel
+3717942	0	0	unknown	unknown
+3717970	0	0	unknown	unknown
+3717982	0	0	unknown	unknown
+3718037	0	0	00 msprofiel	50
+3732271	0	0	unknown	unknown
+3732272	0	0	28 g_bout met ring boven 2d	M8 met ring
+3732278	0	0	28 las_symbool	2. a=5 mm
+3732333	0	0	unknown	unknown
+3732341	0	0	unknown	unknown
+3732351	0	0	17 paal_aanzicht	Type 2
+3735332	0	0	23 VBI massieve plaatvloer	MPV200
+3892920	0	0	00 hout_rechthoekig_sls	Vuren 80x180
+3892982	0	0	00 hout_rechthoekig_sls	Vuren 27x45
+3893062	0	0	00 hout_rechthoekig_sls	Vuren 146x59
+3893124	0	0	00 hout_rechthoekig_sls	Vuren 150x50
+3893256	0	0	00 hout_rechthoekig_sls	SLS 38x86
+3893326	0	0	00 hout_rechthoekig_sls	SLS 38x58
+3893411	0	0	00 hout_rechthoekig_sls	Vuren 22x44
+3893512	0	0	00 hout_rechthoekig_sls	Vuren 15x44
+3893584	0	0	00 hout_rechthoekig_sls	Vuren 10x44
+3893662	0	0	00 hout_rechthoekig_sls	Vuren 30x45
+3893732	0	0	00 hout_rechthoekig_sls	Vuren 46x28
+3894021	0	0	00 hout_rechthoekig_sls	Vuren 200x160
+3894206	0	0	00 hout_rechthoekig_sls	Vuren 160x160
+3894217	0	0	00 hout_rechthoekig_sls	Vuren 140x320
+3894289	0	0	00 hout_rechthoekig_sls	SLS 38x251
+3894397	0	0	00 hout_rechthoekig_sls	SLS 38x219
+3894448	0	0	00 hout_rechthoekig_sls	SLS 38x209
+3894593	0	0	00 hout_rechthoekig_sls	Vuren 22x100
+3894605	0	0	00 hout_rechthoekig_sls	Vuren 22x75
+3894659	0	0	00 hout_rechthoekig_sls	Vuren 20x30
+3894720	0	0	00 hout_rechthoekig_sls	Vuren 19x45
+3906456	0	0	31 alu_kozijnstijl_draaikiepraam	draaikiepraam
+3906462	0	0	31 alu_bovenstijl	Type 1
+3906464	0	0	31 alu_onderstijl	draaikiepraam
+3955176	0	0	31 alu_raam stijl1	draaikiepraam 2
+3965445	0	0	31 alu_deurstlijl_67X84	draaikiepraam
+3965447	0	0	31 alu_midden stijl1	draaikiepraam 2
+3965449	0	0	31 alu_stlijl_35x75	draaikiepraam
+3993671	0	0	31 alu_zijstijl	Type 1
+4020701	0	0	31 hebo schuifpui schuivend deel onder 67x140	56x176
+4074507	0	0	16_PS-Bekisting_2D	type 01
+4082082	0	0	unknown	unknown
+4082142	0	0	unknown	unknown
+4082159	0	0	28 schroeven 2D	Verzonken schroef 5.0x80mm
+4082163	0	0	28 schroeven 2D	Tellerkop-schroef 10.0x200mm
+4082164	0	0	28 schroeven 2D	Tellerkop-schroef 10.0x220mm
+4082180	0	0	00 hout-rechthoekig	SLS 38x89
+4082182	0	0	00 hout-rechthoekig	SLS 38x140
+4082184	0	0	00 hout-rechthoekig	Vuren 18x45
+4082186	0	0	00 hout-rechthoekig	SLS 38x184
+4082190	0	0	00 hout rechthoekig	28x45
+4082192	0	0	00 hout-rechthoekig	SLS 17x89
+4082194	0	0	unknown	unknown
+4082198	0	0	00 hout-rechthoekig	Vuren 44x146
+4082200	0	0	unknown	unknown
+4090048	0	0	00 hout-rechthoekig	Vuren 44x145
+4090049	0	0	00 hout-rechthoekig	SLS 38x235
+4090057	0	0	28 schroeven 2D	Tellerkop-schroef 10.0x140mm
+4090071	0	0	00 hout-rechthoekig	Vuren 44x121
+4090073	0	0	00 hout-rechthoekig	Vuren Gewolmaniseerd 18x45
+4090075	0	0	00 hout-rechthoekig	Vuren Gewolmaniseerd 22x50
+4093060	0	0	NLRS_28_DI_beugel_3_snedig	rond 8
+4093063	0	0	NLRS_28_DI_beugels_aanzicht	rond 8
+4093066	0	0	NLRS_28_DI_net	Type 1
+4105493	0	0	23 vloerverwarmingslangen	VL_vloerverwarmingslangen
+4113571	0	0	00 hout_rechthoekig_sls	Vuren 200x70
+4129333	0	0	00 hout_rechthoekig_sls	Vuren 71x150
+4144120	0	0	00 hout_rechthoekig_sls	Vuren 100x200
+4151811	0	0	00 hout_rechthoekig_sls	Vuren 60x171
+4175911	0	0	JCN_18_SR_korf aanzicht	eind - eind
+4228990	0	0	28 Staalprofielen- koker SHS-2d	K350/100/10
+4234146	0	0	NLRS_00_DI_maskeer	Type 1
+4245313	0	0	40 multiplex	D12
+4245315	0	0	40 multiplex	D10
+4248331	0	0	28 Staalprofielen- L-2d	L180/90/10
+4251365	0	0	28 Staalprofielen- L-2d	L100/65/7
+4262126	0	0	28 Staalprofielen- L-2d	L90/8
+4263820	0	0	28 Staalprofielen- L-2d	L75/50/5
+4270465	0	0	28 Staalprofielen- L-2d	L160/80/14
+4277858	0	0	28 schroeven 2D	Verzonken schroef 6.0x180
+4286424	0	0	00 hout rechthoekig	balk
+5070341	0	0	NLRS_00_DI_hout_rechthoekig	Vuren 44x71
+5070346	0	0	NLRS_00_DI_hout_rechthoekig	SLS 38x89
+5070354	0	0	NLRS_27_DI_DET_compri_daktrim_CA654A1	Type 1
+5070356	0	0	NLRS_00_DI_hout_rechthoekig1	Vuren 71x171 2
+5070357	0	0	NLRS_00_DI_hout_rechthoekig1	Vuren 22x50 2
+5070362	0	0	NLRS_00_DI_hout_rechthoekig1	SLS 38x171
+5070364	0	0	00 bout1	M10
+5078757	0	0	NLRS_33_DI_sparing	Type 1
+5078759	0	0	NLRS_17_DI_paal_aanzicht	Type 1
+5078764	0	0	NLRS_00_DI_hout_rechthoekig1	Vuren 71x171
+5078792	0	0	NLRS_00_DI_hout_rechthoekig1	SLS 38x121
+5078808	0	0	41 roval toscaan1	Type 1
+5087396	0	0	NLRS_47_DI_f_Terca dakpan Narvik OVH_s_e	Type 1
+5087428	0	0	00_DI_maskeer	Type 1
+5087436	0	0	00 peilmaat s e1	Type 1
+5087440	0	0	00 hout_rechthoekig_sls1	Vuren Gewolmaniseerd 18x45
+5087446	0	0	00 hout_rechthoekig_sls1	SLS 38x184
+5087447	0	0	00 hout_rechthoekig_sls1	Vuren Gewolmaniseerd 22x50
+5087454	0	0	00 hout_rechthoekig_sls1	Vuren 38x150
+5092986	0	0	NLRS_00_DI_hout_rechthoekig	SLS 38x140 2
+5112769	0	0	NLRS_00_DI_hout_rechthoekig1	SLS 38x184
+5112782	0	0	NLRS_00_DI_hout_rechthoekig1	SLS 38x235
+5112787	0	0	NLRS_28_DI_schroeven 2D	Tellerkop-schroef 10.0x140mm
+5112798	0	0	00 hout_rechthoekig_sls1	Vuren 96x196
+5112804	0	0	47 dakpan1	Type 1
+5112808	0	0	00 hout_rechthoekig_sls1	Vuren Gewolmaniseerd 22x45
+5112817	0	0	00 hout_rechthoekig_sls1	Vuren 44x180
+5112820	0	0	47 dakpan OVH-pan_ver1	nokvorst
+5121770	0	0	NLRS_00_DI_hout_rechthoekig1	SLS 38x89
+5121776	0	0	NLRS_00_DI_hout_rechthoekig1	Vuren 71x196
+5121785	0	0	00 hout_rechthoekig_sls1	Vuren 27x45
+5121789	0	0	00 peilmaat s e2	Type 2
+5121792	0	0	20 HSB_vloeranker1	25x170 6x60
+5121796	0	0	41 roval primaire1	Type 1
+5121797	0	0	00 hout_rechthoekig_sls1	SLS 38x62
+5121799	0	0	41 roval muurafdeksysteem type H2	Type 1

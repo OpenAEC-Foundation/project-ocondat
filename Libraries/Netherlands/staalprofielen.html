@@ -1,0 +1,1636 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staalprofielen - Project OconDat</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #34495e;
+            --accent: #3498db;
+            --light: #ecf0f1;
+            --dark: #1a252f;
+            --con: #3498db;
+            --nl-orange: #f39c12;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--light);
+            color: var(--primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .top-nav {
+            background: var(--dark);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .top-nav a { color: white; text-decoration: none; }
+        .top-nav .logo { font-weight: bold; font-size: 1.1rem; }
+        .top-nav .back { opacity: 0.8; }
+        .top-nav .back:hover { opacity: 1; }
+        header {
+            background: linear-gradient(135deg, var(--con), #2980b9);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        header p { opacity: 0.9; font-size: 1.1rem; }
+        .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-top: 1rem;
+        }
+        nav {
+            background: var(--secondary);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        nav a:hover { background: var(--con); }
+        main {
+            flex: 1;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+            width: 100%;
+        }
+        section {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        section h2 {
+            color: var(--primary);
+            border-bottom: 3px solid var(--con);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        section h3 {
+            color: var(--con);
+            margin: 1.5rem 0 1rem;
+        }
+        .info-box {
+            background: #e8f4fd;
+            border-left: 4px solid var(--con);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 5px 5px 0;
+        }
+        .nl-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            background: #fef3e2;
+            border: 1px solid var(--nl-orange);
+            color: #d35400;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        .nl-badge::before {
+            content: "NL";
+            background: var(--nl-orange);
+            color: white;
+            padding: 0 0.3rem;
+            border-radius: 2px;
+        }
+
+        /* Profiel vormen grid */
+        .profile-shapes {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .profile-card {
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: box-shadow 0.3s, transform 0.2s;
+        }
+        .profile-card:hover {
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            transform: translateY(-2px);
+        }
+        .profile-card.nl-common {
+            border-color: var(--nl-orange);
+            border-width: 2px;
+        }
+        .profile-card svg {
+            width: 160px;
+            height: 120px;
+            margin-bottom: 1rem;
+        }
+        .profile-card .name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.25rem;
+        }
+        .profile-card .desc {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+        .profile-card .params {
+            font-size: 0.8rem;
+            color: #888;
+            font-family: monospace;
+        }
+
+        /* Tabellen */
+        .table-container {
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+        th, td {
+            padding: 0.6rem 0.8rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background: var(--light);
+            font-weight: 600;
+            position: sticky;
+            top: 0;
+        }
+        tr:hover { background: #f8f9fa; }
+        td.num { text-align: right; font-family: monospace; }
+
+        /* Filter controls */
+        .filter-controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+        .filter-group label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--secondary);
+        }
+        .filter-group select, .filter-group input {
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            min-width: 150px;
+        }
+        .filter-group select:focus, .filter-group input:focus {
+            outline: none;
+            border-color: var(--con);
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+        .tab {
+            padding: 0.6rem 1.2rem;
+            background: var(--light);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        .tab:hover { background: #dce4e8; }
+        .tab.active {
+            background: var(--con);
+            color: white;
+        }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+
+        /* Dimensie diagram */
+        .dimension-diagram {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            padding: 1.5rem;
+            background: #fafafa;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+        .dimension-diagram svg {
+            width: 200px;
+            height: 200px;
+            flex-shrink: 0;
+        }
+        .dimension-legend {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 0.5rem 1rem;
+            font-size: 0.9rem;
+        }
+        .dimension-legend dt {
+            font-weight: 600;
+            font-family: monospace;
+            color: var(--con);
+        }
+        .dimension-legend dd {
+            color: #666;
+        }
+
+        /* Viewer styling */
+        #profile-viewer {
+            transition: all 0.3s ease;
+        }
+        #viewer-specs {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        #viewer-specs div {
+            padding: 0.3rem 0.5rem;
+            background: #f8f9fa;
+            border-radius: 4px;
+        }
+        #viewer-specs strong {
+            color: var(--con);
+        }
+
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+        }
+        footer a { color: var(--accent); }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2rem; }
+            nav ul { flex-direction: column; align-items: center; }
+            .profile-shapes { grid-template-columns: 1fr 1fr; }
+            .dimension-diagram { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="index.html" class="logo">Project OconDat</a>
+        <a href="constructie.html" class="back">&larr; Terug naar Constructie</a>
+    </div>
+
+    <header>
+        <h1>Staalprofielen</h1>
+        <p>Europese staalprofielen voor constructief ontwerp</p>
+        <span class="badge">NEN-EN 10025 | NEN-EN 10210 | Eurocode 3</span>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#overzicht">Overzicht</a></li>
+            <li><a href="#i-profielen">I-Profielen</a></li>
+            <li><a href="#u-profielen">U-Profielen</a></li>
+            <li><a href="#kokers">Kokers</a></li>
+            <li><a href="#buizen">Buizen</a></li>
+            <li><a href="#viewer">Profielviewer</a></li>
+            <li><a href="#tabellen">Tabellen</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- OVERZICHT -->
+        <section id="overzicht">
+            <h2>Profielvormen Overzicht</h2>
+
+            <div class="info-box">
+                <strong>Localisatie:</strong> Profielen gemarkeerd met <span class="nl-badge">Gangbaar</span>
+                zijn standaard beschikbaar bij Nederlandse staalleveranciers en worden veel toegepast in de Nederlandse bouwpraktijk.
+            </div>
+
+            <div class="profile-shapes">
+                <!-- HEA/HEB - Exact I-profiel met afrondingen -->
+                <!-- HEB200: h=200, b=200, tw=9, tf=15, r=18 (exact op schaal) -->
+                <div class="profile-card nl-common">
+                    <svg viewBox="0 0 100 100">
+                        <defs>
+                            <linearGradient id="steelGradCard" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#3d566e"/>
+                                <stop offset="50%" style="stop-color:#2c3e50"/>
+                                <stop offset="100%" style="stop-color:#1a252f"/>
+                            </linearGradient>
+                        </defs>
+                        <!-- Exact HEB200 geometry: h=200, b=200, tw=9, tf=15, r=18 -->
+                        <!-- Scale: 0.4 (200mm -> 80px), centered at 50,50 -->
+                        <path d="
+                            M 10 10
+                            L 90 10
+                            L 90 16
+                            L 53.6 16
+                            A 7.2 7.2 0 0 0 46.4 23.2
+                            L 46.4 76.8
+                            A 7.2 7.2 0 0 0 53.6 84
+                            L 90 84
+                            L 90 90
+                            L 10 90
+                            L 10 84
+                            L 46.4 84
+                            A 7.2 7.2 0 0 1 53.6 76.8
+                            L 53.6 23.2
+                            A 7.2 7.2 0 0 1 46.4 16
+                            L 10 16
+                            Z
+                        " fill="url(#steelGradCard)" stroke="#1a252f" stroke-width="0.5"/>
+                    </svg>
+                    <div class="name">HEA / HEB / HEM</div>
+                    <div class="desc">Europees breed flens profiel</div>
+                    <span class="nl-badge">Gangbaar</span>
+                    <div class="params">h &times; b &times; tw &times; tf &times; r</div>
+                </div>
+
+                <!-- IPE - Smal I-profiel met exacte verhoudingen -->
+                <!-- IPE300: h=300, b=150, tw=7.1, tf=10.7, r=15 -->
+                <div class="profile-card nl-common">
+                    <svg viewBox="0 0 100 100">
+                        <!-- IPE300 geometry scaled: h=300->85, b=150->42.5 -->
+                        <!-- Centered at 50,50 -->
+                        <path d="
+                            M 28.75 5
+                            L 71.25 5
+                            L 71.25 8.03
+                            L 52.01 8.03
+                            A 4.25 4.25 0 0 0 47.76 12.28
+                            L 47.76 87.72
+                            A 4.25 4.25 0 0 0 52.01 91.97
+                            L 71.25 91.97
+                            L 71.25 95
+                            L 28.75 95
+                            L 28.75 91.97
+                            L 47.99 91.97
+                            A 4.25 4.25 0 0 1 52.24 87.72
+                            L 52.24 12.28
+                            A 4.25 4.25 0 0 1 47.99 8.03
+                            L 28.75 8.03
+                            Z
+                        " fill="url(#steelGradCard)" stroke="#1a252f" stroke-width="0.5"/>
+                    </svg>
+                    <div class="name">IPE</div>
+                    <div class="desc">Europees I-profiel (smal)</div>
+                    <span class="nl-badge">Gangbaar</span>
+                    <div class="params">h &times; b &times; tw &times; tf &times; r</div>
+                </div>
+
+                <!-- UNP - U-profiel met schuine flenzen (8% slope) en r1/r2 afrondingen -->
+                <!-- UNP200: h=200, b=75, tw=8.5, tf=11.5, r1=11.5 (root), r2=5.5 (toe) -->
+                <div class="profile-card nl-common">
+                    <svg viewBox="0 0 100 100">
+                        <!-- UNP has sloped inner flanges (8% = ~4.6 degrees) -->
+                        <!-- r1 = root radius at web-flange junction -->
+                        <!-- r2 = toe radius at flange tips (smaller) -->
+                        <path d="
+                            M 25 5
+                            L 25 95
+                            L 70 95
+                            L 72 90
+                            L 40 87
+                            A 4 4 0 0 1 36 83
+                            L 36 17
+                            A 4 4 0 0 1 40 13
+                            L 72 10
+                            L 70 5
+                            Z
+                        " fill="url(#steelGradCard)" stroke="#1a252f" stroke-width="0.5"/>
+                        <!-- Small toe radius at flange tips -->
+                        <circle cx="72" cy="10" r="1.5" fill="url(#steelGradCard)"/>
+                        <circle cx="72" cy="90" r="1.5" fill="url(#steelGradCard)"/>
+                    </svg>
+                    <div class="name">UNP</div>
+                    <div class="desc">U-profiel schuine flenzen (8%)</div>
+                    <span class="nl-badge">Gangbaar</span>
+                    <div class="params">h &times; b &times; tw &times; tf &times; r1 &times; r2</div>
+                </div>
+
+                <!-- UPE - U-profiel met parallelle flenzen (geen schuine flenzen) -->
+                <!-- UPE200: h=200, b=80, tw=7.5, tf=11, r=12 (alleen root radius, geen toe radius) -->
+                <div class="profile-card nl-common">
+                    <svg viewBox="0 0 100 100">
+                        <!-- UPE has parallel flanges (unlike UNP) -->
+                        <!-- Only root radius (r) at web-flange junction, NO toe radius -->
+                        <path d="
+                            M 25 5
+                            L 25 95
+                            L 70 95
+                            L 70 89
+                            L 40 89
+                            A 5 5 0 0 1 35 84
+                            L 35 16
+                            A 5 5 0 0 1 40 11
+                            L 70 11
+                            L 70 5
+                            Z
+                        " fill="url(#steelGradCard)" stroke="#1a252f" stroke-width="0.5"/>
+                    </svg>
+                    <div class="name">UPE</div>
+                    <div class="desc">U-profiel parallelle flenzen</div>
+                    <span class="nl-badge">Gangbaar</span>
+                    <div class="params">h &times; b &times; tw &times; tf &times; r</div>
+                </div>
+
+                <!-- SHS - Vierkante koker met exacte afrondingen -->
+                <!-- EN 10219: ro (outer radius) ≈ 2t to 2.5t, ri (inner radius) ≈ t to 1.5t -->
+                <div class="profile-card nl-common">
+                    <svg viewBox="0 0 100 100">
+                        <!-- SHS100x6: h=100, b=100, t=6, ro=2t=12, ri=t=6 -->
+                        <!-- Buitencontour met afgeronde hoeken (ro=2t scaled) -->
+                        <path d="
+                            M 20 10
+                            L 80 10
+                            A 10 10 0 0 1 90 20
+                            L 90 80
+                            A 10 10 0 0 1 80 90
+                            L 20 90
+                            A 10 10 0 0 1 10 80
+                            L 10 20
+                            A 10 10 0 0 1 20 10
+                            Z
+                        " fill="url(#steelGradCard)" stroke="#1a252f" stroke-width="0.5"/>
+                        <!-- Binnencontour met ri=t afronding -->
+                        <path d="
+                            M 25 17
+                            L 75 17
+                            A 5 5 0 0 1 80 22
+                            L 80 78
+                            A 5 5 0 0 1 75 83
+                            L 25 83
+                            A 5 5 0 0 1 20 78
+                            L 20 22
+                            A 5 5 0 0 1 25 17
+                            Z
+                        " fill="white"/>
+                    </svg>
+                    <div class="name">SHS (Koker)</div>
+                    <div class="desc">Vierkante koker</div>
+                    <span class="nl-badge">Gangbaar</span>
+                    <div class="params">h &times; b &times; t (ro &asymp; 2t)</div>
+                </div>
+
+                <!-- RHS - Rechthoekige koker -->
+                <!-- EN 10219: same corner radius rules as SHS -->
+                <div class="profile-card nl-common">
+                    <svg viewBox="0 0 100 100">
+                        <!-- RHS150x100x6: h=150, b=100, t=6 -->
+                        <path d="
+                            M 20 5
+                            L 80 5
+                            A 10 10 0 0 1 90 15
+                            L 90 85
+                            A 10 10 0 0 1 80 95
+                            L 20 95
+                            A 10 10 0 0 1 10 85
+                            L 10 15
+                            A 10 10 0 0 1 20 5
+                            Z
+                        " fill="url(#steelGradCard)" stroke="#1a252f" stroke-width="0.5"/>
+                        <path d="
+                            M 25 12
+                            L 75 12
+                            A 5 5 0 0 1 80 17
+                            L 80 83
+                            A 5 5 0 0 1 75 88
+                            L 25 88
+                            A 5 5 0 0 1 20 83
+                            L 20 17
+                            A 5 5 0 0 1 25 12
+                            Z
+                        " fill="white"/>
+                    </svg>
+                    <div class="name">RHS (Koker)</div>
+                    <div class="desc">Rechthoekige koker</div>
+                    <span class="nl-badge">Gangbaar</span>
+                    <div class="params">h &times; b &times; t (ro &asymp; 2t)</div>
+                </div>
+
+                <!-- CHS - Ronde buis -->
+                <div class="profile-card nl-common">
+                    <svg viewBox="0 0 100 100">
+                        <defs>
+                            <radialGradient id="pipeGrad" cx="30%" cy="30%" r="70%">
+                                <stop offset="0%" style="stop-color:#4a6b8a"/>
+                                <stop offset="100%" style="stop-color:#1a252f"/>
+                            </radialGradient>
+                        </defs>
+                        <!-- CHS168.3x8: d=168.3, t=8 (wall thickness ~5% of diameter) -->
+                        <circle cx="50" cy="50" r="40" fill="url(#pipeGrad)" stroke="#1a252f" stroke-width="0.5"/>
+                        <circle cx="50" cy="50" r="32" fill="white"/>
+                    </svg>
+                    <div class="name">CHS (Buis)</div>
+                    <div class="desc">Ronde holle doorsnede</div>
+                    <span class="nl-badge">Gangbaar</span>
+                    <div class="params">d &times; t</div>
+                </div>
+
+                <!-- T-profiel met afrondingen -->
+                <div class="profile-card">
+                    <svg viewBox="0 0 100 100">
+                        <!-- T-profiel: flens bovenaan, lijf naar beneden -->
+                        <!-- Typisch gezaagd van I-profiel of gewalst T-profiel -->
+                        <path d="
+                            M 15 10
+                            L 85 10
+                            L 85 20
+                            L 57 20
+                            A 5 5 0 0 0 52 25
+                            L 52 90
+                            L 48 90
+                            L 48 25
+                            A 5 5 0 0 0 43 20
+                            L 15 20
+                            Z
+                        " fill="url(#steelGradCard)" stroke="#1a252f" stroke-width="0.5"/>
+                    </svg>
+                    <div class="name">T-Profiel</div>
+                    <div class="desc">T-vormig profiel</div>
+                    <div class="params">h &times; b &times; tw &times; tf &times; r</div>
+                </div>
+
+                <!-- L-profiel (hoeklijn) met afrondingen -->
+                <!-- EN 10056: r1 = inner radius, r2 = toe radius -->
+                <div class="profile-card">
+                    <svg viewBox="0 0 100 100">
+                        <!-- Gelijkzijdige hoeklijn L80x80x8, r1=9, r2=4.5 -->
+                        <path d="
+                            M 15 10
+                            L 27 10
+                            L 27 65
+                            A 12 12 0 0 0 39 77
+                            L 90 77
+                            L 90 90
+                            L 15 90
+                            Z
+                        " fill="url(#steelGradCard)" stroke="#1a252f" stroke-width="0.5"/>
+                        <!-- Toe radius at leg ends -->
+                        <circle cx="27" cy="12" r="2" fill="url(#steelGradCard)"/>
+                        <circle cx="88" cy="77" r="2" fill="url(#steelGradCard)"/>
+                    </svg>
+                    <div class="name">L-Profiel (Hoeklijn)</div>
+                    <div class="desc">Gelijkzijdig of ongelijkzijdig</div>
+                    <div class="params">h &times; b &times; t &times; r1 &times; r2</div>
+                </div>
+
+                <!-- Vlakstaal -->
+                <div class="profile-card">
+                    <svg viewBox="0 0 100 100">
+                        <!-- Vlakstaal: warmgewalst met licht afgeronde hoeken -->
+                        <rect x="10" y="35" width="80" height="30" rx="2" fill="url(#steelGradCard)" stroke="#1a252f" stroke-width="0.5"/>
+                    </svg>
+                    <div class="name">Vlakstaal</div>
+                    <div class="desc">Plat rechthoekig staal</div>
+                    <div class="params">b &times; t</div>
+                </div>
+
+                <!-- Rondstaal -->
+                <div class="profile-card">
+                    <svg viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="35" fill="url(#pipeGrad)" stroke="#1a252f" stroke-width="0.5"/>
+                    </svg>
+                    <div class="name">Rondstaal</div>
+                    <div class="desc">Massieve ronde staaf</div>
+                    <div class="params">d</div>
+                </div>
+
+                <!-- INP/NP - Oud I-profiel met schuine flenzen -->
+                <!-- Unlike modern HEA/HEB/IPE, INP has tapered flanges (14% slope) -->
+                <div class="profile-card">
+                    <svg viewBox="0 0 100 100">
+                        <!-- INP200: h=200, b=90, tw=7.5, tf=11.3 (at root), 14% taper -->
+                        <!-- Tapered flanges: thicker at web, thinner at tips -->
+                        <path d="
+                            M 27 5
+                            L 73 5
+                            L 70 15
+                            L 54 13
+                            A 3 3 0 0 0 51 16
+                            L 51 84
+                            A 3 3 0 0 0 54 87
+                            L 70 85
+                            L 73 95
+                            L 27 95
+                            L 30 85
+                            L 46 87
+                            A 3 3 0 0 0 49 84
+                            L 49 16
+                            A 3 3 0 0 0 46 13
+                            L 30 15
+                            Z
+                        " fill="url(#steelGradCard)" stroke="#1a252f" stroke-width="0.5"/>
+                    </svg>
+                    <div class="name">INP / NP</div>
+                    <div class="desc">Oud I-profiel schuine flenzen (14%)</div>
+                    <div class="params">h &times; b &times; tw &times; tf</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- I-PROFIELEN -->
+        <section id="i-profielen">
+            <h2>I-Profielen (Breed Flens)</h2>
+
+            <h3>HEA, HEB, HEM Verschil</h3>
+            <div class="dimension-diagram">
+                <svg viewBox="0 0 220 220">
+                    <!-- HEB200 exact: h=200, b=200, tw=9, tf=15, r=18 -->
+                    <!-- Schaal: 1mm = 0.85px, gecentreerd -->
+                    <defs>
+                        <clipPath id="profile-clip">
+                            <rect x="0" y="0" width="220" height="220"/>
+                        </clipPath>
+                    </defs>
+
+                    <!-- Exact I-profiel met correcte afrondingen -->
+                    <path d="
+                        M 25 15
+                        L 195 15
+                        L 195 27.75
+                        L 122.65 27.75
+                        A 15.3 15.3 0 0 0 107.35 43.05
+                        L 107.35 176.95
+                        A 15.3 15.3 0 0 0 122.65 192.25
+                        L 195 192.25
+                        L 195 205
+                        L 25 205
+                        L 25 192.25
+                        L 97.35 192.25
+                        A 15.3 15.3 0 0 0 112.65 176.95
+                        L 112.65 43.05
+                        A 15.3 15.3 0 0 0 97.35 27.75
+                        L 25 27.75
+                        Z
+                    " fill="#2c3e50"/>
+
+                    <!-- Dimensielijnen -->
+                    <!-- h - hoogte -->
+                    <line x1="15" y1="15" x2="15" y2="205" stroke="#3498db" stroke-width="1.5"/>
+                    <line x1="10" y1="15" x2="20" y2="15" stroke="#3498db" stroke-width="1.5"/>
+                    <line x1="10" y1="205" x2="20" y2="205" stroke="#3498db" stroke-width="1.5"/>
+                    <text x="8" y="115" font-size="14" fill="#3498db" text-anchor="end" font-weight="bold">h</text>
+
+                    <!-- b - breedte -->
+                    <line x1="25" y1="215" x2="195" y2="215" stroke="#3498db" stroke-width="1.5"/>
+                    <line x1="25" y1="210" x2="25" y2="220" stroke="#3498db" stroke-width="1.5"/>
+                    <line x1="195" y1="210" x2="195" y2="220" stroke="#3498db" stroke-width="1.5"/>
+                    <text x="110" y="212" font-size="14" fill="#3498db" text-anchor="middle" font-weight="bold">b</text>
+
+                    <!-- tf - flensdikte -->
+                    <line x1="205" y1="15" x2="205" y2="27.75" stroke="#e74c3c" stroke-width="1.5"/>
+                    <line x1="200" y1="15" x2="210" y2="15" stroke="#e74c3c" stroke-width="1.5"/>
+                    <line x1="200" y1="27.75" x2="210" y2="27.75" stroke="#e74c3c" stroke-width="1.5"/>
+                    <text x="215" y="23" font-size="12" fill="#e74c3c" font-weight="bold">tf</text>
+
+                    <!-- tw - lijfdikte -->
+                    <line x1="97.35" y1="5" x2="122.65" y2="5" stroke="#27ae60" stroke-width="1.5"/>
+                    <line x1="97.35" y1="0" x2="97.35" y2="10" stroke="#27ae60" stroke-width="1.5"/>
+                    <line x1="122.65" y1="0" x2="122.65" y2="10" stroke="#27ae60" stroke-width="1.5"/>
+                    <text x="110" y="4" font-size="12" fill="#27ae60" text-anchor="middle" font-weight="bold">tw</text>
+
+                    <!-- r - afrondingsstraal -->
+                    <path d="M 122.65 43.05 A 15.3 15.3 0 0 1 137.95 27.75" fill="none" stroke="#9b59b6" stroke-width="1.5"/>
+                    <line x1="122.65" y1="43.05" x2="137.95" y2="27.75" stroke="#9b59b6" stroke-width="1" stroke-dasharray="3,2"/>
+                    <text x="142" y="38" font-size="12" fill="#9b59b6" font-weight="bold">r</text>
+                </svg>
+                <dl class="dimension-legend">
+                    <dt>h</dt><dd>Profielhoogte (mm)</dd>
+                    <dt>b</dt><dd>Flensbreedte (mm)</dd>
+                    <dt>tw</dt><dd>Lijfdikte / webdikte (mm)</dd>
+                    <dt>tf</dt><dd>Flensdikte (mm)</dd>
+                    <dt>r</dt><dd>Afrondingsstraal (mm)</dd>
+                    <dt>A</dt><dd>Doorsnede-oppervlak (cm&sup2;)</dd>
+                    <dt>G</dt><dd>Gewicht per meter (kg/m)</dd>
+                    <dt>Iy</dt><dd>Traagheidsmoment sterke as (cm&sup4;)</dd>
+                    <dt>Iz</dt><dd>Traagheidsmoment zwakke as (cm&sup4;)</dd>
+                </dl>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Serie</th>
+                        <th>Kenmerk</th>
+                        <th>h t.o.v. typenummer</th>
+                        <th>Toepassing</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>HEA</strong></td>
+                        <td>Licht</td>
+                        <td>h = typenummer &minus; 4 tot 10 mm</td>
+                        <td>Lichte constructies, secundaire liggers</td>
+                    </tr>
+                    <tr>
+                        <td><strong>HEB</strong></td>
+                        <td>Standaard</td>
+                        <td>h = typenummer</td>
+                        <td>Algemene constructieve toepassing</td>
+                    </tr>
+                    <tr>
+                        <td><strong>HEM</strong></td>
+                        <td>Zwaar</td>
+                        <td>h = typenummer + 20 mm</td>
+                        <td>Zware belastingen, kolommen</td>
+                    </tr>
+                    <tr>
+                        <td><strong>IPE</strong></td>
+                        <td>Smal</td>
+                        <td>h = typenummer</td>
+                        <td>Vloerliggers, gordingen</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="info-box">
+                <strong>Notatie:</strong> Altijd met spatie: <code>HEA 200</code>, niet <code>HEA200</code>.
+                Voor technische berekeningen worden vaak ook de alternatieven <code>HE200A</code> of <code>HE 200 A</code> geaccepteerd.
+            </div>
+        </section>
+
+        <!-- U-PROFIELEN -->
+        <section id="u-profielen">
+            <h2>U-Profielen (Kanaalprofielen)</h2>
+
+            <div class="dimension-diagram">
+                <svg viewBox="0 0 220 220">
+                    <!-- UPE200 exact: h=200, b=80, tw=7.5, tf=11, r=12 -->
+                    <!-- Exact U-profiel met parallelle flenzen en afrondingen -->
+                    <path d="
+                        M 30 15
+                        L 30 205
+                        L 130 205
+                        L 130 193.9
+                        L 52.1 193.9
+                        A 10.2 10.2 0 0 1 41.9 183.7
+                        L 41.9 36.3
+                        A 10.2 10.2 0 0 1 52.1 26.1
+                        L 130 26.1
+                        L 130 15
+                        Z
+                    " fill="#2c3e50"/>
+
+                    <!-- Dimensielijnen -->
+                    <!-- h - hoogte -->
+                    <line x1="20" y1="15" x2="20" y2="205" stroke="#3498db" stroke-width="1.5"/>
+                    <line x1="15" y1="15" x2="25" y2="15" stroke="#3498db" stroke-width="1.5"/>
+                    <line x1="15" y1="205" x2="25" y2="205" stroke="#3498db" stroke-width="1.5"/>
+                    <text x="12" y="115" font-size="14" fill="#3498db" text-anchor="end" font-weight="bold">h</text>
+
+                    <!-- b - breedte -->
+                    <line x1="30" y1="215" x2="130" y2="215" stroke="#3498db" stroke-width="1.5"/>
+                    <line x1="30" y1="210" x2="30" y2="220" stroke="#3498db" stroke-width="1.5"/>
+                    <line x1="130" y1="210" x2="130" y2="220" stroke="#3498db" stroke-width="1.5"/>
+                    <text x="80" y="212" font-size="14" fill="#3498db" text-anchor="middle" font-weight="bold">b</text>
+
+                    <!-- tw - lijfdikte -->
+                    <line x1="30" y1="5" x2="41.9" y2="5" stroke="#27ae60" stroke-width="1.5"/>
+                    <line x1="30" y1="0" x2="30" y2="10" stroke="#27ae60" stroke-width="1.5"/>
+                    <line x1="41.9" y1="0" x2="41.9" y2="10" stroke="#27ae60" stroke-width="1.5"/>
+                    <text x="36" y="4" font-size="11" fill="#27ae60" text-anchor="middle" font-weight="bold">tw</text>
+
+                    <!-- tf - flensdikte -->
+                    <line x1="140" y1="15" x2="140" y2="26.1" stroke="#e74c3c" stroke-width="1.5"/>
+                    <line x1="135" y1="15" x2="145" y2="15" stroke="#e74c3c" stroke-width="1.5"/>
+                    <line x1="135" y1="26.1" x2="145" y2="26.1" stroke="#e74c3c" stroke-width="1.5"/>
+                    <text x="150" y="22" font-size="11" fill="#e74c3c" font-weight="bold">tf</text>
+
+                    <!-- r - afrondingsstraal -->
+                    <path d="M 52.1 36.3 A 10.2 10.2 0 0 1 41.9 26.1" fill="none" stroke="#f39c12" stroke-width="1.5"/>
+                    <text x="58" y="42" font-size="11" fill="#f39c12" font-weight="bold">r</text>
+
+                    <!-- ey - zwaartepunt afstand -->
+                    <circle cx="75" cy="110" r="3" fill="#9b59b6"/>
+                    <line x1="30" y1="110" x2="75" y2="110" stroke="#9b59b6" stroke-width="1.5" stroke-dasharray="4,3"/>
+                    <text x="52" y="105" font-size="11" fill="#9b59b6" text-anchor="middle" font-weight="bold">ey</text>
+                </svg>
+                <dl class="dimension-legend">
+                    <dt>h</dt><dd>Profielhoogte (mm)</dd>
+                    <dt>b</dt><dd>Flensbreedte (mm)</dd>
+                    <dt>tw</dt><dd>Lijfdikte (mm)</dd>
+                    <dt>tf</dt><dd>Flensdikte (mm)</dd>
+                    <dt>ey</dt><dd>Afstand zwaartepunt tot lijf (mm)</dd>
+                </dl>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Serie</th>
+                        <th>Flenzen</th>
+                        <th>Opmerking</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>UNP</strong></td>
+                        <td>Schuine flenzen (8% helling)</td>
+                        <td>Klassiek Europees U-profiel, meest toegepast</td>
+                    </tr>
+                    <tr>
+                        <td><strong>UPE</strong></td>
+                        <td>Evenwijdige flenzen</td>
+                        <td>Moderner profiel, makkelijker aan te sluiten</td>
+                    </tr>
+                    <tr>
+                        <td><strong>UAP</strong></td>
+                        <td>Evenwijdige flenzen</td>
+                        <td>Amerikaanse maten</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- KOKERS -->
+        <section id="kokers">
+            <h2>Kokerprofielen (Holle Doorsneden)</h2>
+
+            <h3>Vierkante Kokers (SHS - Square Hollow Section)</h3>
+            <div class="dimension-diagram">
+                <svg viewBox="0 0 220 220">
+                    <!-- SHS100x6: h=100, b=100, t=6, ro=1.5t=9, ri=0.5t=3 -->
+                    <!-- Buitencontour met exacte afgeronde hoeken -->
+                    <path d="
+                        M 45 20
+                        L 175 20
+                        A 25 25 0 0 1 200 45
+                        L 200 175
+                        A 25 25 0 0 1 175 200
+                        L 45 200
+                        A 25 25 0 0 1 20 175
+                        L 20 45
+                        A 25 25 0 0 1 45 20
+                        Z
+                    " fill="#2c3e50"/>
+                    <!-- Binnencontour met exacte afgeronde hoeken -->
+                    <path d="
+                        M 57 32
+                        L 163 32
+                        A 13 13 0 0 1 176 45
+                        L 176 175
+                        A 13 13 0 0 1 163 188
+                        L 57 188
+                        A 13 13 0 0 1 44 175
+                        L 44 45
+                        A 13 13 0 0 1 57 32
+                        Z
+                    " fill="white"/>
+
+                    <!-- Dimensielijnen -->
+                    <!-- h - hoogte -->
+                    <line x1="10" y1="20" x2="10" y2="200" stroke="#3498db" stroke-width="1.5"/>
+                    <line x1="5" y1="20" x2="15" y2="20" stroke="#3498db" stroke-width="1.5"/>
+                    <line x1="5" y1="200" x2="15" y2="200" stroke="#3498db" stroke-width="1.5"/>
+                    <text x="7" y="115" font-size="14" fill="#3498db" text-anchor="end" font-weight="bold">h</text>
+
+                    <!-- b - breedte -->
+                    <line x1="20" y1="210" x2="200" y2="210" stroke="#3498db" stroke-width="1.5"/>
+                    <line x1="20" y1="205" x2="20" y2="215" stroke="#3498db" stroke-width="1.5"/>
+                    <line x1="200" y1="205" x2="200" y2="215" stroke="#3498db" stroke-width="1.5"/>
+                    <text x="110" y="218" font-size="14" fill="#3498db" text-anchor="middle" font-weight="bold">b</text>
+
+                    <!-- t - wanddikte -->
+                    <line x1="20" y1="110" x2="44" y2="110" stroke="#e74c3c" stroke-width="1.5"/>
+                    <line x1="20" y1="105" x2="20" y2="115" stroke="#e74c3c" stroke-width="1.5"/>
+                    <line x1="44" y1="105" x2="44" y2="115" stroke="#e74c3c" stroke-width="1.5"/>
+                    <text x="32" y="125" font-size="11" fill="#e74c3c" text-anchor="middle" font-weight="bold">t</text>
+
+                    <!-- ro - buitenstraal -->
+                    <path d="M 175 20 A 25 25 0 0 1 200 45" fill="none" stroke="#f39c12" stroke-width="1.5"/>
+                    <text x="195" y="15" font-size="11" fill="#f39c12" font-weight="bold">ro</text>
+
+                    <!-- ri - binnenstraal -->
+                    <path d="M 163 32 A 13 13 0 0 1 176 45" fill="none" stroke="#9b59b6" stroke-width="1.5"/>
+                    <text x="172" y="50" font-size="10" fill="#9b59b6" font-weight="bold">ri</text>
+                </svg>
+                <dl class="dimension-legend">
+                    <dt>h</dt><dd>Hoogte (mm)</dd>
+                    <dt>b</dt><dd>Breedte (mm) - bij SHS: h = b</dd>
+                    <dt>t</dt><dd>Wanddikte (mm)</dd>
+                    <dt>ro</dt><dd>Buitenstraal (mm)</dd>
+                    <dt>ri</dt><dd>Binnenstraal (mm)</dd>
+                </dl>
+            </div>
+
+            <div class="info-box">
+                <strong>Nederlandse notatie:</strong> In Nederland vaak aangeduid als <code>Koker 100x100x5</code> of <code>K100/100/5</code>.
+                Internationaal: <code>SHS 100x5</code> (vierkant) of <code>RHS 120x80x5</code> (rechthoekig).
+            </div>
+
+            <h3>Rechthoekige Kokers (RHS - Rectangular Hollow Section)</h3>
+            <p>Rechthoekige kokers worden genoteerd als <code>h x b x t</code> waarbij h &gt; b. Voorbeeld: <code>RHS 120x80x5</code></p>
+        </section>
+
+        <!-- BUIZEN -->
+        <section id="buizen">
+            <h2>Ronde Buizen (CHS - Circular Hollow Section)</h2>
+
+            <div class="dimension-diagram">
+                <svg viewBox="0 0 220 220">
+                    <!-- CHS168.3x8: d=168.3, t=8 -->
+                    <!-- Exacte ronde buis -->
+                    <circle cx="110" cy="110" r="80" fill="#2c3e50"/>
+                    <circle cx="110" cy="110" r="64" fill="white"/>
+
+                    <!-- Dimensielijnen -->
+                    <!-- d - buitendiameter -->
+                    <line x1="110" y1="30" x2="110" y2="190" stroke="#3498db" stroke-width="1.5" stroke-dasharray="6,4"/>
+                    <line x1="30" y1="110" x2="190" y2="110" stroke="#3498db" stroke-width="1.5" stroke-dasharray="6,4"/>
+
+                    <!-- d aanduidingen -->
+                    <line x1="30" y1="15" x2="190" y2="15" stroke="#3498db" stroke-width="1.5"/>
+                    <line x1="30" y1="10" x2="30" y2="20" stroke="#3498db" stroke-width="1.5"/>
+                    <line x1="190" y1="10" x2="190" y2="20" stroke="#3498db" stroke-width="1.5"/>
+                    <text x="110" y="12" font-size="14" fill="#3498db" text-anchor="middle" font-weight="bold">d</text>
+
+                    <!-- t - wanddikte -->
+                    <line x1="142" y1="110" x2="158" y2="110" stroke="#e74c3c" stroke-width="2"/>
+                    <text x="150" y="100" font-size="12" fill="#e74c3c" text-anchor="middle" font-weight="bold">t</text>
+
+                    <!-- di - binnendiameter indicatie -->
+                    <line x1="46" y1="205" x2="174" y2="205" stroke="#27ae60" stroke-width="1.5"/>
+                    <line x1="46" y1="200" x2="46" y2="210" stroke="#27ae60" stroke-width="1.5"/>
+                    <line x1="174" y1="200" x2="174" y2="210" stroke="#27ae60" stroke-width="1.5"/>
+                    <text x="110" y="215" font-size="12" fill="#27ae60" text-anchor="middle" font-weight="bold">di = d - 2t</text>
+                </svg>
+                <dl class="dimension-legend">
+                    <dt>d</dt><dd>Buitendiameter (mm)</dd>
+                    <dt>t</dt><dd>Wanddikte (mm)</dd>
+                    <dt>di</dt><dd>Binnendiameter = d &minus; 2t (mm)</dd>
+                </dl>
+            </div>
+
+            <div class="info-box">
+                <strong>Nederlandse notatie:</strong> <code>Buis 114.3x5</code> of <code>B114.3/5</code>.
+                Internationaal: <code>CHS 114.3x5</code>.
+            </div>
+
+            <h3>Standaard Buisdiameters</h3>
+            <p>Ronde buizen volgen standaard pijpmaten. De meest gangbare diameters zijn:</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Diameter (mm)</th>
+                        <th>Gangbare wanddiktes (mm)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>42.4</td><td>3, 4</td></tr>
+                    <tr><td>48.3</td><td>3, 4, 5</td></tr>
+                    <tr><td>60.3</td><td>3, 4, 5, 6.3</td></tr>
+                    <tr><td>76.1</td><td>3, 4, 5, 6.3</td></tr>
+                    <tr><td>88.9</td><td>4, 5, 6.3, 8</td></tr>
+                    <tr><td>114.3</td><td>4, 5, 6.3, 8</td></tr>
+                    <tr><td>139.7</td><td>5, 6.3, 8, 10</td></tr>
+                    <tr><td>168.3</td><td>5, 6.3, 8, 10</td></tr>
+                    <tr><td>219.1</td><td>6.3, 8, 10, 12.5</td></tr>
+                    <tr><td>273</td><td>6.3, 8, 10, 12.5</td></tr>
+                    <tr><td>323.9</td><td>8, 10, 12.5, 16</td></tr>
+                    <tr><td>355.6</td><td>8, 10, 12.5, 16</td></tr>
+                    <tr><td>406.4</td><td>10, 12.5, 16, 20</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- INTERACTIEVE PROFIEL VIEWER -->
+        <section id="viewer">
+            <h2>Interactieve Profielviewer</h2>
+            <p>Selecteer een profiel om een geometrisch exacte tekening te zien met alle afmetingen.</p>
+
+            <div class="filter-controls">
+                <div class="filter-group">
+                    <label for="viewer-serie">Serie</label>
+                    <select id="viewer-serie" onchange="updateViewerProfiles()">
+                        <option value="HEA">HEA</option>
+                        <option value="HEB">HEB</option>
+                        <option value="IPE">IPE</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="viewer-profiel">Profiel</label>
+                    <select id="viewer-profiel" onchange="drawProfileViewer()">
+                    </select>
+                </div>
+            </div>
+
+            <div class="dimension-diagram" style="flex-direction: column; align-items: center;">
+                <svg id="profile-viewer" viewBox="0 0 400 400" style="width: 350px; height: 350px; background: #fafafa; border: 1px solid #ddd; border-radius: 8px;">
+                </svg>
+                <div id="viewer-specs" style="margin-top: 1rem; display: grid; grid-template-columns: repeat(5, auto); gap: 0.5rem 1.5rem; font-size: 0.9rem;">
+                </div>
+            </div>
+        </section>
+
+        <!-- TABELLEN -->
+        <section id="tabellen">
+            <h2>Profieltabellen</h2>
+
+            <div class="filter-controls">
+                <div class="filter-group">
+                    <label for="serie-filter">Profielserie</label>
+                    <select id="serie-filter" onchange="filterTable()">
+                        <option value="all">Alle series</option>
+                        <option value="HEA" selected>HEA</option>
+                        <option value="HEB">HEB</option>
+                        <option value="IPE">IPE</option>
+                        <option value="UNP">UNP</option>
+                        <option value="SHS">SHS (Koker)</option>
+                        <option value="CHS">CHS (Buis)</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="hoogte-min">Min. hoogte (mm)</label>
+                    <input type="number" id="hoogte-min" placeholder="bijv. 100" onchange="filterTable()">
+                </div>
+                <div class="filter-group">
+                    <label for="hoogte-max">Max. hoogte (mm)</label>
+                    <input type="number" id="hoogte-max" placeholder="bijv. 400" onchange="filterTable()">
+                </div>
+            </div>
+
+            <div class="tabs">
+                <button class="tab active" onclick="showTab('tab-i')">I-Profielen</button>
+                <button class="tab" onclick="showTab('tab-u')">U-Profielen</button>
+                <button class="tab" onclick="showTab('tab-koker')">Kokers</button>
+                <button class="tab" onclick="showTab('tab-buis')">Buizen</button>
+            </div>
+
+            <!-- I-Profielen Tab -->
+            <div id="tab-i" class="tab-content active">
+                <div class="table-container">
+                    <table id="i-table">
+                        <thead>
+                            <tr>
+                                <th>Profiel</th>
+                                <th>h (mm)</th>
+                                <th>b (mm)</th>
+                                <th>tw (mm)</th>
+                                <th>tf (mm)</th>
+                                <th>r (mm)</th>
+                                <th>A (cm&sup2;)</th>
+                                <th>G (kg/m)</th>
+                                <th>Iy (cm&sup4;)</th>
+                                <th>Iz (cm&sup4;)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="i-table-body">
+                            <!-- Filled by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- U-Profielen Tab -->
+            <div id="tab-u" class="tab-content">
+                <div class="table-container">
+                    <table id="u-table">
+                        <thead>
+                            <tr>
+                                <th>Profiel</th>
+                                <th>h (mm)</th>
+                                <th>b (mm)</th>
+                                <th>tw (mm)</th>
+                                <th>tf (mm)</th>
+                                <th>A (cm&sup2;)</th>
+                                <th>G (kg/m)</th>
+                                <th>Iy (cm&sup4;)</th>
+                                <th>ey (mm)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="u-table-body">
+                            <!-- Filled by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Kokers Tab -->
+            <div id="tab-koker" class="tab-content">
+                <div class="table-container">
+                    <table id="koker-table">
+                        <thead>
+                            <tr>
+                                <th>Profiel</th>
+                                <th>h (mm)</th>
+                                <th>b (mm)</th>
+                                <th>t (mm)</th>
+                                <th>A (cm&sup2;)</th>
+                                <th>G (kg/m)</th>
+                                <th>I (cm&sup4;)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="koker-table-body">
+                            <!-- Filled by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Buizen Tab -->
+            <div id="tab-buis" class="tab-content">
+                <div class="table-container">
+                    <table id="buis-table">
+                        <thead>
+                            <tr>
+                                <th>Profiel</th>
+                                <th>d (mm)</th>
+                                <th>t (mm)</th>
+                                <th>A (cm&sup2;)</th>
+                                <th>G (kg/m)</th>
+                                <th>I (cm&sup4;)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="buis-table-body">
+                            <!-- Filled by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Project OconDat | <a href="https://github.com/3BMLabs/INB-Template">OconDat</a></p>
+        <p style="font-size: 0.85rem; opacity: 0.8; margin-top: 0.5rem;">
+            Bronnen: NEN-EN 10025, ArcelorMittal Orange Book, Tata Steel, Staaltabellen
+        </p>
+    </footer>
+
+    <script>
+        // Profile data - Complete database with exact fillet radii from DIN 1025
+        // HEA fillet radii: r=12mm (100-140), r=15mm (160-180), r=18mm (200-220),
+        // r=21mm (240), r=24mm (260-280), r=27mm (300-700), r=30mm (800-1000)
+        const PROFILES = {
+            HEA: {
+                "HEA100": {h:96, b:100, tw:5, tf:8, r:12, A:21.2, G:16.7, Iy:349, Iz:134},
+                "HEA120": {h:114, b:120, tw:5, tf:8, r:12, A:25.3, G:19.9, Iy:606, Iz:231},
+                "HEA140": {h:133, b:140, tw:5.5, tf:8.5, r:12, A:31.4, G:24.7, Iy:1030, Iz:389},
+                "HEA160": {h:152, b:160, tw:6, tf:9, r:15, A:38.8, G:30.4, Iy:1670, Iz:616},
+                "HEA180": {h:171, b:180, tw:6, tf:9.5, r:15, A:45.3, G:35.5, Iy:2510, Iz:925},
+                "HEA200": {h:190, b:200, tw:6.5, tf:10, r:18, A:53.8, G:42.3, Iy:3690, Iz:1340},
+                "HEA220": {h:210, b:220, tw:7, tf:11, r:18, A:64.3, G:50.5, Iy:5410, Iz:1950},
+                "HEA240": {h:230, b:240, tw:7.5, tf:12, r:21, A:76.8, G:60.3, Iy:7760, Iz:2770},
+                "HEA260": {h:250, b:260, tw:7.5, tf:12.5, r:24, A:86.8, G:68.2, Iy:10450, Iz:3670},
+                "HEA280": {h:270, b:280, tw:8, tf:13, r:24, A:97.3, G:76.4, Iy:13670, Iz:4760},
+                "HEA300": {h:290, b:300, tw:8.5, tf:14, r:27, A:112.5, G:88.3, Iy:18260, Iz:6310},
+                "HEA320": {h:310, b:300, tw:9, tf:15.5, r:27, A:124.4, G:97.6, Iy:22930, Iz:6990},
+                "HEA340": {h:330, b:300, tw:9.5, tf:16.5, r:27, A:133.5, G:104.8, Iy:27690, Iz:7440},
+                "HEA360": {h:350, b:300, tw:10, tf:17.5, r:27, A:142.8, G:112.1, Iy:33090, Iz:7890},
+                "HEA400": {h:390, b:300, tw:11, tf:19, r:27, A:159.0, G:124.8, Iy:45070, Iz:8560},
+                "HEA450": {h:440, b:300, tw:11.5, tf:21, r:27, A:178.0, G:139.7, Iy:63720, Iz:9470},
+                "HEA500": {h:490, b:300, tw:12, tf:23, r:27, A:197.5, G:155.1, Iy:86970, Iz:10370},
+                "HEA550": {h:540, b:300, tw:12.5, tf:24, r:27, A:211.8, G:166.2, Iy:111900, Iz:10820},
+                "HEA600": {h:590, b:300, tw:13, tf:25, r:27, A:226.5, G:177.8, Iy:141200, Iz:11270},
+                "HEA650": {h:640, b:300, tw:13.5, tf:26, r:27, A:241.6, G:189.6, Iy:175200, Iz:11720},
+                "HEA700": {h:690, b:300, tw:14.5, tf:27, r:27, A:260.5, G:204.5, Iy:215300, Iz:12180},
+                "HEA800": {h:790, b:300, tw:15, tf:28, r:30, A:285.8, G:224.4, Iy:303400, Iz:12640},
+                "HEA900": {h:890, b:300, tw:16, tf:30, r:30, A:320.5, G:251.6, Iy:422100, Iz:13550},
+                "HEA1000": {h:990, b:300, tw:16.5, tf:31, r:30, A:346.8, G:272.2, Iy:553800, Iz:14010},
+            },
+            HEB: {
+                "HEB100": {h:100, b:100, tw:6, tf:10, r:12, A:26.0, G:20.4, Iy:450, Iz:167},
+                "HEB120": {h:120, b:120, tw:6.5, tf:11, r:12, A:34.0, G:26.7, Iy:864, Iz:318},
+                "HEB140": {h:140, b:140, tw:7, tf:12, r:12, A:43.0, G:33.7, Iy:1510, Iz:550},
+                "HEB160": {h:160, b:160, tw:8, tf:13, r:15, A:54.3, G:42.6, Iy:2490, Iz:889},
+                "HEB180": {h:180, b:180, tw:8.5, tf:14, r:15, A:65.3, G:51.2, Iy:3830, Iz:1360},
+                "HEB200": {h:200, b:200, tw:9, tf:15, r:18, A:78.1, G:61.3, Iy:5700, Iz:2000},
+                "HEB220": {h:220, b:220, tw:9.5, tf:16, r:18, A:91.0, G:71.5, Iy:8090, Iz:2840},
+                "HEB240": {h:240, b:240, tw:10, tf:17, r:21, A:106.0, G:83.2, Iy:11260, Iz:3920},
+                "HEB260": {h:260, b:260, tw:10, tf:17.5, r:24, A:118.4, G:93.0, Iy:14920, Iz:5130},
+                "HEB280": {h:280, b:280, tw:10.5, tf:18, r:24, A:131.4, G:103.1, Iy:19270, Iz:6590},
+                "HEB300": {h:300, b:300, tw:11, tf:19, r:27, A:149.1, G:117.0, Iy:25170, Iz:8560},
+                "HEB320": {h:320, b:300, tw:11.5, tf:20.5, r:27, A:161.3, G:126.6, Iy:30820, Iz:9240},
+                "HEB340": {h:340, b:300, tw:12, tf:21.5, r:27, A:170.9, G:134.2, Iy:36660, Iz:9690},
+                "HEB360": {h:360, b:300, tw:12.5, tf:22.5, r:27, A:180.6, G:141.8, Iy:43190, Iz:10140},
+                "HEB400": {h:400, b:300, tw:13.5, tf:24, r:27, A:197.8, G:155.3, Iy:57680, Iz:10820},
+                "HEB450": {h:450, b:300, tw:14, tf:26, r:27, A:218.0, G:171.1, Iy:79890, Iz:11720},
+                "HEB500": {h:500, b:300, tw:14.5, tf:28, r:27, A:238.6, G:187.3, Iy:107200, Iz:12620},
+                "HEB550": {h:550, b:300, tw:15, tf:29, r:27, A:254.1, G:199.5, Iy:136700, Iz:13080},
+                "HEB600": {h:600, b:300, tw:15.5, tf:30, r:27, A:270.0, G:212.0, Iy:171000, Iz:13530},
+                "HEB650": {h:650, b:300, tw:16, tf:31, r:27, A:286.3, G:224.8, Iy:210600, Iz:13980},
+                "HEB700": {h:700, b:300, tw:17, tf:32, r:27, A:306.4, G:240.5, Iy:256900, Iz:14440},
+                "HEB800": {h:800, b:300, tw:17.5, tf:33, r:30, A:334.2, G:262.4, Iy:359100, Iz:14900},
+                "HEB900": {h:900, b:300, tw:18.5, tf:35, r:30, A:371.3, G:291.5, Iy:494100, Iz:15820},
+                "HEB1000": {h:1000, b:300, tw:19, tf:36, r:30, A:400.0, G:314.0, Iy:644700, Iz:16280},
+            },
+            IPE: {
+                "IPE80": {h:80, b:46, tw:3.8, tf:5.2, r:5, A:7.64, G:6.0, Iy:80.1, Iz:8.49},
+                "IPE100": {h:100, b:55, tw:4.1, tf:5.7, r:7, A:10.3, G:8.1, Iy:171, Iz:15.9},
+                "IPE120": {h:120, b:64, tw:4.4, tf:6.3, r:7, A:13.2, G:10.4, Iy:318, Iz:27.7},
+                "IPE140": {h:140, b:73, tw:4.7, tf:6.9, r:7, A:16.4, G:12.9, Iy:541, Iz:44.9},
+                "IPE160": {h:160, b:82, tw:5.0, tf:7.4, r:9, A:20.1, G:15.8, Iy:869, Iz:68.3},
+                "IPE180": {h:180, b:91, tw:5.3, tf:8.0, r:9, A:23.9, G:18.8, Iy:1320, Iz:101},
+                "IPE200": {h:200, b:100, tw:5.6, tf:8.5, r:12, A:28.5, G:22.4, Iy:1940, Iz:142},
+                "IPE220": {h:220, b:110, tw:5.9, tf:9.2, r:12, A:33.4, G:26.2, Iy:2770, Iz:205},
+                "IPE240": {h:240, b:120, tw:6.2, tf:9.8, r:15, A:39.1, G:30.7, Iy:3890, Iz:284},
+                "IPE270": {h:270, b:135, tw:6.6, tf:10.2, r:15, A:45.9, G:36.1, Iy:5790, Iz:420},
+                "IPE300": {h:300, b:150, tw:7.1, tf:10.7, r:15, A:53.8, G:42.2, Iy:8360, Iz:604},
+                "IPE330": {h:330, b:160, tw:7.5, tf:11.5, r:18, A:62.6, G:49.1, Iy:11770, Iz:788},
+                "IPE360": {h:360, b:170, tw:8.0, tf:12.7, r:18, A:72.7, G:57.1, Iy:16270, Iz:1040},
+                "IPE400": {h:400, b:180, tw:8.6, tf:13.5, r:21, A:84.5, G:66.3, Iy:23130, Iz:1320},
+                "IPE450": {h:450, b:190, tw:9.4, tf:14.6, r:21, A:98.8, G:77.6, Iy:33740, Iz:1680},
+                "IPE500": {h:500, b:200, tw:10.2, tf:16.0, r:21, A:116.0, G:90.7, Iy:48200, Iz:2140},
+                "IPE550": {h:550, b:210, tw:11.1, tf:17.2, r:24, A:134.4, G:105.5, Iy:67120, Iz:2670},
+                "IPE600": {h:600, b:220, tw:12.0, tf:19.0, r:24, A:156.0, G:122.4, Iy:92080, Iz:3390},
+            },
+            UNP: {
+                "UNP80": {h:80, b:45, tw:6, tf:8, A:11.0, G:8.64, Iy:106, ey:14.5},
+                "UNP100": {h:100, b:50, tw:6, tf:8.5, A:13.5, G:10.6, Iy:206, ey:15.5},
+                "UNP120": {h:120, b:55, tw:7, tf:9, A:17.0, G:13.4, Iy:364, ey:16.0},
+                "UNP140": {h:140, b:60, tw:7, tf:10, A:20.4, G:16.0, Iy:605, ey:17.5},
+                "UNP160": {h:160, b:65, tw:7.5, tf:10.5, A:24.0, G:18.8, Iy:925, ey:18.4},
+                "UNP180": {h:180, b:70, tw:8, tf:11, A:28.0, G:22.0, Iy:1350, ey:19.2},
+                "UNP200": {h:200, b:75, tw:8.5, tf:11.5, A:32.2, G:25.3, Iy:1910, ey:20.1},
+                "UNP220": {h:220, b:80, tw:9, tf:12.5, A:37.4, G:29.4, Iy:2690, ey:21.4},
+                "UNP240": {h:240, b:85, tw:9.5, tf:13, A:42.3, G:33.2, Iy:3600, ey:22.3},
+                "UNP260": {h:260, b:90, tw:10, tf:14, A:48.3, G:37.9, Iy:4820, ey:23.6},
+                "UNP280": {h:280, b:95, tw:10, tf:15, A:53.3, G:41.8, Iy:6280, ey:25.3},
+                "UNP300": {h:300, b:100, tw:10, tf:16, A:58.8, G:46.2, Iy:8030, ey:27.0},
+            },
+            SHS: {
+                "SHS40x3": {h:40, b:40, t:3, A:4.24, G:3.33, I:8.92},
+                "SHS40x4": {h:40, b:40, t:4, A:5.35, G:4.20, I:10.6},
+                "SHS50x3": {h:50, b:50, t:3, A:5.44, G:4.27, I:18.6},
+                "SHS50x4": {h:50, b:50, t:4, A:6.95, G:5.46, I:22.8},
+                "SHS50x5": {h:50, b:50, t:5, A:8.36, G:6.56, I:26.0},
+                "SHS60x4": {h:60, b:60, t:4, A:8.55, G:6.71, I:41.4},
+                "SHS60x5": {h:60, b:60, t:5, A:10.4, G:8.13, I:48.1},
+                "SHS70x4": {h:70, b:70, t:4, A:10.2, G:7.97, I:67.9},
+                "SHS70x5": {h:70, b:70, t:5, A:12.4, G:9.70, I:80.1},
+                "SHS80x4": {h:80, b:80, t:4, A:11.8, G:9.22, I:103},
+                "SHS80x5": {h:80, b:80, t:5, A:14.4, G:11.3, I:123},
+                "SHS80x6": {h:80, b:80, t:6, A:16.9, G:13.2, I:140},
+                "SHS100x5": {h:100, b:100, t:5, A:18.4, G:14.5, I:257},
+                "SHS100x6": {h:100, b:100, t:6, A:21.7, G:17.0, I:296},
+                "SHS100x8": {h:100, b:100, t:8, A:27.9, G:21.9, I:360},
+                "SHS120x5": {h:120, b:120, t:5, A:22.4, G:17.6, I:462},
+                "SHS120x6": {h:120, b:120, t:6, A:26.5, G:20.8, I:538},
+                "SHS120x8": {h:120, b:120, t:8, A:34.3, G:26.9, I:667},
+                "SHS150x6": {h:150, b:150, t:6, A:33.7, G:26.4, I:1080},
+                "SHS150x8": {h:150, b:150, t:8, A:43.9, G:34.5, I:1370},
+                "SHS200x6": {h:200, b:200, t:6, A:45.7, G:35.8, I:2700},
+                "SHS200x8": {h:200, b:200, t:8, A:59.9, G:47.0, I:3470},
+                "SHS200x10": {h:200, b:200, t:10, A:73.5, G:57.7, I:4150},
+            },
+            CHS: {
+                "CHS42.4x3": {d:42.4, t:3, A:3.71, G:2.91, I:7.62},
+                "CHS48.3x3": {d:48.3, t:3, A:4.27, G:3.35, I:11.6},
+                "CHS48.3x4": {d:48.3, t:4, A:5.57, G:4.37, I:14.4},
+                "CHS60.3x4": {d:60.3, t:4, A:7.07, G:5.55, I:29.6},
+                "CHS60.3x5": {d:60.3, t:5, A:8.69, G:6.82, I:34.9},
+                "CHS76.1x4": {d:76.1, t:4, A:9.06, G:7.11, I:62.1},
+                "CHS76.1x5": {d:76.1, t:5, A:11.2, G:8.77, I:74.1},
+                "CHS88.9x5": {d:88.9, t:5, A:13.2, G:10.3, I:120},
+                "CHS88.9x6.3": {d:88.9, t:6.3, A:16.3, G:12.8, I:144},
+                "CHS114.3x5": {d:114.3, t:5, A:17.2, G:13.5, I:266},
+                "CHS114.3x6.3": {d:114.3, t:6.3, A:21.4, G:16.8, I:322},
+                "CHS139.7x5": {d:139.7, t:5, A:21.2, G:16.6, I:493},
+                "CHS139.7x6.3": {d:139.7, t:6.3, A:26.4, G:20.7, I:600},
+                "CHS139.7x8": {d:139.7, t:8, A:33.1, G:26.0, I:726},
+                "CHS168.3x6.3": {d:168.3, t:6.3, A:32.1, G:25.2, I:1070},
+                "CHS168.3x8": {d:168.3, t:8, A:40.3, G:31.6, I:1300},
+                "CHS219.1x6.3": {d:219.1, t:6.3, A:42.1, G:33.1, I:2410},
+                "CHS219.1x8": {d:219.1, t:8, A:53.1, G:41.6, I:2970},
+                "CHS219.1x10": {d:219.1, t:10, A:65.7, G:51.6, I:3600},
+                "CHS273x8": {d:273, t:8, A:66.6, G:52.3, I:5940},
+                "CHS273x10": {d:273, t:10, A:82.6, G:64.8, I:7240},
+                "CHS323.9x10": {d:323.9, t:10, A:98.6, G:77.4, I:12200},
+                "CHS355.6x10": {d:355.6, t:10, A:109, G:85.2, I:16300},
+            }
+        };
+
+        // =====================================================
+        // PARAMETRIC SVG PROFILE DRAWING
+        // Generates geometrically accurate steel profile cross-sections
+        // Based on exact dimensions including fillet radii from DIN 1025
+        // =====================================================
+
+        /**
+         * Generates an SVG path for an I-profile (HEA, HEB, IPE) with exact geometry
+         * European I-profiles have parallel flanges and quarter-circle fillets at web-flange junction
+         * NO toe radius - flange tips are flat (unlike older INP profiles)
+         */
+        function generateIProfilePath(h, b, tw, tf, r, viewBox = 400, padding = 40) {
+            // Calculate scale to fit viewBox with padding
+            const availableH = viewBox - 2 * padding;
+            const availableB = viewBox - 2 * padding;
+            const scale = Math.min(availableH / h, availableB / b);
+
+            // Scaled dimensions
+            const H = h * scale;
+            const B = b * scale;
+            const TW = tw * scale;
+            const TF = tf * scale;
+            const R = r * scale;
+
+            // Center point
+            const cx = viewBox / 2;
+            const cy = viewBox / 2;
+
+            // Key coordinates (profile centered at cx, cy)
+            const top = cy - H / 2;
+            const bottom = cy + H / 2;
+            const left = cx - B / 2;
+            const right = cx + B / 2;
+            const webLeft = cx - TW / 2;
+            const webRight = cx + TW / 2;
+            const topFlangeBottom = top + TF;
+            const bottomFlangeTop = bottom - TF;
+
+            // Build path with exact fillet arcs
+            // Start at top-left corner, go clockwise
+            const path = `
+                M ${left} ${top}
+                L ${right} ${top}
+                L ${right} ${topFlangeBottom}
+                L ${webRight + R} ${topFlangeBottom}
+                A ${R} ${R} 0 0 0 ${webRight} ${topFlangeBottom + R}
+                L ${webRight} ${bottomFlangeTop - R}
+                A ${R} ${R} 0 0 0 ${webRight + R} ${bottomFlangeTop}
+                L ${right} ${bottomFlangeTop}
+                L ${right} ${bottom}
+                L ${left} ${bottom}
+                L ${left} ${bottomFlangeTop}
+                L ${webLeft - R} ${bottomFlangeTop}
+                A ${R} ${R} 0 0 0 ${webLeft} ${bottomFlangeTop - R}
+                L ${webLeft} ${topFlangeBottom + R}
+                A ${R} ${R} 0 0 0 ${webLeft - R} ${topFlangeBottom}
+                L ${left} ${topFlangeBottom}
+                Z
+            `;
+
+            return {
+                path: path,
+                dims: { H, B, TW, TF, R, scale, cx, cy, top, bottom, left, right, webLeft, webRight, topFlangeBottom, bottomFlangeTop }
+            };
+        }
+
+        /**
+         * Draw dimension lines and labels on the profile SVG
+         */
+        function addDimensionLines(svg, dims, profile, viewBox = 400) {
+            const { H, B, TW, TF, R, cx, cy, top, bottom, left, right, webLeft, webRight, topFlangeBottom } = dims;
+            const offset = 25;
+            const tickSize = 6;
+
+            // h - height (left side)
+            svg.innerHTML += `
+                <line x1="${left - offset}" y1="${top}" x2="${left - offset}" y2="${bottom}" stroke="#3498db" stroke-width="1.5"/>
+                <line x1="${left - offset - tickSize/2}" y1="${top}" x2="${left - offset + tickSize/2}" y2="${top}" stroke="#3498db" stroke-width="1.5"/>
+                <line x1="${left - offset - tickSize/2}" y1="${bottom}" x2="${left - offset + tickSize/2}" y2="${bottom}" stroke="#3498db" stroke-width="1.5"/>
+                <text x="${left - offset - 8}" y="${cy}" font-size="14" fill="#3498db" text-anchor="end" dominant-baseline="middle" font-weight="bold">h=${profile.h}</text>
+            `;
+
+            // b - width (bottom)
+            svg.innerHTML += `
+                <line x1="${left}" y1="${bottom + offset}" x2="${right}" y2="${bottom + offset}" stroke="#3498db" stroke-width="1.5"/>
+                <line x1="${left}" y1="${bottom + offset - tickSize/2}" x2="${left}" y2="${bottom + offset + tickSize/2}" stroke="#3498db" stroke-width="1.5"/>
+                <line x1="${right}" y1="${bottom + offset - tickSize/2}" x2="${right}" y2="${bottom + offset + tickSize/2}" stroke="#3498db" stroke-width="1.5"/>
+                <text x="${cx}" y="${bottom + offset + 16}" font-size="14" fill="#3498db" text-anchor="middle" font-weight="bold">b=${profile.b}</text>
+            `;
+
+            // tf - flange thickness (right side, top)
+            svg.innerHTML += `
+                <line x1="${right + offset}" y1="${top}" x2="${right + offset}" y2="${topFlangeBottom}" stroke="#e74c3c" stroke-width="1.5"/>
+                <line x1="${right + offset - tickSize/2}" y1="${top}" x2="${right + offset + tickSize/2}" y2="${top}" stroke="#e74c3c" stroke-width="1.5"/>
+                <line x1="${right + offset - tickSize/2}" y1="${topFlangeBottom}" x2="${right + offset + tickSize/2}" y2="${topFlangeBottom}" stroke="#e74c3c" stroke-width="1.5"/>
+                <text x="${right + offset + 8}" y="${top + TF/2}" font-size="12" fill="#e74c3c" dominant-baseline="middle" font-weight="bold">tf=${profile.tf}</text>
+            `;
+
+            // tw - web thickness (top)
+            svg.innerHTML += `
+                <line x1="${webLeft}" y1="${top - offset/2}" x2="${webRight}" y2="${top - offset/2}" stroke="#27ae60" stroke-width="1.5"/>
+                <line x1="${webLeft}" y1="${top - offset/2 - tickSize/2}" x2="${webLeft}" y2="${top - offset/2 + tickSize/2}" stroke="#27ae60" stroke-width="1.5"/>
+                <line x1="${webRight}" y1="${top - offset/2 - tickSize/2}" x2="${webRight}" y2="${top - offset/2 + tickSize/2}" stroke="#27ae60" stroke-width="1.5"/>
+                <text x="${cx}" y="${top - offset/2 - 8}" font-size="12" fill="#27ae60" text-anchor="middle" font-weight="bold">tw=${profile.tw}</text>
+            `;
+
+            // r - fillet radius indicator
+            const filletCx = webRight + R;
+            const filletCy = topFlangeBottom + R;
+            svg.innerHTML += `
+                <path d="M ${webRight + R} ${topFlangeBottom} A ${R} ${R} 0 0 0 ${webRight} ${topFlangeBottom + R}" fill="none" stroke="#9b59b6" stroke-width="2"/>
+                <line x1="${webRight}" y1="${topFlangeBottom + R}" x2="${filletCx}" y2="${topFlangeBottom}" stroke="#9b59b6" stroke-width="1" stroke-dasharray="3,2"/>
+                <text x="${filletCx + 5}" y="${topFlangeBottom + 5}" font-size="11" fill="#9b59b6" font-weight="bold">r=${profile.r}</text>
+            `;
+        }
+
+        /**
+         * Update the interactive profile viewer
+         */
+        function updateViewerProfiles() {
+            const serie = document.getElementById('viewer-serie').value;
+            const select = document.getElementById('viewer-profiel');
+            select.innerHTML = '';
+
+            const profiles = PROFILES[serie];
+            for (const name of Object.keys(profiles)) {
+                const opt = document.createElement('option');
+                opt.value = name;
+                opt.textContent = name.replace(serie, serie + ' ');
+                select.appendChild(opt);
+            }
+
+            drawProfileViewer();
+        }
+
+        /**
+         * Draw the selected profile in the viewer
+         */
+        function drawProfileViewer() {
+            const serie = document.getElementById('viewer-serie').value;
+            const profielNaam = document.getElementById('viewer-profiel').value;
+            const profile = PROFILES[serie][profielNaam];
+
+            if (!profile) return;
+
+            const svg = document.getElementById('profile-viewer');
+            const viewBox = 400;
+            const padding = 50;
+
+            // Generate the profile path
+            const { path, dims } = generateIProfilePath(profile.h, profile.b, profile.tw, profile.tf, profile.r, viewBox, padding);
+
+            // Clear and draw
+            svg.innerHTML = `
+                <defs>
+                    <linearGradient id="steelGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#3d566e"/>
+                        <stop offset="50%" style="stop-color:#2c3e50"/>
+                        <stop offset="100%" style="stop-color:#1a252f"/>
+                    </linearGradient>
+                </defs>
+                <path d="${path}" fill="url(#steelGrad)" stroke="#1a252f" stroke-width="1"/>
+            `;
+
+            // Add dimension lines
+            addDimensionLines(svg, dims, profile, viewBox);
+
+            // Add profile name
+            svg.innerHTML += `<text x="${viewBox/2}" y="25" font-size="18" fill="#2c3e50" text-anchor="middle" font-weight="bold">${profielNaam.replace(serie, serie + ' ')}</text>`;
+
+            // Update specs display
+            const specs = document.getElementById('viewer-specs');
+            specs.innerHTML = `
+                <div><strong>A:</strong> ${profile.A} cm²</div>
+                <div><strong>G:</strong> ${profile.G} kg/m</div>
+                <div><strong>Iy:</strong> ${profile.Iy} cm⁴</div>
+                <div><strong>Iz:</strong> ${profile.Iz} cm⁴</div>
+                <div><strong>r:</strong> ${profile.r} mm</div>
+            `;
+        }
+
+        // Tab switching
+        function showTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        // Populate tables
+        function populateITable(serie) {
+            const tbody = document.getElementById('i-table-body');
+            tbody.innerHTML = '';
+            const data = PROFILES[serie];
+            if (!data) return;
+
+            for (const [name, p] of Object.entries(data)) {
+                tbody.innerHTML += `<tr>
+                    <td><strong>${name}</strong></td>
+                    <td class="num">${p.h}</td>
+                    <td class="num">${p.b}</td>
+                    <td class="num">${p.tw}</td>
+                    <td class="num">${p.tf}</td>
+                    <td class="num">${p.r}</td>
+                    <td class="num">${p.A}</td>
+                    <td class="num">${p.G}</td>
+                    <td class="num">${p.Iy}</td>
+                    <td class="num">${p.Iz}</td>
+                </tr>`;
+            }
+        }
+
+        function populateUTable() {
+            const tbody = document.getElementById('u-table-body');
+            tbody.innerHTML = '';
+            const data = PROFILES.UNP;
+
+            for (const [name, p] of Object.entries(data)) {
+                tbody.innerHTML += `<tr>
+                    <td><strong>${name}</strong></td>
+                    <td class="num">${p.h}</td>
+                    <td class="num">${p.b}</td>
+                    <td class="num">${p.tw}</td>
+                    <td class="num">${p.tf}</td>
+                    <td class="num">${p.A}</td>
+                    <td class="num">${p.G}</td>
+                    <td class="num">${p.Iy}</td>
+                    <td class="num">${p.ey}</td>
+                </tr>`;
+            }
+        }
+
+        function populateKokerTable() {
+            const tbody = document.getElementById('koker-table-body');
+            tbody.innerHTML = '';
+            const data = PROFILES.SHS;
+
+            for (const [name, p] of Object.entries(data)) {
+                tbody.innerHTML += `<tr>
+                    <td><strong>${name}</strong></td>
+                    <td class="num">${p.h}</td>
+                    <td class="num">${p.b}</td>
+                    <td class="num">${p.t}</td>
+                    <td class="num">${p.A}</td>
+                    <td class="num">${p.G}</td>
+                    <td class="num">${p.I}</td>
+                </tr>`;
+            }
+        }
+
+        function populateBuisTable() {
+            const tbody = document.getElementById('buis-table-body');
+            tbody.innerHTML = '';
+            const data = PROFILES.CHS;
+
+            for (const [name, p] of Object.entries(data)) {
+                tbody.innerHTML += `<tr>
+                    <td><strong>${name}</strong></td>
+                    <td class="num">${p.d}</td>
+                    <td class="num">${p.t}</td>
+                    <td class="num">${p.A}</td>
+                    <td class="num">${p.G}</td>
+                    <td class="num">${p.I}</td>
+                </tr>`;
+            }
+        }
+
+        function filterTable() {
+            const serie = document.getElementById('serie-filter').value;
+
+            if (serie === 'all' || serie === 'HEA') {
+                populateITable('HEA');
+            } else if (serie === 'HEB') {
+                populateITable('HEB');
+            } else if (serie === 'IPE') {
+                populateITable('IPE');
+            }
+        }
+
+        // Initialize tables and viewer
+        document.addEventListener('DOMContentLoaded', () => {
+            populateITable('HEA');
+            populateUTable();
+            populateKokerTable();
+            populateBuisTable();
+            updateViewerProfiles();
+        });
+    </script>
+</body>
+</html>

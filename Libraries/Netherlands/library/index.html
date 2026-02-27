@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open BIM Library</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav>
+        <a href="../index.html" class="brand">Project OconDat</a>
+        <a href="../index.html">&larr; Terug naar overzicht</a>
+    </nav>
+
+    <header>
+        <h1>Open BIM Library</h1>
+        <div class="subtitle-line">Detailcomponenten voor de bouwsector</div>
+        <span class="badge">Netherlands</span>
+        <small id="subtitle">Laden...</small>
+    </header>
+
+    <div class="toolbar">
+        <div class="toolbar-inner">
+            <input type="text" id="search" placeholder="Zoek op naam, familie of type...">
+            <button class="filter-btn active" data-f="all" onclick="setFilter(this)">Alles</button>
+            <span id="stats"></span>
+        </div>
+    </div>
+
+    <main>
+        <div class="grid" id="grid"></div>
+        <div class="empty" id="empty" style="display:none">Geen resultaten</div>
+    </main>
+
+    <div class="overlay" id="overlay">
+        <div class="modal">
+            <div class="modal-head">
+                <h2 id="m-title"></h2>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-canvas"><canvas id="m-canvas" width="400" height="350"></canvas></div>
+                <div class="modal-info">
+                    <table>
+                        <tr><th>Familie</th><td id="m-fam"></td></tr>
+                        <tr><th>Type</th><td id="m-type"></td></tr>
+                        <tr><th>Breedte</th><td id="m-w"></td></tr>
+                        <tr><th>Hoogte</th><td id="m-h"></td></tr>
+                        <tr><th>Curves</th><td id="m-c"></td></tr>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-foot" id="m-foot"></div>
+        </div>
+    </div>
+
+    <footer>
+        <strong>Open BIM Library</strong> &mdash;
+        Onderdeel van <a href="https://github.com/OpenAEC-Foundation/Project-Ocondat">OconDat</a> | Project OconDat
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/renderer.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

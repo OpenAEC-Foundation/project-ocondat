@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wapeningsstekeningen - Project OconDat</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #34495e;
+            --accent: #3498db;
+            --light: #ecf0f1;
+            --dark: #1a252f;
+            --con: #3498db;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--light);
+            color: var(--primary);
+            line-height: 1.6;
+        }
+
+        .top-nav {
+            background: var(--dark);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-nav a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .top-nav .logo {
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--con), #2980b9);
+            color: white;
+            padding: 2.5rem 2rem;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            opacity: 0.9;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-top: 1rem;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .card-header {
+            background: var(--primary);
+            color: white;
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-header:hover {
+            background: var(--secondary);
+        }
+
+        .card-header h2 {
+            margin: 0;
+            font-size: 1.2rem;
+        }
+
+        .card-header .toggle-icon {
+            font-size: 1.2rem;
+            transition: transform 0.3s;
+        }
+
+        .card-header.collapsed .toggle-icon {
+            transform: rotate(-90deg);
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-content.collapsed {
+            display: none;
+        }
+
+        .example-drawing {
+            background: white;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .example-drawing h4 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .example-drawing svg {
+            width: 100%;
+            max-height: 450px;
+        }
+
+        .info-box {
+            background: #e8f4fd;
+            border-left: 4px solid var(--accent);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .warning-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 5px 5px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background: var(--light);
+            font-weight: 600;
+        }
+
+        .symbol-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .symbol-card {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .symbol-card:hover {
+            border-color: var(--accent);
+        }
+
+        .symbol-preview {
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .symbol-preview svg {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .symbol-card h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .symbol-card p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .steel-quality {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+
+        .quality-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            min-width: 180px;
+        }
+
+        .quality-item svg {
+            margin-bottom: 1rem;
+        }
+
+        .quality-item h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .quality-item .codes {
+            font-family: monospace;
+            font-size: 0.9rem;
+            color: var(--accent);
+        }
+
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        footer a {
+            color: var(--accent);
+        }
+    </style>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="index.html" class="logo">Project OconDat</a>
+        <a href="constructie.html">&larr; Terug naar Constructie</a>
+    </div>
+
+    <header>
+        <h1>Wapeningsstekeningen</h1>
+        <p>Tekenconventies voor betonwapening volgens NEN 3870</p>
+        <span class="badge">NEN-EN 1992 | NEN 3870</span>
+    </header>
+
+    <main>
+        <!-- STAALKWALITEIT SYMBOLEN -->
+        <div class="card">
+            <div class="card-header" onclick="toggleCard(this)">
+                <h2>Wapeningsstaalkwaliteit - Vlaggetjes</h2>
+                <span class="toggle-icon">&#9660;</span>
+            </div>
+            <div class="card-content">
+                <p>De kwaliteit van wapeningsstaal wordt aangegeven met vlaggetjes aan het einde van de staafaanduiding. Het aantal vlaggetjes correspondeert met de staalkwaliteit.</p>
+
+                <div class="steel-quality">
+                    <!-- Geen vlaggetjes -->
+                    <div class="quality-item">
+                        <svg viewBox="0 0 120 60" width="120" height="60">
+                            <!-- Staaf -->
+                            <line x1="10" y1="30" x2="110" y2="30" stroke="#000" stroke-width="3"/>
+                            <!-- Geen vlaggetje -->
+                        </svg>
+                        <h4>Geen vlaggetjes</h4>
+                        <p class="codes">FeB220 / C20 / D20</p>
+                        <p style="font-size: 0.8rem; color: #888;">gladde staven (verouderd)</p>
+                    </div>
+
+                    <!-- Eén vlaggetje -->
+                    <div class="quality-item">
+                        <svg viewBox="0 0 120 60" width="120" height="60">
+                            <!-- Staaf -->
+                            <line x1="10" y1="30" x2="90" y2="30" stroke="#000" stroke-width="3"/>
+                            <!-- Vlaggetje -->
+                            <line x1="90" y1="30" x2="110" y2="30" stroke="#000" stroke-width="3"/>
+                            <line x1="110" y1="30" x2="110" y2="10" stroke="#000" stroke-width="2"/>
+                            <polygon points="110,10 90,20 110,20" fill="#000"/>
+                        </svg>
+                        <h4>Eén vlaggetje</h4>
+                        <p class="codes">FeB400 / B400 / D400</p>
+                        <p style="font-size: 0.8rem; color: #888;">ribstaal 400 N/mm²</p>
+                    </div>
+
+                    <!-- Twee vlaggetjes -->
+                    <div class="quality-item">
+                        <svg viewBox="0 0 120 60" width="120" height="60">
+                            <!-- Staaf -->
+                            <line x1="10" y1="35" x2="90" y2="35" stroke="#000" stroke-width="3"/>
+                            <!-- Vlaggetje 1 -->
+                            <line x1="90" y1="35" x2="110" y2="35" stroke="#000" stroke-width="3"/>
+                            <line x1="110" y1="35" x2="110" y2="15" stroke="#000" stroke-width="2"/>
+                            <polygon points="110,15 90,25 110,25" fill="#000"/>
+                            <!-- Vlaggetje 2 -->
+                            <line x1="110" y1="15" x2="110" y2="5" stroke="#000" stroke-width="2"/>
+                            <polygon points="110,5 90,12 110,12" fill="#000"/>
+                        </svg>
+                        <h4>Twee vlaggetjes</h4>
+                        <p class="codes">FeB500 / B500 / D500</p>
+                        <p style="font-size: 0.8rem; color: #888;">ribstaal 500 N/mm² (standaard)</p>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <strong>Huidige praktijk:</strong> In Nederland is B500B (twee vlaggetjes) de standaard wapeningskwaliteit.
+                    De oudere benamingen FeB400 en FeB500 zijn vervangen door B400 en B500 volgens Europese normering.
+                </div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Vlaggetjes</th>
+                            <th>Oude benaming</th>
+                            <th>Huidige benaming</th>
+                            <th>Vloeigrens</th>
+                            <th>Toepassing</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>0</td>
+                            <td>FeB220</td>
+                            <td>S220 (glad)</td>
+                            <td>220 N/mm²</td>
+                            <td>Niet meer toegepast</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>FeB400 HW/HK</td>
+                            <td>B400B / B400C</td>
+                            <td>400 N/mm²</td>
+                            <td>Specifieke toepassingen</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>FeB500 HW/HK</td>
+                            <td>B500B / B500C</td>
+                            <td>500 N/mm²</td>
+                            <td>Standaard wapening</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- STAAFAANDUIDING -->
+        <div class="card">
+            <div class="card-header" onclick="toggleCard(this)">
+                <h2>Staafaanduiding</h2>
+                <span class="toggle-icon">&#9660;</span>
+            </div>
+            <div class="card-content">
+                <p>Wapeningsstaven worden aangeduid met een code die het aantal, de diameter, de positie en de staalkwaliteit bevat.</p>
+
+                <div class="example-drawing">
+                    <h4>Staafaanduiding opbouw</h4>
+                    <svg viewBox="0 0 800 200" style="background: white;">
+                        <!-- Hoofdlijn met onderdelen -->
+                        <g transform="translate(50, 100)">
+                            <!-- Complete aanduiding -->
+                            <text x="0" y="-50" font-family="Arial" font-size="24" font-weight="bold">8 Ø12 - 150 (1)</text>
+
+                            <!-- Uitleg pijlen -->
+                            <line x1="5" y1="-35" x2="5" y2="20" stroke="#3498db" stroke-width="1"/>
+                            <line x1="45" y1="-35" x2="45" y2="20" stroke="#3498db" stroke-width="1"/>
+                            <line x1="95" y1="-35" x2="95" y2="20" stroke="#3498db" stroke-width="1"/>
+                            <line x1="170" y1="-35" x2="170" y2="20" stroke="#3498db" stroke-width="1"/>
+
+                            <!-- Labels -->
+                            <text x="5" y="40" font-family="Arial" font-size="11" text-anchor="middle" fill="#3498db">aantal</text>
+                            <text x="45" y="40" font-family="Arial" font-size="11" text-anchor="middle" fill="#3498db">diameter</text>
+                            <text x="95" y="40" font-family="Arial" font-size="11" text-anchor="middle" fill="#3498db">h.o.h.</text>
+                            <text x="170" y="40" font-family="Arial" font-size="11" text-anchor="middle" fill="#3498db">positie</text>
+
+                            <!-- Verklaringen -->
+                            <text x="5" y="60" font-family="Arial" font-size="10" text-anchor="middle">8 staven</text>
+                            <text x="45" y="60" font-family="Arial" font-size="10" text-anchor="middle">12 mm</text>
+                            <text x="95" y="60" font-family="Arial" font-size="10" text-anchor="middle">150 mm</text>
+                            <text x="170" y="60" font-family="Arial" font-size="10" text-anchor="middle">1e laag</text>
+                        </g>
+
+                        <!-- Tweede voorbeeld met vlaggetje -->
+                        <g transform="translate(400, 100)">
+                            <text x="0" y="-50" font-family="Arial" font-size="20" font-weight="bold">12 Ø16 - 200 (2)</text>
+                            <!-- Vlaggetje symbool -->
+                            <line x1="195" y1="-50" x2="230" y2="-50" stroke="#000" stroke-width="2"/>
+                            <line x1="230" y1="-50" x2="230" y2="-65" stroke="#000" stroke-width="1.5"/>
+                            <polygon points="230,-65 215,-60 230,-60" fill="#000"/>
+                            <line x1="230" y1="-65" x2="230" y2="-75" stroke="#000" stroke-width="1.5"/>
+                            <polygon points="230,-75 215,-70 230,-70" fill="#000"/>
+
+                            <text x="100" y="20" font-family="Arial" font-size="12" text-anchor="middle">12 staven Ø16, h.o.h. 200mm, 2e laag, B500</text>
+                        </g>
+                    </svg>
+                </div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Symbool</th>
+                            <th>Betekenis</th>
+                            <th>Voorbeeld</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>n</strong></td>
+                            <td>Aantal staven</td>
+                            <td>8, 12, 16</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ø</strong></td>
+                            <td>Diameter in mm</td>
+                            <td>Ø8, Ø12, Ø16, Ø20, Ø25, Ø32</td>
+                        </tr>
+                        <tr>
+                            <td><strong>- xxx</strong></td>
+                            <td>Hart-op-hart afstand in mm</td>
+                            <td>-150, -200, -250</td>
+                        </tr>
+                        <tr>
+                            <td><strong>(n)</strong></td>
+                            <td>Positie / laagnummer</td>
+                            <td>(1) = eerste laag, (2) = tweede laag</td>
+                        </tr>
+                        <tr>
+                            <td><strong>vlaggetje</strong></td>
+                            <td>Staalkwaliteit</td>
+                            <td>1 vlag = B400, 2 vlaggen = B500</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- NETAANDUIDING -->
+        <div class="card">
+            <div class="card-header" onclick="toggleCard(this)">
+                <h2>Netaanduiding (wapeningsnetten)</h2>
+                <span class="toggle-icon">&#9660;</span>
+            </div>
+            <div class="card-content">
+                <p>Wapeningsnetten worden aangeduid met hun productcode of met de staafdiameters en maaswijdte in beide richtingen.</p>
+
+                <div class="example-drawing">
+                    <h4>Netaanduiding in plattegrond</h4>
+                    <svg viewBox="0 0 800 350" style="background: white;">
+                        <!-- Vloerveld met net -->
+                        <g transform="translate(50, 30)">
+                            <!-- Vloercontour -->
+                            <rect x="0" y="0" width="300" height="200" fill="none" stroke="#000" stroke-width="2"/>
+
+                            <!-- Net arcering -->
+                            <defs>
+                                <pattern id="netPattern" width="30" height="30" patternUnits="userSpaceOnUse">
+                                    <line x1="0" y1="0" x2="0" y2="30" stroke="#666" stroke-width="0.5"/>
+                                    <line x1="0" y1="0" x2="30" y2="0" stroke="#666" stroke-width="0.5"/>
+                                </pattern>
+                            </defs>
+                            <rect x="20" y="20" width="260" height="160" fill="url(#netPattern)"/>
+
+                            <!-- Diagonaal met aanduiding -->
+                            <line x1="20" y1="180" x2="280" y2="20" stroke="#000" stroke-width="1.5"/>
+
+                            <!-- Netaanduiding -->
+                            <text x="150" y="110" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" transform="rotate(-30, 150, 110)">Q335A</text>
+
+                            <!-- Alternatieve aanduiding -->
+                            <text x="150" y="240" font-family="Arial" font-size="12" text-anchor="middle">of: Ø8-150 / Ø8-150</text>
+                        </g>
+
+                        <!-- Uitleg netcodering -->
+                        <g transform="translate(420, 30)">
+                            <text font-family="Arial" font-size="14" font-weight="bold">Netcodering:</text>
+
+                            <g transform="translate(0, 30)">
+                                <text x="0" y="0" font-family="Arial" font-size="20" font-weight="bold">Q 335 A</text>
+
+                                <!-- Pijlen en uitleg -->
+                                <line x1="8" y1="10" x2="8" y2="40" stroke="#3498db" stroke-width="1"/>
+                                <line x1="45" y1="10" x2="45" y2="40" stroke="#3498db" stroke-width="1"/>
+                                <line x1="90" y1="10" x2="90" y2="40" stroke="#3498db" stroke-width="1"/>
+
+                                <text x="8" y="55" font-family="Arial" font-size="10" text-anchor="middle" fill="#3498db">type</text>
+                                <text x="45" y="55" font-family="Arial" font-size="10" text-anchor="middle" fill="#3498db">As [mm²/m]</text>
+                                <text x="90" y="55" font-family="Arial" font-size="10" text-anchor="middle" fill="#3498db">variant</text>
+                            </g>
+
+                            <!-- Tabel nettypes -->
+                            <g transform="translate(0, 100)">
+                                <text font-family="Arial" font-size="12" font-weight="bold">Veelgebruikte netten:</text>
+                                <text x="0" y="25" font-family="Arial" font-size="11">Q188A = Ø6-150/Ø6-150</text>
+                                <text x="0" y="45" font-family="Arial" font-size="11">Q257A = Ø7-150/Ø7-150</text>
+                                <text x="0" y="65" font-family="Arial" font-size="11">Q335A = Ø8-150/Ø8-150</text>
+                                <text x="0" y="85" font-family="Arial" font-size="11">Q424A = Ø9-150/Ø9-150</text>
+                                <text x="0" y="105" font-family="Arial" font-size="11">Q503A = Ø8-100/Ø8-100</text>
+                            </g>
+                        </g>
+
+                        <!-- Twee richtingen aanduiding -->
+                        <g transform="translate(50, 270)">
+                            <text font-family="Arial" font-size="12" font-weight="bold">Aanduiding met twee richtingen:</text>
+                            <text x="0" y="25" font-family="Arial" font-size="14">Hoofdrichting / Dwarsrichting</text>
+                            <text x="0" y="50" font-family="Arial" font-size="14" font-weight="bold">Ø10-150 / Ø8-200</text>
+                            <text x="180" y="50" font-family="Arial" font-size="11" fill="#666">→ hoofdwap. Ø10 h.o.h.150, verdeelwap. Ø8 h.o.h.200</text>
+                        </g>
+                    </svg>
+                </div>
+
+                <div class="info-box">
+                    <strong>Q-netten:</strong> De letter Q staat voor "Quadrat" (vierkant). Het getal geeft de staaloppervlakte in mm²/m aan.
+                    De letter aan het eind (A, B, C) geeft de variant aan met verschillende maaswijdtes.
+                </div>
+            </div>
+        </div>
+
+        <!-- WAPENINGSTEKENING LAGEN -->
+        <div class="card">
+            <div class="card-header" onclick="toggleCard(this)">
+                <h2>Wapeningslagen (1e, 2e, 3e laag)</h2>
+                <span class="toggle-icon">&#9660;</span>
+            </div>
+            <div class="card-content">
+                <p>Bij meerdere wapeningslagen wordt elke laag apart aangeduid. De nummering begint bij de buitenste laag (tegen de bekisting).</p>
+
+                <div class="example-drawing">
+                    <h4>Doorsnede met wapeningslagen</h4>
+                    <svg viewBox="0 0 800 400" style="background: white;">
+                        <!-- Balkdoorsnede -->
+                        <g transform="translate(100, 50)">
+                            <!-- Beton contour -->
+                            <rect x="0" y="0" width="200" height="280" fill="#e0e0e0" stroke="#000" stroke-width="2"/>
+
+                            <!-- Dekking indicatie -->
+                            <line x1="0" y1="30" x2="200" y2="30" stroke="#999" stroke-width="1" stroke-dasharray="5,3"/>
+                            <line x1="0" y1="250" x2="200" y2="250" stroke="#999" stroke-width="1" stroke-dasharray="5,3"/>
+
+                            <!-- Onderwapening - 1e laag -->
+                            <g>
+                                <circle cx="35" cy="255" r="10" fill="#000"/>
+                                <circle cx="75" cy="255" r="10" fill="#000"/>
+                                <circle cx="125" cy="255" r="10" fill="#000"/>
+                                <circle cx="165" cy="255" r="10" fill="#000"/>
+                            </g>
+
+                            <!-- Onderwapening - 2e laag -->
+                            <g>
+                                <circle cx="55" cy="230" r="8" fill="#000"/>
+                                <circle cx="100" cy="230" r="8" fill="#000"/>
+                                <circle cx="145" cy="230" r="8" fill="#000"/>
+                            </g>
+
+                            <!-- Bovenwapening - 1e laag -->
+                            <g>
+                                <circle cx="35" cy="25" r="8" fill="#000"/>
+                                <circle cx="165" cy="25" r="8" fill="#000"/>
+                            </g>
+
+                            <!-- Beugels -->
+                            <rect x="20" y="15" width="160" height="255" fill="none" stroke="#000" stroke-width="2" rx="5"/>
+
+                            <!-- Labels onderwapening -->
+                            <text x="230" y="260" font-family="Arial" font-size="12" font-weight="bold">4Ø20 (1)</text>
+                            <line x1="175" y1="255" x2="225" y2="255" stroke="#3498db" stroke-width="1"/>
+
+                            <text x="230" y="235" font-family="Arial" font-size="12" font-weight="bold">3Ø16 (2)</text>
+                            <line x1="155" y1="230" x2="225" y2="230" stroke="#3498db" stroke-width="1"/>
+
+                            <!-- Labels bovenwapening -->
+                            <text x="230" y="30" font-family="Arial" font-size="12" font-weight="bold">2Ø16 (1)</text>
+                            <line x1="175" y1="25" x2="225" y2="25" stroke="#3498db" stroke-width="1"/>
+
+                            <!-- Beugel aanduiding -->
+                            <text x="100" y="145" font-family="Arial" font-size="11" text-anchor="middle">Ø8-150</text>
+
+                            <!-- Afmetingen -->
+                            <g transform="translate(-30, 0)">
+                                <line x1="0" y1="0" x2="0" y2="280" stroke="#000" stroke-width="1"/>
+                                <line x1="-5" y1="0" x2="5" y2="0" stroke="#000" stroke-width="1"/>
+                                <line x1="-5" y1="280" x2="5" y2="280" stroke="#000" stroke-width="1"/>
+                                <text x="-10" y="145" font-family="Arial" font-size="11" text-anchor="middle" transform="rotate(-90, -10, 145)">700</text>
+                            </g>
+
+                            <g transform="translate(0, 300)">
+                                <line x1="0" y1="0" x2="200" y2="0" stroke="#000" stroke-width="1"/>
+                                <line x1="0" y1="-5" x2="0" y2="5" stroke="#000" stroke-width="1"/>
+                                <line x1="200" y1="-5" x2="200" y2="5" stroke="#000" stroke-width="1"/>
+                                <text x="100" y="20" font-family="Arial" font-size="11" text-anchor="middle">400</text>
+                            </g>
+
+                            <!-- Dekking aanduiding -->
+                            <text x="205" y="145" font-family="Arial" font-size="9" fill="#666">c=30mm</text>
+                        </g>
+
+                        <!-- Uitleg lagen -->
+                        <g transform="translate(450, 50)">
+                            <text font-family="Arial" font-size="14" font-weight="bold">Laagnummering:</text>
+
+                            <g transform="translate(0, 30)">
+                                <!-- Visuele uitleg -->
+                                <rect x="0" y="0" width="250" height="120" fill="#f5f5f5" stroke="#ddd" stroke-width="1"/>
+
+                                <!-- Bekisting onder -->
+                                <rect x="0" y="100" width="250" height="20" fill="#8B4513" stroke="#000" stroke-width="1"/>
+                                <text x="125" y="115" font-family="Arial" font-size="10" text-anchor="middle" fill="white">bekisting</text>
+
+                                <!-- 1e laag -->
+                                <line x1="30" y1="85" x2="220" y2="85" stroke="#000" stroke-width="6"/>
+                                <text x="260" y="88" font-family="Arial" font-size="11">(1) = 1e laag</text>
+
+                                <!-- 2e laag -->
+                                <line x1="50" y1="65" x2="200" y2="65" stroke="#000" stroke-width="4"/>
+                                <text x="260" y="68" font-family="Arial" font-size="11">(2) = 2e laag</text>
+
+                                <!-- 3e laag -->
+                                <line x1="70" y1="45" x2="180" y2="45" stroke="#000" stroke-width="3"/>
+                                <text x="260" y="48" font-family="Arial" font-size="11">(3) = 3e laag</text>
+
+                                <text x="125" y="25" font-family="Arial" font-size="10" text-anchor="middle" fill="#666">↑ richting betonkern</text>
+                            </g>
+
+                            <g transform="translate(0, 180)">
+                                <text font-family="Arial" font-size="12" font-weight="bold">Conventie:</text>
+                                <text x="0" y="25" font-family="Arial" font-size="11">• (1) = eerste laag tegen bekisting</text>
+                                <text x="0" y="45" font-family="Arial" font-size="11">• (2) = tweede laag</text>
+                                <text x="0" y="65" font-family="Arial" font-size="11">• (3) = derde laag, enz.</text>
+                                <text x="0" y="95" font-family="Arial" font-size="11" fill="#666">De nummering begint altijd</text>
+                                <text x="0" y="110" font-family="Arial" font-size="11" fill="#666">vanaf de buitenzijde (bekisting).</text>
+                            </g>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- BALK DOORSNEDE MET AANDUIDING -->
+        <div class="card">
+            <div class="card-header" onclick="toggleCard(this)">
+                <h2>Balkdoorsnede met volledige aanduiding</h2>
+                <span class="toggle-icon">&#9660;</span>
+            </div>
+            <div class="card-content">
+                <div class="example-drawing">
+                    <h4>Complete wapeningstekening balk</h4>
+                    <svg viewBox="0 0 800 450" style="background: white;">
+                        <!-- Lengteaanzicht balk -->
+                        <g transform="translate(50, 30)">
+                            <text x="200" y="0" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle">LENGTEAANZICHT BALK</text>
+
+                            <!-- Balk contour -->
+                            <rect x="0" y="20" width="400" height="100" fill="#e0e0e0" stroke="#000" stroke-width="2"/>
+
+                            <!-- Onderwapening doorgaand -->
+                            <line x1="10" y1="105" x2="390" y2="105" stroke="#000" stroke-width="3"/>
+                            <line x1="10" y1="95" x2="390" y2="95" stroke="#000" stroke-width="2"/>
+
+                            <!-- Bovenwapening bij opleggingen -->
+                            <line x1="10" y1="35" x2="120" y2="35" stroke="#000" stroke-width="2"/>
+                            <line x1="280" y1="35" x2="390" y2="35" stroke="#000" stroke-width="2"/>
+
+                            <!-- Beugels -->
+                            <g stroke="#000" stroke-width="1">
+                                <line x1="30" y1="30" x2="30" y2="110" />
+                                <line x1="60" y1="30" x2="60" y2="110" />
+                                <line x1="90" y1="30" x2="90" y2="110" />
+                                <line x1="130" y1="30" x2="130" y2="110" />
+                                <line x1="170" y1="30" x2="170" y2="110" />
+                                <line x1="210" y1="30" x2="210" y2="110" />
+                                <line x1="250" y1="30" x2="250" y2="110" />
+                                <line x1="290" y1="30" x2="290" y2="110" />
+                                <line x1="330" y1="30" x2="330" y2="110" />
+                                <line x1="370" y1="30" x2="370" y2="110" />
+                            </g>
+
+                            <!-- Opleggingen -->
+                            <polygon points="20,120 50,120 35,140" fill="none" stroke="#000" stroke-width="2"/>
+                            <polygon points="350,120 380,120 365,140" fill="none" stroke="#000" stroke-width="2"/>
+
+                            <!-- Aanduidingen -->
+                            <text x="200" y="80" font-family="Arial" font-size="10" text-anchor="middle">Ø8-150</text>
+
+                            <!-- Aanduiding onderwapening met vlaggetjes -->
+                            <g transform="translate(410, 100)">
+                                <line x1="0" y1="0" x2="50" y2="0" stroke="#000" stroke-width="2"/>
+                                <line x1="50" y1="0" x2="50" y2="-15" stroke="#000" stroke-width="1.5"/>
+                                <polygon points="50,-15 35,-10 50,-10" fill="#000"/>
+                                <line x1="50" y1="-15" x2="50" y2="-25" stroke="#000" stroke-width="1.5"/>
+                                <polygon points="50,-25 35,-20 50,-20" fill="#000"/>
+                                <text x="60" y="5" font-family="Arial" font-size="11" font-weight="bold">2Ø20 (1)</text>
+                            </g>
+
+                            <!-- Snede-aanduiding -->
+                            <line x1="200" y1="10" x2="200" y2="130" stroke="#3498db" stroke-width="1.5" stroke-dasharray="8,4"/>
+                            <text x="200" y="155" font-family="Arial" font-size="12" text-anchor="middle" fill="#3498db" font-weight="bold">A - A</text>
+                        </g>
+
+                        <!-- Doorsnede A-A -->
+                        <g transform="translate(550, 30)">
+                            <text x="80" y="0" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle">DOORSNEDE A-A</text>
+
+                            <!-- Beton -->
+                            <rect x="0" y="20" width="160" height="200" fill="#e0e0e0" stroke="#000" stroke-width="2"/>
+
+                            <!-- Beugel -->
+                            <rect x="15" y="35" width="130" height="170" fill="none" stroke="#000" stroke-width="2" rx="5"/>
+
+                            <!-- Onderwapening -->
+                            <circle cx="35" cy="190" r="10" fill="#000"/>
+                            <circle cx="80" cy="190" r="10" fill="#000"/>
+                            <circle cx="125" cy="190" r="10" fill="#000"/>
+
+                            <!-- Bovenwapening -->
+                            <circle cx="35" cy="50" r="8" fill="#000"/>
+                            <circle cx="125" cy="50" r="8" fill="#000"/>
+
+                            <!-- Aanduidingen -->
+                            <text x="175" y="195" font-family="Arial" font-size="10" font-weight="bold">3Ø20 (1)</text>
+                            <text x="175" y="55" font-family="Arial" font-size="10" font-weight="bold">2Ø16 (1)</text>
+                            <text x="80" y="125" font-family="Arial" font-size="10" text-anchor="middle">Ø8-150</text>
+
+                            <!-- Afmetingen -->
+                            <g transform="translate(-25, 20)">
+                                <line x1="0" y1="0" x2="0" y2="200" stroke="#000" stroke-width="1"/>
+                                <line x1="-5" y1="0" x2="5" y2="0" stroke="#000" stroke-width="1"/>
+                                <line x1="-5" y1="200" x2="5" y2="200" stroke="#000" stroke-width="1"/>
+                                <text x="-5" y="100" font-family="Arial" font-size="10" transform="rotate(-90, -5, 100)" text-anchor="middle">500</text>
+                            </g>
+
+                            <g transform="translate(0, 235)">
+                                <line x1="0" y1="0" x2="160" y2="0" stroke="#000" stroke-width="1"/>
+                                <line x1="0" y1="-5" x2="0" y2="5" stroke="#000" stroke-width="1"/>
+                                <line x1="160" y1="-5" x2="160" y2="5" stroke="#000" stroke-width="1"/>
+                                <text x="80" y="15" font-family="Arial" font-size="10" text-anchor="middle">300</text>
+                            </g>
+                        </g>
+
+                        <!-- Buigstaat -->
+                        <g transform="translate(50, 320)">
+                            <text font-family="Arial" font-size="14" font-weight="bold">BUIGSTAAT:</text>
+
+                            <g transform="translate(0, 25)">
+                                <!-- Tabel headers -->
+                                <rect x="0" y="0" width="60" height="25" fill="#e0e0e0" stroke="#000"/>
+                                <rect x="60" y="0" width="40" height="25" fill="#e0e0e0" stroke="#000"/>
+                                <rect x="100" y="0" width="50" height="25" fill="#e0e0e0" stroke="#000"/>
+                                <rect x="150" y="0" width="60" height="25" fill="#e0e0e0" stroke="#000"/>
+                                <rect x="210" y="0" width="100" height="25" fill="#e0e0e0" stroke="#000"/>
+                                <rect x="310" y="0" width="80" height="25" fill="#e0e0e0" stroke="#000"/>
+
+                                <text x="30" y="17" font-family="Arial" font-size="9" text-anchor="middle" font-weight="bold">Pos.</text>
+                                <text x="80" y="17" font-family="Arial" font-size="9" text-anchor="middle" font-weight="bold">Ø</text>
+                                <text x="125" y="17" font-family="Arial" font-size="9" text-anchor="middle" font-weight="bold">Aantal</text>
+                                <text x="180" y="17" font-family="Arial" font-size="9" text-anchor="middle" font-weight="bold">Lengte</text>
+                                <text x="260" y="17" font-family="Arial" font-size="9" text-anchor="middle" font-weight="bold">Vorm</text>
+                                <text x="350" y="17" font-family="Arial" font-size="9" text-anchor="middle" font-weight="bold">Staal</text>
+
+                                <!-- Rij 1 -->
+                                <rect x="0" y="25" width="60" height="22" fill="white" stroke="#000"/>
+                                <rect x="60" y="25" width="40" height="22" fill="white" stroke="#000"/>
+                                <rect x="100" y="25" width="50" height="22" fill="white" stroke="#000"/>
+                                <rect x="150" y="25" width="60" height="22" fill="white" stroke="#000"/>
+                                <rect x="210" y="25" width="100" height="22" fill="white" stroke="#000"/>
+                                <rect x="310" y="25" width="80" height="22" fill="white" stroke="#000"/>
+
+                                <text x="30" y="40" font-family="Arial" font-size="9" text-anchor="middle">1</text>
+                                <text x="80" y="40" font-family="Arial" font-size="9" text-anchor="middle">20</text>
+                                <text x="125" y="40" font-family="Arial" font-size="9" text-anchor="middle">3</text>
+                                <text x="180" y="40" font-family="Arial" font-size="9" text-anchor="middle">5800</text>
+                                <line x1="230" y1="36" x2="290" y2="36" stroke="#000" stroke-width="2"/>
+                                <text x="350" y="40" font-family="Arial" font-size="9" text-anchor="middle">B500B</text>
+
+                                <!-- Rij 2 -->
+                                <rect x="0" y="47" width="60" height="22" fill="white" stroke="#000"/>
+                                <rect x="60" y="47" width="40" height="22" fill="white" stroke="#000"/>
+                                <rect x="100" y="47" width="50" height="22" fill="white" stroke="#000"/>
+                                <rect x="150" y="47" width="60" height="22" fill="white" stroke="#000"/>
+                                <rect x="210" y="47" width="100" height="22" fill="white" stroke="#000"/>
+                                <rect x="310" y="47" width="80" height="22" fill="white" stroke="#000"/>
+
+                                <text x="30" y="62" font-family="Arial" font-size="9" text-anchor="middle">2</text>
+                                <text x="80" y="62" font-family="Arial" font-size="9" text-anchor="middle">16</text>
+                                <text x="125" y="62" font-family="Arial" font-size="9" text-anchor="middle">2</text>
+                                <text x="180" y="62" font-family="Arial" font-size="9" text-anchor="middle">5800</text>
+                                <line x1="230" y1="58" x2="290" y2="58" stroke="#000" stroke-width="2"/>
+                                <text x="350" y="62" font-family="Arial" font-size="9" text-anchor="middle">B500B</text>
+
+                                <!-- Rij 3 - beugels -->
+                                <rect x="0" y="69" width="60" height="22" fill="white" stroke="#000"/>
+                                <rect x="60" y="69" width="40" height="22" fill="white" stroke="#000"/>
+                                <rect x="100" y="69" width="50" height="22" fill="white" stroke="#000"/>
+                                <rect x="150" y="69" width="60" height="22" fill="white" stroke="#000"/>
+                                <rect x="210" y="69" width="100" height="22" fill="white" stroke="#000"/>
+                                <rect x="310" y="69" width="80" height="22" fill="white" stroke="#000"/>
+
+                                <text x="30" y="84" font-family="Arial" font-size="9" text-anchor="middle">3</text>
+                                <text x="80" y="84" font-family="Arial" font-size="9" text-anchor="middle">8</text>
+                                <text x="125" y="84" font-family="Arial" font-size="9" text-anchor="middle">38</text>
+                                <text x="180" y="84" font-family="Arial" font-size="9" text-anchor="middle">1340</text>
+                                <!-- Beugelvorm -->
+                                <rect x="235" y="73" width="50" height="16" fill="none" stroke="#000" stroke-width="1.5" rx="3"/>
+                                <text x="350" y="84" font-family="Arial" font-size="9" text-anchor="middle">B500B</text>
+                            </g>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- STANDAARD DIAMETERS -->
+        <div class="card">
+            <div class="card-header" onclick="toggleCard(this)">
+                <h2>Standaard wapeningsdiameters</h2>
+                <span class="toggle-icon">&#9660;</span>
+            </div>
+            <div class="card-content">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Diameter [mm]</th>
+                            <th>Oppervlak [mm²]</th>
+                            <th>Gewicht [kg/m]</th>
+                            <th>Toepassing</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Ø6</td>
+                            <td>28.3</td>
+                            <td>0.222</td>
+                            <td>Netten, beugels</td>
+                        </tr>
+                        <tr>
+                            <td>Ø8</td>
+                            <td>50.3</td>
+                            <td>0.395</td>
+                            <td>Netten, beugels, verdeelwapening</td>
+                        </tr>
+                        <tr>
+                            <td>Ø10</td>
+                            <td>78.5</td>
+                            <td>0.617</td>
+                            <td>Beugels, hoofdwapening licht</td>
+                        </tr>
+                        <tr>
+                            <td>Ø12</td>
+                            <td>113</td>
+                            <td>0.888</td>
+                            <td>Hoofdwapening vloeren, balken</td>
+                        </tr>
+                        <tr>
+                            <td>Ø16</td>
+                            <td>201</td>
+                            <td>1.58</td>
+                            <td>Hoofdwapening balken, kolommen</td>
+                        </tr>
+                        <tr>
+                            <td>Ø20</td>
+                            <td>314</td>
+                            <td>2.47</td>
+                            <td>Zware hoofdwapening</td>
+                        </tr>
+                        <tr>
+                            <td>Ø25</td>
+                            <td>491</td>
+                            <td>3.85</td>
+                            <td>Zware constructies</td>
+                        </tr>
+                        <tr>
+                            <td>Ø32</td>
+                            <td>804</td>
+                            <td>6.31</td>
+                            <td>Zeer zware constructies</td>
+                        </tr>
+                        <tr>
+                            <td>Ø40</td>
+                            <td>1257</td>
+                            <td>9.86</td>
+                            <td>Speciale toepassingen</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p><strong>Project OconDat</strong> - Onderdeel van het OconDat project</p>
+        <p>Gebaseerd op NEN-EN 1992-1-1, NEN 3870 en NEN 6008</p>
+    </footer>
+
+    <script>
+        function toggleCard(header) {
+            header.classList.toggle('collapsed');
+            const content = header.nextElementSibling;
+            content.classList.toggle('collapsed');
+        }
+    </script>
+</body>
+</html>

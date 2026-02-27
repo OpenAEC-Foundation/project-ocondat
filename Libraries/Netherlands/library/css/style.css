@@ -1,0 +1,102 @@
+/* Open BIM Library - Style
+   Project OconDat */
+
+:root {
+    --primary: #1a1a2e;
+    --accent: #e94560;
+    --accent2: #0f3460;
+    --light: #f0f2f5;
+    --dark: #16213e;
+    --card-bg: #ffffff;
+    --text: #2c3e50;
+    --text-light: #7f8c8d;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--light); color: var(--text); }
+
+/* Nav */
+nav { background: var(--dark); padding: 0.7rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+nav a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+nav a:hover { color: #fff; }
+nav .brand { font-weight: 700; font-size: 1rem; letter-spacing: 0.5px; color: #fff; }
+
+/* Header */
+header {
+    background: linear-gradient(135deg, var(--dark) 0%, var(--accent2) 50%, var(--accent) 100%);
+    color: white; padding: 2.5rem 2rem 2rem; text-align: center;
+    position: relative; overflow: hidden;
+}
+header::before {
+    content: ''; position: absolute; top: -50%; right: -20%; width: 60%; height: 200%;
+    background: radial-gradient(ellipse, rgba(233,69,96,0.15) 0%, transparent 70%);
+    pointer-events: none;
+}
+header h1 { font-size: 2.2rem; font-weight: 800; letter-spacing: -0.5px; position: relative; }
+header .subtitle-line { opacity: 0.7; font-size: 0.95rem; margin-top: 0.3rem; position: relative; }
+.badge {
+    display: inline-block; margin-top: 0.6rem; padding: 0.25rem 0.8rem;
+    background: rgba(233,69,96,0.8); border-radius: 12px;
+    font-size: 0.8rem; font-weight: 600; position: relative;
+}
+#subtitle { font-size: 0.85rem; opacity: 0.6; display: block; margin-top: 0.5rem; position: relative; }
+
+/* Toolbar */
+.toolbar { background: var(--card-bg); padding: 0.8rem 2rem; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,0.08); border-bottom: 1px solid rgba(0,0,0,0.05); }
+.toolbar-inner { max-width: 1600px; margin: 0 auto; display: flex; gap: 0.6rem; align-items: center; flex-wrap: wrap; }
+#search { flex: 1; min-width: 200px; padding: 0.55rem 1rem; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 0.9rem; background: var(--light); transition: all 0.2s; }
+#search:focus { border-color: var(--accent); outline: none; background: #fff; box-shadow: 0 0 0 3px rgba(233,69,96,0.1); }
+.filter-btn { padding: 0.35rem 0.7rem; border: 1.5px solid #ddd; border-radius: 6px; background: white; cursor: pointer; font-size: 0.8rem; font-weight: 500; transition: all 0.15s; color: var(--text-light); }
+.filter-btn:hover { border-color: var(--accent); color: var(--accent); }
+.filter-btn.active { border-color: var(--accent); background: var(--accent); color: white; }
+#stats { font-size: 0.8rem; color: var(--text-light); margin-left: auto; }
+
+/* Grid */
+main { max-width: 1600px; margin: 0 auto; padding: 1.5rem; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 1rem; }
+
+/* Cards */
+.card { background: var(--card-bg); border-radius: 10px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.06); cursor: pointer; transition: all 0.25s ease; border: 1px solid rgba(0,0,0,0.04); }
+.card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); border-color: rgba(233,69,96,0.2); }
+.card .preview { background: linear-gradient(180deg, #fafbfc, #f5f6f8); padding: 0.6rem; height: 150px; display: flex; align-items: center; justify-content: center; }
+.card canvas { max-width: 100%; max-height: 100%; }
+.card .info { padding: 0.6rem 0.8rem 0.7rem; border-top: 1px solid #f0f0f0; }
+.card .family { font-size: 0.65rem; color: var(--accent); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.15rem; }
+.card .name { font-weight: 600; font-size: 0.85rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--text); }
+.card .dims { font-size: 0.72rem; color: var(--text-light); margin-top: 0.1rem; }
+
+/* Modal */
+.overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); z-index: 1000; align-items: center; justify-content: center; }
+.overlay.active { display: flex; }
+.modal { background: var(--card-bg); border-radius: 14px; max-width: 720px; width: 92%; max-height: 85vh; overflow: auto; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+.modal-head { padding: 1.2rem 1.5rem; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; }
+.modal-head h2 { font-size: 1.05rem; font-weight: 700; }
+.close-btn { background: none; border: none; font-size: 1.5rem; cursor: pointer; color: #bbb; transition: color 0.2s; }
+.close-btn:hover { color: var(--accent); }
+.modal-body { padding: 1.5rem; display: flex; gap: 1.5rem; flex-wrap: wrap; }
+.modal-canvas { flex: 1; min-width: 220px; background: linear-gradient(180deg, #fafbfc, #f0f2f5); border-radius: 10px; padding: 1.2rem; display: flex; align-items: center; justify-content: center; min-height: 260px; }
+.modal-info { flex: 1; min-width: 180px; }
+.modal-info table { width: 100%; border-collapse: collapse; }
+.modal-info th, .modal-info td { padding: 0.5rem 0.4rem; text-align: left; border-bottom: 1px solid #f0f0f0; font-size: 0.85rem; }
+.modal-info th { color: var(--text-light); width: 35%; font-weight: 500; }
+.modal-info td { font-weight: 600; }
+.modal-foot { padding: 1rem 1.5rem; border-top: 1px solid #eee; display: flex; gap: 0.6rem; }
+.dl-btn { padding: 0.5rem 1.2rem; border-radius: 8px; border: none; font-size: 0.85rem; cursor: pointer; text-decoration: none; color: white; font-weight: 600; transition: all 0.2s; }
+.dl-btn.dxf { background: linear-gradient(135deg, var(--accent2), #1a5276); }
+.dl-btn.dxf:hover { box-shadow: 0 4px 12px rgba(15,52,96,0.3); }
+.dl-btn.off { background: #e0e0e0; color: #999; pointer-events: none; }
+
+/* Empty state */
+.empty { text-align: center; padding: 3rem; color: var(--text-light); }
+
+/* Footer */
+footer { background: var(--dark); color: rgba(255,255,255,0.7); text-align: center; padding: 1.2rem; font-size: 0.8rem; }
+footer a { color: var(--accent); text-decoration: none; }
+footer strong { color: #fff; }
+
+/* Responsive */
+@media (max-width: 600px) {
+    .grid { grid-template-columns: repeat(auto-fill, minmax(155px, 1fr)); }
+    .modal-body { flex-direction: column; }
+    header h1 { font-size: 1.6rem; }
+}
