@@ -1,0 +1,11 @@
+---
+name: "die47x5"
+product: "DIE47x5"
+serie: "Staalconstructie"
+fabrikant: "Generic"
+type: variant
+dxf_file: "die47x5.dxf"
+svg_file: "die47x5.svg"
+source_file: ""
+date_added: "2026-02-14"
+---

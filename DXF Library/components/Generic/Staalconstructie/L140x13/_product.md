@@ -1,0 +1,14 @@
+---
+name: "L140x13"
+serie: "Staalconstructie"
+fabrikant: "Generic"
+type: product
+ifc_class: "IfcMember"
+ifc_predefined_type: "MEMBER"
+nl_sfb: "28"
+variant_count: 1
+date_available: "current"
+---
+# L140x13
+
+L140x13 from Generic Staalconstructie.

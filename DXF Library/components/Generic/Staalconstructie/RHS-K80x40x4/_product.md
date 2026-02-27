@@ -1,0 +1,14 @@
+---
+name: "RHS-K80x40x4"
+serie: "Staalconstructie"
+fabrikant: "Generic"
+type: product
+ifc_class: "IfcMember"
+ifc_predefined_type: "MEMBER"
+nl_sfb: "28"
+variant_count: 1
+date_available: "current"
+---
+# RHS-K80x40x4
+
+RHS-K80x40x4 from Generic Staalconstructie.
