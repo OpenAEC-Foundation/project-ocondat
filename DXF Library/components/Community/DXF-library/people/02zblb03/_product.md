@@ -1,0 +1,13 @@
+---
+name: "02zblb03"
+serie: "people"
+fabrikant: "Community/DXF-library"
+type: product
+ifc_class: "IfcAnnotation"
+ifc_predefined_type: "USERDEFINED"
+variant_count: 1
+date_available: "current"
+---
+# 02zblb03
+
+02zblb03 from Community/DXF-library people.
