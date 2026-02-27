@@ -1,0 +1,11 @@
+---
+name: "fixed-18x30"
+product: "Fixed-18x30"
+serie: "Architecture"
+fabrikant: "Community/dxfBlocks"
+type: variant
+dxf_file: "fixed-18x30.dxf"
+svg_file: "fixed-18x30.svg"
+source_file: ""
+date_added: "2026-02-14"
+---
