@@ -1,0 +1,14 @@
+---
+name: "multiplex-d18"
+serie: "Vloerplaten-en-afwerking"
+fabrikant: "Generic"
+type: product
+ifc_class: "IfcCovering"
+ifc_predefined_type: "CLADDING"
+nl_sfb: "40"
+variant_count: 1
+date_available: "current"
+---
+# multiplex-d18
+
+multiplex-d18 from Generic Vloerplaten-en-afwerking.

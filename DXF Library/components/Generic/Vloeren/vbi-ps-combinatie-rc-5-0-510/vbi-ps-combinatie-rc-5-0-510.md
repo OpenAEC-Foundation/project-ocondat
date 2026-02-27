@@ -1,0 +1,11 @@
+---
+name: "vbi-ps-combinatie-rc-5-0-510"
+product: "vbi-ps-combinatie-rc-5-0-510"
+serie: "Vloeren"
+fabrikant: "Generic"
+type: variant
+dxf_file: "vbi-ps-combinatie-rc-5-0-510.dxf"
+svg_file: "vbi-ps-combinatie-rc-5-0-510.svg"
+source_file: ""
+date_added: "2026-02-14"
+---
