@@ -1,0 +1,11 @@
+---
+name: "carro-vista-5"
+product: "carro-vista-5"
+serie: "cars"
+fabrikant: "Community/DXF-library"
+type: variant
+dxf_file: "carro-vista-5.dxf"
+svg_file: "carro-vista-5.svg"
+source_file: ""
+date_added: "2026-02-14"
+---

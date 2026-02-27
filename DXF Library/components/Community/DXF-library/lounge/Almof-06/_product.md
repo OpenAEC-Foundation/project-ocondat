@@ -1,0 +1,13 @@
+---
+name: "Almof-06"
+serie: "lounge"
+fabrikant: "Community/DXF-library"
+type: product
+ifc_class: "IfcFurniture"
+ifc_predefined_type: "SOFA"
+variant_count: 1
+date_available: "current"
+---
+# Almof-06
+
+Almof-06 from Community/DXF-library lounge.
