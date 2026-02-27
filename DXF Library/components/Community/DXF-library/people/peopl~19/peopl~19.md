@@ -1,0 +1,11 @@
+---
+name: "peopl~19"
+product: "peopl~19"
+serie: "people"
+fabrikant: "Community/DXF-library"
+type: variant
+dxf_file: "peopl~19.dxf"
+svg_file: "peopl~19.svg"
+source_file: ""
+date_added: "2026-02-14"
+---
