@@ -1,0 +1,11 @@
+---
+name: "arvores-planta-escalas-13"
+product: "arvores-planta-escalas-13"
+serie: "vegetation"
+fabrikant: "Community/DXF-library"
+type: variant
+dxf_file: "arvores-planta-escalas-13.dxf"
+svg_file: "arvores-planta-escalas-13.svg"
+source_file: ""
+date_added: "2026-02-14"
+---
