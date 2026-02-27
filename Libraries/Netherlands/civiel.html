@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Civiele Techniek - Project OconDat</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #34495e;
+            --accent: #3498db;
+            --light: #ecf0f1;
+            --dark: #1a252f;
+            --civ: #27ae60;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--light);
+            color: var(--primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .top-nav {
+            background: var(--dark);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .top-nav a { color: white; text-decoration: none; }
+        .top-nav .logo { font-weight: bold; font-size: 1.1rem; }
+        .top-nav .back { opacity: 0.8; }
+        .top-nav .back:hover { opacity: 1; }
+        header {
+            background: linear-gradient(135deg, var(--civ), #1e8449);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        header p { opacity: 0.9; font-size: 1.1rem; }
+        .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-top: 1rem;
+        }
+        nav {
+            background: var(--secondary);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        nav a:hover { background: var(--civ); }
+        main {
+            flex: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        section {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        section h2 {
+            color: var(--primary);
+            border-bottom: 3px solid var(--civ);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        section h3 {
+            color: var(--civ);
+            margin: 1.5rem 0 1rem;
+        }
+        .info-box {
+            background: #e8f6ef;
+            border-left: 4px solid var(--civ);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 5px 5px 0;
+        }
+        .warning-box {
+            background: #fef9e7;
+            border-left: 4px solid #f39c12;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 5px 5px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background: var(--light);
+            font-weight: 600;
+        }
+        tr:hover { background: #fafafa; }
+        code {
+            background: #f4f4f4;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.9em;
+        }
+        .symbol-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        .symbol-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+            background: #fafafa;
+        }
+        .symbol-card svg {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 0.5rem;
+        }
+        .symbol-card .label {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 0.9rem;
+        }
+        .symbol-card .desc {
+            font-size: 0.8rem;
+            color: #666;
+        }
+        .hatch-demo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.75rem;
+            background: #fafafa;
+            border-radius: 8px;
+            margin: 0.5rem 0;
+        }
+        .hatch-demo svg {
+            width: 60px;
+            height: 40px;
+            flex-shrink: 0;
+            border: 1px solid #ddd;
+        }
+        .hatch-demo .info {
+            flex: 1;
+        }
+        .hatch-demo .info strong {
+            color: var(--primary);
+        }
+        .hatch-demo .info p {
+            font-size: 0.85rem;
+            color: #666;
+            margin: 0;
+        }
+        .color-strip {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-radius: 3px;
+            vertical-align: middle;
+            margin-right: 0.5rem;
+            border: 1px solid #ccc;
+        }
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+        }
+        footer a { color: var(--accent); }
+        @media (max-width: 768px) {
+            header h1 { font-size: 2rem; }
+            nav ul { flex-direction: column; align-items: center; }
+            .symbol-grid { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="index.html" class="logo">Project OconDat</a>
+        <a href="index.html" class="back">&larr; Terug naar overzicht</a>
+    </div>
+
+    <header>
+        <h1>Civiele Techniek</h1>
+        <p>CIV - Civiel Technische Tekeningen</p>
+        <span class="badge">NLCS | NEN 5104 | CROW</span>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#nlcs">NLCS</a></li>
+            <li><a href="#grondsoorten">Grondsoorten</a></li>
+            <li><a href="#riolering">Riolering</a></li>
+            <li><a href="#wegenbouw">Wegenbouw</a></li>
+            <li><a href="#waterbouw">Waterbouw</a></li>
+            <li><a href="#normen">Normen</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- NLCS SECTIE -->
+        <section id="nlcs">
+            <h2>NLCS - Nederlandse CAD Standaard</h2>
+
+            <div class="info-box">
+                <strong>NLCS</strong> is de Nederlandse CAD Standaard voor de GWW-sector (Grond-, Weg- en Waterbouw).
+                Deze standaard bevat afspraken over laagindeling, lijntypen, lijndiktes, kleuren, symbolen en arceringen.
+            </div>
+
+            <h3>Laagnaamopbouw</h3>
+            <p>NLCS-laagnamen zijn opgebouwd uit vaste onderdelen gescheiden door koppeltekens:</p>
+            <p style="margin: 1rem 0; font-family: monospace; background: #f4f4f4; padding: 1rem; border-radius: 5px;">
+                <strong>STATUS-DISCIPLINE-HOOFDGROEP-OBJECT[-SUBOBJECT]-BEWERKING[-SCHAAL]</strong>
+            </p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Onderdeel</th>
+                        <th>Voorbeeld</th>
+                        <th>Betekenis</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Status</td>
+                        <td><code>N</code>, <code>B</code>, <code>V</code>, <code>T</code></td>
+                        <td>Nieuw, Bestaand, Vervallen, Tijdelijk</td>
+                    </tr>
+                    <tr>
+                        <td>Discipline</td>
+                        <td><code>WE</code>, <code>RI</code>, <code>GR</code></td>
+                        <td>Wegen, Riolering, Groen</td>
+                    </tr>
+                    <tr>
+                        <td>Hoofdgroep</td>
+                        <td><code>VERHARDING</code></td>
+                        <td>Categorie van objecten</td>
+                    </tr>
+                    <tr>
+                        <td>Object</td>
+                        <td><code>ASFALT</code></td>
+                        <td>Specifiek object</td>
+                    </tr>
+                    <tr>
+                        <td>Bewerking</td>
+                        <td><code>G</code>, <code>S</code>, <code>A</code></td>
+                        <td>Gevuld, Symbool, Annotatie</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p style="margin-top: 1rem;"><strong>Voorbeeld:</strong> <code>N-WE-VERHARDING-ASFALT-G</code> = Nieuwe asfalt verharding, gevuld</p>
+
+            <h3>Lijntypen en Lijndiktes</h3>
+            <p>Standaard lijndiktes volgens NEN-ISO 128:</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Lijndikte</th>
+                        <th>Toepassing</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>0.18 mm</td>
+                        <td>Hulplijnen, arceringen</td>
+                    </tr>
+                    <tr>
+                        <td>0.25 mm</td>
+                        <td>Dunne lijnen, tekst</td>
+                    </tr>
+                    <tr>
+                        <td>0.35 mm</td>
+                        <td>Standaard objectlijnen (default)</td>
+                    </tr>
+                    <tr>
+                        <td>0.50 mm</td>
+                        <td>Dikke lijnen, contouren</td>
+                    </tr>
+                    <tr>
+                        <td>0.70 mm</td>
+                        <td>Extra dikke lijnen</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Kleurgebruik</h3>
+            <div class="warning-box">
+                <strong>Let op:</strong> NLCS-kleuren zijn primair bedoeld voor schermweergave tijdens ontwerpen.
+                Bij plotten worden lijnen standaard zwart afgedrukt.
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>AutoCAD kleur</th>
+                        <th>Toepassing</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="color-strip" style="background:#FF0000;"></span>10 (rood)</td>
+                        <td>Riolering</td>
+                    </tr>
+                    <tr>
+                        <td><span class="color-strip" style="background:#FFFF00;"></span>20 (geel)</td>
+                        <td>Gas</td>
+                    </tr>
+                    <tr>
+                        <td><span class="color-strip" style="background:#00FF00;"></span>30 (groen)</td>
+                        <td>Groen, beplanting</td>
+                    </tr>
+                    <tr>
+                        <td><span class="color-strip" style="background:#00FFFF;"></span>40 (cyaan)</td>
+                        <td>Water</td>
+                    </tr>
+                    <tr>
+                        <td><span class="color-strip" style="background:#0000FF;"></span>50 (blauw)</td>
+                        <td>Elektra</td>
+                    </tr>
+                    <tr>
+                        <td><span class="color-strip" style="background:#FF00FF;"></span>60 (magenta)</td>
+                        <td>Telecom</td>
+                    </tr>
+                    <tr>
+                        <td><span class="color-strip" style="background:#808080;"></span>250 (grijs)</td>
+                        <td>Bestaand/ondergrond</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- GRONDSOORTEN SECTIE -->
+        <section id="grondsoorten">
+            <h2>Grondsoorten & Arceringen</h2>
+
+            <div class="info-box">
+                <strong>NEN 5104</strong> is de Nederlandse standaard voor classificatie van onverharde grondmonsters.
+                De arceringen voor grondsoorten zijn gedefinieerd in NEN 47.
+            </div>
+
+            <h3>Grondsoorten Arceringen (NEN 47)</h3>
+
+            <div class="hatch-demo">
+                <svg viewBox="0 0 60 40">
+                    <defs>
+                        <pattern id="g-zand" width="10" height="10" patternUnits="userSpaceOnUse">
+                            <rect width="10" height="10" fill="#F5DEB3"/>
+                            <circle cx="2" cy="2" r="0.8" fill="#000"/>
+                            <circle cx="7" cy="4" r="0.8" fill="#000"/>
+                            <circle cx="4" cy="7" r="0.8" fill="#000"/>
+                            <circle cx="9" cy="9" r="0.8" fill="#000"/>
+                        </pattern>
+                    </defs>
+                    <rect width="60" height="40" fill="url(#g-zand)"/>
+                </svg>
+                <div class="info">
+                    <strong>Zand</strong>
+                    <p>Puntjes, onregelmatig verspreid. Achtergrond: #F5DEB3</p>
+                </div>
+            </div>
+
+            <div class="hatch-demo">
+                <svg viewBox="0 0 60 40">
+                    <defs>
+                        <pattern id="g-klei" width="8" height="8" patternUnits="userSpaceOnUse">
+                            <rect width="8" height="8" fill="#A0522D"/>
+                            <line x1="0" y1="2" x2="8" y2="2" stroke="#000" stroke-width="0.5"/>
+                            <line x1="0" y1="6" x2="8" y2="6" stroke="#000" stroke-width="0.5"/>
+                        </pattern>
+                    </defs>
+                    <rect width="60" height="40" fill="url(#g-klei)"/>
+                </svg>
+                <div class="info">
+                    <strong>Klei</strong>
+                    <p>Horizontale lijnen, dicht op elkaar. Achtergrond: #A0522D</p>
+                </div>
+            </div>
+
+            <div class="hatch-demo">
+                <svg viewBox="0 0 60 40">
+                    <defs>
+                        <pattern id="g-veen" width="10" height="10" patternUnits="userSpaceOnUse">
+                            <rect width="10" height="10" fill="#3D2B1F"/>
+                            <line x1="0" y1="2" x2="10" y2="2" stroke="#000" stroke-width="0.4"/>
+                            <line x1="2" y1="0" x2="2" y2="4" stroke="#000" stroke-width="0.4"/>
+                            <line x1="0" y1="7" x2="10" y2="7" stroke="#000" stroke-width="0.4"/>
+                            <line x1="7" y1="5" x2="7" y2="10" stroke="#000" stroke-width="0.4"/>
+                        </pattern>
+                    </defs>
+                    <rect width="60" height="40" fill="url(#g-veen)"/>
+                </svg>
+                <div class="info">
+                    <strong>Veen</strong>
+                    <p>Horizontale lijnen met korte verticale streepjes. Achtergrond: #3D2B1F</p>
+                </div>
+            </div>
+
+            <div class="hatch-demo">
+                <svg viewBox="0 0 60 40">
+                    <defs>
+                        <pattern id="g-grind" width="20" height="20" patternUnits="userSpaceOnUse">
+                            <rect width="20" height="20" fill="#D2B48C"/>
+                            <circle cx="5" cy="5" r="3" fill="none" stroke="#000" stroke-width="0.5"/>
+                            <circle cx="15" cy="12" r="2.5" fill="none" stroke="#000" stroke-width="0.5"/>
+                            <circle cx="8" cy="16" r="2" fill="none" stroke="#000" stroke-width="0.5"/>
+                        </pattern>
+                    </defs>
+                    <rect width="60" height="40" fill="url(#g-grind)"/>
+                </svg>
+                <div class="info">
+                    <strong>Grind</strong>
+                    <p>Open cirkels, onregelmatig. Achtergrond: #D2B48C</p>
+                </div>
+            </div>
+
+            <div class="hatch-demo">
+                <svg viewBox="0 0 60 40">
+                    <defs>
+                        <pattern id="g-leem" width="8" height="8" patternUnits="userSpaceOnUse">
+                            <rect width="8" height="8" fill="#C4A574"/>
+                            <line x1="0" y1="4" x2="8" y2="4" stroke="#000" stroke-width="0.4"/>
+                            <circle cx="2" cy="2" r="0.5" fill="#000"/>
+                            <circle cx="6" cy="6" r="0.5" fill="#000"/>
+                        </pattern>
+                    </defs>
+                    <rect width="60" height="40" fill="url(#g-leem)"/>
+                </svg>
+                <div class="info">
+                    <strong>Leem (L&ouml;ss)</strong>
+                    <p>Combinatie horizontale lijnen en puntjes. Achtergrond: #C4A574</p>
+                </div>
+            </div>
+
+            <div class="hatch-demo">
+                <svg viewBox="0 0 60 40">
+                    <defs>
+                        <pattern id="g-rots" width="12" height="12" patternUnits="userSpaceOnUse">
+                            <rect width="12" height="12" fill="#808080"/>
+                            <path d="M0,6 L4,2 L8,6 L12,2" fill="none" stroke="#000" stroke-width="0.6"/>
+                            <path d="M0,12 L4,8 L8,12" fill="none" stroke="#000" stroke-width="0.6"/>
+                        </pattern>
+                    </defs>
+                    <rect width="60" height="40" fill="url(#g-rots)"/>
+                </svg>
+                <div class="info">
+                    <strong>Rots / Steen</strong>
+                    <p>Zigzag lijnen. Achtergrond: #808080</p>
+                </div>
+            </div>
+
+            <h3>Grondclassificatie (NEN 5104)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Korrelgrootte</th>
+                        <th>Grondsoort</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>&lt; 2 &mu;m</td>
+                        <td>Lutum (klei-fractie)</td>
+                    </tr>
+                    <tr>
+                        <td>2 - 50 &mu;m</td>
+                        <td>Silt (leem-fractie)</td>
+                    </tr>
+                    <tr>
+                        <td>50 &mu;m - 2 mm</td>
+                        <td>Zand</td>
+                    </tr>
+                    <tr>
+                        <td>2 - 63 mm</td>
+                        <td>Grind</td>
+                    </tr>
+                    <tr>
+                        <td>&gt; 63 mm</td>
+                        <td>Stenen / keien</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- RIOLERING SECTIE -->
+        <section id="riolering">
+            <h2>Riolering</h2>
+
+            <div class="info-box">
+                <strong>GWSW</strong> (Gegevenswoordenboek Stedelijk Water) definieert standaard symbolen en stijlen
+                voor rioleringsobjecten, afgestemd op de NLCS.
+            </div>
+
+            <h3>Rioolstelsels</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Afkorting</th>
+                        <th>Naam</th>
+                        <th>Beschrijving</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>GS</code></td>
+                        <td>Gemengd stelsel</td>
+                        <td>Vuil- en regenwater samen afgevoerd</td>
+                    </tr>
+                    <tr>
+                        <td><code>DWA</code></td>
+                        <td>Droogweerafvoer</td>
+                        <td>Alleen vuilwater (huishoudelijk/bedrijfs)</td>
+                    </tr>
+                    <tr>
+                        <td><code>HWA</code> / <code>RWA</code></td>
+                        <td>Hemelwaterafvoer</td>
+                        <td>Alleen regenwater</td>
+                    </tr>
+                    <tr>
+                        <td><code>VGS</code></td>
+                        <td>Verbeterd gescheiden</td>
+                        <td>Gescheiden met overstort mogelijkheid</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Symbolen Rioolputten</h3>
+            <div class="symbol-grid">
+                <div class="symbol-card">
+                    <svg viewBox="0 0 60 60">
+                        <circle cx="30" cy="30" r="20" fill="none" stroke="#000" stroke-width="2"/>
+                    </svg>
+                    <div class="label">Inspectieput</div>
+                    <div class="desc">Open cirkel</div>
+                </div>
+                <div class="symbol-card">
+                    <svg viewBox="0 0 60 60">
+                        <circle cx="30" cy="30" r="20" fill="#000"/>
+                    </svg>
+                    <div class="label">Kolk</div>
+                    <div class="desc">Gevulde cirkel</div>
+                </div>
+                <div class="symbol-card">
+                    <svg viewBox="0 0 60 60">
+                        <rect x="10" y="10" width="40" height="40" fill="none" stroke="#000" stroke-width="2"/>
+                    </svg>
+                    <div class="label">Pompput</div>
+                    <div class="desc">Vierkant</div>
+                </div>
+                <div class="symbol-card">
+                    <svg viewBox="0 0 60 60">
+                        <circle cx="30" cy="30" r="20" fill="none" stroke="#000" stroke-width="2"/>
+                        <line x1="30" y1="10" x2="30" y2="50" stroke="#000" stroke-width="2"/>
+                    </svg>
+                    <div class="label">Overstortput</div>
+                    <div class="desc">Cirkel met lijn</div>
+                </div>
+                <div class="symbol-card">
+                    <svg viewBox="0 0 60 60">
+                        <polygon points="30,10 50,50 10,50" fill="none" stroke="#000" stroke-width="2"/>
+                    </svg>
+                    <div class="label">Uitlaat</div>
+                    <div class="desc">Driehoek</div>
+                </div>
+                <div class="symbol-card">
+                    <svg viewBox="0 0 60 60">
+                        <circle cx="30" cy="30" r="15" fill="none" stroke="#000" stroke-width="2"/>
+                        <circle cx="30" cy="30" r="8" fill="#000"/>
+                    </svg>
+                    <div class="label">Huisaansluiting</div>
+                    <div class="desc">Dubbele cirkel</div>
+                </div>
+            </div>
+
+            <h3>Leidingtypen</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Lijntype</th>
+                        <th>Betekenis</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="font-family: monospace;">________</td>
+                        <td>Vrijverval riool</td>
+                    </tr>
+                    <tr>
+                        <td style="font-family: monospace;">__ __ __</td>
+                        <td>Persleiding</td>
+                    </tr>
+                    <tr>
+                        <td style="font-family: monospace;">_ . _ . _</td>
+                        <td>Drain</td>
+                    </tr>
+                    <tr>
+                        <td style="font-family: monospace;">. . . . .</td>
+                        <td>Huisaansluiting</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Annotatie op Tekeningen</h3>
+            <p>Rioolbuizen worden geannoteerd met:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li><strong>Diameter:</strong> &Oslash;315, &Oslash;400, &Oslash;600 (mm)</li>
+                <li><strong>Materiaal:</strong> PVC, PE, Beton, Gres</li>
+                <li><strong>BOB:</strong> Binnen Onderkant Buis (peil in m NAP)</li>
+                <li><strong>Afschot:</strong> Helling in &permil; of %</li>
+            </ul>
+        </section>
+
+        <!-- WEGENBOUW SECTIE -->
+        <section id="wegenbouw">
+            <h2>Wegenbouw</h2>
+
+            <h3>Verhardingstypen</h3>
+
+            <div class="hatch-demo">
+                <svg viewBox="0 0 60 40">
+                    <rect width="60" height="40" fill="#333"/>
+                </svg>
+                <div class="info">
+                    <strong>Asfalt</strong>
+                    <p>Zwart/donkergrijs vlak. NLCS: N-WE-VERHARDING-ASFALT</p>
+                </div>
+            </div>
+
+            <div class="hatch-demo">
+                <svg viewBox="0 0 60 40">
+                    <defs>
+                        <pattern id="v-klinker" width="10" height="10" patternUnits="userSpaceOnUse">
+                            <rect width="10" height="10" fill="#C45C3E"/>
+                            <rect x="0" y="0" width="4" height="9" fill="none" stroke="#000" stroke-width="0.3"/>
+                            <rect x="5" y="0" width="4" height="9" fill="none" stroke="#000" stroke-width="0.3"/>
+                        </pattern>
+                    </defs>
+                    <rect width="60" height="40" fill="url(#v-klinker)"/>
+                </svg>
+                <div class="info">
+                    <strong>Gebakken klinkers</strong>
+                    <p>Rechthoekig patroon, roodbruin. NLCS: N-WE-VERHARDING-KLINKER</p>
+                </div>
+            </div>
+
+            <div class="hatch-demo">
+                <svg viewBox="0 0 60 40">
+                    <defs>
+                        <pattern id="v-tegel" width="15" height="15" patternUnits="userSpaceOnUse">
+                            <rect width="15" height="15" fill="#C0C0C0"/>
+                            <rect x="0" y="0" width="14" height="14" fill="none" stroke="#000" stroke-width="0.4"/>
+                        </pattern>
+                    </defs>
+                    <rect width="60" height="40" fill="url(#v-tegel)"/>
+                </svg>
+                <div class="info">
+                    <strong>Betontegels</strong>
+                    <p>Vierkant raster. NLCS: N-WE-VERHARDING-TEGEL</p>
+                </div>
+            </div>
+
+            <div class="hatch-demo">
+                <svg viewBox="0 0 60 40">
+                    <defs>
+                        <pattern id="v-grind2" width="10" height="10" patternUnits="userSpaceOnUse">
+                            <rect width="10" height="10" fill="#D2B48C"/>
+                            <circle cx="3" cy="3" r="1.5" fill="none" stroke="#000" stroke-width="0.3"/>
+                            <circle cx="7" cy="7" r="1.2" fill="none" stroke="#000" stroke-width="0.3"/>
+                        </pattern>
+                    </defs>
+                    <rect width="60" height="40" fill="url(#v-grind2)"/>
+                </svg>
+                <div class="info">
+                    <strong>Half-/onverhard (grind/split)</strong>
+                    <p>Cirkels patroon. NLCS: N-WE-VERHARDING-GRIND</p>
+                </div>
+            </div>
+
+            <h3>Wegmarkering</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Kleur</th>
+                        <th>Toepassing</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Doorgetrokken streep</td>
+                        <td>Wit</td>
+                        <td>Rijstrookscheiding (niet overschrijden)</td>
+                    </tr>
+                    <tr>
+                        <td>Onderbroken streep</td>
+                        <td>Wit</td>
+                        <td>Rijstrookscheiding (wel overschrijden)</td>
+                    </tr>
+                    <tr>
+                        <td>Kantstreep</td>
+                        <td>Wit</td>
+                        <td>Rand van rijbaan</td>
+                    </tr>
+                    <tr>
+                        <td>Blokmarkering</td>
+                        <td>Wit</td>
+                        <td>Voetgangersoversteek (zebrapad)</td>
+                    </tr>
+                    <tr>
+                        <td>Gele streep</td>
+                        <td>Geel</td>
+                        <td>Stopverbod, tijdelijke markering</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Banden en Boordstenen</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Toepassing</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Opsluitband</td>
+                        <td>Afscheiding tussen verharding en groen</td>
+                    </tr>
+                    <tr>
+                        <td>Trottoirband (stoeprand)</td>
+                        <td>Afscheiding rijweg - trottoir (met hoogteverschil)</td>
+                    </tr>
+                    <tr>
+                        <td>Inritband</td>
+                        <td>Verlaagde band bij inritten</td>
+                    </tr>
+                    <tr>
+                        <td>Kantopsluiting</td>
+                        <td>Goot/waterafvoer langs rijbaan</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- WATERBOUW SECTIE -->
+        <section id="waterbouw">
+            <h2>Waterbouw</h2>
+
+            <h3>Waterlopen</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Element</th>
+                        <th>Weergave</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Waterloop / sloot</td>
+                        <td>Blauwe arcering met golvende lijnen</td>
+                    </tr>
+                    <tr>
+                        <td>Oever / talud</td>
+                        <td>Schuine arcering richting water</td>
+                    </tr>
+                    <tr>
+                        <td>Duiker</td>
+                        <td>Onderbroken lijn met cirkel-symbolen</td>
+                    </tr>
+                    <tr>
+                        <td>Stuw</td>
+                        <td>Dikke lijn met pijl (stroomrichting)</td>
+                    </tr>
+                    <tr>
+                        <td>Beschoeiing</td>
+                        <td>Lijn met korte haakse streepjes</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Hoogtematen</h3>
+            <p>Alle hoogtes worden aangegeven in meters t.o.v. NAP (Normaal Amsterdams Peil):</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li><strong>MV:</strong> Maaiveld</li>
+                <li><strong>WP:</strong> Waterpeil (streefpeil)</li>
+                <li><strong>BOB:</strong> Binnen Onderkant Buis</li>
+                <li><strong>DKH:</strong> Deksel/Kophoogte</li>
+            </ul>
+
+            <h3>Profielen</h3>
+            <p>Dwarsprofielen van watergangen tonen:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li>Bodemhoogte en -breedte</li>
+                <li>Talud helling (bijv. 1:2, 1:3)</li>
+                <li>Waterpeil (winter/zomer)</li>
+                <li>Oeverconstructies</li>
+                <li>Onderhoudsstroken</li>
+            </ul>
+        </section>
+
+        <!-- NORMEN SECTIE -->
+        <section id="normen">
+            <h2>Relevante Normen</h2>
+
+            <h3>CAD en Tekennormen</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Norm/Standaard</th>
+                        <th>Onderwerp</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>NLCS 5.0</strong></td>
+                        <td>Nederlandse CAD Standaard voor GWW</td>
+                    </tr>
+                    <tr>
+                        <td><strong>NEN-ISO 128</strong></td>
+                        <td>Technische tekeningen - Lijndiktes</td>
+                    </tr>
+                    <tr>
+                        <td><strong>NEN 47:1970</strong></td>
+                        <td>Doorsnede-aanduidingen materialen</td>
+                    </tr>
+                    <tr>
+                        <td><strong>NEN 2571</strong></td>
+                        <td>Maatafwijkingen op tekeningen</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Classificatie en Data</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Norm/Standaard</th>
+                        <th>Onderwerp</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>NEN 5104</strong></td>
+                        <td>Classificatie onverharde grondmonsters</td>
+                    </tr>
+                    <tr>
+                        <td><strong>GWSW</strong></td>
+                        <td>Gegevenswoordenboek Stedelijk Water</td>
+                    </tr>
+                    <tr>
+                        <td><strong>IMGEO/BGT</strong></td>
+                        <td>Informatiemodel Geografie / Basisregistratie</td>
+                    </tr>
+                    <tr>
+                        <td><strong>CROW</strong></td>
+                        <td>Richtlijnen openbare ruimte</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Uitvoering</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Norm/Standaard</th>
+                        <th>Onderwerp</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>RAW</strong></td>
+                        <td>Standaard besteksystematiek GWW</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Standaard 2020</strong></td>
+                        <td>CROW publicatie wegontwerp</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Leidraad Riolering</strong></td>
+                        <td>RIONED richtlijnen</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="info-box" style="margin-top: 1.5rem;">
+                <strong>Bronnen:</strong><br>
+                <a href="https://www.nlcs.nl" target="_blank">NLCS - Nederlandse CAD Standaard</a><br>
+                <a href="https://data.gwsw.nl" target="_blank">GWSW - Gegevenswoordenboek Stedelijk Water</a><br>
+                <a href="https://www.crow.nl" target="_blank">CROW - Kennisplatform</a><br>
+                <a href="https://www.riool.net" target="_blank">Stichting RIONED</a><br>
+                <a href="https://www.pdok.nl" target="_blank">PDOK - Publieke Dienstverlening Op de Kaart</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Project OconDat | <a href="https://github.com/3BMLabs/INB-Template">OconDat</a></p>
+    </footer>
+</body>
+</html>

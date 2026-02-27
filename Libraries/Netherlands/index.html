@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project OconDat - Nederlandse Tekenstandaarden</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #34495e;
+            --accent: #3498db;
+            --light: #ecf0f1;
+            --dark: #1a252f;
+            --bwk: #e74c3c;
+            --con: #3498db;
+            --civ: #27ae60;
+            --ins: #9b59b6;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--light);
+            color: var(--primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: -1px;
+        }
+
+        header p {
+            opacity: 0.9;
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--accent);
+            padding: 0.35rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 1.5rem;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .intro h2 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .intro p {
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .disciplines {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .discipline-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .discipline-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+
+        .discipline-card .header {
+            padding: 2rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .discipline-card .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 200%;
+            background: rgba(255,255,255,0.1);
+            transform: rotate(30deg);
+        }
+
+        .discipline-card.bwk .header { background: linear-gradient(135deg, var(--bwk), #c0392b); }
+        .discipline-card.con .header { background: linear-gradient(135deg, var(--con), #2980b9); }
+        .discipline-card.civ .header { background: linear-gradient(135deg, var(--civ), #1e8449); }
+        .discipline-card.ins .header { background: linear-gradient(135deg, var(--ins), #8e44ad); }
+
+        .discipline-card .header h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.25rem;
+            position: relative;
+        }
+
+        .discipline-card .header .code {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            font-weight: normal;
+            position: relative;
+        }
+
+        .discipline-card .header .icon {
+            position: absolute;
+            right: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 3rem;
+            opacity: 0.3;
+        }
+
+        .discipline-card .content {
+            padding: 1.5rem 2rem 2rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .discipline-card .description {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            flex: 1;
+        }
+
+        .discipline-card .status {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            width: fit-content;
+        }
+
+        .discipline-card .status.active {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .discipline-card .status.coming {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .discipline-card .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        .status.active .status-dot { background: #28a745; }
+        .status.coming .status-dot { background: #ffc107; }
+
+        .features {
+            background: white;
+            border-radius: 12px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-bottom: 3rem;
+        }
+
+        .features h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .feature {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--light);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .feature h4 {
+            color: var(--primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .feature p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .sources {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .sources h2 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .sources-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .sources-list a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--light);
+            border-radius: 8px;
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+        }
+
+        .sources-list a:hover {
+            background: #d5dbdb;
+        }
+
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        footer a {
+            color: var(--accent);
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            .disciplines {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Project OconDat</h1>
+        <p>Open source tekenstandaarden voor de bouwsector</p>
+        <div style="display:inline-flex;align-items:center;gap:0.8rem;margin-top:1.2rem;">
+            <span class="badge">Open Construction Data</span>
+            <span class="badge" style="background:#e74c3c;">Netherlands</span>
+        </div>
+    </header>
+
+    <main>
+        <div class="intro">
+            <h2>Kies een discipline</h2>
+            <p>
+                De Nederlandse tekenstandaarden zijn opgesplitst per discipline.
+                Elke discipline heeft specifieke arceringen, lijntypen, symbolen en conventies.
+            </p>
+        </div>
+
+        <div class="disciplines">
+            <!-- Bouwkundig -->
+            <a href="bouwkundig.html" class="discipline-card bwk">
+                <div class="header">
+                    <h3>Bouwkundig</h3>
+                    <span class="code">BWK</span>
+                    <span class="icon">&#9634;</span>
+                </div>
+                <div class="content">
+                    <p class="description">
+                        Arceringen en symbolen voor architectonische tekeningen:
+                        plattegronden, gevels, doorsneden en details. Gebaseerd op NEN 47:1970.
+                    </p>
+                    <span class="status active">
+                        <span class="status-dot"></span>
+                        Beschikbaar
+                    </span>
+                </div>
+            </a>
+
+            <!-- Constructie -->
+            <a href="constructie.html" class="discipline-card con">
+                <div class="header">
+                    <h3>Constructie</h3>
+                    <span class="code">CON</span>
+                    <span class="icon">&#9651;</span>
+                </div>
+                <div class="content">
+                    <p class="description">
+                        Tekenstandaarden voor constructieve tekeningen:
+                        staalconstructies, betonconstructies, houtconstructies en funderingen.
+                    </p>
+                    <span class="status coming">
+                        <span class="status-dot"></span>
+                        Binnenkort
+                    </span>
+                </div>
+            </a>
+
+            <!-- Civiel -->
+            <a href="civiel.html" class="discipline-card civ">
+                <div class="header">
+                    <h3>Civiele Techniek</h3>
+                    <span class="code">CIV</span>
+                    <span class="icon">&#9776;</span>
+                </div>
+                <div class="content">
+                    <p class="description">
+                        Standaarden voor civiele werken:
+                        wegenbouw, waterbouw, riolering, grondwerk en terreinprofielen.
+                    </p>
+                    <span class="status coming">
+                        <span class="status-dot"></span>
+                        Binnenkort
+                    </span>
+                </div>
+            </a>
+
+            <!-- Installatie -->
+            <a href="installatie.html" class="discipline-card ins">
+                <div class="header">
+                    <h3>Installatie</h3>
+                    <span class="code">INS</span>
+                    <span class="icon">&#9881;</span>
+                </div>
+                <div class="content">
+                    <p class="description">
+                        Symbolen en conventies voor installatietekeningen:
+                        E-installaties, W-installaties, klimaat en ventilatie.
+                    </p>
+                    <span class="status coming">
+                        <span class="status-dot"></span>
+                        Binnenkort
+                    </span>
+                </div>
+            </a>
+        </div>
+
+        <div class="disciplines" style="margin-bottom: 3rem;">
+            <a href="library/index.html" class="discipline-card" style="grid-column: 1 / -1; max-width: 100%;">
+                <div class="header" style="background: linear-gradient(135deg, #16213e, #0f3460, #e94560); display: flex; align-items: center; justify-content: space-between;">
+                    <div>
+                        <h3>Open BIM Library</h3>
+                        <span class="code">Detailcomponenten Bibliotheek</span>
+                    </div>
+                    <span style="font-size: 2.5rem; opacity: 0.4;">&#9638;</span>
+                </div>
+                <div class="content" style="flex-direction: row; align-items: center; justify-content: space-between;">
+                    <p class="description" style="margin-bottom: 0;">
+                        Doorzoek en download 1238 detailcomponenten als DXF: kozijnprofielen, isolatie, constructie, metselwerk en meer.
+                        Met interactieve preview en filterfuncties.
+                    </p>
+                    <span class="status active">
+                        <span class="status-dot"></span>
+                        Beschikbaar
+                    </span>
+                </div>
+            </a>
+        </div>
+
+        <div class="features">
+            <h2>Kenmerken</h2>
+            <div class="features-grid">
+                <div class="feature">
+                    <div class="feature-icon">&#128196;</div>
+                    <div>
+                        <h4>NEN-conform</h4>
+                        <p>Gebaseerd op officieuele NEN-normen zoals NEN 47 en NEN 2302</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">&#128200;</div>
+                    <div>
+                        <h4>Schaalafhankelijk</h4>
+                        <p>Patronen aangepast per tekenstand van 1:1 tot 1:200</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">&#128190;</div>
+                    <div>
+                        <h4>Open formaat</h4>
+                        <p>JSON, CSS en SVG voor gebruik in open source CAD/BIM software</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">&#127760;</div>
+                    <div>
+                        <h4>Vrij beschikbaar</h4>
+                        <p>GPL-3.0 licentie, vrij te gebruiken en bij te dragen</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sources">
+            <h2>Bronnen & Referenties</h2>
+            <div class="sources-list">
+                <a href="https://github.com/3BMLabs/INB-Template" target="_blank">
+                    &#128279; INB-Template
+                </a>
+                <a href="https://www.nen.nl/nen-47-1970-nl-7779" target="_blank">
+                    &#128279; NEN 47:1970
+                </a>
+                <a href="http://wiki.bk.tudelft.nl/bk-wiki/Standaard_lijndiktes_en_arceringen" target="_blank">
+                    &#128279; TU Delft BK Wiki
+                </a>
+                <a href="https://berkela.home.xs4all.nl/tekenen/arceren.html" target="_blank">
+                    &#128279; Bouwkundig Detailleren
+                </a>
+                <a href="https://github.com/OpenAEC-Foundation" target="_blank">
+                    &#128279; OpenAEC Foundation
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p><strong>Project OconDat</strong> - Onderdeel van het OconDat project</p>
+        <p>Open Construction Data | Gebaseerd op <a href="https://github.com/3BMLabs/INB-Template">INB-Template</a></p>
+        <p style="margin-top: 1rem; opacity: 0.7;">Licentie: GPL-3.0 | Versie 1.0.0 | Januari 2026</p>
+    </footer>
+</body>
+</html>

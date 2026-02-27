@@ -1,0 +1,211 @@
+{
+  "$schema": "https://ocondat.org/schemas/linetypes/v1.0.json",
+  "metadata": {
+    "name": "Nederlandse Lijntypen voor Bouwkundige Tekeningen",
+    "description": "Standaard lijntypen en lijndiktes voor Nederlandse bouwtekeningen",
+    "source": "NEN 2302, NEN 47, INB-Template",
+    "version": "1.0.0",
+    "license": "GPL-3.0",
+    "last_updated": "2026-01-28"
+  },
+  "line_weight_sets": {
+    "standard": {
+      "description": "Standaard lijndiktes (verhouding 1:2:4)",
+      "thin": 0.13,
+      "medium": 0.25,
+      "thick": 0.5
+    },
+    "detail": {
+      "description": "Lijndiktes voor detailtekeningen",
+      "thin": 0.18,
+      "medium": 0.35,
+      "thick": 0.7
+    },
+    "full_range": {
+      "description": "Volledig bereik van lijndiktes",
+      "weights": [0.13, 0.18, 0.25, 0.35, 0.5, 0.7, 1.0, 1.4]
+    }
+  },
+  "line_weights": {
+    "0.13": {
+      "name_nl": "Extra fijn",
+      "name_en": "Extra fine",
+      "css_class": "lineweight_0_13",
+      "usage": ["hulplijnen", "arceringen op kleine schaal"]
+    },
+    "0.18": {
+      "name_nl": "Fijn",
+      "name_en": "Fine",
+      "css_class": "lineweight_0_18",
+      "usage": ["arceringen", "hulplijnen", "schaduwen"]
+    },
+    "0.25": {
+      "name_nl": "Normaal",
+      "name_en": "Normal",
+      "css_class": "lineweight_0_25",
+      "usage": ["aanzichtlijnen", "annotaties", "maatlijnen"]
+    },
+    "0.35": {
+      "name_nl": "Medium",
+      "name_en": "Medium",
+      "css_class": "lineweight_0_35",
+      "usage": ["doorsneden van lichte elementen", "kozijnprofielen"]
+    },
+    "0.5": {
+      "name_nl": "Dik",
+      "name_en": "Thick",
+      "css_class": "lineweight_0_50",
+      "usage": ["doorsneden van constructieve elementen", "snijvlakken"]
+    },
+    "0.7": {
+      "name_nl": "Extra dik",
+      "name_en": "Extra thick",
+      "css_class": "lineweight_0_70",
+      "usage": ["doorsneden van zware constructie", "beton contouren"]
+    },
+    "1.0": {
+      "name_nl": "Zwaar",
+      "name_en": "Heavy",
+      "css_class": "lineweight_1_00",
+      "usage": ["snijlijnen", "kadertitels"]
+    },
+    "1.4": {
+      "name_nl": "Extra zwaar",
+      "name_en": "Extra heavy",
+      "css_class": "lineweight_1_40",
+      "usage": ["kaderlijnen", "speciale markeringen"]
+    }
+  },
+  "line_types": {
+    "continuous": {
+      "name_nl": "Doorlopend",
+      "name_en": "Continuous",
+      "css_class": "continuous",
+      "pattern": "10, 0",
+      "usage": ["zichtbare contouren", "maatlijnen", "hulplijnen"]
+    },
+    "dashed": {
+      "name_nl": "Gestreept",
+      "name_en": "Dashed",
+      "css_class": "dashed",
+      "pattern": "6, 3",
+      "usage": ["verborgen lijnen", "toekomstige constructie"]
+    },
+    "hidden": {
+      "name_nl": "Verborgen",
+      "name_en": "Hidden",
+      "css_class": "hidden",
+      "pattern": "9, 3",
+      "usage": ["verborgen contouren", "onderliggende elementen"]
+    },
+    "center": {
+      "name_nl": "Hartlijn",
+      "name_en": "Center",
+      "css_class": "center",
+      "pattern": "12, 3, 3, 3",
+      "usage": ["hartlijnen", "symmetrielijnen", "aslijnen"]
+    },
+    "phantom": {
+      "name_nl": "Phantom",
+      "name_en": "Phantom",
+      "css_class": "phantom",
+      "pattern": "12, 3, 3, 3, 3, 3",
+      "usage": ["bewegende delen", "alternatieve posities"]
+    },
+    "dot": {
+      "name_nl": "Gestippeld",
+      "name_en": "Dotted",
+      "css_class": "dot",
+      "pattern": "1, 3",
+      "usage": ["grenzen", "projectielijnen"]
+    },
+    "dashdot": {
+      "name_nl": "Streep-punt",
+      "name_en": "Dash-dot",
+      "css_class": "dashdot",
+      "pattern": "6, 3, 1, 3",
+      "usage": ["hartlijnen alternatief", "snijvlakken"]
+    },
+    "border": {
+      "name_nl": "Rand",
+      "name_en": "Border",
+      "css_class": "border",
+      "pattern": "15, 3, 3, 3",
+      "usage": ["tekeningkaders", "perceelgrenzen"]
+    },
+    "divide": {
+      "name_nl": "Verdeling",
+      "name_en": "Divide",
+      "css_class": "divide",
+      "pattern": "12, 3, 3, 3",
+      "usage": ["scheidingslijnen", "sectiegrenzen"]
+    },
+    "foil": {
+      "name_nl": "Folie",
+      "name_en": "Foil",
+      "css_class": "foil",
+      "pattern": "3, 1.5, 3, 1.5",
+      "stroke_width": 0.2,
+      "usage": ["dampremmende folie", "waterkerende lagen"]
+    },
+    "hartlijn": {
+      "name_nl": "Hartlijn (NL specifiek)",
+      "name_en": "Center line (NL specific)",
+      "css_class": "hartlijn",
+      "pattern": "10, 1, 1, 1",
+      "stroke_width": 0.2,
+      "usage": ["Nederlandse standaard hartlijn"]
+    }
+  },
+  "special_lines": {
+    "grid": {
+      "name_nl": "Stramien",
+      "name_en": "Grid",
+      "css_class": "grid",
+      "pattern": "10, 4, 2, 4",
+      "stroke_width": 0.2,
+      "color": "blue",
+      "markers": ["grid-marker-start", "grid-marker-end"]
+    },
+    "section": {
+      "name_nl": "Doorsnede",
+      "name_en": "Section",
+      "css_class": "section",
+      "pattern": "12.5, 3, 3, 3",
+      "stroke_width": 0.2,
+      "markers": ["section-level-marker"]
+    },
+    "breakline": {
+      "name_nl": "Breeklijn",
+      "name_en": "Break line",
+      "css_class": "breakline",
+      "pattern": "8, 3, 4, 3",
+      "stroke_width": 0.75,
+      "color": "#696969"
+    },
+    "dimension": {
+      "name_nl": "Maatlijn",
+      "name_en": "Dimension",
+      "css_class": "dimension",
+      "markers": ["dimension-marker-start", "dimension-marker-end"]
+    },
+    "boundary": {
+      "name_nl": "Grens",
+      "name_en": "Boundary",
+      "css_class": "boundary",
+      "pattern": "12, 4, 3, 4, 3, 4",
+      "stroke_width": 1,
+      "color": "red"
+    }
+  },
+  "colors": {
+    "black": "#000000",
+    "grey": "#808080",
+    "darkgrey": "#696969",
+    "blue": "#0000FF",
+    "red": "#FF0000",
+    "green": "#00FF00",
+    "yellow": "#FFFF00",
+    "purple": "#800080"
+  }
+}

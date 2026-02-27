@@ -1,0 +1,11 @@
+---
+name: "ds-7"
+product: "Druckschrauben_DS"
+serie: "Zubehoer-B"
+fabrikant: "Halfen"
+type: variant
+dxf_file: "ds-7.dxf"
+svg_file: "ds-7.svg"
+source_file: ""
+date_added: "2026-02-14"
+---

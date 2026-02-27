@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Installatie - Project OconDat</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #34495e;
+            --accent: #3498db;
+            --light: #ecf0f1;
+            --dark: #1a252f;
+            --ins: #9b59b6;
+            --elektra: #f39c12;
+            --water: #3498db;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--light);
+            color: var(--primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .top-nav {
+            background: var(--dark);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .top-nav a { color: white; text-decoration: none; }
+        .top-nav .logo { font-weight: bold; font-size: 1.1rem; }
+        .top-nav .back { opacity: 0.8; }
+        .top-nav .back:hover { opacity: 1; }
+        header {
+            background: linear-gradient(135deg, var(--ins), #8e44ad);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        header p { opacity: 0.9; font-size: 1.1rem; }
+        .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-top: 1rem;
+        }
+        nav {
+            background: var(--secondary);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        nav a:hover { background: var(--ins); }
+        main {
+            flex: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        section {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        section h2 {
+            color: var(--primary);
+            border-bottom: 3px solid var(--ins);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        section h3 {
+            color: var(--ins);
+            margin: 1.5rem 0 1rem;
+        }
+        .info-box {
+            background: #f5eef8;
+            border-left: 4px solid var(--ins);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 5px 5px 0;
+        }
+        .info-box.elektra {
+            background: #fef5e7;
+            border-left-color: var(--elektra);
+        }
+        .info-box.water {
+            background: #ebf5fb;
+            border-left-color: var(--water);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background: var(--light);
+            font-weight: 600;
+        }
+        tr:hover { background: #fafafa; }
+        code {
+            background: #f4f4f4;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.9em;
+        }
+        .symbol-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        .symbol-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+            background: #fafafa;
+        }
+        .symbol-card svg {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 0.5rem;
+        }
+        .symbol-card .label {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 0.85rem;
+        }
+        .symbol-card .desc {
+            font-size: 0.75rem;
+            color: #666;
+        }
+        .color-strip {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-radius: 3px;
+            vertical-align: middle;
+            margin-right: 0.5rem;
+            border: 1px solid #ccc;
+        }
+        .discipline-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        .discipline-header .icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+        }
+        .discipline-header .icon.e { background: var(--elektra); }
+        .discipline-header .icon.w { background: var(--water); }
+        .discipline-header h2 {
+            border: none;
+            padding: 0;
+            margin: 0;
+        }
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+        }
+        footer a { color: var(--accent); }
+        @media (max-width: 768px) {
+            header h1 { font-size: 2rem; }
+            nav ul { flex-direction: column; align-items: center; }
+            .symbol-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="index.html" class="logo">Project OconDat</a>
+        <a href="index.html" class="back">&larr; Terug naar overzicht</a>
+    </div>
+
+    <header>
+        <h1>Installatie</h1>
+        <p>INS - Installatietechnische Tekeningen</p>
+        <span class="badge">NEN 1010 | NEN 5152 | NEN 1006</span>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#elektra">E-Installatie</a></li>
+            <li><a href="#water">W-Installatie</a></li>
+            <li><a href="#klimaat">Klimaat</a></li>
+            <li><a href="#brandmeld">Brandmeld</a></li>
+            <li><a href="#normen">Normen</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- E-INSTALLATIE SECTIE -->
+        <section id="elektra">
+            <div class="discipline-header">
+                <div class="icon e">E</div>
+                <h2>E-Installatie (Elektra)</h2>
+            </div>
+
+            <div class="info-box elektra">
+                <strong>NEN 5152:2016</strong> bevat elektrotechnische symbolen voor technische tekeningen.
+                Deze norm is een vertaling van IEC 60617. Symbolen zijn downloadbaar als DWG/DXF.
+            </div>
+
+            <h3>Stopcontacten</h3>
+            <div class="symbol-grid">
+                <div class="symbol-card">
+                    <svg viewBox="0 0 50 50">
+                        <circle cx="25" cy="25" r="15" fill="none" stroke="#000" stroke-width="2"/>
+                        <line x1="25" y1="10" x2="25" y2="5" stroke="#000" stroke-width="2"/>
+                    </svg>
+                    <div class="label">Enkel WCD</div>
+                    <div class="desc">Wandcontactdoos</div>
+                </div>
+                <div class="symbol-card">
+                    <svg viewBox="0 0 50 50">
+                        <circle cx="25" cy="25" r="15" fill="none" stroke="#000" stroke-width="2"/>
+                        <line x1="25" y1="10" x2="25" y2="5" stroke="#000" stroke-width="2"/>
+                        <text x="25" y="29" text-anchor="middle" font-size="12" font-weight="bold">2</text>
+                    </svg>
+                    <div class="label">Dubbel WCD</div>
+                    <div class="desc">2-voudig</div>
+                </div>
+                <div class="symbol-card">
+                    <svg viewBox="0 0 50 50">
+                        <circle cx="25" cy="25" r="15" fill="none" stroke="#000" stroke-width="2"/>
+                        <line x1="25" y1="10" x2="25" y2="5" stroke="#000" stroke-width="2"/>
+                        <line x1="10" y1="25" x2="40" y2="25" stroke="#000" stroke-width="1.5"/>
+                    </svg>
+                    <div class="label">WCD + RA</div>
+                    <div class="desc">Met randaarde</div>
+                </div>
+                <div class="symbol-card">
+                    <svg viewBox="0 0 50 50">
+                        <circle cx="25" cy="25" r="15" fill="none" stroke="#000" stroke-width="2"/>
+                        <line x1="25" y1="10" x2="25" y2="5" stroke="#000" stroke-width="2"/>
+                        <polygon points="25,18 20,30 30,30" fill="#000"/>
+                    </svg>
+                    <div class="label">WCD Spatwaterdicht</div>
+                    <div class="desc">IP44</div>
+                </div>
+            </div>
+
+            <h3>Schakelaars</h3>
+            <div class="symbol-grid">
+                <div class="symbol-card">
+                    <svg viewBox="0 0 50 50">
+                        <circle cx="25" cy="25" r="4" fill="#000"/>
+                        <line x1="25" y1="25" x2="40" y2="15" stroke="#000" stroke-width="2"/>
+                    </svg>
+                    <div class="label">Enkelpolig</div>
+                    <div class="desc">1-polige schakelaar</div>
+                </div>
+                <div class="symbol-card">
+                    <svg viewBox="0 0 50 50">
+                        <circle cx="25" cy="25" r="4" fill="#000"/>
+                        <line x1="25" y1="25" x2="40" y2="15" stroke="#000" stroke-width="2"/>
+                        <text x="42" y="18" font-size="10">2</text>
+                    </svg>
+                    <div class="label">Serieschakelaar</div>
+                    <div class="desc">2 kringen</div>
+                </div>
+                <div class="symbol-card">
+                    <svg viewBox="0 0 50 50">
+                        <circle cx="25" cy="25" r="4" fill="#000"/>
+                        <line x1="25" y1="25" x2="40" y2="15" stroke="#000" stroke-width="2"/>
+                        <line x1="35" y1="22" x2="45" y2="12" stroke="#000" stroke-width="1.5"/>
+                    </svg>
+                    <div class="label">Wisselschakelaar</div>
+                    <div class="desc">Hotel/gang</div>
+                </div>
+                <div class="symbol-card">
+                    <svg viewBox="0 0 50 50">
+                        <circle cx="25" cy="25" r="4" fill="#000"/>
+                        <line x1="25" y1="25" x2="40" y2="15" stroke="#000" stroke-width="2"/>
+                        <line x1="35" y1="22" x2="45" y2="12" stroke="#000" stroke-width="1.5"/>
+                        <line x1="37" y1="24" x2="47" y2="14" stroke="#000" stroke-width="1.5"/>
+                    </svg>
+                    <div class="label">Kruisschakelaar</div>
+                    <div class="desc">3+ punten</div>
+                </div>
+                <div class="symbol-card">
+                    <svg viewBox="0 0 50 50">
+                        <circle cx="25" cy="25" r="4" fill="#000"/>
+                        <line x1="25" y1="25" x2="40" y2="15" stroke="#000" stroke-width="2"/>
+                        <text x="42" y="18" font-size="10">D</text>
+                    </svg>
+                    <div class="label">Dimmer</div>
+                    <div class="desc">Lichtregeling</div>
+                </div>
+                <div class="symbol-card">
+                    <svg viewBox="0 0 50 50">
+                        <circle cx="25" cy="25" r="4" fill="#000"/>
+                        <line x1="25" y1="25" x2="40" y2="15" stroke="#000" stroke-width="2"/>
+                        <circle cx="42" cy="13" r="5" fill="none" stroke="#000" stroke-width="1"/>
+                    </svg>
+                    <div class="label">Bewegingsmelder</div>
+                    <div class="desc">PIR sensor</div>
+                </div>
+            </div>
+
+            <h3>Verlichting</h3>
+            <div class="symbol-grid">
+                <div class="symbol-card">
+                    <svg viewBox="0 0 50 50">
+                        <line x1="15" y1="25" x2="35" y2="25" stroke="#000" stroke-width="2"/>
+                        <line x1="25" y1="15" x2="25" y2="35" stroke="#000" stroke-width="2"/>
+                        <line x1="18" y1="18" x2="32" y2="32" stroke="#000" stroke-width="1.5"/>
+                        <line x1="32" y1="18" x2="18" y2="32" stroke="#000" stroke-width="1.5"/>
+                    </svg>
+                    <div class="label">Lichtpunt plafond</div>
+                    <div class="desc">Centraal</div>
+                </div>
+                <div class="symbol-card">
+                    <svg viewBox="0 0 50 50">
+                        <line x1="15" y1="25" x2="35" y2="25" stroke="#000" stroke-width="2"/>
+                        <line x1="25" y1="15" x2="25" y2="35" stroke="#000" stroke-width="2"/>
+                        <line x1="18" y1="18" x2="32" y2="32" stroke="#000" stroke-width="1.5"/>
+                        <line x1="32" y1="18" x2="18" y2="32" stroke="#000" stroke-width="1.5"/>
+                        <line x1="25" y1="5" x2="25" y2="15" stroke="#000" stroke-width="2"/>
+                    </svg>
+                    <div class="label">Lichtpunt wand</div>
+                    <div class="desc">Wandmontage</div>
+                </div>
+                <div class="symbol-card">
+                    <svg viewBox="0 0 50 50">
+                        <rect x="10" y="20" width="30" height="10" fill="none" stroke="#000" stroke-width="2"/>
+                    </svg>
+                    <div class="label">TL-armatuur</div>
+                    <div class="desc">Lineair</div>
+                </div>
+                <div class="symbol-card">
+                    <svg viewBox="0 0 50 50">
+                        <circle cx="25" cy="25" r="12" fill="none" stroke="#000" stroke-width="2"/>
+                        <circle cx="25" cy="25" r="6" fill="none" stroke="#000" stroke-width="1.5"/>
+                    </svg>
+                    <div class="label">Spot/Downlight</div>
+                    <div class="desc">Inbouw</div>
+                </div>
+                <div class="symbol-card">
+                    <svg viewBox="0 0 50 50">
+                        <polygon points="25,10 40,40 10,40" fill="none" stroke="#000" stroke-width="2"/>
+                        <text x="25" y="35" text-anchor="middle" font-size="12">!</text>
+                    </svg>
+                    <div class="label">Noodverlichting</div>
+                    <div class="desc">Met accu</div>
+                </div>
+            </div>
+
+            <h3>Overige Symbolen</h3>
+            <div class="symbol-grid">
+                <div class="symbol-card">
+                    <svg viewBox="0 0 50 50">
+                        <rect x="10" y="15" width="30" height="20" fill="none" stroke="#000" stroke-width="2"/>
+                        <line x1="25" y1="15" x2="25" y2="5" stroke="#000" stroke-width="2"/>
+                    </svg>
+                    <div class="label">Verdeelkast</div>
+                    <div class="desc">Groepenkast</div>
+                </div>
+                <div class="symbol-card">
+                    <svg viewBox="0 0 50 50">
+                        <circle cx="25" cy="25" r="12" fill="none" stroke="#000" stroke-width="2"/>
+                        <text x="25" y="30" text-anchor="middle" font-size="14">M</text>
+                    </svg>
+                    <div class="label">Elektromotor</div>
+                    <div class="desc">Aandrijving</div>
+                </div>
+                <div class="symbol-card">
+                    <svg viewBox="0 0 50 50">
+                        <rect x="15" y="15" width="20" height="20" fill="none" stroke="#000" stroke-width="2"/>
+                        <line x1="15" y1="25" x2="35" y2="25" stroke="#000" stroke-width="1"/>
+                        <line x1="25" y1="15" x2="25" y2="35" stroke="#000" stroke-width="1"/>
+                    </svg>
+                    <div class="label">Aftakdoos</div>
+                    <div class="desc">Centraaldoos</div>
+                </div>
+                <div class="symbol-card">
+                    <svg viewBox="0 0 50 50">
+                        <circle cx="25" cy="25" r="10" fill="none" stroke="#000" stroke-width="2"/>
+                        <line x1="25" y1="15" x2="25" y2="35" stroke="#000" stroke-width="2"/>
+                        <line x1="15" y1="25" x2="35" y2="25" stroke="#000" stroke-width="2"/>
+                    </svg>
+                    <div class="label">Aarding</div>
+                    <div class="desc">Aardpunt</div>
+                </div>
+            </div>
+
+            <h3>Beschermingsklassen</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Klasse</th>
+                        <th>Symbool</th>
+                        <th>Betekenis</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Klasse I</td>
+                        <td>Aarde-symbool</td>
+                        <td>Beschermende aarding vereist (3-aderig)</td>
+                    </tr>
+                    <tr>
+                        <td>Klasse II</td>
+                        <td>Dubbel vierkant</td>
+                        <td>Dubbel geisoleerd, geen aarding nodig</td>
+                    </tr>
+                    <tr>
+                        <td>Klasse III</td>
+                        <td>III in vierkant</td>
+                        <td>Veilige spanning (SELV/PELV)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>IP-Classificatie</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Code</th>
+                        <th>Bescherming</th>
+                        <th>Toepassing</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>IP20</td>
+                        <td>Vingers, geen water</td>
+                        <td>Droge binnenruimte</td>
+                    </tr>
+                    <tr>
+                        <td>IP44</td>
+                        <td>Voorwerpen &gt;1mm, spatwater</td>
+                        <td>Badkamer (zone 2), buiten overdekt</td>
+                    </tr>
+                    <tr>
+                        <td>IP54</td>
+                        <td>Stofbeschermd, spatwater</td>
+                        <td>Buiten, garage</td>
+                    </tr>
+                    <tr>
+                        <td>IP65</td>
+                        <td>Stofdicht, waterstraal</td>
+                        <td>Buiten onbeschermd</td>
+                    </tr>
+                    <tr>
+                        <td>IP67</td>
+                        <td>Stofdicht, onderdompeling</td>
+                        <td>Inbouw grond, vijver</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- W-INSTALLATIE SECTIE -->
+        <section id="water">
+            <div class="discipline-header">
+                <div class="icon w">W</div>
+                <h2>W-Installatie (Water/Sanitair)</h2>
+            </div>
+
+            <div class="info-box water">
+                <strong>NEN 1006</strong> bevat algemene voorschriften voor drinkwaterinstallaties (AVWI).
+                <strong>NBN-ISO 4067</strong> definieert grafische symbolen voor sanitair en leidingen.
+            </div>
+
+            <h3>Sanitair Symbolen</h3>
+            <div class="symbol-grid">
+                <div class="symbol-card">
+                    <svg viewBox="0 0 50 50">
+                        <ellipse cx="25" cy="30" rx="15" ry="10" fill="none" stroke="#000" stroke-width="2"/>
+                        <rect x="15" y="10" width="20" height="15" fill="none" stroke="#000" stroke-width="2"/>
+                    </svg>
+                    <div class="label">Toilet</div>
+                    <div class="desc">Closetpot</div>
+                </div>
+                <div class="symbol-card">
+                    <svg viewBox="0 0 50 50">
+                        <rect x="10" y="15" width="30" height="25" rx="5" fill="none" stroke="#000" stroke-width="2"/>
+                        <circle cx="25" cy="27" r="3" fill="#000"/>
+                    </svg>
+                    <div class="label">Wastafel</div>
+                    <div class="desc">Fonteintje</div>
+                </div>
+                <div class="symbol-card">
+                    <svg viewBox="0 0 50 50">
+                        <rect x="5" y="10" width="40" height="30" fill="none" stroke="#000" stroke-width="2"/>
+                        <line x1="5" y1="25" x2="45" y2="25" stroke="#000" stroke-width="1"/>
+                    </svg>
+                    <div class="label">Ligbad</div>
+                    <div class="desc">Badkuip</div>
+                </div>
+                <div class="symbol-card">
+                    <svg viewBox="0 0 50 50">
+                        <rect x="10" y="10" width="30" height="30" fill="none" stroke="#000" stroke-width="2"/>
+                        <circle cx="25" cy="25" r="8" fill="none" stroke="#000" stroke-width="1.5"/>
+                    </svg>
+                    <div class="label">Douche</div>
+                    <div class="desc">Douchebak</div>
+                </div>
+                <div class="symbol-card">
+                    <svg viewBox="0 0 50 50">
+                        <rect x="5" y="20" width="40" height="20" fill="none" stroke="#000" stroke-width="2"/>
+                        <rect x="10" y="10" width="15" height="10" fill="none" stroke="#000" stroke-width="1.5"/>
+                    </svg>
+                    <div class="label">Aanrecht</div>
+                    <div class="desc">Spoelbak</div>
+                </div>
+                <div class="symbol-card">
+                    <svg viewBox="0 0 50 50">
+                        <rect x="10" y="10" width="30" height="30" fill="none" stroke="#000" stroke-width="2"/>
+                        <text x="25" y="30" text-anchor="middle" font-size="12">WM</text>
+                    </svg>
+                    <div class="label">Wasmachine</div>
+                    <div class="desc">Aansluiting</div>
+                </div>
+            </div>
+
+            <h3>Leidingsymbolen</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Symbool</th>
+                        <th>Betekenis</th>
+                        <th>Kleur</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="color-strip" style="background:#0066CC;"></span> Doorgetrokken</td>
+                        <td>Koud water</td>
+                        <td>Blauw</td>
+                    </tr>
+                    <tr>
+                        <td><span class="color-strip" style="background:#CC0000;"></span> Doorgetrokken</td>
+                        <td>Warm water</td>
+                        <td>Rood</td>
+                    </tr>
+                    <tr>
+                        <td><span class="color-strip" style="background:#00CC00;"></span> Doorgetrokken</td>
+                        <td>Retour warm water</td>
+                        <td>Groen</td>
+                    </tr>
+                    <tr>
+                        <td style="font-family: monospace;">__ __ __</td>
+                        <td>Afvoer (riolering)</td>
+                        <td>Bruin/grijs</td>
+                    </tr>
+                    <tr>
+                        <td style="font-family: monospace;">_ . _ . _</td>
+                        <td>Ontluchting</td>
+                        <td>Zwart</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Appendages</h3>
+            <div class="symbol-grid">
+                <div class="symbol-card">
+                    <svg viewBox="0 0 50 50">
+                        <polygon points="15,15 35,25 15,35" fill="none" stroke="#000" stroke-width="2"/>
+                        <line x1="35" y1="15" x2="35" y2="35" stroke="#000" stroke-width="2"/>
+                    </svg>
+                    <div class="label">Afsluiter</div>
+                    <div class="desc">Stopkraan</div>
+                </div>
+                <div class="symbol-card">
+                    <svg viewBox="0 0 50 50">
+                        <polygon points="10,25 25,15 25,35" fill="none" stroke="#000" stroke-width="2"/>
+                        <polygon points="40,25 25,15 25,35" fill="none" stroke="#000" stroke-width="2"/>
+                    </svg>
+                    <div class="label">Terugslagklep</div>
+                    <div class="desc">Check valve</div>
+                </div>
+                <div class="symbol-card">
+                    <svg viewBox="0 0 50 50">
+                        <circle cx="25" cy="25" r="12" fill="none" stroke="#000" stroke-width="2"/>
+                        <line x1="17" y1="17" x2="33" y2="33" stroke="#000" stroke-width="2"/>
+                    </svg>
+                    <div class="label">Reduceer</div>
+                    <div class="desc">Drukregelaar</div>
+                </div>
+                <div class="symbol-card">
+                    <svg viewBox="0 0 50 50">
+                        <rect x="15" y="15" width="20" height="20" fill="none" stroke="#000" stroke-width="2"/>
+                        <circle cx="25" cy="25" r="5" fill="none" stroke="#000" stroke-width="1.5"/>
+                    </svg>
+                    <div class="label">Watermeter</div>
+                    <div class="desc">Hoofdmeter</div>
+                </div>
+            </div>
+
+            <h3>Leiding Annotatie</h3>
+            <p>Waterleidingen worden genoteerd met:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li><strong>Diameter:</strong> DN15, DN20, DN25 (nominale diameter in mm)</li>
+                <li><strong>Materiaal:</strong> Cu (koper), PE, PVC, RVS</li>
+                <li><strong>Pijlrichting:</strong> Stroomrichting water</li>
+            </ul>
+
+            <h3>Leidingcodes</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Code</th>
+                        <th>Betekenis</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>KW</code></td>
+                        <td>Koud water</td>
+                    </tr>
+                    <tr>
+                        <td><code>WW</code></td>
+                        <td>Warm water</td>
+                    </tr>
+                    <tr>
+                        <td><code>CW</code></td>
+                        <td>Circulatie warm water</td>
+                    </tr>
+                    <tr>
+                        <td><code>HWA</code></td>
+                        <td>Hemelwaterafvoer</td>
+                    </tr>
+                    <tr>
+                        <td><code>VWA</code></td>
+                        <td>Vuilwaterafvoer</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- KLIMAAT SECTIE -->
+        <section id="klimaat">
+            <h2>Klimaatinstallaties</h2>
+
+            <h3>Verwarming (CV)</h3>
+            <div class="symbol-grid">
+                <div class="symbol-card">
+                    <svg viewBox="0 0 50 50">
+                        <rect x="5" y="15" width="40" height="20" fill="none" stroke="#000" stroke-width="2"/>
+                        <line x1="15" y1="15" x2="15" y2="35" stroke="#000" stroke-width="1"/>
+                        <line x1="25" y1="15" x2="25" y2="35" stroke="#000" stroke-width="1"/>
+                        <line x1="35" y1="15" x2="35" y2="35" stroke="#000" stroke-width="1"/>
+                    </svg>
+                    <div class="label">Radiator</div>
+                    <div class="desc">Verwarming</div>
+                </div>
+                <div class="symbol-card">
+                    <svg viewBox="0 0 50 50">
+                        <rect x="10" y="10" width="30" height="30" fill="none" stroke="#000" stroke-width="2"/>
+                        <circle cx="25" cy="25" r="8" fill="none" stroke="#000" stroke-width="1.5"/>
+                        <path d="M25,17 Q30,25 25,33" fill="none" stroke="#000" stroke-width="1"/>
+                    </svg>
+                    <div class="label">CV-ketel</div>
+                    <div class="desc">Warmtebron</div>
+                </div>
+                <div class="symbol-card">
+                    <svg viewBox="0 0 50 50">
+                        <circle cx="25" cy="25" r="15" fill="none" stroke="#000" stroke-width="2"/>
+                        <path d="M15,25 L25,15 L35,25 L25,35 Z" fill="none" stroke="#000" stroke-width="1.5"/>
+                    </svg>
+                    <div class="label">Warmtepomp</div>
+                    <div class="desc">Lucht/water</div>
+                </div>
+                <div class="symbol-card">
+                    <svg viewBox="0 0 50 50">
+                        <rect x="10" y="5" width="30" height="40" fill="none" stroke="#000" stroke-width="2"/>
+                        <line x1="10" y1="15" x2="40" y2="15" stroke="#000" stroke-width="1"/>
+                        <line x1="10" y1="35" x2="40" y2="35" stroke="#000" stroke-width="1"/>
+                    </svg>
+                    <div class="label">Boiler</div>
+                    <div class="desc">Warmwateropslag</div>
+                </div>
+            </div>
+
+            <h3>Ventilatie</h3>
+            <div class="symbol-grid">
+                <div class="symbol-card">
+                    <svg viewBox="0 0 50 50">
+                        <circle cx="25" cy="25" r="15" fill="none" stroke="#000" stroke-width="2"/>
+                        <polygon points="25,15 30,25 25,35 20,25" fill="#000"/>
+                    </svg>
+                    <div class="label">Ventilator</div>
+                    <div class="desc">Afzuiging</div>
+                </div>
+                <div class="symbol-card">
+                    <svg viewBox="0 0 50 50">
+                        <rect x="10" y="10" width="30" height="30" fill="none" stroke="#000" stroke-width="2"/>
+                        <line x1="10" y1="10" x2="40" y2="40" stroke="#000" stroke-width="1"/>
+                        <line x1="40" y1="10" x2="10" y2="40" stroke="#000" stroke-width="1"/>
+                    </svg>
+                    <div class="label">Rooster</div>
+                    <div class="desc">Luchttoevoer</div>
+                </div>
+                <div class="symbol-card">
+                    <svg viewBox="0 0 50 50">
+                        <rect x="5" y="15" width="40" height="20" fill="none" stroke="#000" stroke-width="2"/>
+                        <line x1="15" y1="15" x2="15" y2="35" stroke="#000" stroke-width="1"/>
+                        <line x1="35" y1="15" x2="35" y2="35" stroke="#000" stroke-width="1"/>
+                        <path d="M20,20 L25,25 L30,20" fill="none" stroke="#000" stroke-width="1"/>
+                    </svg>
+                    <div class="label">WTW-unit</div>
+                    <div class="desc">Warmteterugwinning</div>
+                </div>
+            </div>
+
+            <h3>Kanaaltypen</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Lijntype</th>
+                        <th>Betekenis</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Doorgetrokken (dik)</td>
+                        <td>Toevoerkanaal</td>
+                    </tr>
+                    <tr>
+                        <td>Doorgetrokken (dun)</td>
+                        <td>Afvoerkanaal</td>
+                    </tr>
+                    <tr>
+                        <td>Streeplijn</td>
+                        <td>Retourkanaal</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- BRANDMELD SECTIE -->
+        <section id="brandmeld">
+            <h2>Brandmeld & Beveiliging</h2>
+
+            <div class="info-box">
+                <strong>NEN 2535</strong> beschrijft de eisen voor brandmeldinstallaties.
+                <strong>NEN 1413</strong> en <strong>NEN 1414</strong> bevatten symbolen voor veiligheidsvoorzieningen.
+            </div>
+
+            <h3>Brandmeldsymbolen</h3>
+            <div class="symbol-grid">
+                <div class="symbol-card">
+                    <svg viewBox="0 0 50 50">
+                        <circle cx="25" cy="25" r="15" fill="none" stroke="#C00" stroke-width="2"/>
+                        <text x="25" y="30" text-anchor="middle" font-size="14" fill="#C00">R</text>
+                    </svg>
+                    <div class="label">Rookmelder</div>
+                    <div class="desc">Optisch</div>
+                </div>
+                <div class="symbol-card">
+                    <svg viewBox="0 0 50 50">
+                        <circle cx="25" cy="25" r="15" fill="none" stroke="#C00" stroke-width="2"/>
+                        <text x="25" y="30" text-anchor="middle" font-size="14" fill="#C00">T</text>
+                    </svg>
+                    <div class="label">Thermomelder</div>
+                    <div class="desc">Warmte</div>
+                </div>
+                <div class="symbol-card">
+                    <svg viewBox="0 0 50 50">
+                        <rect x="10" y="10" width="30" height="30" fill="none" stroke="#C00" stroke-width="2"/>
+                        <text x="25" y="30" text-anchor="middle" font-size="10" fill="#C00">BMC</text>
+                    </svg>
+                    <div class="label">Brandmeldcentrale</div>
+                    <div class="desc">BMC</div>
+                </div>
+                <div class="symbol-card">
+                    <svg viewBox="0 0 50 50">
+                        <rect x="15" y="10" width="20" height="30" fill="none" stroke="#C00" stroke-width="2"/>
+                        <circle cx="25" cy="20" r="5" fill="#C00"/>
+                    </svg>
+                    <div class="label">Handbrandmelder</div>
+                    <div class="desc">Drukknop</div>
+                </div>
+                <div class="symbol-card">
+                    <svg viewBox="0 0 50 50">
+                        <polygon points="25,5 45,45 5,45" fill="none" stroke="#C00" stroke-width="2"/>
+                        <text x="25" y="38" text-anchor="middle" font-size="20" fill="#C00">!</text>
+                    </svg>
+                    <div class="label">Flitser/Sirene</div>
+                    <div class="desc">Alarm</div>
+                </div>
+            </div>
+
+            <h3>Beveiligingssymbolen</h3>
+            <div class="symbol-grid">
+                <div class="symbol-card">
+                    <svg viewBox="0 0 50 50">
+                        <circle cx="25" cy="20" r="10" fill="none" stroke="#000" stroke-width="2"/>
+                        <rect x="15" y="30" width="20" height="10" fill="none" stroke="#000" stroke-width="2"/>
+                    </svg>
+                    <div class="label">Camera</div>
+                    <div class="desc">CCTV</div>
+                </div>
+                <div class="symbol-card">
+                    <svg viewBox="0 0 50 50">
+                        <circle cx="25" cy="25" r="12" fill="none" stroke="#000" stroke-width="2"/>
+                        <path d="M18,20 Q25,15 32,20" fill="none" stroke="#000" stroke-width="1.5"/>
+                        <path d="M18,30 Q25,35 32,30" fill="none" stroke="#000" stroke-width="1.5"/>
+                    </svg>
+                    <div class="label">PIR-detector</div>
+                    <div class="desc">Beweging</div>
+                </div>
+                <div class="symbol-card">
+                    <svg viewBox="0 0 50 50">
+                        <rect x="10" y="15" width="30" height="20" fill="none" stroke="#000" stroke-width="2"/>
+                        <rect x="15" y="20" width="10" height="10" fill="#000"/>
+                    </svg>
+                    <div class="label">Codepaneel</div>
+                    <div class="desc">Toegang</div>
+                </div>
+                <div class="symbol-card">
+                    <svg viewBox="0 0 50 50">
+                        <rect x="20" y="5" width="10" height="20" fill="none" stroke="#000" stroke-width="2"/>
+                        <rect x="15" y="25" width="20" height="20" fill="none" stroke="#000" stroke-width="2"/>
+                    </svg>
+                    <div class="label">Deurcontact</div>
+                    <div class="desc">Magneet</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NORMEN SECTIE -->
+        <section id="normen">
+            <h2>Relevante Normen</h2>
+
+            <h3>Elektra</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Norm</th>
+                        <th>Onderwerp</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>NEN 1010</strong></td>
+                        <td>Veiligheidsbepalingen laagspanningsinstallaties</td>
+                    </tr>
+                    <tr>
+                        <td><strong>NEN 3140</strong></td>
+                        <td>Bedrijfsvoering elektrische installaties</td>
+                    </tr>
+                    <tr>
+                        <td><strong>NEN 5152:2016</strong></td>
+                        <td>Elektrotechnische symbolen voor tekeningen</td>
+                    </tr>
+                    <tr>
+                        <td><strong>IEC 60617</strong></td>
+                        <td>Grafische symbolen voor schema's (internationaal)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Water/Sanitair</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Norm</th>
+                        <th>Onderwerp</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>NEN 1006</strong></td>
+                        <td>Algemene voorschriften drinkwaterinstallaties (AVWI)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>NEN-EN 806</strong></td>
+                        <td>Drinkwaterinstallaties binnen gebouwen</td>
+                    </tr>
+                    <tr>
+                        <td><strong>NBN-ISO 4067-1</strong></td>
+                        <td>Symbolen loodgieterij, verwarming, leidingen</td>
+                    </tr>
+                    <tr>
+                        <td><strong>NBN-ISO 4067-6</strong></td>
+                        <td>Symbolen watertoevoer/afvoer in grond</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Klimaat/Ventilatie</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Norm</th>
+                        <th>Onderwerp</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>NEN 1087</strong></td>
+                        <td>Ventilatie van gebouwen</td>
+                    </tr>
+                    <tr>
+                        <td><strong>NEN-EN 12831</strong></td>
+                        <td>Warmteverliesberekening</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ISSO-publicaties</strong></td>
+                        <td>Installatietechniek richtlijnen</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Brandmeld/Beveiliging</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Norm</th>
+                        <th>Onderwerp</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>NEN 2535</strong></td>
+                        <td>Brandmeldinstallaties</td>
+                    </tr>
+                    <tr>
+                        <td><strong>NEN 1413</strong></td>
+                        <td>Symbolen veiligheidsvoorzieningen tekeningen</td>
+                    </tr>
+                    <tr>
+                        <td><strong>NEN 1414</strong></td>
+                        <td>Symbolen veiligheidsvoorzieningen plattegronden</td>
+                    </tr>
+                    <tr>
+                        <td><strong>NEN-EN 50131</strong></td>
+                        <td>Inbraakbeveiliging</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="info-box" style="margin-top: 1.5rem;">
+                <strong>Bronnen:</strong><br>
+                <a href="https://www.nen.nl/nen-5152-2016-symbolen-nl-221287" target="_blank">NEN 5152:2016 - Elektrotechnische symbolen</a><br>
+                <a href="https://www.elektra-info.nl/elektra-symbolen-en-tekens/" target="_blank">Elektra-info.nl - Symbolen overzicht</a><br>
+                <a href="https://normecbtv.com/media/2023/04/Symbolen-sanitaire-installaties.pdf" target="_blank">Normec BTV - Sanitaire symbolen (PDF)</a><br>
+                <a href="https://www.isso.nl" target="_blank">ISSO - Kennisinstituut installatietechniek</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Project OconDat | <a href="https://github.com/3BMLabs/INB-Template">OconDat</a></p>
+    </footer>
+</body>
+</html>

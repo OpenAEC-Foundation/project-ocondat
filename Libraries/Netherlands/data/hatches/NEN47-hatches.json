@@ -1,0 +1,561 @@
+{
+  "$schema": "https://ocondat.org/schemas/hatch-patterns/v1.0.json",
+  "metadata": {
+    "name": "NEN 47:1970 - Nederlandse Bouwkundige Arceringen",
+    "standard": "NEN 47:1970 NL",
+    "description": "Doorsnede-aanduidingen van materialen op bouwkundige tekeningen volgens de Nederlandse norm",
+    "source": "INB-Template (3BMLabs/OpenAEC)",
+    "version": "1.0.0",
+    "license": "GPL-3.0",
+    "last_updated": "2026-01-28"
+  },
+  "scale_factors": {
+    "1:200": 0.5,
+    "1:100": 0.75,
+    "1:50": 0.75,
+    "1:20": 0.75,
+    "1:10": 0.9,
+    "1:5": 2.6,
+    "1:2": 6.0,
+    "1:1": 12.0
+  },
+  "material_categories": {
+    "steenachtig": {
+      "name_nl": "Steenachtige materialen",
+      "name_en": "Masonry materials",
+      "materials": ["metselwerk_baksteen", "kalkzandsteen", "speciale_steenachtige_materialen", "natuursteen"]
+    },
+    "beton": {
+      "name_nl": "Beton",
+      "name_en": "Concrete",
+      "materials": ["gewapend_beton_tpg", "gewapend_beton_prefab", "ongewapend_beton", "sierbeton"]
+    },
+    "hout": {
+      "name_nl": "Houtachtige materialen",
+      "name_en": "Timber materials",
+      "materials": ["naaldhout", "loofhout", "bekledingsplaat"]
+    },
+    "metaal": {
+      "name_nl": "Metalen",
+      "name_en": "Metals",
+      "materials": ["staal", "aluminium_brons_koper", "lood", "zink"]
+    },
+    "isolatie": {
+      "name_nl": "Isolatiematerialen",
+      "name_en": "Insulation materials",
+      "materials": ["isolatie_45", "isolatie_60", "kunststof"]
+    },
+    "grond": {
+      "name_nl": "Grondsoorten",
+      "name_en": "Soil types",
+      "materials": ["maaiveld", "zand", "grind", "water"]
+    },
+    "overig": {
+      "name_nl": "Overige materialen",
+      "name_en": "Other materials",
+      "materials": ["glas", "afdichtingsmiddel", "bitumen", "wand_vloer_afwerking"]
+    }
+  },
+  "hatches": {
+    "NEN47_1_metselwerk_baksteen": {
+      "id": "NEN47_1",
+      "name_nl": "Metselwerk baksteen",
+      "name_en": "Clay brick masonry",
+      "category": "steenachtig",
+      "pattern": {
+        "type": "lines",
+        "angle": 45,
+        "spacing": 3,
+        "stroke_width": 0.15,
+        "lines": [
+          {"offset": 1, "direction": "vertical"},
+          {"offset": 1.5, "direction": "vertical"}
+        ]
+      },
+      "background_color": "#D4A574",
+      "variants": {
+        "poriso": {"background_color": "#E8D4B8", "description": "Poriso/lichte baksteen"},
+        "rood": {"background_color": "#C45C3E", "description": "Rode baksteen"},
+        "cement": {"background_color": "#A0A0A0", "description": "Cementmortel"},
+        "tras": {"background_color": "#8B7355", "description": "Trasmortel"},
+        "kalk": {"background_color": "#F5F5DC", "description": "Kalkmortel"}
+      },
+      "applicable_scales": ["1:200", "1:100", "1:50", "1:20", "1:10", "1:5", "1:2", "1:1"]
+    },
+    "NEN47_2_speciale_steenachtige_materialen": {
+      "id": "NEN47_2",
+      "name_nl": "Speciale steenachtige materialen",
+      "name_en": "Special masonry materials",
+      "category": "steenachtig",
+      "pattern": {
+        "type": "grid",
+        "angle": 45,
+        "spacing": 2,
+        "stroke_width": 0.2
+      },
+      "background_color": "#C0C0C0",
+      "applicable_scales": ["1:200", "1:100", "1:50", "1:20", "1:10", "1:5", "1:2", "1:1"]
+    },
+    "NEN47_3_metselwerk_niet_gebakken_kunststeen": {
+      "id": "NEN47_3",
+      "name_nl": "Metselwerk niet-gebakken kunststeen (kalkzandsteen)",
+      "name_en": "Calcium silicate masonry",
+      "category": "steenachtig",
+      "pattern": {
+        "type": "lines",
+        "angle": 45,
+        "spacing": 1.5,
+        "stroke_width": 0.25,
+        "lines": [{"offset": 0, "direction": "vertical"}]
+      },
+      "background_color": "#E8E8E8",
+      "applicable_scales": ["1:200", "1:100", "1:50", "1:20", "1:10", "1:5", "1:2", "1:1"]
+    },
+    "NEN47_4_niet_dragende_lichte_scheidingswanden": {
+      "id": "NEN47_4",
+      "name_nl": "Niet-dragende lichte scheidingswanden",
+      "name_en": "Non-load bearing light partitions",
+      "category": "overig",
+      "pattern": {
+        "type": "lines",
+        "angle": 0,
+        "spacing": 0.5,
+        "stroke_width": 0.2,
+        "lines": [
+          {"offset": 0, "direction": "vertical"},
+          {"offset": 0.5, "direction": "vertical"},
+          {"offset": 1, "direction": "vertical"},
+          {"offset": 1.5, "direction": "vertical"},
+          {"offset": 2, "direction": "vertical"},
+          {"offset": 2.5, "direction": "vertical"},
+          {"offset": 3, "direction": "vertical"}
+        ]
+      },
+      "background_color": "#FFFFFF",
+      "applicable_scales": ["1:200", "1:100", "1:50", "1:20", "1:10", "1:5", "1:2", "1:1"]
+    },
+    "NEN47_5_gewapend_beton_tpg": {
+      "id": "NEN47_5",
+      "name_nl": "Gewapend beton (ter plaatse gestort)",
+      "name_en": "Reinforced concrete (cast in-situ)",
+      "category": "beton",
+      "pattern": {
+        "type": "solid",
+        "fill": "#C0C0C0"
+      },
+      "background_color": "#C0C0C0",
+      "applicable_scales": ["1:200", "1:100", "1:50", "1:20", "1:10", "1:5", "1:2", "1:1"]
+    },
+    "NEN47_6_gewapend_beton_prefab": {
+      "id": "NEN47_6",
+      "name_nl": "Gewapend beton (prefab)",
+      "name_en": "Reinforced concrete (precast)",
+      "category": "beton",
+      "pattern": {
+        "type": "lines",
+        "angle": 45,
+        "spacing": 1.5,
+        "stroke_width": 0.25,
+        "lines": [{"offset": 0, "direction": "vertical"}]
+      },
+      "background_color": "#B0B0B0",
+      "applicable_scales": ["1:200", "1:100", "1:50", "1:20", "1:10", "1:5", "1:2", "1:1"]
+    },
+    "NEN47_7_ongewapend_beton": {
+      "id": "NEN47_7",
+      "name_nl": "Ongewapend beton",
+      "name_en": "Unreinforced concrete",
+      "category": "beton",
+      "pattern": {
+        "type": "crosshatch",
+        "angle": 45,
+        "spacing": 3,
+        "stroke_width": 0.25
+      },
+      "background_color": "#D0D0D0",
+      "applicable_scales": ["1:200", "1:100", "1:50", "1:20", "1:10", "1:5", "1:2", "1:1"]
+    },
+    "NEN47_8_sierbeton": {
+      "id": "NEN47_8",
+      "name_nl": "Sierbeton",
+      "name_en": "Decorative concrete",
+      "category": "beton",
+      "pattern": {
+        "type": "lines",
+        "angle": 135,
+        "spacing": 3,
+        "stroke_width": 0.2,
+        "lines": [
+          {"offset": 0, "direction": "horizontal"},
+          {"offset": 1.5, "direction": "horizontal", "length": 1.5}
+        ]
+      },
+      "background_color": "#E0E0E0",
+      "applicable_scales": ["1:200", "1:100", "1:50", "1:20", "1:10", "1:5", "1:2", "1:1"]
+    },
+    "NEN47_9_natuursteen": {
+      "id": "NEN47_9",
+      "name_nl": "Natuursteen",
+      "name_en": "Natural stone",
+      "category": "steenachtig",
+      "pattern": {
+        "type": "lines",
+        "angle": 135,
+        "spacing": 1.5,
+        "stroke_width": 0.15,
+        "lines": [
+          {"offset": 0, "direction": "horizontal"},
+          {"offset": 0.75, "direction": "horizontal", "length": 0.75}
+        ]
+      },
+      "background_color": "#A0A0A0",
+      "variants": {
+        "hardsteen": {"background_color": "#606060", "description": "Hardsteen/basalt"},
+        "zandsteen": {"background_color": "#D4B896", "description": "Zandsteen"},
+        "kalksteen": {"background_color": "#F0E6D2", "description": "Kalksteen"},
+        "tuf": {"background_color": "#C8B496", "description": "Tufsteen"},
+        "mergel": {"background_color": "#F5F5DC", "description": "Mergel"}
+      },
+      "applicable_scales": ["1:200", "1:100", "1:50", "1:20", "1:10", "1:5", "1:2", "1:1"]
+    },
+    "NEN47_10_enkele_wand_vloer_afwerking": {
+      "id": "NEN47_10",
+      "name_nl": "Enkele wand- en vloerafwerking",
+      "name_en": "Single wall/floor finish",
+      "category": "overig",
+      "pattern": {
+        "type": "zigzag",
+        "angle": 0,
+        "spacing": 6,
+        "stroke_width": 0.15,
+        "amplitude": 3
+      },
+      "background_color": "#FFFFFF",
+      "applicable_scales": ["1:200", "1:100", "1:50", "1:20", "1:10", "1:5", "1:2", "1:1"]
+    },
+    "NEN47_11_samengestelde_wand_vloer_afwerking": {
+      "id": "NEN47_11",
+      "name_nl": "Samengestelde wand- en vloerafwerking",
+      "name_en": "Composite wall/floor finish",
+      "category": "overig",
+      "pattern": {
+        "type": "zigzag_with_line",
+        "angle": 0,
+        "spacing": 6,
+        "stroke_width": 0.15,
+        "amplitude": 3,
+        "horizontal_line_offset": 2
+      },
+      "background_color": "#FFFFFF",
+      "applicable_scales": ["1:200", "1:100", "1:50", "1:20", "1:10", "1:5", "1:2", "1:1"]
+    },
+    "NEN47_12_naaldhout": {
+      "id": "NEN47_12",
+      "name_nl": "Naaldhout",
+      "name_en": "Softwood",
+      "category": "hout",
+      "pattern": {
+        "type": "lines",
+        "angle": 45,
+        "spacing": 1.5,
+        "stroke_width": 0.2,
+        "lines": [{"offset": 0, "direction": "vertical"}]
+      },
+      "background_color": "#DEB887",
+      "variants": {
+        "vuren": {"background_color": "#F5DEB3", "description": "Vuren"},
+        "vuren_gewolmaniseerd": {"background_color": "#8B9D77", "description": "Vuren gewolmaniseerd"},
+        "eiken": {"background_color": "#D4A574", "description": "Eiken"},
+        "lariks": {"background_color": "#C9A66B", "description": "Lariks"},
+        "merbau": {"background_color": "#8B4513", "description": "Merbau"},
+        "meranti": {"background_color": "#A0522D", "description": "Meranti"},
+        "jatoba": {"background_color": "#6B4423", "description": "Jatoba"},
+        "mahonie": {"background_color": "#7B3F00", "description": "Mahonie"},
+        "douglas": {"background_color": "#D2B48C", "description": "Douglas"},
+        "grenen": {"background_color": "#E8D4A8", "description": "Grenen"},
+        "red_cedar": {"background_color": "#A0522D", "description": "Red Cedar"},
+        "iroko": {"background_color": "#8B7355", "description": "Iroko"},
+        "niove": {"background_color": "#5C4033", "description": "Niove"},
+        "bangkirai": {"background_color": "#8B6914", "description": "Bangkirai"},
+        "azobe": {"background_color": "#3D2B1F", "description": "Azobe"},
+        "bamboe": {"background_color": "#E3D87E", "description": "Bamboe"},
+        "vuren_CLT": {"background_color": "#F5DEB3", "description": "Vuren CLT (Cross Laminated Timber)"}
+      },
+      "applicable_scales": ["1:200", "1:100", "1:50", "1:20", "1:10", "1:5", "1:2", "1:1"]
+    },
+    "NEN47_13_loofhout": {
+      "id": "NEN47_13",
+      "name_nl": "Loofhout",
+      "name_en": "Hardwood",
+      "category": "hout",
+      "pattern": {
+        "type": "crosshatch",
+        "angle": 45,
+        "spacing": 1.5,
+        "stroke_width": 0.15
+      },
+      "background_color": "#8B4513",
+      "applicable_scales": ["1:200", "1:100", "1:50", "1:20", "1:10", "1:5", "1:2", "1:1"]
+    },
+    "NEN47_14_naald_loofhout_langsarcering": {
+      "id": "NEN47_14",
+      "name_nl": "Naald-/loofhout langsarcering (nerf)",
+      "name_en": "Timber grain direction",
+      "category": "hout",
+      "pattern": {
+        "type": "lines",
+        "angle": 0,
+        "spacing": 1.5,
+        "stroke_width": 0.15,
+        "lines": [{"offset": 0, "direction": "horizontal"}]
+      },
+      "background_color": "#DEB887",
+      "applicable_scales": ["1:200", "1:100", "1:50", "1:20", "1:10", "1:5", "1:2", "1:1"]
+    },
+    "NEN47_16_bekledingsplaat": {
+      "id": "NEN47_16",
+      "name_nl": "Bekledingsplaat (multiplex, MDF, etc.)",
+      "name_en": "Sheet material (plywood, MDF, etc.)",
+      "category": "hout",
+      "pattern": {
+        "type": "lines",
+        "angle": 90,
+        "spacing": 1.5,
+        "stroke_width": 0.15,
+        "lines": [{"offset": 0, "direction": "horizontal"}]
+      },
+      "background_color": "#C4A574",
+      "variants": {
+        "multiplex": {"background_color": "#D4B896", "description": "Multiplex"},
+        "OSB": {"background_color": "#C9A66B", "description": "OSB"},
+        "MDF": {"background_color": "#B8926A", "description": "MDF"},
+        "watervast": {"background_color": "#8FBC8F", "description": "Watervast multiplex"},
+        "okoume": {"background_color": "#E8C4A4", "description": "Okoume"},
+        "rode_spaan": {"background_color": "#CD5C5C", "description": "Rode spaanplaat"},
+        "groene_spaan": {"background_color": "#6B8E23", "description": "Groene spaanplaat"},
+        "underlayment": {"background_color": "#DEB887", "description": "Underlayment"}
+      },
+      "applicable_scales": ["1:200", "1:100", "1:50", "1:20", "1:10", "1:5", "1:2", "1:1"]
+    },
+    "NEN47_17_isolatie_45": {
+      "id": "NEN47_17",
+      "name_nl": "Isolatiemateriaal (X-45°)",
+      "name_en": "Insulation material (X-45°)",
+      "category": "isolatie",
+      "pattern": {
+        "type": "cross",
+        "angle": 45,
+        "spacing": 1.5,
+        "stroke_width": 0.15
+      },
+      "background_color": "#FFFFE0",
+      "variants": {
+        "glaswol": {"background_color": "#FFFACD", "description": "Glaswol"},
+        "steenwol": {"background_color": "#808000", "description": "Steenwol"},
+        "PIR": {"background_color": "#FFD700", "description": "PIR isolatie"},
+        "kooltherm": {"background_color": "#BDB76B", "description": "Kooltherm"},
+        "PUR": {"background_color": "#F0E68C", "description": "PUR schuim"},
+        "EPS": {"background_color": "#FFFFFF", "description": "EPS (piepschuim)"},
+        "EPS100": {"background_color": "#E0E0E0", "description": "EPS 100 (hogere dichtheid)"}
+      },
+      "applicable_scales": ["1:200", "1:100", "1:50", "1:20", "1:10", "1:5", "1:2", "1:1"]
+    },
+    "NEN47_17b_isolatie_60": {
+      "id": "NEN47_17b",
+      "name_nl": "Isolatiemateriaal (X-60°)",
+      "name_en": "Insulation material (X-60°)",
+      "category": "isolatie",
+      "pattern": {
+        "type": "cross",
+        "angle": 60,
+        "spacing": 1.5,
+        "stroke_width": 0.15
+      },
+      "background_color": "#FFFFE0",
+      "note": "Alternatieve hoek voor onderscheid bij aangrenzende isolatielagen",
+      "variants": {
+        "glaswol": {"background_color": "#FFFACD", "description": "Glaswol"},
+        "steenwol": {"background_color": "#808000", "description": "Steenwol"},
+        "PIR": {"background_color": "#FFD700", "description": "PIR isolatie"},
+        "kooltherm": {"background_color": "#BDB76B", "description": "Kooltherm"},
+        "PUR": {"background_color": "#F0E68C", "description": "PUR schuim"},
+        "EPS": {"background_color": "#FFFFFF", "description": "EPS (piepschuim)"},
+        "EPS100": {"background_color": "#E0E0E0", "description": "EPS 100 (hogere dichtheid)"}
+      },
+      "applicable_scales": ["1:200", "1:100", "1:50", "1:20", "1:10", "1:5", "1:2", "1:1"]
+    },
+    "NEN47_18_staal": {
+      "id": "NEN47_18",
+      "name_nl": "Staal",
+      "name_en": "Steel",
+      "category": "metaal",
+      "pattern": {
+        "type": "solid",
+        "fill": "#000000"
+      },
+      "background_color": "#000000",
+      "applicable_scales": ["1:200", "1:100", "1:50", "1:20", "1:10", "1:5", "1:2", "1:1"]
+    },
+    "NEN47_19_aluminium_brons_koper": {
+      "id": "NEN47_19",
+      "name_nl": "Aluminium, brons, koper",
+      "name_en": "Aluminium, bronze, copper",
+      "category": "metaal",
+      "pattern": {
+        "type": "solid",
+        "fill": "#C0C0C0"
+      },
+      "background_color": "#C0C0C0",
+      "applicable_scales": ["1:200", "1:100", "1:50", "1:20", "1:10", "1:5", "1:2", "1:1"]
+    },
+    "NEN47_20_lood": {
+      "id": "NEN47_20",
+      "name_nl": "Lood",
+      "name_en": "Lead",
+      "category": "metaal",
+      "pattern": {
+        "type": "lines",
+        "angle": 45,
+        "spacing": 1.5,
+        "stroke_width": 0.4,
+        "lines": [{"offset": 0, "direction": "horizontal"}]
+      },
+      "background_color": "#808080",
+      "applicable_scales": ["1:200", "1:100", "1:50", "1:20", "1:10", "1:5", "1:2", "1:1"]
+    },
+    "NEN47_21_zink": {
+      "id": "NEN47_21",
+      "name_nl": "Zink",
+      "name_en": "Zinc",
+      "category": "metaal",
+      "pattern": {
+        "type": "solid",
+        "fill": "#000000"
+      },
+      "background_color": "#000000",
+      "applicable_scales": ["1:200", "1:100", "1:50", "1:20", "1:10", "1:5", "1:2", "1:1"]
+    },
+    "NEN47_22_kunststof": {
+      "id": "NEN47_22",
+      "name_nl": "Kunststof",
+      "name_en": "Plastic",
+      "category": "isolatie",
+      "pattern": {
+        "type": "lines",
+        "angle": 45,
+        "spacing": 1.5,
+        "stroke_width": 0.25,
+        "lines": [{"offset": 0, "direction": "vertical"}]
+      },
+      "background_color": "#ADD8E6",
+      "applicable_scales": ["1:200", "1:100", "1:50", "1:20", "1:10", "1:5", "1:2", "1:1"]
+    },
+    "NEN47_23_afdichtingsmiddel": {
+      "id": "NEN47_23",
+      "name_nl": "Afdichtingsmiddel (kit)",
+      "name_en": "Sealant",
+      "category": "overig",
+      "pattern": {
+        "type": "dots",
+        "spacing": 10,
+        "stroke_width": 0.35
+      },
+      "background_color": "#FFFFFF",
+      "applicable_scales": ["1:200", "1:100", "1:50", "1:20", "1:10", "1:5", "1:2", "1:1"]
+    },
+    "NEN47_24_bitumen": {
+      "id": "NEN47_24",
+      "name_nl": "Bitumen",
+      "name_en": "Bitumen",
+      "category": "overig",
+      "pattern": {
+        "type": "solid",
+        "fill": "#000000"
+      },
+      "background_color": "#000000",
+      "applicable_scales": ["1:200", "1:100", "1:50", "1:20", "1:10", "1:5", "1:2", "1:1"]
+    },
+    "NEN47_25_maaiveld": {
+      "id": "NEN47_25",
+      "name_nl": "Maaiveld/grond",
+      "name_en": "Ground level/soil",
+      "category": "grond",
+      "pattern": {
+        "type": "diagonal_fill",
+        "angle": 45,
+        "spacing": 2.5,
+        "stroke_width": 0.15
+      },
+      "background_color": "#8B7355",
+      "variants": {
+        "grond": {"background_color": "#8B4513", "description": "Grond algemeen"},
+        "asfalt": {"background_color": "#2F2F2F", "description": "Asfalt"},
+        "klei": {"background_color": "#A0522D", "description": "Klei"},
+        "veen": {"background_color": "#3D2B1F", "description": "Veen"}
+      },
+      "applicable_scales": ["1:200", "1:100", "1:50", "1:20", "1:10", "1:5", "1:2", "1:1"]
+    },
+    "NEN47_26_zand": {
+      "id": "NEN47_26",
+      "name_nl": "Zand",
+      "name_en": "Sand",
+      "category": "grond",
+      "pattern": {
+        "type": "dots",
+        "spacing": 50,
+        "stroke_width": 0.35
+      },
+      "background_color": "#F5DEB3",
+      "applicable_scales": ["1:200", "1:100", "1:50", "1:20", "1:10", "1:5", "1:2", "1:1"]
+    },
+    "NEN47_27_grind": {
+      "id": "NEN47_27",
+      "name_nl": "Grind",
+      "name_en": "Gravel",
+      "category": "grond",
+      "pattern": {
+        "type": "circles",
+        "spacing": 40,
+        "radius": 10
+      },
+      "background_color": "#D2B48C",
+      "applicable_scales": ["1:200", "1:100", "1:50", "1:20", "1:10", "1:5", "1:2", "1:1"]
+    },
+    "NEN47_28_water": {
+      "id": "NEN47_28",
+      "name_nl": "Water",
+      "name_en": "Water",
+      "category": "grond",
+      "pattern": {
+        "type": "waves",
+        "spacing": 5,
+        "amplitude": 1,
+        "stroke_width": 0.15
+      },
+      "background_color": "#CDE6ED",
+      "applicable_scales": ["1:200", "1:100", "1:50", "1:20", "1:10", "1:5", "1:2", "1:1"]
+    },
+    "NEN47_29_glas": {
+      "id": "NEN47_29",
+      "name_nl": "Glas",
+      "name_en": "Glass",
+      "category": "overig",
+      "pattern": {
+        "type": "lines",
+        "angle": 0,
+        "spacing": 3,
+        "stroke_width": 0.15,
+        "lines": [
+          {"offset": 0, "direction": "horizontal"},
+          {"offset": 1, "direction": "horizontal", "angle": -10}
+        ]
+      },
+      "background_color": "#E0FFFF",
+      "variants": {
+        "helder": {"background_color": "#E0FFFF", "description": "Helder glas"},
+        "mat": {"background_color": "#D3D3D3", "description": "Mat glas"}
+      },
+      "applicable_scales": ["1:200", "1:100", "1:50", "1:20", "1:10", "1:5", "1:2", "1:1"]
+    }
+  }
+}

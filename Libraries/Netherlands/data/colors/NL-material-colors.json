@@ -1,0 +1,169 @@
+{
+  "$schema": "https://ocondat.org/schemas/material-colors/v1.0.json",
+  "metadata": {
+    "name": "Nederlandse Materiaal Achtergrondkleuren",
+    "description": "Doorsnedekleuren voor bouwkundige materialen - afgeleid van traditionele tekentafel conventies",
+    "source": "INB-Template, NEN 47",
+    "version": "1.0.0",
+    "license": "GPL-3.0",
+    "last_updated": "2026-01-28"
+  },
+  "color_format": "hex",
+  "materials": {
+    "steenachtig": {
+      "metselwerk_baksteen": {
+        "default": "#D4A574",
+        "poriso": "#E8D4B8",
+        "rood": "#C45C3E",
+        "cement": "#A0A0A0",
+        "tras": "#8B7355",
+        "kalk": "#F5F5DC"
+      },
+      "kalkzandsteen": {
+        "default": "#E8E8E8"
+      },
+      "speciale_steenachtige_materialen": {
+        "default": "#C0C0C0"
+      },
+      "natuursteen": {
+        "default": "#A0A0A0",
+        "hardsteen": "#606060",
+        "zandsteen": "#D4B896",
+        "kalksteen": "#F0E6D2",
+        "tuf": "#C8B496",
+        "mergel": "#F5F5DC"
+      }
+    },
+    "beton": {
+      "gewapend_beton_tpg": {
+        "default": "#C0C0C0"
+      },
+      "gewapend_beton_prefab": {
+        "default": "#B0B0B0"
+      },
+      "ongewapend_beton": {
+        "default": "#D0D0D0"
+      },
+      "sierbeton": {
+        "default": "#E0E0E0"
+      }
+    },
+    "hout": {
+      "naaldhout": {
+        "default": "#DEB887",
+        "vuren": "#F5DEB3",
+        "vuren_gewolmaniseerd": "#8B9D77",
+        "eiken": "#D4A574",
+        "lariks": "#C9A66B",
+        "merbau": "#8B4513",
+        "meranti": "#A0522D",
+        "jatoba": "#6B4423",
+        "mahonie": "#7B3F00",
+        "douglas": "#D2B48C",
+        "grenen": "#E8D4A8",
+        "red_cedar": "#A0522D",
+        "iroko": "#8B7355",
+        "niove": "#5C4033",
+        "bangkirai": "#8B6914",
+        "azobe": "#3D2B1F",
+        "bamboe": "#E3D87E",
+        "vuren_CLT": "#F5DEB3"
+      },
+      "loofhout": {
+        "default": "#8B4513"
+      },
+      "bekledingsplaat": {
+        "default": "#C4A574",
+        "multiplex": "#D4B896",
+        "OSB": "#C9A66B",
+        "MDF": "#B8926A",
+        "watervast": "#8FBC8F",
+        "okoume": "#E8C4A4",
+        "rode_spaan": "#CD5C5C",
+        "groene_spaan": "#6B8E23",
+        "underlayment": "#DEB887"
+      }
+    },
+    "metaal": {
+      "staal": {
+        "default": "#000000"
+      },
+      "aluminium": {
+        "default": "#C0C0C0"
+      },
+      "koper": {
+        "default": "#B87333"
+      },
+      "brons": {
+        "default": "#CD7F32"
+      },
+      "lood": {
+        "default": "#808080"
+      },
+      "zink": {
+        "default": "#000000"
+      }
+    },
+    "isolatie": {
+      "isolatie": {
+        "default": "#FFFFE0",
+        "glaswol": "#FFFACD",
+        "steenwol": "#808000",
+        "PIR": "#FFD700",
+        "kooltherm": "#BDB76B",
+        "PUR": "#F0E68C",
+        "EPS": "#FFFFFF",
+        "EPS100": "#E0E0E0"
+      },
+      "kunststof": {
+        "default": "#ADD8E6"
+      }
+    },
+    "grond": {
+      "maaiveld": {
+        "default": "#8B7355",
+        "grond": "#8B4513",
+        "asfalt": "#2F2F2F",
+        "klei": "#A0522D",
+        "veen": "#3D2B1F"
+      },
+      "zand": {
+        "default": "#F5DEB3"
+      },
+      "grind": {
+        "default": "#D2B48C"
+      },
+      "water": {
+        "default": "#CDE6ED"
+      }
+    },
+    "overig": {
+      "glas": {
+        "default": "#E0FFFF",
+        "helder": "#E0FFFF",
+        "mat": "#D3D3D3"
+      },
+      "afdichtingsmiddel": {
+        "default": "#FFFFFF"
+      },
+      "bitumen": {
+        "default": "#000000"
+      },
+      "wand_vloer_afwerking": {
+        "default": "#FFFFFF"
+      }
+    }
+  },
+  "special": {
+    "bestaand_gebouw": {
+      "background": "#F2F2F2",
+      "pattern_stroke": "#CACACA"
+    },
+    "sloop": {
+      "pattern_stroke": "#FF0000"
+    },
+    "nieuw": {
+      "pattern_stroke": "#000000"
+    }
+  }
+}

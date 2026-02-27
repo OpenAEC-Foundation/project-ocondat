@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belastingen Calculator - Project OconDat</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #34495e;
+            --accent: #3498db;
+            --light: #ecf0f1;
+            --dark: #1a252f;
+            --success: #27ae60;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--light);
+            color: var(--primary);
+            line-height: 1.6;
+        }
+
+        .top-nav {
+            background: var(--dark);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-nav a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .top-nav .logo {
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--accent), #2980b9);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            opacity: 0.9;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        @media (max-width: 900px) {
+            .calculator-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .card-header {
+            background: var(--primary);
+            color: white;
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+
+        .card-header:hover {
+            background: var(--secondary);
+        }
+
+        .card-header h2 {
+            margin: 0;
+            font-size: 1.2rem;
+            border: none;
+            padding: 0;
+        }
+
+        .card-header .toggle-icon {
+            font-size: 1.2rem;
+            transition: transform 0.3s;
+        }
+
+        .card-header.collapsed .toggle-icon {
+            transform: rotate(-90deg);
+        }
+
+        .card-content {
+            padding: 1.5rem;
+            transition: max-height 0.3s ease-out, padding 0.3s;
+            overflow: hidden;
+        }
+
+        .card-content.collapsed {
+            max-height: 0;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+        .card h2 {
+            color: var(--primary);
+            border-bottom: 3px solid var(--accent);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
+        }
+
+        .form-group select,
+        .form-group input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group select:focus,
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .form-group select {
+            cursor: pointer;
+            background: white;
+        }
+
+        .form-group input[readonly] {
+            background: #f8f9fa;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .form-group .unit {
+            display: inline-block;
+            margin-left: 0.5rem;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .input-with-unit {
+            display: flex;
+            align-items: center;
+        }
+
+        .input-with-unit input {
+            flex: 1;
+        }
+
+        .input-with-unit .unit {
+            min-width: 60px;
+            text-align: right;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .result-box {
+            background: var(--light);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .result-box .label {
+            font-size: 0.8rem;
+            color: #666;
+            margin-bottom: 0.25rem;
+        }
+
+        .result-box .value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent);
+        }
+
+        .result-box .unit {
+            font-size: 0.75rem;
+            color: #888;
+        }
+
+        .info-box {
+            background: #e8f4fd;
+            border-left: 4px solid var(--accent);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 5px 5px 0;
+            font-size: 0.9rem;
+        }
+
+        .description {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 6px;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            font-size: 0.85rem;
+        }
+
+        th, td {
+            padding: 0.6rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background: var(--light);
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background: #f8f9fa;
+        }
+
+        .highlight {
+            background: #fff3cd !important;
+        }
+
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        footer a {
+            color: var(--accent);
+        }
+
+        .wind-section {
+            margin-top: 2rem;
+        }
+
+        .wind-result {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--success);
+            text-align: center;
+            padding: 1.5rem;
+            background: #d4edda;
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+
+        .wind-result .label {
+            font-size: 0.9rem;
+            color: #155724;
+            font-weight: normal;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="index.html" class="logo">Project OconDat</a>
+        <a href="index.html">&larr; Terug naar overzicht</a>
+    </div>
+
+    <header>
+        <h1>Belastingen Calculator</h1>
+        <p>NEN-EN 1991 - Belastingen op constructies</p>
+    </header>
+
+    <main>
+        <div class="calculator-grid">
+            <!-- Gebruiksbelasting -->
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <h2>Veranderlijke Belasting</h2>
+                    <span class="toggle-icon">&#9660;</span>
+                </div>
+                <div class="card-content">
+                <div class="form-group">
+                    <label for="categorie">Gebruikscategorie</label>
+                    <select id="categorie" onchange="updateCategorie()">
+                        <option value="">-- Selecteer categorie --</option>
+                        <option value="A">A - Woon- en verblijfsruimtes</option>
+                        <option value="B">B - Kantoorruimtes</option>
+                        <option value="C">C - Bijeenkomstruimtes</option>
+                        <option value="D">D - Winkelruimtes</option>
+                        <option value="E">E - Opslagruimtes</option>
+                        <option value="F">F - Verkeersruimte (≤ 30 kN)</option>
+                        <option value="G">G - Verkeersruimte (30-160 kN)</option>
+                        <option value="H">H - Daken</option>
+                    </select>
+                </div>
+
+                <div class="description" id="categorie-beschrijving">
+                    Selecteer een gebruikscategorie om de belastingparameters te zien.
+                </div>
+
+                <div class="results-grid">
+                    <div class="result-box">
+                        <div class="label">ψ₀</div>
+                        <div class="value" id="psi0">-</div>
+                        <div class="unit">combinatie</div>
+                    </div>
+                    <div class="result-box">
+                        <div class="label">ψ₁</div>
+                        <div class="value" id="psi1">-</div>
+                        <div class="unit">frequent</div>
+                    </div>
+                    <div class="result-box">
+                        <div class="label">ψ₂</div>
+                        <div class="value" id="psi2">-</div>
+                        <div class="unit">quasi-blijvend</div>
+                    </div>
+                    <div class="result-box">
+                        <div class="label">q</div>
+                        <div class="value" id="q-waarde">-</div>
+                        <div class="unit">kN/m²</div>
+                    </div>
+                    <div class="result-box">
+                        <div class="label">F</div>
+                        <div class="value" id="f-waarde">-</div>
+                        <div class="unit">kN</div>
+                    </div>
+                </div>
+
+                <div class="info-box" style="margin-top: 1.5rem;">
+                    <strong>Toelichting:</strong><br>
+                    ψ₀ = combinatiewaarde (fundamentele combinatie)<br>
+                    ψ₁ = frequente waarde (gebruiksgrenstoestanden)<br>
+                    ψ₂ = quasi-blijvende waarde (kruip, langetermijneffecten)
+                </div>
+                </div>
+            </div>
+
+            <!-- Windbelasting -->
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <h2>Windbelasting</h2>
+                    <span class="toggle-icon">&#9660;</span>
+                </div>
+                <div class="card-content">
+                <div class="form-group">
+                    <label for="windgebied">Windgebied</label>
+                    <select id="windgebied" onchange="updateWind()">
+                        <option value="">-- Selecteer windgebied --</option>
+                        <option value="1">Gebied I - Kustgebied (vb,0 = 29,5 m/s)</option>
+                        <option value="2">Gebied II - Midden Nederland (vb,0 = 27,0 m/s)</option>
+                        <option value="3">Gebied III - Binnenland (vb,0 = 24,5 m/s)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="terrein">Terreinruwheid</label>
+                    <select id="terrein" onchange="updateWind()">
+                        <option value="">-- Selecteer terrein --</option>
+                        <option value="kust">Kust - Zee of kustgebied</option>
+                        <option value="onbebouwd">Onbebouwd - Open terrein</option>
+                        <option value="bebouwd">Bebouwd - Stedelijk gebied</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="hoogte">Hoogte boven maaiveld</label>
+                    <div class="input-with-unit">
+                        <input type="number" id="hoogte" min="2" max="200" step="1" value="10" oninput="updateWind()">
+                        <span class="unit">m</span>
+                    </div>
+                </div>
+
+                <div class="wind-result">
+                    <div class="label">Stuwdruk qp(z)</div>
+                    <span id="winddruk-result">-</span> kN/m²
+                </div>
+
+                <div class="info-box" style="margin-top: 1rem;">
+                    <strong>Windgebieden Nederland:</strong><br>
+                    I = Noord-Holland, Friesland, Groningen (kust)<br>
+                    II = Overig West-Nederland<br>
+                    III = Oost- en Zuid-Nederland
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Klimaatbelastingen tabel -->
+        <div class="card" style="margin-top: 2rem;">
+            <div class="card-header" onclick="toggleCard(this)">
+                <h2>Klimaatbelastingen - Combinatiefactoren</h2>
+                <span class="toggle-icon">&#9660;</span>
+            </div>
+            <div class="card-content">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Belastingtype</th>
+                        <th>ψ₀</th>
+                        <th>ψ₁</th>
+                        <th>ψ₂</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Sneeuwbelasting</td>
+                        <td>0,00</td>
+                        <td>0,20</td>
+                        <td>0,00</td>
+                    </tr>
+                    <tr>
+                        <td>Belasting door regenwater</td>
+                        <td>0,00</td>
+                        <td>0,00</td>
+                        <td>0,00</td>
+                    </tr>
+                    <tr>
+                        <td>Windbelasting</td>
+                        <td>0,00</td>
+                        <td>0,20</td>
+                        <td>0,00</td>
+                    </tr>
+                    <tr>
+                        <td>Temperatuurbelasting (geen brand)</td>
+                        <td>0,00</td>
+                        <td>0,50</td>
+                        <td>0,00</td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </div>
+
+        <!-- Overzichtstabel categorieën -->
+        <div class="card" style="margin-top: 2rem;">
+            <div class="card-header" onclick="toggleCard(this)">
+                <h2>Overzicht Gebruikscategorieën</h2>
+                <span class="toggle-icon">&#9660;</span>
+            </div>
+            <div class="card-content">
+            <table id="categorie-tabel">
+                <thead>
+                    <tr>
+                        <th>Categorie</th>
+                        <th>Omschrijving</th>
+                        <th>ψ₀</th>
+                        <th>ψ₁</th>
+                        <th>ψ₂</th>
+                        <th>q [kN/m²]</th>
+                        <th>F [kN]</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-cat="A">
+                        <td>A</td>
+                        <td>Woon- en verblijfsruimtes</td>
+                        <td>0,40</td>
+                        <td>0,50</td>
+                        <td>0,30</td>
+                        <td>1,75</td>
+                        <td>3,00</td>
+                    </tr>
+                    <tr data-cat="B">
+                        <td>B</td>
+                        <td>Kantoorruimtes</td>
+                        <td>0,50</td>
+                        <td>0,50</td>
+                        <td>0,30</td>
+                        <td>2,50</td>
+                        <td>3,00</td>
+                    </tr>
+                    <tr data-cat="C">
+                        <td>C</td>
+                        <td>Bijeenkomstruimtes</td>
+                        <td>0,6/0,4</td>
+                        <td>0,70</td>
+                        <td>0,60</td>
+                        <td>5,00</td>
+                        <td>7,00</td>
+                    </tr>
+                    <tr data-cat="D">
+                        <td>D</td>
+                        <td>Winkelruimtes</td>
+                        <td>0,40</td>
+                        <td>0,70</td>
+                        <td>0,60</td>
+                        <td>4,00</td>
+                        <td>7,00</td>
+                    </tr>
+                    <tr data-cat="E">
+                        <td>E</td>
+                        <td>Opslagruimtes</td>
+                        <td>1,00</td>
+                        <td>0,90</td>
+                        <td>0,80</td>
+                        <td>10,00</td>
+                        <td>40,00</td>
+                    </tr>
+                    <tr data-cat="F">
+                        <td>F</td>
+                        <td>Verkeersruimte (≤ 30 kN)</td>
+                        <td>0,70</td>
+                        <td>0,70</td>
+                        <td>0,60</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                    <tr data-cat="G">
+                        <td>G</td>
+                        <td>Verkeersruimte (30-160 kN)</td>
+                        <td>0,70</td>
+                        <td>0,50</td>
+                        <td>0,30</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                    <tr data-cat="H">
+                        <td>H</td>
+                        <td>Daken</td>
+                        <td>0,00</td>
+                        <td>0,00</td>
+                        <td>0,00</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p><strong>Project OconDat</strong> - Onderdeel van het OconDat project</p>
+        <p>Gebaseerd op NEN-EN 1991-1-1 en NEN-EN 1991-1-4 met Nationale Bijlage</p>
+    </footer>
+
+    <script>
+        // Data: Gebruikscategorieën
+        const CATEGORIEEN = {
+            A: {
+                naam: "Woon- en verblijfsruimtes",
+                beschrijving: "Woningen, hotelkamers, keukens, toiletten, ziekenhuiskamers, slaapzalen",
+                psi_0: 0.40, psi_1: 0.50, psi_2: 0.30,
+                q: 1.75, F: 3.00
+            },
+            B: {
+                naam: "Kantoorruimtes",
+                beschrijving: "Kantoren, werkruimtes, vergaderzalen, wachtruimtes",
+                psi_0: 0.50, psi_1: 0.50, psi_2: 0.30,
+                q: 2.50, F: 3.00
+            },
+            C: {
+                naam: "Bijeenkomstruimtes",
+                beschrijving: "Vergaderzalen, theaters, kerken, restaurants, wachtkamers, musea, sportruimtes",
+                psi_0: 0.60, psi_0_alt: 0.40, psi_1: 0.70, psi_2: 0.60,
+                q: 5.00, F: 7.00,
+                opmerking: "ψ₀ = 0,6 voor C1-C4; ψ₀ = 0,4 voor C5"
+            },
+            D: {
+                naam: "Winkelruimtes",
+                beschrijving: "Winkels, warenhuizen, supermarkten",
+                psi_0: 0.40, psi_1: 0.70, psi_2: 0.60,
+                q: 4.00, F: 7.00
+            },
+            E: {
+                naam: "Opslagruimtes",
+                beschrijving: "Opslagruimtes, archieven, magazijnen, industriële opslag",
+                psi_0: 1.00, psi_1: 0.90, psi_2: 0.80,
+                q: 10.00, F: 40.00,
+                opmerking: "q-waarde is minimum; afhankelijk van opgeslagen materiaal"
+            },
+            F: {
+                naam: "Verkeersruimte (voertuigen ≤ 30 kN)",
+                beschrijving: "Parkeergarages voor personenauto's, toegangswegen",
+                psi_0: 0.70, psi_1: 0.70, psi_2: 0.60,
+                q: null, F: null,
+                opmerking: "Belasting afhankelijk van voertuigtype"
+            },
+            G: {
+                naam: "Verkeersruimte (voertuigen 30-160 kN)",
+                beschrijving: "Toegangswegen voor vrachtwagens, laadperrons",
+                psi_0: 0.70, psi_1: 0.50, psi_2: 0.30,
+                q: null, F: null,
+                opmerking: "Belasting afhankelijk van voertuigtype"
+            },
+            H: {
+                naam: "Daken",
+                beschrijving: "Daken niet toegankelijk behalve voor onderhoud en reparatie",
+                psi_0: 0.00, psi_1: 0.00, psi_2: 0.00,
+                q: null, F: null,
+                opmerking: "Zie NEN-EN 1991-1-1 voor specifieke dakbelastingen"
+            }
+        };
+
+        // Data: Winddruk tabellen
+        const WIND_HOOGTES = [2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200];
+
+        const WINDDRUK = {
+            1: {
+                kust: [1.11, 1.22, 1.30, 1.37, 1.42, 1.47, 1.51, 1.55, 1.58, 1.71, 1.80, 1.88, 1.94, 2.00, 2.04, 2.09, 2.12, 2.16, 2.19, 2.22, 2.25, 2.27, 2.30, 2.32, 2.34, 2.36, 2.38, 2.42, 2.45, 2.48, 2.51, 2.54, 2.56, 2.59, 2.61, 2.63, 2.65],
+                onbebouwd: [0.71, 0.71, 0.71, 0.78, 0.84, 0.89, 0.94, 0.98, 1.02, 1.16, 1.27, 1.36, 1.43, 1.50, 1.55, 1.60, 1.65, 1.69, 1.73, 1.76, 1.80, 1.83, 1.86, 1.88, 1.91, 1.93, 1.96, 2.00, 2.04, 2.08, 2.12, 2.15, 2.18, 2.21, 2.24, 2.27, 2.29],
+                bebouwd: [0.69, 0.69, 0.69, 0.69, 0.69, 0.69, 0.73, 0.77, 0.81, 0.96, 1.07, 1.16, 1.23, 1.30, 1.35, 1.40, 1.45, 1.49, 1.53, 1.57, 1.60, 1.63, 1.66, 1.69, 1.72, 1.74, 1.77, 1.81, 1.85, 1.89, 1.93, 1.96, 2.00, 2.03, 2.06, 2.08, 2.11]
+            },
+            2: {
+                kust: [0.93, 1.02, 1.09, 1.14, 1.19, 1.23, 1.26, 1.29, 1.32, 1.43, 1.51, 1.57, 1.63, 1.67, 1.71, 1.75, 1.78, 1.81, 1.83, 1.86, 1.88, 1.90, 1.92, 1.94, 1.96, 1.98, 1.99, 2.03, 2.05, 2.08, 2.10, 2.13, 2.15, 2.17, 2.19, 2.20, 2.22],
+                onbebouwd: [0.60, 0.60, 0.60, 0.66, 0.71, 0.75, 0.79, 0.82, 0.85, 0.98, 1.07, 1.14, 1.20, 1.25, 1.30, 1.34, 1.38, 1.42, 1.45, 1.48, 1.50, 1.53, 1.55, 1.58, 1.60, 1.62, 1.64, 1.68, 1.71, 1.74, 1.77, 1.80, 1.83, 1.85, 1.88, 1.90, 1.92],
+                bebouwd: [0.58, 0.58, 0.58, 0.58, 0.58, 0.58, 0.62, 0.65, 0.68, 0.80, 0.90, 0.97, 1.03, 1.09, 1.13, 1.17, 1.21, 1.25, 1.28, 1.31, 1.34, 1.37, 1.39, 1.42, 1.44, 1.46, 1.48, 1.52, 1.55, 1.59, 1.62, 1.65, 1.67, 1.70, 1.72, 1.75, 1.77]
+            },
+            3: {
+                onbebouwd: [0.49, 0.49, 0.49, 0.54, 0.58, 0.62, 0.65, 0.68, 0.70, 0.80, 0.88, 0.94, 0.99, 1.03, 1.07, 1.11, 1.14, 1.17, 1.19, 1.22, 1.24, 1.26, 1.28, 1.30, 1.32, 1.33, 1.35, 1.38, 1.41, 1.44, 1.46, 1.48, 1.50, 1.52, 1.54, 1.56, 1.58],
+                bebouwd: [0.48, 0.48, 0.48, 0.48, 0.48, 0.48, 0.51, 0.53, 0.56, 0.66, 0.74, 0.80, 0.85, 0.89, 0.93, 0.97, 1.00, 1.03, 1.05, 1.08, 1.10, 1.13, 1.15, 1.17, 1.18, 1.20, 1.22, 1.25, 1.28, 1.31, 1.33, 1.35, 1.38, 1.40, 1.42, 1.44, 1.46]
+            }
+        };
+
+        // Update functies
+        function updateCategorie() {
+            const select = document.getElementById('categorie');
+            const cat = select.value;
+
+            // Reset tabel highlight
+            document.querySelectorAll('#categorie-tabel tbody tr').forEach(row => {
+                row.classList.remove('highlight');
+            });
+
+            if (!cat) {
+                document.getElementById('psi0').textContent = '-';
+                document.getElementById('psi1').textContent = '-';
+                document.getElementById('psi2').textContent = '-';
+                document.getElementById('q-waarde').textContent = '-';
+                document.getElementById('f-waarde').textContent = '-';
+                document.getElementById('categorie-beschrijving').textContent =
+                    'Selecteer een gebruikscategorie om de belastingparameters te zien.';
+                return;
+            }
+
+            const data = CATEGORIEEN[cat];
+
+            // Update waarden
+            if (data.psi_0_alt) {
+                document.getElementById('psi0').textContent = data.psi_0 + '/' + data.psi_0_alt;
+            } else {
+                document.getElementById('psi0').textContent = data.psi_0.toFixed(2);
+            }
+            document.getElementById('psi1').textContent = data.psi_1.toFixed(2);
+            document.getElementById('psi2').textContent = data.psi_2.toFixed(2);
+            document.getElementById('q-waarde').textContent = data.q ? data.q.toFixed(2) : '-';
+            document.getElementById('f-waarde').textContent = data.F ? data.F.toFixed(2) : '-';
+
+            // Update beschrijving
+            let beschrijving = `<strong>${data.naam}</strong><br>${data.beschrijving}`;
+            if (data.opmerking) {
+                beschrijving += `<br><em style="color: #666;">${data.opmerking}</em>`;
+            }
+            document.getElementById('categorie-beschrijving').innerHTML = beschrijving;
+
+            // Highlight tabel rij
+            const row = document.querySelector(`#categorie-tabel tr[data-cat="${cat}"]`);
+            if (row) {
+                row.classList.add('highlight');
+            }
+        }
+
+        function updateWind() {
+            const gebied = document.getElementById('windgebied').value;
+            const terrein = document.getElementById('terrein').value;
+            const hoogte = parseFloat(document.getElementById('hoogte').value);
+
+            const resultEl = document.getElementById('winddruk-result');
+
+            // Update terrein opties gebaseerd op gebied
+            const terreinSelect = document.getElementById('terrein');
+            if (gebied === '3') {
+                // Gebied 3 heeft geen kust optie
+                const kustOptie = terreinSelect.querySelector('option[value="kust"]');
+                if (kustOptie) kustOptie.disabled = true;
+                if (terrein === 'kust') {
+                    terreinSelect.value = '';
+                    resultEl.textContent = '-';
+                    return;
+                }
+            } else {
+                const kustOptie = terreinSelect.querySelector('option[value="kust"]');
+                if (kustOptie) kustOptie.disabled = false;
+            }
+
+            if (!gebied || !terrein || isNaN(hoogte)) {
+                resultEl.textContent = '-';
+                return;
+            }
+
+            // Bereken winddruk met interpolatie
+            const qp = interpoleerWinddruk(parseInt(gebied), terrein, hoogte);
+            resultEl.textContent = qp.toFixed(2);
+        }
+
+        function interpoleerWinddruk(gebied, terrein, hoogte) {
+            const waarden = WINDDRUK[gebied][terrein];
+
+            if (hoogte <= WIND_HOOGTES[0]) return waarden[0];
+            if (hoogte >= WIND_HOOGTES[WIND_HOOGTES.length - 1]) return waarden[waarden.length - 1];
+
+            for (let i = 0; i < WIND_HOOGTES.length - 1; i++) {
+                if (WIND_HOOGTES[i] <= hoogte && hoogte < WIND_HOOGTES[i + 1]) {
+                    const h1 = WIND_HOOGTES[i];
+                    const h2 = WIND_HOOGTES[i + 1];
+                    const q1 = waarden[i];
+                    const q2 = waarden[i + 1];
+                    return q1 + (q2 - q1) * (hoogte - h1) / (h2 - h1);
+                }
+            }
+
+            return waarden[waarden.length - 1];
+        }
+
+        // Toggle inklapbare secties
+        function toggleCard(header) {
+            header.classList.toggle('collapsed');
+            const content = header.nextElementSibling;
+            content.classList.toggle('collapsed');
+        }
+
+        // Initialiseer
+        document.addEventListener('DOMContentLoaded', function() {
+            updateWind();
+        });
+    </script>
+</body>
+</html>
