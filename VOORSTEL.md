@@ -90,7 +90,6 @@ flowchart LR
   classDef bron stroke:#6E7781,stroke-width:3px
   classDef afgeleid stroke:#3E86B5,stroke-width:3px
   classDef mens stroke:#C2762F,stroke-width:3px
-  class N1,N2,N3 default
   class S1 bron
   class S2 afgeleid
   class S3 mens
