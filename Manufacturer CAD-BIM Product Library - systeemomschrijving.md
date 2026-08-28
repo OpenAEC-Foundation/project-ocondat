@@ -28,8 +28,10 @@
 > 3. `_TOOLS/rfa_opdrachten.py` — schoont de geometrie en schrijft de opdrachten.
 > 4. `_TOOLS/revit_bouw.py` — **binnen Revit** — bouwt de families en voegt ze
 >    als type toe aan de verzamelfamilie.
-> 5. Regel toevoegen in `products.csv`, `assets.csv`, `dependencies.csv` en
->    `update-log.csv`. Status begint op `REVIEW REQUIRED`.
+> 5. `_TOOLS/registreer.py --schrijf` — hasht alles, vult `assets.csv` aan en
+>    leidt `dependencies.csv` af. Zonder argumenten rapporteert hij alleen; draai
+>    dat eerst. De productgegevens in `products.csv` zet je zelf: die komen uit de
+>    tekening en de datasheet, niet uit het bestandssysteem.
 > 6. Controleren volgens §25. Sla dat niet over: die controles hebben in de
 >    eerste set drie fouten gevonden die er goed uitzagen.
 >
@@ -1192,8 +1194,29 @@ actualiteitschecker de URL ophalen, alleen de **hash** vastleggen in
 de map leeg. Zolang dat niet is ingebouwd staat `file_hash` bij documentassets
 leeg en is dat een bewust gat.
 
+### 28-08-2026 · De database wordt verzoend, niet bijgehouden
+
+`_TOOLS/registreer.py` sluit de pipeline: hij loopt `01_SOURCE` en
+`02_EXTRACTEN` af, hasht elk bestand, vult ontbrekende regels in `assets.csv`
+aan en leidt `dependencies.csv` af uit de conventie
+(`bron → dxf/svg`, `dxf → rfa`, `rfa → verzamelfamilie`).
+
+Het is bewust een **verzoener** en geen bijhouder: hij vergelijkt de schijf met
+de database en meldt het verschil. Menselijke velden blijven staan, niets wordt
+verzonnen, en een vermist bestand wordt gemeld maar niet verwijderd.
+
+Getoetst tegen de bestaande set: 65 bestanden, 0 nieuw, 0 hashes gewijzigd, en
+84 afgeleide afhankelijkheden — precies de 84 die er met de hand in stonden.
+Daarmee reproduceert het script de handmatige registratie onafhankelijk.
+
 ### Open
 
+* **`products.csv` blijft handwerk.** `registreer.py` vult assets en
+  dependencies, maar productgegevens — maten, drive, ETA — komen uit de tekening
+  en de datasheet en niet uit het bestandssysteem. Een script kan ze niet
+  afleiden en hoort ze niet te verzinnen.
+* **`dependencies.csv` wordt volledig opnieuw afgeleid** bij elke registratie.
+  Met de hand toegevoegde toelichtingen daarin gaan verloren.
 * **Hash van externe documenten.** Zie het besluit hierboven: zolang de checker
   de URL niet ophaalt, kan §15 een gewijzigde datasheet niet zien.
 * Het bronbestand heeft nu een `source_page` (de productpagina), maar de

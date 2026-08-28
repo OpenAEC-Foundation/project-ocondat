@@ -11,6 +11,49 @@
 
 ---
 
+## Waar het project voor is
+
+Dit staat nergens in de repo, en het is de eerste vraag die een bezoeker stelt.
+De README noemt drie features maar geen doel. Het voorstel begint daarom hier,
+en niet bij mappen — de indeling is een gevolg, geen uitgangspunt.
+
+> Het doel is een **leveranciersonafhankelijke productbibliotheek** op te
+> bouwen waarin technische producten van verschillende fabrikanten centraal
+> worden beheerd en gecontroleerd.
+
+De bibliotheek moet het mogelijk maken om fabrikantbestanden centraal te
+verzamelen, versieerbaar en traceerbaar op te slaan, op actualiteit te
+controleren, als 2D-vectorbestand te hergebruiken, op schaal in PDF-tekeningen
+toe te passen, als 2D Revit Family te gebruiken, eventueel als 3D BIM-object te
+gebruiken, en **automatisch te signaleren wanneer een product of bronbestand is
+gewijzigd, vervangen of uitgefaseerd**.
+
+Twee uitgangspunten bepalen daarna de hele architectuur:
+
+**Eén product is niet één CAD-bestand.** Een fabrikant kan voor hetzelfde
+artikel meerdere DXF-aanzichten leveren, plus een RFA, een IFC, een STEP-model,
+een datasheet en een montage-instructie. Elk daarvan is een eigen source asset,
+en geen ervan vervangt stilzwijgend een ander. Een vereenvoudigd IFC mag nooit
+een fabrikant-DXF overrulen voor 2D-detailwerk.
+
+**Het fabrikantsbestand is de bron, alles wat wij maken is afgeleid.** Een SVG
+of een Revit-family draagt de hash van het bestand waar hij uit komt. Daardoor is
+een gewijzigd fabrikantsbestand te detecteren — ook als naam en URL gelijk
+blijven — en is te bepalen wat er stroomafwaarts opnieuw beoordeeld moet worden.
+
+Rothoblaas is de eerste leverancier waarop dit is toegepast, maar de architectuur
+is niet specifiek voor Rothoblaas. Würth, Fischer, Hilti, Leviat, Schöck,
+staalproducenten en plaatleveranciers moeten in hetzelfde model passen; elke
+leverancier krijgt een eigen bronconfiguratie voor de formaten die hij werkelijk
+levert.
+
+De volledige uitwerking staat in §1 t/m §11 van de
+[systeemomschrijving](Manufacturer%20CAD-BIM%20Product%20Library%20-%20systeemomschrijving.md).
+In deze PR is dat doel ook in de [README](README.md) gezet, zodat het niet
+alleen in een bijlage staat.
+
+---
+
 ## 1. Waar het om gaat
 
 De bibliotheek is nu ingedeeld op **bouwdeel**: `001 Vloeren`,
@@ -80,15 +123,15 @@ bestanden verwijderd.**
 
 | Pad | Wat |
 |---|---|
+| `README.md` | **gewijzigd** — het doel uit §1 van de systeemomschrijving is aan de bestaande README toegevoegd, plus de mappentabel en verwijzingen. De bestaande regels en de features-lijst zijn ongemoeid gelaten |
+| `VOORSTEL.md` | dit document |
 | `Manufacturer CAD-BIM Product Library - systeemomschrijving.md` | de architectuur: mappen, metadata, statusmodel, actualiteitschecker, versiebeheer — **leidend document** |
 | `Ocondat bibliotheek instructie/Bibliotheek opbouwen - werkwijze.md` | de bewerkingsstappen van fabrikantstekening naar extract, met de valkuilen die we echt zijn tegengekomen |
 | `02_EXTRACTEN/LEESMIJ.md` | overzicht van de drie extracttypen en de keten ertussen |
 | `02_EXTRACTEN/Extract DXF.md` | genormaliseerde CAD per product, invoegpunt op nul, `$INSUNITS = 4` |
 | `02_EXTRACTEN/Extract SVG.md` | vector 1:1 in mm, bogen als echte `A`-segmenten |
 | `02_EXTRACTEN/Extract RFA.md` | Revit detailcomponenten, inclusief de curve-opschoning die Revit afdwingt |
-| `_TOOLS/curveclean.py` | DXF-geometrie geschikt maken voor Revit-detaillijnen |
-| `_TOOLS/openpdfstudio_library.py` | SVG-extracten → Open PDF Studio symboolbibliotheek |
-| `_TOOLS/openpdfstudio_parametric.py` | SVG-extracten → linework-catalogus met maatvarianten |
+| `_TOOLS/` | negen generators plus een [LEESMIJ](_TOOLS/LEESMIJ.md) die de volgorde beschrijft: `blad_naar_dxf` / `blad_naar_svg` / `blokken_naar_extract` splitsen het bronblad, `curveclean` + `rfa_opdrachten` schonen de geometrie op tot boven de Revit-tolerantie, `revit_bouw` bouwt de families binnen Revit, `registreer` verzoent de database met de schijf, en twee `openpdfstudio_*`-exporters staan los van die keten |
 | `00_DATABASE/*.csv` + `manifests/` | de administratie, ingevuld met de Rothoblaas HBS PLATE-pilot als werkend voorbeeld |
 
 ### Wat er bewust níet in zit

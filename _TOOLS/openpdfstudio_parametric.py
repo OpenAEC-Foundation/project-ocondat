@@ -160,6 +160,30 @@ def _maat(titel, desc, stem):
     return m.group(1).replace(" ", "") if m else kandidaat
 
 
+def _familie(productlijn, fam, varianten):
+    """Familie samenstellen; de bron-SVG van de standaardmaat wordt de preview.
+
+    Het palet toont een icoon per ingang. Zonder preview zou dat voor elke
+    familie hetzelfde plaatje zijn, en dan zie je niet wat je aanklikt. De
+    bron-SVG is er al, dus die hoeft niet opnieuw te worden opgebouwd.
+    """
+    standaard = varianten[0]
+    preview = standaard.pop("_svg", None)
+    for v in varianten:
+        v.pop("_svg", None)
+    fam_id = f"{productlijn}-{fam}".lower().replace(" ", "-")
+    naam = f"{productlijn} ({fam})"
+    uit = {
+        "id": fam_id,
+        "name": {"nl": naam, "en": naam},
+        "defaultSize": standaard["label"],
+        "variants": varianten,
+    }
+    if preview:
+        uit["preview"] = preview
+    return uit
+
+
 def bouw(productlijn_map):
     svg_map = productlijn_map / "svg"
     if not svg_map.is_dir():
@@ -179,6 +203,7 @@ def bouw(productlijn_map):
         texts = _parse_texts(svg)
         fam = _aanzicht(titel, pad.stem)
         families.setdefault(fam, []).append({
+            "_svg": svg,
             "id": pad.stem, "label": _maat(titel, desc, pad.stem),
             "w": round(w, 4), "h": round(h, 4),
             "paths": paths, "arcs": arcs, "texts": texts,
@@ -191,12 +216,8 @@ def bouw(productlijn_map):
         "id": f"{leverancier}-{productlijn}".lower().replace(" ", "-"),
         "name": f"{leverancier} {productlijn}",
         "label": {"nl": leverancier, "en": leverancier},
-        "families": [{
-            "id": f"{productlijn}-{fam}".lower().replace(" ", "-"),
-            "name": {"nl": f"{productlijn} ({fam})", "en": f"{productlijn} ({fam})"},
-            "defaultSize": varianten[0]["label"],
-            "variants": varianten,
-        } for fam, varianten in sorted(families.items())],
+        "families": [_familie(productlijn, fam, varianten)
+                     for fam, varianten in sorted(families.items())],
     }
 
     uit = productlijn_map / "openpdfstudio"

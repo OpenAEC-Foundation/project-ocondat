@@ -1,78 +1,84 @@
 # _TOOLS
 
-De generatorcode. Alles in `02_EXTRACTEN` komt hiervandaan.
+De generatorcode van de bibliotheek. Geen bron en geen extract: dit is de
+machinerie waarmee `02_EXTRACTEN` uit `01_SOURCE` gemaakt wordt.
 
-> **Klopt er iets niet aan een extract, pas dan het script aan — niet het
-> bestand.** De volgende generatieslag overschrijft handwerk geruisloos. De
-> kwaliteitscontrole uit §25 van de systeemomschrijving geldt daarom de
-> generator, niet het losse resultaat.
+> **Eerlijk over de staat.** Dit zijn de werkscripts van de eerste set
+> (Rothoblaas HBS PLATE), niet een afgeronde pijplijn. Ze doen wat ze moeten
+> doen en zijn gedocumenteerd, maar paden en aannames zijn deels op die set
+> geschreven. Reken op aanpassen bij een volgende leverancier — en lees de
+> valkuilen in de scripts, want die zijn duur betaald.
 
-## De scripts
+## Bestanden
 
-| Script | Van | Naar |
-|---|---|---|
-| `curveclean.py` | DXF-extract | opgeschoonde geometrie voor Revit-detaillijnen |
-| `openpdfstudio_library.py` | SVG-extracten | Open PDF Studio symboolbibliotheek (`Import Group`-formaat) |
-| `openpdfstudio_parametric.py` | SVG-extracten | Open PDF Studio linework-catalogus met maatvarianten |
+| Bestand | Wat het doet |
+|---|---|
+| `curveclean.py` | Leest DXF-curves en knijpt curves onder de Revit-tolerantie eruit. Het hart van de RFA-keten. |
+| `bbox.py` | Exacte bounding boxes, ook voor bogen. Nodig om producten te clusteren. |
+| `blad_naar_svg.py` | Splitst een bronblad in producten en schrijft per product een SVG (1:1, mm). |
+| `blad_naar_dxf.py` | Idem, maar schrijft genormaliseerde DXF-extracten plus het manifest. |
+| `blokken_naar_extract.py` | Haalt benoemde blokken uit de bron als losse extracten. Gebruikt voor de kopaanzichten. |
+| `rfa_opdrachten.py` | Maakt per product een JSON-opdracht voor Revit, met geschoonde geometrie. |
+| `revit_bouw.py` | **Draait binnen Revit.** Bouwt de families en de verzamelfamilie, en controleert ze. |
+| `registreer.py` | Verzoent `00_DATABASE` met wat er op schijf staat: hasht alles, vult ontbrekende assetregels aan, leidt de afhankelijkheden af. |
+| `openpdfstudio_*.py` | Los van bovenstaande keten. |
 
-### `curveclean.py`
+## Volgorde
 
-Revit weigert curves korter dan `ShortCurveTolerance` — 0,7804 mm bij een
-standaardinstallatie — en fabrikantgeometrie zit daar regelmatig onder. Dit
-script voegt zulke segmenten samen. Twee dingen die het expliciet níet doet:
+```text
+01_SOURCE/…/CAD/bron.dxf
+        │
+        ├─ blad_naar_dxf.py ────────> 02_EXTRACTEN/…/dxf/
+        ├─ blad_naar_svg.py ────────> 02_EXTRACTEN/…/svg/
+        └─ blokken_naar_extract.py ─> beide, voor losse aanzichten
+                    │
+                    ▼
+            rfa_opdrachten.py  (buiten Revit: schoonmaken + JSON)
+                    │
+                    ▼
+            revit_bouw.py      (binnen Revit: families + verzamelfamilie)
+                    │
+                    ▼
+            registreer.py      (database bijwerken - altijd als laatste)
+```
 
-* **niet welden op afstand.** Dat stort draadtanden in: de twee flanken van een
-  tand liggen bij de tip zo'n 0,7 mm uit elkaar. Er wordt uitsluitend langs de
-  *keten* samengevoegd — buren die echt aan elkaar vastzitten.
-* **niet een boog als eindpuntenpaar behandelen.** Een boog blijft
-  `(center, radius, a0, a1)` met `a1 = a0 + sweep`, en een verschoven eindpunt
-  wordt uitgepakt rond de oude hoek. Zonder dat klapt een minieme negatieve
-  draai om naar bijna 2π en wordt een boogje van een halve millimeter een hele
-  cirkel.
+De zware rekenstap staat bewust buiten Revit. Dat houdt de Revit-kant kort en
+maakt hem herhaalbaar zonder de applicatie.
 
-De afwijking blijft onder 0,4 mm; nominale hoofdmaten blijven exact. De
-vereenvoudiging hoort in de RFA-tak en mag niet doorwerken in de DXF en SVG,
-die het volledige fabrikantdetail houden.
+## registreer.py — verzoenen, niet verzinnen
 
-### `openpdfstudio_library.py`
+Draai hem na elke generatieslag. Zonder argumenten rapporteert hij alleen;
+met `--schrijf` werkt hij `assets.csv`, `dependencies.csv` en `update-log.csv`
+bij.
 
-Schrijft platte stempels: één palet-ingang per product. De app leidt het
-symbool-id af uit de **naam**, niet uit de bestandsnaam, dus namen moeten uniek
-zijn — twee gelijke namen delen één id en verwijderen raakt er dan twee. Alleen
-`name` en `svg` overleven de import; productcode en aanzicht horen dus in de
-naam verwerkt te zijn.
+Drie eigenschappen die de moeite van het onthouden waard zijn:
 
-### `openpdfstudio_parametric.py`
+* **Menselijke velden blijven staan.** `source_url`, `source_page`,
+  `download_date`, `status` en `product_id` worden op bestaande regels nooit
+  overschreven. Dat is juist de informatie die geen script terug kan maken.
+* **Niets wordt verzonnen.** Kan hij een veld niet uit het pad afleiden, dan
+  laat hij het leeg. Een leeg veld is eerlijker dan een geraden waarde.
+* **Een vermist bestand wordt gemeld, niet verwijderd.** Weggooien is een
+  beslissing.
 
-Schrijft `parametric.json` in het formaat `linework-variants`: één familie per
-aanzicht, met de producten als varianten — één palet-ingang met een maat-keuze
-in plaats van een los symbool per product.
+Let op: `dependencies.csv` wordt wél volledig opnieuw afgeleid uit de
+conventie. Met de hand toegevoegde toelichtingen daarin gaan verloren.
+`products.csv` raakt hij niet aan — productgegevens komen uit de tekening en de
+datasheet, niet uit het bestandssysteem.
 
-**Bogen blijven bogen.** De SVG-boog (`A`, eindpuntnotatie) wordt teruggerekend
-naar middelpunt, straal en hoeken, niet gepolygoniseerd; een benadering is bij
-het terugmeten niet meer te herstellen. Wijkt de bron af van de aannames — paden
-absoluut, bogen cirkelvormig zonder rotatie — dan stopt het script in plaats van
-stilletjes iets verkeerds te schrijven.
+## Twee omgevingen
 
-## Afhankelijkheden
+`curveclean` en de blad-scripts draaien op **CPython 3** met `ezdxf`.
+`revit_bouw.py` draait op **IronPython 2.7 binnen Revit** — geen f-strings, geen
+`pathlib`, en alleen wat de Revit API biedt.
 
-`ezdxf` voor het lezen en schrijven van DXF. De rest is standaardbibliotheek.
+## Waar de uitleg staat
 
-De scripts gaan uit van de bibliotheekwortel als bovenliggende map (`WORTEL =
-Path(__file__).resolve().parent.parent`) en zoeken hun invoer in
-`02_EXTRACTEN/<Leverancier>/<Productlijn>/`.
+De inhoudelijke regels — waarom er geschoond wordt, welke tolerantie geldt, hoe
+bogen omgezet worden, wat er gecontroleerd moet worden — staan niet hier maar in:
 
-## Nog te schrijven
-
-De keten is nog niet volledig geautomatiseerd. Wat er nog niet als script
-bestaat, en dus nu nog handwerk is:
-
-* **bron → dxf/svg.** Het opsplitsen in producten en het koppelen van labels is
-  in de pilot stap voor stap gedaan; de werkwijze is beschreven in
-  [Bibliotheek opbouwen · werkwijze](../Ocondat%20bibliotheek%20instructie/Bibliotheek%20opbouwen%20-%20werkwijze.md),
-  inclusief de twee controles die je niet mag overslaan.
-* **dxf → rfa.** De aansturing van Revit staat in
-  [Extract RFA.md](../02_EXTRACTEN/Extract%20RFA.md). Zolang iemand de familie
-  met de hand maakt, is `rfa/` een uitzondering op de regel dat `02_EXTRACTEN`
-  herbouwbaar is — en die uitzondering breekt het model.
-* **de actualiteitschecker** uit §15 en §20 van de systeemomschrijving.
+* [Extract DXF](../02_EXTRACTEN/Extract%20DXF.md)
+* [Extract SVG](../02_EXTRACTEN/Extract%20SVG.md)
+* [Extract RFA](../02_EXTRACTEN/Extract%20RFA.md)
+* [Bibliotheek opbouwen - werkwijze](../Ocondat%20bibliotheek%20instructie/Bibliotheek%20opbouwen%20-%20werkwijze.md)
+* [Systeemomschrijving](../Manufacturer%20CAD-BIM%20Product%20Library%20-%20systeemomschrijving.md) — leidend
