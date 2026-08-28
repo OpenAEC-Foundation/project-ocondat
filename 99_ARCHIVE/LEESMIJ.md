@@ -40,7 +40,7 @@ Een gewijzigde bron wordt dus **niet stilzwijgend in de definitieve bibliotheek
 gezet**. Zie §21 en §22 van de systeemomschrijving.
 
 Ook hierheen: mappen uit de oude, op bouwdeel ingedeelde structuur nadat hun
-inhoud is teruggebracht tot bron en extract. Zie §4 van
+inhoud is teruggebracht tot bron en extract. Zie §6 van
 [VOORSTEL.md](../VOORSTEL.md).
 
 ## Wat er in de update-log bij hoort

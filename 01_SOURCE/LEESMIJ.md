@@ -33,7 +33,7 @@ direct `01_SOURCE/<Leverancier>/<Productlijn>/`.
 
 Het voorstel gaat over **waar** fabrikantsbestanden horen, niet over welke er
 gepubliceerd worden. Of materiaal van derden op een publieke repo mag staan is
-een aparte afweging, per leverancier; zie §6 van [VOORSTEL.md](../VOORSTEL.md).
+een aparte afweging, per leverancier; zie vraag 2 in §7 van [VOORSTEL.md](../VOORSTEL.md).
 
 Zolang die afweging niet gemaakt is, kan de bibliotheek ook werken met een
 lokale `01_SOURCE` buiten versiebeheer: de administratie in `00_DATABASE`

@@ -51,7 +51,7 @@ eruitziet als hij gevuld is.
 
 > **De `file_path`-kolommen verwijzen naar bestanden die niet in deze pull
 > request zitten.** `01_SOURCE` is leeg gelaten en de extracten zijn
-> achtergehouden; zie §3 van [VOORSTEL.md](../VOORSTEL.md). De rijen zijn dus
+> achtergehouden; zie §8 van [VOORSTEL.md](../VOORSTEL.md). De rijen zijn dus
 > een voorbeeld van de vorm, geen werkende dataset.
 
 Alle assets staan op `REVIEW REQUIRED`. Wat er voor `APPROVED` nog ontbreekt —
