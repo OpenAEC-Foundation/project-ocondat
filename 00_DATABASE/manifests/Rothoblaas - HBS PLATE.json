@@ -1,0 +1,384 @@
+{
+  "fabrikant": "Rothoblaas",
+  "productlijn": "HBS PLATE",
+  "aantal_producten": 18,
+  "eenheid": "mm",
+  "aanzicht": "zijaanzicht",
+  "gegenereerd_op": "2026-08-28",
+  "herkomst": {
+    "methode": "Open CAD Studio MCP Bridge, live selectie uit het geopende document",
+    "insertion_units_bron": 4,
+    "originele_fabrikantsbestand": "01_SOURCE/Rothoblaas/HBS PLATE/CAD/HBS-PLATE_wd04-rothoblaas.dxf",
+    "afgeleide_maten": "kop_diameter uit de hoogte van het aanzicht; lengte_onder_kop uit de labeltekst; kop_dikte als totale_lengte minus lengte_onder_kop, per diameter constant gecontroleerd (4,5 / 5,0 / 5,5 mm)",
+    "bron_sha256": "fed59dfeb7d3d32307d99f4285f75818c4c20b80d3e26b13ad0857bbd2493a8b",
+    "brondatum": "2024-09-09"
+  },
+  "invoegpunt": {
+    "x": "onderkant kop",
+    "y": "hartlijn schroef",
+    "richting": "schroef loopt in +X, punt op x = lengte_onder_kop",
+    "geldt_voor": "de DXF-bestanden in dxf/"
+  },
+  "niet_inbegrepen": "Karakteristieke draagkracht en voorboormaten voor hout. Die staan in de datasheet, waarnaar de database verwijst maar die niet lokaal wordt bewaard.",
+  "producten": [
+    {
+      "code": "HBSPL860",
+      "aanduiding": "8x60",
+      "label": "HBSPL860 - 8x60",
+      "draad_diameter_mm": 8,
+      "lengte_onder_kop_mm": 60,
+      "kop_diameter_mm": 13.5,
+      "kop_dikte_mm": 4.5,
+      "totale_lengte_mm": 64.5,
+      "entiteiten": 146,
+      "svg": "02_EXTRACTEN/Rothoblaas/HBS PLATE/svg/HBSPL860 - 8x60.svg",
+      "dxf": "02_EXTRACTEN/Rothoblaas/HBS PLATE/dxf/HBSPL860 - 8x60.dxf",
+      "hole_diameter_steel_mm": 11,
+      "rfa": "02_EXTRACTEN/Rothoblaas/HBS PLATE/rfa/HBSPL860.rfa"
+    },
+    {
+      "code": "HBSPL880",
+      "aanduiding": "8x80",
+      "label": "HBSPL880 - 8x80",
+      "draad_diameter_mm": 8,
+      "lengte_onder_kop_mm": 80,
+      "kop_diameter_mm": 13.5,
+      "kop_dikte_mm": 4.5,
+      "totale_lengte_mm": 84.5,
+      "entiteiten": 162,
+      "svg": "02_EXTRACTEN/Rothoblaas/HBS PLATE/svg/HBSPL880 - 8x80.svg",
+      "dxf": "02_EXTRACTEN/Rothoblaas/HBS PLATE/dxf/HBSPL880 - 8x80.dxf",
+      "hole_diameter_steel_mm": 11,
+      "rfa": "02_EXTRACTEN/Rothoblaas/HBS PLATE/rfa/HBSPL880.rfa"
+    },
+    {
+      "code": "HBSPL8100",
+      "aanduiding": "8x100",
+      "label": "HBSPL8100 - 8x100",
+      "draad_diameter_mm": 8,
+      "lengte_onder_kop_mm": 100,
+      "kop_diameter_mm": 13.5,
+      "kop_dikte_mm": 4.5,
+      "totale_lengte_mm": 104.5,
+      "entiteiten": 212,
+      "svg": "02_EXTRACTEN/Rothoblaas/HBS PLATE/svg/HBSPL8100 - 8x100.svg",
+      "dxf": "02_EXTRACTEN/Rothoblaas/HBS PLATE/dxf/HBSPL8100 - 8x100.dxf",
+      "hole_diameter_steel_mm": 11,
+      "rfa": "02_EXTRACTEN/Rothoblaas/HBS PLATE/rfa/HBSPL8100.rfa"
+    },
+    {
+      "code": "HBSPL8120",
+      "aanduiding": "8x120",
+      "label": "HBSPL8120 - 8x120",
+      "draad_diameter_mm": 8,
+      "lengte_onder_kop_mm": 120,
+      "kop_diameter_mm": 13.5,
+      "kop_dikte_mm": 4.5,
+      "totale_lengte_mm": 124.5,
+      "entiteiten": 262,
+      "svg": "02_EXTRACTEN/Rothoblaas/HBS PLATE/svg/HBSPL8120 - 8x120.svg",
+      "dxf": "02_EXTRACTEN/Rothoblaas/HBS PLATE/dxf/HBSPL8120 - 8x120.dxf",
+      "hole_diameter_steel_mm": 11,
+      "rfa": "02_EXTRACTEN/Rothoblaas/HBS PLATE/rfa/HBSPL8120.rfa"
+    },
+    {
+      "code": "HBSPL8140",
+      "aanduiding": "8x140",
+      "label": "HBSPL8140 - 8x140",
+      "draad_diameter_mm": 8,
+      "lengte_onder_kop_mm": 140,
+      "kop_diameter_mm": 13.5,
+      "kop_dikte_mm": 4.5,
+      "totale_lengte_mm": 144.5,
+      "entiteiten": 292,
+      "svg": "02_EXTRACTEN/Rothoblaas/HBS PLATE/svg/HBSPL8140 - 8x140.svg",
+      "dxf": "02_EXTRACTEN/Rothoblaas/HBS PLATE/dxf/HBSPL8140 - 8x140.dxf",
+      "hole_diameter_steel_mm": 11,
+      "rfa": "02_EXTRACTEN/Rothoblaas/HBS PLATE/rfa/HBSPL8140.rfa"
+    },
+    {
+      "code": "HBSPL8160",
+      "aanduiding": "8x160",
+      "label": "HBSPL8160 - 8x160",
+      "draad_diameter_mm": 8,
+      "lengte_onder_kop_mm": 160,
+      "kop_diameter_mm": 13.5,
+      "kop_dikte_mm": 4.5,
+      "totale_lengte_mm": 164.5,
+      "entiteiten": 342,
+      "svg": "02_EXTRACTEN/Rothoblaas/HBS PLATE/svg/HBSPL8160 - 8x160.svg",
+      "dxf": "02_EXTRACTEN/Rothoblaas/HBS PLATE/dxf/HBSPL8160 - 8x160.dxf",
+      "hole_diameter_steel_mm": 11,
+      "rfa": "02_EXTRACTEN/Rothoblaas/HBS PLATE/rfa/HBSPL8160.rfa"
+    },
+    {
+      "code": "HBSPL1080",
+      "aanduiding": "10x80",
+      "label": "HBSPL1080 - 10x80",
+      "draad_diameter_mm": 10,
+      "lengte_onder_kop_mm": 80,
+      "kop_diameter_mm": 16.5,
+      "kop_dikte_mm": 5.0,
+      "totale_lengte_mm": 85.0,
+      "entiteiten": 163,
+      "svg": "02_EXTRACTEN/Rothoblaas/HBS PLATE/svg/HBSPL1080 - 10x80.svg",
+      "dxf": "02_EXTRACTEN/Rothoblaas/HBS PLATE/dxf/HBSPL1080 - 10x80.dxf",
+      "hole_diameter_steel_mm": 13,
+      "rfa": "02_EXTRACTEN/Rothoblaas/HBS PLATE/rfa/HBSPL1080.rfa"
+    },
+    {
+      "code": "HBSPL10100",
+      "aanduiding": "10x100",
+      "label": "HBSPL10100 - 10x100",
+      "draad_diameter_mm": 10,
+      "lengte_onder_kop_mm": 100,
+      "kop_diameter_mm": 16.5,
+      "kop_dikte_mm": 5.0,
+      "totale_lengte_mm": 105.0,
+      "entiteiten": 203,
+      "svg": "02_EXTRACTEN/Rothoblaas/HBS PLATE/svg/HBSPL10100 - 10x100.svg",
+      "dxf": "02_EXTRACTEN/Rothoblaas/HBS PLATE/dxf/HBSPL10100 - 10x100.dxf",
+      "hole_diameter_steel_mm": 13,
+      "rfa": "02_EXTRACTEN/Rothoblaas/HBS PLATE/rfa/HBSPL10100.rfa"
+    },
+    {
+      "code": "HBSPL10120",
+      "aanduiding": "10x120",
+      "label": "HBSPL10120 - 10x120",
+      "draad_diameter_mm": 10,
+      "lengte_onder_kop_mm": 120,
+      "kop_diameter_mm": 16.5,
+      "kop_dikte_mm": 5.0,
+      "totale_lengte_mm": 125.0,
+      "entiteiten": 258,
+      "svg": "02_EXTRACTEN/Rothoblaas/HBS PLATE/svg/HBSPL10120 - 10x120.svg",
+      "dxf": "02_EXTRACTEN/Rothoblaas/HBS PLATE/dxf/HBSPL10120 - 10x120.dxf",
+      "hole_diameter_steel_mm": 13,
+      "rfa": "02_EXTRACTEN/Rothoblaas/HBS PLATE/rfa/HBSPL10120.rfa"
+    },
+    {
+      "code": "HBSPL10140",
+      "aanduiding": "10x140",
+      "label": "HBSPL10140 - 10x140",
+      "draad_diameter_mm": 10,
+      "lengte_onder_kop_mm": 140,
+      "kop_diameter_mm": 16.5,
+      "kop_dikte_mm": 5.0,
+      "totale_lengte_mm": 145.0,
+      "entiteiten": 302,
+      "svg": "02_EXTRACTEN/Rothoblaas/HBS PLATE/svg/HBSPL10140 - 10x140.svg",
+      "dxf": "02_EXTRACTEN/Rothoblaas/HBS PLATE/dxf/HBSPL10140 - 10x140.dxf",
+      "hole_diameter_steel_mm": 13,
+      "rfa": "02_EXTRACTEN/Rothoblaas/HBS PLATE/rfa/HBSPL10140.rfa"
+    },
+    {
+      "code": "HBSPL10160",
+      "aanduiding": "10x160",
+      "label": "HBSPL10160 - 10x160",
+      "draad_diameter_mm": 10,
+      "lengte_onder_kop_mm": 160,
+      "kop_diameter_mm": 16.5,
+      "kop_dikte_mm": 5.0,
+      "totale_lengte_mm": 165.0,
+      "entiteiten": 356,
+      "svg": "02_EXTRACTEN/Rothoblaas/HBS PLATE/svg/HBSPL10160 - 10x160.svg",
+      "dxf": "02_EXTRACTEN/Rothoblaas/HBS PLATE/dxf/HBSPL10160 - 10x160.dxf",
+      "hole_diameter_steel_mm": 13,
+      "rfa": "02_EXTRACTEN/Rothoblaas/HBS PLATE/rfa/HBSPL10160.rfa"
+    },
+    {
+      "code": "HBSPL10180",
+      "aanduiding": "10x180",
+      "label": "HBSPL10180 - 10x180",
+      "draad_diameter_mm": 10,
+      "lengte_onder_kop_mm": 180,
+      "kop_diameter_mm": 16.5,
+      "kop_dikte_mm": 5.0,
+      "totale_lengte_mm": 185.0,
+      "entiteiten": 401,
+      "svg": "02_EXTRACTEN/Rothoblaas/HBS PLATE/svg/HBSPL10180 - 10x180.svg",
+      "dxf": "02_EXTRACTEN/Rothoblaas/HBS PLATE/dxf/HBSPL10180 - 10x180.dxf",
+      "hole_diameter_steel_mm": 13,
+      "rfa": "02_EXTRACTEN/Rothoblaas/HBS PLATE/rfa/HBSPL10180.rfa"
+    },
+    {
+      "code": "HBSPL12100",
+      "aanduiding": "12x100",
+      "label": "HBSPL12100 - 12x100",
+      "draad_diameter_mm": 12,
+      "lengte_onder_kop_mm": 100,
+      "kop_diameter_mm": 18.5,
+      "kop_dikte_mm": 5.5,
+      "totale_lengte_mm": 105.5,
+      "entiteiten": 201,
+      "svg": "02_EXTRACTEN/Rothoblaas/HBS PLATE/svg/HBSPL12100 - 12x100.svg",
+      "dxf": "02_EXTRACTEN/Rothoblaas/HBS PLATE/dxf/HBSPL12100 - 12x100.dxf",
+      "hole_diameter_steel_mm": 14,
+      "rfa": "02_EXTRACTEN/Rothoblaas/HBS PLATE/rfa/HBSPL12100.rfa"
+    },
+    {
+      "code": "HBSPL12120",
+      "aanduiding": "12x120",
+      "label": "HBSPL12120 - 12x120",
+      "draad_diameter_mm": 12,
+      "lengte_onder_kop_mm": 120,
+      "kop_diameter_mm": 18.5,
+      "kop_dikte_mm": 5.5,
+      "totale_lengte_mm": 125.5,
+      "entiteiten": 234,
+      "svg": "02_EXTRACTEN/Rothoblaas/HBS PLATE/svg/HBSPL12120 - 12x120.svg",
+      "dxf": "02_EXTRACTEN/Rothoblaas/HBS PLATE/dxf/HBSPL12120 - 12x120.dxf",
+      "hole_diameter_steel_mm": 14,
+      "rfa": "02_EXTRACTEN/Rothoblaas/HBS PLATE/rfa/HBSPL12120.rfa"
+    },
+    {
+      "code": "HBSPL12140",
+      "aanduiding": "12x140",
+      "label": "HBSPL12140 - 12x140",
+      "draad_diameter_mm": 12,
+      "lengte_onder_kop_mm": 140,
+      "kop_diameter_mm": 18.5,
+      "kop_dikte_mm": 5.5,
+      "totale_lengte_mm": 145.5,
+      "entiteiten": 288,
+      "svg": "02_EXTRACTEN/Rothoblaas/HBS PLATE/svg/HBSPL12140 - 12x140.svg",
+      "dxf": "02_EXTRACTEN/Rothoblaas/HBS PLATE/dxf/HBSPL12140 - 12x140.dxf",
+      "hole_diameter_steel_mm": 14,
+      "rfa": "02_EXTRACTEN/Rothoblaas/HBS PLATE/rfa/HBSPL12140.rfa"
+    },
+    {
+      "code": "HBSPL12160",
+      "aanduiding": "12x160",
+      "label": "HBSPL12160 - 12x160",
+      "draad_diameter_mm": 12,
+      "lengte_onder_kop_mm": 160,
+      "kop_diameter_mm": 18.5,
+      "kop_dikte_mm": 5.5,
+      "totale_lengte_mm": 165.5,
+      "entiteiten": 311,
+      "svg": "02_EXTRACTEN/Rothoblaas/HBS PLATE/svg/HBSPL12160 - 12x160.svg",
+      "dxf": "02_EXTRACTEN/Rothoblaas/HBS PLATE/dxf/HBSPL12160 - 12x160.dxf",
+      "hole_diameter_steel_mm": 14,
+      "rfa": "02_EXTRACTEN/Rothoblaas/HBS PLATE/rfa/HBSPL12160.rfa"
+    },
+    {
+      "code": "HBSPL12180",
+      "aanduiding": "12x180",
+      "label": "HBSPL12180 - 12x180",
+      "draad_diameter_mm": 12,
+      "lengte_onder_kop_mm": 180,
+      "kop_diameter_mm": 18.5,
+      "kop_dikte_mm": 5.5,
+      "totale_lengte_mm": 185.5,
+      "entiteiten": 355,
+      "svg": "02_EXTRACTEN/Rothoblaas/HBS PLATE/svg/HBSPL12180 - 12x180.svg",
+      "dxf": "02_EXTRACTEN/Rothoblaas/HBS PLATE/dxf/HBSPL12180 - 12x180.dxf",
+      "hole_diameter_steel_mm": 14,
+      "rfa": "02_EXTRACTEN/Rothoblaas/HBS PLATE/rfa/HBSPL12180.rfa"
+    },
+    {
+      "code": "HBSPL12200",
+      "aanduiding": "12x200",
+      "label": "HBSPL12200 - 12x200",
+      "draad_diameter_mm": 12,
+      "lengte_onder_kop_mm": 200,
+      "kop_diameter_mm": 18.5,
+      "kop_dikte_mm": 5.5,
+      "totale_lengte_mm": 205.5,
+      "entiteiten": 411,
+      "svg": "02_EXTRACTEN/Rothoblaas/HBS PLATE/svg/HBSPL12200 - 12x200.svg",
+      "dxf": "02_EXTRACTEN/Rothoblaas/HBS PLATE/dxf/HBSPL12200 - 12x200.dxf",
+      "hole_diameter_steel_mm": 14,
+      "rfa": "02_EXTRACTEN/Rothoblaas/HBS PLATE/rfa/HBSPL12200.rfa"
+    }
+  ],
+  "representatie": {
+    "view_type": "side",
+    "detailniveau": "DETAIL",
+    "opmerking": "afgeleid uit een blad met 18 zijaanzichten; front/top/detail zijn niet uit deze bron beschikbaar"
+  },
+  "revit": {
+    "status": "GEGENEREERD",
+    "aantal": 18,
+    "vereenvoudiging": "curves onder de Revit ShortCurveTolerance (0,7804 mm) zijn weggeknepen; samentrekking naar het snijpunt van de buren zodat hoofdmaten exact blijven; maximale afwijking 0,37 mm",
+    "verzamelfamilie": {
+      "bestand": "02_EXTRACTEN/Rothoblaas/HBS PLATE/rfa/NLRS_28_DI_UN_schroef_HBS-PLATE_Rothoblaas_bluetek.rfa",
+      "types": 21,
+      "opzet": "18 productfamilies genest, per type een zichtbaarheidsparameter",
+      "sha256": "dbf1c032b0b90553bb2e5444a9a2d83dc699e326a446c9b457bdabd61422799c",
+      "naamgeving": {
+        "conventie": "NLRS",
+        "pos2_sfb": "28",
+        "pos3_categorie": "DI",
+        "pos4_plaatsing": "UN",
+        "pos4_herkomst": "afgeleid uit een voorbeeld, niet opgezocht in de Afkortingenlijst Host",
+        "pos5_omschrijving": "schroef_HBS-PLATE",
+        "pos6_fabrikant": "Rothoblaas",
+        "pos7_provider": "bluetek",
+        "geneste_families": "houden hun productcode, zijn geen zelfstandige bibliotheekfamilies"
+      }
+    }
+  },
+  "architectuur": "Manufacturer CAD-BIM Product Library, root = 999_3BM Project Oconda",
+  "status": "REVIEW REQUIRED",
+  "status_reden": "kwaliteitscontrole par.25 nog niet volledig: vergelijking met fabrikantdocumentatie ontbreekt",
+  "regel": "Niets in 02_EXTRACTEN met de hand aanpassen - de volgende generatieslag overschrijft het.",
+  "fabrikantstabellen": [
+    {
+      "titel": "Hole diameter on steel plates",
+      "herkomst": "ACAD_TABLE in de bron-DXF (blokken *T22 en *T78, identieke duplicaten)",
+      "rijen": [
+        {
+          "grootheid": "Screw nominal diameter",
+          "symbool": "d1",
+          "eenheid": "mm",
+          "waarden": [
+            8,
+            10,
+            12
+          ]
+        },
+        {
+          "grootheid": "Hole diameter",
+          "symbool": "dV,steel",
+          "eenheid": "mm",
+          "waarden": [
+            11,
+            13,
+            14
+          ]
+        }
+      ]
+    }
+  ],
+  "representaties": [
+    {
+      "view_type": "side",
+      "niveau": "per product",
+      "aantal": 18
+    },
+    {
+      "view_type": "top",
+      "niveau": "per draaddiameter",
+      "aantal": 3,
+      "toelichting": "de kop is gelijk voor alle lengtes van een diameter; de letters in de kop zijn de stempeling op het product, meegenomen in dxf en svg maar niet in de rfa omdat Revit-tekst papiergebonden is en niet schaalvast op 2,6 mm"
+    }
+  ],
+  "documentatie": {
+    "beleid": "extern: URL in de database, geen lokaal bestand",
+    "productpagina": "https://www.rothoblaas.com/products/fastening/screws/screws-carpentry/hbs-plate",
+    "datasheet": "https://www.rothoblaas.com/attachments/288976-product-753/hbs-plate-en-technical-data-sheet.pdf",
+    "certificering": [
+      "ETA-11/0030",
+      "ICC-ES 233",
+      "ELC 4645"
+    ],
+    "materiaal": "carbon steel, bright zinc plated",
+    "aandrijving": {
+      "8": "TX40",
+      "10": "TX40",
+      "12": "TX50"
+    },
+    "kruiscontrole": "TX40/TX50 komt overeen met de gemeten aandrijfcirkels 6,49 mm (D8, D10) en 9,27 mm (D12) in de kopaanzichten"
+  }
+}
